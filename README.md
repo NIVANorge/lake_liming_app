@@ -8,7 +8,17 @@ An overview of the project and main development tasks can be found on the [Wiki]
 
 ## 2. Streamlit app for testing
 
-A simple Streamlit app to explore user requirements is deployed [here](https://nivanorge-lake-liming-app-app-9p2c97.streamlit.app/). Note that the final application will probably not be deployed using Streamlit, but it's useful as a starting point for discussion and for quickly exploring UI options.
+A simple Streamlit app to explore user requirements is deployed [here](https://nivanorge-lake-liming-app-app-9p2c97.streamlit.app/). Note that the final application will probably not be deployed using Streamlit, but it's useful as a starting point for discussions and for quickly exploring UI options.
+
+To deploy the app for testing via JupyterHub:
+
+ 1. Clone this repository to the Hub
+
+ 2. Open a terminal and `cd` into the `lake_liming_app` folder
+
+ 3. Run `streamlit run app.py` to start the app
+
+ 4. Open a new browser tab and navigate to https://jupyterhub.niva.no/hub/user-redirect/proxy/8501/ to view the app
 
 ## 3. Documentation
 
