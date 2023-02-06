@@ -42,7 +42,7 @@ Columns `A` to `E` are adjusted to have pH values of 4, 4.5, 5, 5.5 and 6, respe
 |      E     |    6.0 |         1.6 |        1.00 |
 |      E     |    6.0 |         2.0 |        1.80 |
 
-: Example data from the instantaneous dissolution test. {tbl-colwidths="[8,8,8,8]"}{#tbl-instantaneous-dissolution}
+: Example data from the instantaneous dissolution test. {#tbl-instantaneous-dissolution}
 
 @tbl-instantaneous-dissolution is used to estimate the total amount of Ca that has dissolved in each column after 16 hours. This is done by numerically integrating the concentration-depth relationship. If this relationship was perfectly known for all depths in the column, the total amount of Ca between depths $d_1$ and $d_2$ would be given by the integral
 
@@ -60,4 +60,8 @@ The main output from the instantaneous dissolution test is a characteristic curv
 
 ## Overdosing {#sec-overdosing}
 
-5 columns. Add different amount of lime at fixed pH.
+Columns `A` to `E` are all fixed at pH 4.6. Different amounts of lime are then added to each column, corresponding to the following lime concentrations (assuming complete dissolution): 10, 20, 35, 50 and 85 mg/l. The columns are left to equilibrate for 16 hours and the total instantaneous dissolution for each column is determined using the procedure described in {#sec-instant-dissolution}. The **overdosing factor** is then calculated as the ratio $D_{10} / D_{x}$, where $D_10$ is the instantaneous dissolution for the column where 10 mg/l of lime were initially added, and $D_{x}$ is the instantaneous dissolution for the column where $x$ mg/l of lime were added.
+
+A typical curve for overdosing factors is shown in @fig-overdosing-curve.
+
+![Overdosing factors.](./images/overdosing_example.png){#fig-overdosing-curve}
