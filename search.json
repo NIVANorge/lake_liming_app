@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Vassdragskalking app dokumentasjon",
+    "section": "",
+    "text": "This website provides documentation for the liming application.\nThe current pages are just placeholder (in English). The final website should be translated to Norwegian."
+  },
+  {
+    "objectID": "index.html#sec-overview",
+    "href": "index.html#sec-overview",
+    "title": "Vassdragskalking app dokumentasjon",
+    "section": "1 Overview",
+    "text": "1 Overview"
+  },
+  {
+    "objectID": "lake-modelling.html",
+    "href": "lake-modelling.html",
+    "title": "Lake modelling",
+    "section": "",
+    "text": "Describe the lake modelling."
+  },
+  {
+    "objectID": "column-tests.html",
+    "href": "column-tests.html",
+    "title": "Column tests",
+    "section": "",
+    "text": "Describe the column tests. Two main types of test:"
+  },
+  {
+    "objectID": "column-tests.html#sec-instant-dissolution",
+    "href": "column-tests.html#sec-instant-dissolution",
+    "title": "Column tests",
+    "section": "1 Instantaneous dissolution",
+    "text": "1 Instantaneous dissolution\n5 columns. Add fixed amount of lime at varying pH."
+  },
+  {
+    "objectID": "column-tests.html#sec-overdosing",
+    "href": "column-tests.html#sec-overdosing",
+    "title": "Column tests",
+    "section": "2 Overdosing",
+    "text": "2 Overdosing\n5 columns. Add different amount of lime at fixed pH."
+  }
+]
