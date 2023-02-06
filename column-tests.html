@@ -177,12 +177,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>Two kinds of column test are performed: <strong>instantaneous dissolution</strong> and <strong>overdosing</strong> (see below). Each test involves 5 columns, labelled <code>A</code> to <code>E</code> and each column is typically 19 cm in diameter and at least 205 cm high. Each column is initially filled with 57.9 litres of deionised water containing 0.01% KCl, adjusted to the desired pH using sulphuric acid.</p>
+<p>For each lime tested, the supplier must specify the typical proportion of Ca (by mass) in their product, <span class="math inline">\(F_{Ca}\)</span>. This fraction is used in the calculations below.</p>
 <section id="sec-instant-dissolution" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="sec-instant-dissolution"><span class="header-section-number">1</span> Instantaneous dissolution</h2>
-<p>Columns <code>A</code> to <code>E</code> are adjusted to have pH values of 4, 4.5, 5, 5.5 and 6, respectively. 0.579 g of dried lime is then added to the top of each column, corresponding to 10 mg/l of lime if it all dissolves completely (which it does not). After 16 hours, the concentration of Ca in the columns is determined at different depths using ICP-OES (inductively coupled plasma - optical emission spectrometry). Six measurements are taken from each column (every 40 cm from the surface down to 2 m). A typical dataset is shown in <a href="#tbl-instantaneous-dissolution">Table&nbsp;1</a>.</p>
+<p>Columns <code>A</code> to <code>E</code> are adjusted to have pH values of 4, 4.5, 5, 5.5 and 6, respectively. 0.579 g of dried lime are then added to the top of each column. If this dissolves completely and mixes evenly in the column (which in general it does not), this corresponds to uniform concentrations of 10 mg/l of lime and <span class="math inline">\(10 F_{Ca}\)</span> mg/l of Ca. In this case, the total mass of Ca dissolved in the column between depths <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> (where <span class="math inline">\(x_2 &gt; x_1\)</span>) is given by</p>
+<p><span id="eq-evenly-mixed"><span class="math display">\[
+M_{Ca} = 10 A F_{Ca} (x_2 - x_1)
+\tag{1}\]</span></span></p>
+<p>In practice, not all the lime dissolves and the columns do equilibrate to uniform concentrations. After 16 hours, the concentration of Ca in each column is determined at different depths using ICP-OES (inductively coupled plasma - optical emission spectrometry). Measurements are taken every 40 cm from the surface down to 2 m - a total of six measurements. A typical dataset for a single column is shown in <a href="#tbl-instantaneous-dissolution">Table&nbsp;1</a>.</p>
 <div id="tbl-instantaneous-dissolution" class="anchored">
 <table class="table">
-<caption>Table&nbsp;1: Example data from the instantaneous dissolution test.</caption>
+<caption>Table&nbsp;1: Example data for a single column from the instantaneous dissolution test.</caption>
 <thead>
 <tr class="header">
 <th style="text-align: center;"><strong>Column</strong></th>
@@ -228,159 +233,18 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;">2.0</td>
 <td style="text-align: center;">2.71</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">4.5</td>
-<td style="text-align: center;">0.0</td>
-<td style="text-align: center;">2.16</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">4.5</td>
-<td style="text-align: center;">0.4</td>
-<td style="text-align: center;">2.01</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">4.5</td>
-<td style="text-align: center;">0.8</td>
-<td style="text-align: center;">1.93</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">4.5</td>
-<td style="text-align: center;">1.2</td>
-<td style="text-align: center;">1.91</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">4.5</td>
-<td style="text-align: center;">1.6</td>
-<td style="text-align: center;">1.90</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">4.5</td>
-<td style="text-align: center;">2.0</td>
-<td style="text-align: center;">2.34</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">C</td>
-<td style="text-align: center;">5.0</td>
-<td style="text-align: center;">0.0</td>
-<td style="text-align: center;">1.77</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">C</td>
-<td style="text-align: center;">5.0</td>
-<td style="text-align: center;">0.4</td>
-<td style="text-align: center;">1.71</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">C</td>
-<td style="text-align: center;">5.0</td>
-<td style="text-align: center;">0.8</td>
-<td style="text-align: center;">1.66</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">C</td>
-<td style="text-align: center;">5.0</td>
-<td style="text-align: center;">1.2</td>
-<td style="text-align: center;">1.64</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">C</td>
-<td style="text-align: center;">5.0</td>
-<td style="text-align: center;">1.6</td>
-<td style="text-align: center;">1.75</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">C</td>
-<td style="text-align: center;">5.0</td>
-<td style="text-align: center;">2.0</td>
-<td style="text-align: center;">1.84</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">D</td>
-<td style="text-align: center;">5.5</td>
-<td style="text-align: center;">0.0</td>
-<td style="text-align: center;">1.64</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">D</td>
-<td style="text-align: center;">5.5</td>
-<td style="text-align: center;">0.4</td>
-<td style="text-align: center;">1.72</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">D</td>
-<td style="text-align: center;">5.5</td>
-<td style="text-align: center;">0.8</td>
-<td style="text-align: center;">1.62</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">D</td>
-<td style="text-align: center;">5.5</td>
-<td style="text-align: center;">1.2</td>
-<td style="text-align: center;">1.54</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">D</td>
-<td style="text-align: center;">5.5</td>
-<td style="text-align: center;">1.6</td>
-<td style="text-align: center;">1.63</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">D</td>
-<td style="text-align: center;">5.5</td>
-<td style="text-align: center;">2.0</td>
-<td style="text-align: center;">1.83</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">E</td>
-<td style="text-align: center;">6.0</td>
-<td style="text-align: center;">0.0</td>
-<td style="text-align: center;">1.56</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">E</td>
-<td style="text-align: center;">6.0</td>
-<td style="text-align: center;">0.4</td>
-<td style="text-align: center;">1.49</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">E</td>
-<td style="text-align: center;">6.0</td>
-<td style="text-align: center;">0.8</td>
-<td style="text-align: center;">1.54</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">E</td>
-<td style="text-align: center;">6.0</td>
-<td style="text-align: center;">1.2</td>
-<td style="text-align: center;">1.51</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">E</td>
-<td style="text-align: center;">6.0</td>
-<td style="text-align: center;">1.6</td>
-<td style="text-align: center;">1.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">E</td>
-<td style="text-align: center;">6.0</td>
-<td style="text-align: center;">2.0</td>
-<td style="text-align: center;">1.80</td>
-</tr>
 </tbody>
 </table>
 </div>
-<p><a href="#tbl-instantaneous-dissolution">Table&nbsp;1</a> is used to estimate the total amount of Ca that has dissolved in each column after 16 hours. This is done by numerically integrating the concentration-depth relationship. If this relationship was perfectly known for all depths in the column, the total amount of Ca between depths <span class="math inline">\(d_1\)</span> and <span class="math inline">\(d_2\)</span> would be given by the integral</p>
+<p><a href="#tbl-instantaneous-dissolution">Table&nbsp;1</a> is used to estimate the total amount of Ca that has dissolved in each column after 16 hours. It is assumed that each column is horizontally well-mixed and that concentrations only vary with depth, <span class="math inline">\(x\)</span>. If this relationship is perfectly known for all depths in the column, the total amount of Ca between depths <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> could be found by the integral</p>
 <p><span id="eq-conc-depth-integral"><span class="math display">\[
-M_{Ca} = \int_{d_1}^{d_2} C(h) \ dh
-\tag{1}\]</span></span></p>
-<p>where <span class="math inline">\(M_{Ca}\)</span> is the mass of Ca and <span class="math inline">\(C(h)\)</span> is the function describing the change of concentration of Ca with depth, <span class="math inline">\(h\)</span>. In practice, this integral is approximated from the concentrations measured at each depth using either <a href="https://en.wikipedia.org/wiki/Simpson%27s_rule">Simpson’s rule</a> or the <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapezoidal rule</a>. By default, the application uses the trapezoidal rule.</p>
-<p>The <strong>instantaneous dissolution</strong> for each column is calculated as the amount of Ca dissolved after 16 hours (approximated using the integral above), divided by the total amount of Ca in the lime being tested. The percentage of Ca in the original lime is specified by the manufacturer and entered into the template. The total mass of Ca added to each column can therefore be calculated as this percentage multiplied by 0.579 g (the amount of lime initially added to each column).</p>
+M_{Ca} = A \int_{x_1}^{x_2} C(x) \ dx
+\tag{2}\]</span></span></p>
+<p>The overall proportion of the available Ca that has dissolved is called the <strong>instantaneous dissolution</strong> and be obtained by dividing {#eq-conc-depth-integral} by {#eq-evenly-mixed} evaluated over the entire column (typically from 0 to 2 m depth)</p>
+<p><span id="eq-inst-diss"><span class="math display">\[
+D_{inst} = \frac{\int_{0}^{2} C(x) \ dx}{10 F_{Ca} (200 - 0)}
+\tag{3}\]</span></span></p>
+<p>The integral in {#eq-inst-diss} can be approximated from the measured data using either <a href="https://en.wikipedia.org/wiki/Simpson%27s_rule">Simpson’s rule</a> or the <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapezoidal rule</a> (by default, the application uses the trapezoidal rule).</p>
 <p>The main output from the instantaneous dissolution test is a characteristic curve showing the dissolution proportion at each pH value. <a href="#fig-instantaneous-dissolution-curve">Figure&nbsp;1</a> shows an example based on data in <a href="#tbl-instantaneous-dissolution">Table&nbsp;1</a>.</p>
 <div id="fig-instantaneous-dissolution-curve" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -391,7 +255,7 @@ M_{Ca} = \int_{d_1}^{d_2} C(h) \ dh
 </section>
 <section id="sec-overdosing" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="sec-overdosing"><span class="header-section-number">2</span> Overdosing</h2>
-<p>Columns <code>A</code> to <code>E</code> are all fixed at pH 4.6. Different amounts of lime are then added to each column, corresponding to the following lime concentrations (assuming complete dissolution): 10, 20, 35, 50 and 85 mg/l. The columns are left to equilibrate for 16 hours and the total instantaneous dissolution for each column is determined using the procedure described in {#sec-instant-dissolution}. The <strong>overdosing factor</strong> is then calculated as the ratio <span class="math inline">\(D_{10} / D_{x}\)</span>, where <span class="math inline">\(D_10\)</span> is the instantaneous dissolution for the column where 10 mg/l of lime were initially added, and <span class="math inline">\(D_{x}\)</span> is the instantaneous dissolution for the column where <span class="math inline">\(x\)</span> mg/l of lime were added.</p>
+<p>Columns <code>A</code> to <code>E</code> are all fixed at pH 4.6. Different amounts of lime are then added to each column, corresponding to the following lime concentrations (assuming complete dissolution): 10, 20, 35, 50 and 85 mg/l. The columns are left to equilibrate for 16 hours and the total instantaneous dissolution for each column is determined using the procedure described in {#sec-instant-dissolution}. The <strong>overdosing factor</strong> is then calculated as the ratio <span class="math inline">\(D_{10} / D_{x}\)</span>, where <span class="math inline">\(D_10\)</span> is the instantaneous dissolution for the column where 10 mg/l of lime was initially added, and <span class="math inline">\(D_{x}\)</span> is the instantaneous dissolution for the column where <span class="math inline">\(x\)</span> mg/l of lime was added.</p>
 <p>A typical curve for overdosing factors is shown in <a href="#fig-overdosing-curve">Figure&nbsp;2</a>.</p>
 <div id="fig-overdosing-curve" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
