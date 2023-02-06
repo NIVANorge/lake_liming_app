@@ -15,7 +15,10 @@ def app():
 
     with st.expander("Getting started"):
         st.markdown(
-            """Some help text here.
+            """Data templates for use with this application can be found 
+            [here](https://github.com/NIVANorge/lake_liming_app/tree/main/data). Download the appropriate 
+            template and add your data, then use the buttons in the left sidebar to upload the template 
+            and explore your data.
         """
         )
 
