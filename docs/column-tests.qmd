@@ -56,7 +56,7 @@ The **instantaneous dissolution** for each column is calculated as the amount of
 
 The main output from the instantaneous dissolution test is a characteristic curve showing the dissolution proportion at each pH value. @fig-instantaneous-dissolution-curve shows an example based on data in @tbl-instantaneous-dissolution.
 
-![Instantaneous dissolution curve for different values of pH.](../images/instantaneous_dissolution_example.png){#fig-instantaneous-dissolution-curve}
+![Instantaneous dissolution curve for different values of pH.](./images/instantaneous_dissolution_example.png){#fig-instantaneous-dissolution-curve}
 
 ## Overdosing {#sec-overdosing}
 
