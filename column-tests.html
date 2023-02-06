@@ -59,6 +59,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -175,10 +176,218 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Describe the column tests. Two main types of test:</p>
+<p>Two kinds of column test are performed: <strong>instantaneous dissolution</strong> and <strong>overdosing</strong> (see below). Each test involves 5 columns, labelled <code>A</code> to <code>E</code> and each column is typically 19 cm in diameter and at least 205 cm high. Each column is initially filled with 57.9 litres of deionised water containing 0.01% KCl, adjusted to the desired pH using sulphuric acid.</p>
 <section id="sec-instant-dissolution" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="sec-instant-dissolution"><span class="header-section-number">1</span> Instantaneous dissolution</h2>
-<p>5 columns. Add fixed amount of lime at varying pH.</p>
+<p>Columns <code>A</code> to <code>E</code> are adjusted to have pH values of 4, 4.5, 5, 5.5 and 6, respectively. 0.579 g of dried lime is then added to the top of each column, corresponding to 10 mg/l of lime if it all dissolves completely (which it does not). After 16 hours, the concentration of Ca in the columns is determined at different depths using ICP-OES (inductively coupled plasma - optical emission spectrometry). Six measurements are taken from each column (every 40 cm from the surface down to 2 m). A typical dataset is shown in <a href="#tbl-instantaneous-dissolution">Table&nbsp;1</a>.</p>
+<div id="tbl-instantaneous-dissolution" class="anchored">
+<table class="table">
+<caption>Table&nbsp;1: Example data from the instantaneous dissolution test.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Column</strong></th>
+<th style="text-align: center;"><strong>pH</strong></th>
+<th style="text-align: center;"><strong>Depth_m</strong></th>
+<th style="text-align: center;"><strong>Ca_mg/l</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">2.82</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">2.62</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">2.64</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">1.2</td>
+<td style="text-align: center;">2.76</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">1.6</td>
+<td style="text-align: center;">2.81</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: center;">2.71</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">4.5</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">2.16</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">4.5</td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">2.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">4.5</td>
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">1.93</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">4.5</td>
+<td style="text-align: center;">1.2</td>
+<td style="text-align: center;">1.91</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">4.5</td>
+<td style="text-align: center;">1.6</td>
+<td style="text-align: center;">1.90</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">4.5</td>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: center;">2.34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">5.0</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">1.77</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">5.0</td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">1.71</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">5.0</td>
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">1.66</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">5.0</td>
+<td style="text-align: center;">1.2</td>
+<td style="text-align: center;">1.64</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">5.0</td>
+<td style="text-align: center;">1.6</td>
+<td style="text-align: center;">1.75</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">5.0</td>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: center;">1.84</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">5.5</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">1.64</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">5.5</td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">1.72</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">5.5</td>
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">1.62</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">5.5</td>
+<td style="text-align: center;">1.2</td>
+<td style="text-align: center;">1.54</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">5.5</td>
+<td style="text-align: center;">1.6</td>
+<td style="text-align: center;">1.63</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">5.5</td>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: center;">1.83</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">6.0</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">1.56</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">6.0</td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">1.49</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">6.0</td>
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">1.54</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">6.0</td>
+<td style="text-align: center;">1.2</td>
+<td style="text-align: center;">1.51</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">6.0</td>
+<td style="text-align: center;">1.6</td>
+<td style="text-align: center;">1.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">6.0</td>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: center;">1.80</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a href="#tbl-instantaneous-dissolution">Table&nbsp;1</a> is used to estimate the total amount of Ca that has dissolved in each column after 16 hours. This is done by numerically integrating the concentration-depth relationship. If this relationship was perfectly known for all depths in the column, the total amount of Ca between depths <span class="math inline">\(d_1\)</span> and <span class="math inline">\(d_2\)</span> would be given by the integral</p>
+<p><span id="eq-conc-depth-integral"><span class="math display">\[
+M_{Ca} = \int_{d_1}^{d_2} C(h) \ dh
+\tag{1}\]</span></span></p>
+<p>where <span class="math inline">\(M_{Ca}\)</span> is the mass of Ca and <span class="math inline">\(C(h)\)</span> is the function describing the change of concentration of Ca with depth, <span class="math inline">\(h\)</span>. In practice, this integral is approximated from the concentrations measured at each depth using either <a href="https://en.wikipedia.org/wiki/Simpson%27s_rule">Simpson’s rule</a> or the <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapezoidal rule</a>. By default, the application uses the trapezoidal rule.</p>
+<p>The <strong>instantaneous dissolution</strong> for each column is calculated as the amount of Ca dissolved after 16 hours (approximated using the integral above), divided by the total amount of Ca in the lime being tested. The percentage of Ca in the original lime is specified by the manufacturer and entered into the template. The total mass of Ca added to each column can therefore be calculated as this percentage multiplied by 0.579 g (the amount of lime initially added to each column).</p>
+<p>The main output from the instantaneous dissolution test is a characteristic curve showing the dissolution proportion at each pH value. <a href="#fig-instantaneous-dissolution-curve">Figure&nbsp;1</a> shows an example based on data in <a href="#tbl-instantaneous-dissolution">Table&nbsp;1</a>.</p>
+<div id="fig-instantaneous-dissolution-curve" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/instantaneous_dissolution_example.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Instantaneous dissolution curve for different values of pH.</figcaption><p></p>
+</figure>
+</div>
 </section>
 <section id="sec-overdosing" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="sec-overdosing"><span class="header-section-number">2</span> Overdosing</h2>
