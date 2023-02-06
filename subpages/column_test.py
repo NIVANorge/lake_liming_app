@@ -51,7 +51,7 @@ def app():
                 # Plot
                 inst_chart = make_chart(
                     inst_res_df,
-                    "pH",
+                    "pH (-)",
                     "Dissolution (%)",
                     "Instantaneous dissolution test",
                 )
@@ -194,7 +194,7 @@ def instantaneous_test(df, lime_conc_all_dis, ca_conc_all_dis, method="trapezoid
     res_df = pd.DataFrame(
         {
             "Column": col_list,
-            "pH": ph_list,
+            "pH (-)": ph_list,
             "Dissolution (%)": inst_diss_list_pct,
         }
     )
