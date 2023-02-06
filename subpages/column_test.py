@@ -283,7 +283,9 @@ def make_chart(df, x_col, y_col, title):
         .encode(x=x_col, y=y_col, tooltip=[x_col, y_col])
     )
 
-    lines = alt.Chart(df).mark_line().encode(x=x_col, y=y_col)
+    lines = (
+        alt.Chart(df).mark_area(color="lightblue", line=True).encode(x=x_col, y=y_col)
+    )
 
     chart = lines + pts
 
