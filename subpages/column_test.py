@@ -33,7 +33,8 @@ def app():
                 ### Processing data for product: `{par_val_dict['lime_product_name']}`
                 **Total Ca content by mass:** {par_val_dict['lime_prod_ca_pct']} %
 
-                **Concentration of lime added:** {lime_conc_all_dis:.1f} mg/l
+                **Concentration of lime added:** {lime_conc_all_dis:.1f} mg/l 
+                ({ca_conc_all_dis:.1f} mg/l of Ca)
             """
             )
 
