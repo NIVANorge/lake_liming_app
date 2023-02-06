@@ -11,7 +11,7 @@
     "href": "index.html#sec-overview",
     "title": "Vassdragskalking app dokumentasjon",
     "section": "1 Overview",
-    "text": "1 Overview"
+    "text": "1 Overview\nThe application performs two kinds of calculation:\n\nSummarising data from column tests. Users can upload column test data using a standard template and calculate characteristic curves for instantaneous dissolution and overdosing factor.\nLake modelling. Estimate the amount of lime required to achieve a target change in pH (for specified lime type, lake characteristics and application method)."
   },
   {
     "objectID": "lake-modelling.html",
