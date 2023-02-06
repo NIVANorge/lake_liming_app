@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "Vassdragskalking app dokumentasjon",
     "section": "",
-    "text": "This website provides documentation for the liming application.\nThe current pages are just placeholder (in English). The final website should be translated to Norwegian."
+    "text": "This website provides documentation for the liming application.\nThe current pages are just placeholders (in English)."
   },
   {
     "objectID": "index.html#sec-overview",
     "href": "index.html#sec-overview",
     "title": "Vassdragskalking app dokumentasjon",
     "section": "1 Overview",
-    "text": "1 Overview\nThe application performs two kinds of calculation:\n\nSummarising data from column tests. Users can upload column test data using a standard template and calculate characteristic curves for instantaneous dissolution and overdosing factor.\nLake modelling. Estimate the amount of lime required to achieve a target change in pH (for specified lime type, lake characteristics and application method)."
+    "text": "1 Overview\nThe application performs two kinds of calculation:\n\nSummarising data from column tests. Upload column test data using a standard template and calculate characteristic curves for instantaneous dissolution and overdosing factor.\nLake modelling. Estimate the amount of lime required to achieve a target change in pH (depending on the type of lime, lake characteristics and lime application method)."
   },
   {
     "objectID": "lake-modelling.html",
