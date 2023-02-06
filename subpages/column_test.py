@@ -27,7 +27,7 @@ def app():
             lime_conc_all_dis = (
                 1000 * par_val_dict["mass_lime_g"] / par_val_dict["water_vol_l"]
             )
-            ca_conc_all_dis = init_col_conc * par_val_dict["lime_prod_ca_pct"] / 100
+            ca_conc_all_dis = lime_conc_all_dis * par_val_dict["lime_prod_ca_pct"] / 100
             st.markdown(
                 f"""
                 ### Processing data for product: `{par_val_dict['lime_product_name']}`
