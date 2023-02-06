@@ -39,6 +39,6 @@
     "href": "column-tests.html#sec-overdosing",
     "title": "Column tests",
     "section": "2 Overdosing",
-    "text": "2 Overdosing\n5 columns. Add different amount of lime at fixed pH."
+    "text": "2 Overdosing\nColumns A to E are all fixed at pH 4.6. Different amounts of lime are then added to each column, corresponding to the following lime concentrations (assuming complete dissolution): 10, 20, 35, 50 and 85 mg/l. The columns are left to equilibrate for 16 hours and the total instantaneous dissolution for each column is determined using the procedure described in {#sec-instant-dissolution}. The overdosing factor is then calculated as the ratio \\(D_{10} / D_{x}\\), where \\(D_10\\) is the instantaneous dissolution for the column where 10 mg/l of lime were initially added, and \\(D_{x}\\) is the instantaneous dissolution for the column where \\(x\\) mg/l of lime were added.\nA typical curve for overdosing factors is shown in Figure 2.\n\n\n\nFigure 2: Overdosing factors."
   }
 ]
