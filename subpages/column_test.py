@@ -38,7 +38,7 @@ def app():
             """
             )
 
-            left_col, pad, right_col = st.columns([6, 1, 6])
+            left_col, pad, right_col = st.columns([10, 1, 10])
 
             # Instantaneous test
             with left_col:
