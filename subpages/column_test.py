@@ -37,21 +37,17 @@ def app():
             """
             )
 
-            # Instantaneous test
-            inst_res_df = instantaneous_test(
-                inst_df, conc_all_dis, method="trapezoidal"
-            )
-            st.dataframe(inst_res_df.style.format("{:.1f}"))
-
-            # Overdosing test
-            od_res_df = overdosing_test(
-                od_df, par_val_dict["lime_prod_ca_pct"], method="trapezoidal"
-            )
-            st.dataframe(od_res_df.style.format("{:.1f}"))
-
-            # Plots
             left_col, right_col = st.columns(2)
+
+            # Instantaneous test
             with left_col:
+                # Table
+                inst_res_df = instantaneous_test(
+                    inst_df, conc_all_dis, method="trapezoidal"
+                )
+                st.dataframe(inst_res_df.style.format("{:.1f}"), use_container_width=True)
+
+                # Plot
                 inst_chart = make_chart(
                     inst_res_df,
                     "pH",
@@ -60,7 +56,15 @@ def app():
                 )
                 st.altair_chart(inst_chart, use_container_width=True)
 
+            # Overdosing test
             with right_col:
+                # Table
+                od_res_df = overdosing_test(
+                    od_df, par_val_dict["lime_prod_ca_pct"], method="trapezoidal"
+                )
+                st.dataframe(od_res_df.style.format("{:.1f}"), use_container_width=True)
+
+                # Plot
                 od_chart = make_chart(
                     od_res_df,
                     "Lime added (mg/l)",
@@ -163,7 +167,7 @@ def instantaneous_test(df, conc_all_dis, method="trapezoidal"):
     col_list = []
     ph_list = []
     inst_diss_list_pct = []
-    st.markdown("### Instantaneous dissolution for column tests (varying pH):")
+    st.markdown("### Instantaneous dissolution")
     for col, col_df in col_groups:
         ph = col_df["pH"].iloc[0]
         ys = col_df["Ca_mg/l"].values
@@ -221,7 +225,7 @@ def overdosing_test(df, lime_prod_ca_pct, method="trapezoidal"):
     col_list = []
     od_list = []
     inst_diss_list_pct = []
-    st.markdown("### Overdosing factors for column tests (at fixed pH):")
+    st.markdown("### Overdosing factors")
     for col, col_df in col_groups:
         od = col_df["Lime_added_mg/l"].iloc[0]
         ys = col_df["Ca_mg/l"].values
