@@ -3,11 +3,60 @@ title: "Column tests"
 number-sections: true
 ---
 
-Describe the column tests. Two main types of test: 
+Two kinds of column test are performed: **instantaneous dissolution** and **overdosing** (see below). Each test involves 5 columns, labelled `A` to `E` and each column is typically 19 cm in diameter and at least 205 cm high. Each column is initially filled with 57.9 litres of deionised water containing 0.01% KCl, adjusted to the desired pH using sulphuric acid.
 
 ## Instantaneous dissolution {#sec-instant-dissolution}
 
-5 columns. Add fixed amount of lime at varying pH.
+Columns `A` to `E` are adjusted to have pH values of 4, 4.5, 5, 5.5 and 6, respectively. 0.579 g of dried lime is then added to the top of each column, corresponding to 10 mg/l of lime if it all dissolves completely (which it does not). After 16 hours, the concentration of Ca in the columns is determined at different depths using ICP-OES (inductively coupled plasma - optical emission spectrometry). Six measurements are taken from each column (every 40 cm from the surface down to 2 m). A typical dataset is shown in @tbl-instantaneous-dissolution.
+
+| **Column** | **pH** | **Depth_m** | **Ca_mg/l** |
+|:----------:|:------:|:-----------:|:-----------:|
+|      A     |    4.0 |         0.0 |        2.82 |
+|      A     |    4.0 |         0.4 |        2.62 |
+|      A     |    4.0 |         0.8 |        2.64 |
+|      A     |    4.0 |         1.2 |        2.76 |
+|      A     |    4.0 |         1.6 |        2.81 |
+|      A     |    4.0 |         2.0 |        2.71 |
+|      B     |    4.5 |         0.0 |        2.16 |
+|      B     |    4.5 |         0.4 |        2.01 |
+|      B     |    4.5 |         0.8 |        1.93 |
+|      B     |    4.5 |         1.2 |        1.91 |
+|      B     |    4.5 |         1.6 |        1.90 |
+|      B     |    4.5 |         2.0 |        2.34 |
+|      C     |    5.0 |         0.0 |        1.77 |
+|      C     |    5.0 |         0.4 |        1.71 |
+|      C     |    5.0 |         0.8 |        1.66 |
+|      C     |    5.0 |         1.2 |        1.64 |
+|      C     |    5.0 |         1.6 |        1.75 |
+|      C     |    5.0 |         2.0 |        1.84 |
+|      D     |    5.5 |         0.0 |        1.64 |
+|      D     |    5.5 |         0.4 |        1.72 |
+|      D     |    5.5 |         0.8 |        1.62 |
+|      D     |    5.5 |         1.2 |        1.54 |
+|      D     |    5.5 |         1.6 |        1.63 |
+|      D     |    5.5 |         2.0 |        1.83 |
+|      E     |    6.0 |         0.0 |        1.56 |
+|      E     |    6.0 |         0.4 |        1.49 |
+|      E     |    6.0 |         0.8 |        1.54 |
+|      E     |    6.0 |         1.2 |        1.51 |
+|      E     |    6.0 |         1.6 |        1.00 |
+|      E     |    6.0 |         2.0 |        1.80 |
+
+: Example data from the instantaneous dissolution test. {#tbl-instantaneous-dissolution}
+
+@tbl-instantaneous-dissolution is used to estimate the total amount of Ca that has dissolved in each column after 16 hours. This is done by numerically integrating the concentration-depth relationship. If this relationship was perfectly known for all depths in the column, the total amount of Ca between depths $d_1$ and $d_2$ would be given by the integral
+
+$$
+M_{Ca} = \int_{d_1}^{d_2} C(h) \ dh
+$$ {#eq-conc-depth-integral}
+
+where $M_{Ca}$ is the mass of Ca and $C(h)$ is the function describing the change of concentration of Ca with depth, $h$. In practice, this integral is approximated from the concentrations measured at each depth using either [Simpson's rule](https://en.wikipedia.org/wiki/Simpson%27s_rule) or the [trapezoidal rule](https://en.wikipedia.org/wiki/Trapezoidal_rule). By default, the application uses the trapezoidal rule.
+
+The **instantaneous dissolution** for each column is calculated as the amount of Ca dissolved after 16 hours (approximated using the integral above), divided by the total amount of Ca in the lime being tested. The percentage of Ca in the original lime is specified by the manufacturer and entered into the template. The total mass of Ca added to each column can therefore be calculated as this percentage multiplied by 0.579 g (the amount of lime initially added to each column).
+
+The main output from the instantaneous dissolution test is a characteristic curve showing the dissolution proportion at each pH value. @fig-instantaneous-dissolution-curve shows an example based on data in @tbl-instantaneous-dissolution.
+
+![Instantaneous dissolution curve for different values of pH.](../images/instantaneous_dissolution_example.png){#fig-instantaneous-dissolution-curve}
 
 ## Overdosing {#sec-overdosing}
 
