@@ -32,9 +32,6 @@ def app():
                 f"""
                 ### Processing data for product: `{par_val_dict['lime_product_name']}`
                 **Total Ca content by mass:** {par_val_dict['lime_prod_ca_pct']} %
-
-                **Concentration of lime added:** {lime_conc_all_dis:.1f} mg/l 
-                ({ca_conc_all_dis:.1f} mg/l of Ca)
             """
             )
 
@@ -45,7 +42,7 @@ def app():
             with left_col:
                 # Table
                 inst_res_df = instantaneous_test(
-                    inst_df, ca_conc_all_dis, method="trapezoidal"
+                    inst_df, lime_conc_all_dis, ca_conc_all_dis, method="trapezoidal"
                 )
                 st.dataframe(
                     inst_res_df.style.format("{:.1f}"), use_container_width=True
@@ -141,21 +138,23 @@ def read_template(template_path):
     return None
 
 
-def instantaneous_test(df, conc_all_dis, method="trapezoidal"):
+def instantaneous_test(df, lime_conc_all_dis, ca_conc_all_dis, method="trapezoidal"):
     """Calculate results for the instantaneous dissolution test. This involves
     estimating the area under a curve. Two methods for solving this are supported.
 
     Args
-        df:           Dataframe. Data from 'instantaneous_dissolution_data' worksheet of
-                      template.
-        conc_all_dis: Float. Expected concentration in the column if all Ca was dissolved
-                      and evenly mixed
-        method:       Str. Default 'trapezoidal'. Either 'trapezoidal' or 'simpson'.
-                      Method to use for integration. See
-                        https://en.wikipedia.org/wiki/Trapezoidal_rule
-                      and
-                        https://en.wikipedia.org/wiki/Simpson%27s_rule
-                      for details.
+        df:                Dataframe. Data from 'instantaneous_dissolution_data' worksheet of
+                           template.
+        lime_conc_all_dis: Float. Expected lime concentration in the column if all dissolved
+                           and evenly mixed
+        ca_conc_all_dis:   Float. Expected Ca concentration in the column if all dissolved
+                           and evenly mixed
+        method:            Str. Default 'trapezoidal'. Either 'trapezoidal' or 'simpson'.
+                           Method to use for integration. See
+                             https://en.wikipedia.org/wiki/Trapezoidal_rule
+                           and
+                             https://en.wikipedia.org/wiki/Simpson%27s_rule
+                           for details.
 
     Returns
         Dataframe with column ID as the index and columns pH and instantaneous
@@ -172,6 +171,9 @@ def instantaneous_test(df, conc_all_dis, method="trapezoidal"):
     ph_list = []
     inst_diss_list_pct = []
     st.markdown("### Instantaneous dissolution")
+    st.markdown(
+        f"**Lime added:** {lime_conc_all_dis:.1f} mg/l ({ca_conc_all_dis:.1f} mg/l of Ca)"
+    )
     for col, col_df in col_groups:
         col_df.sort_values("Depth_m", inplace=True)
         ph = col_df["pH"].iloc[0]
@@ -183,7 +185,7 @@ def instantaneous_test(df, conc_all_dis, method="trapezoidal"):
             res = trapz(ys, xs)
         else:
             res = simpson(ys, xs)
-        inst_diss_pct = 100 * res / (conc_all_dis * (xmax - xmin))
+        inst_diss_pct = 100 * res / (ca_conc_all_dis * (xmax - xmin))
 
         col_list.append(col)
         ph_list.append(ph)
@@ -231,6 +233,7 @@ def overdosing_test(df, lime_prod_ca_pct, method="trapezoidal"):
     od_list = []
     inst_diss_list_pct = []
     st.markdown("### Overdosing factors")
+    st.markdown("**Column pH:** 4.6")
     for col, col_df in col_groups:
         col_df.sort_values("Depth_m", inplace=True)
         od = col_df["Lime_added_mg/l"].iloc[0]
