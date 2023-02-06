@@ -1,0 +1,14 @@
+---
+title: "Column tests"
+number-sections: true
+---
+
+Describe the column tests. Two main types of test: 
+
+## Instantaneous dissolution {#sec-instant-dissolution}
+
+5 columns. Add fixed amount of lime at varying pH.
+
+## Overdosing {#sec-overdosing}
+
+5 columns. Add different amount of lime at fixed pH.

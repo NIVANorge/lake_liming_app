@@ -1,0 +1,34 @@
+project:
+  type: website
+execute:
+  freeze: auto
+website:
+  title: "Vassdragskalking applikasjon"
+  navbar:
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "Column tests"
+        file: column-tests.qmd
+      - text: "Lake modelling"
+        file: lake-modelling.qmd
+  sidebar:
+    style: "docked"
+    search: true
+    tools:
+      - icon: github
+        menu:
+          - text: Code repository
+            url:  https://github.com/NIVANorge/lake_liming_app
+    contents:
+      - text: "Home"
+        file: index.qmd
+      - text: "Column tests"
+        file: column-tests.qmd
+      - text: "Lake modelling"
+        file: lake-modelling.qmd
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
