@@ -36,13 +36,13 @@ $$
 M_{Ca} = A \int_{x_1}^{x_2} C(x) \ dx
 $$ {#eq-conc-depth-integral}
 
-Furthermore, the overall proportion of the available Ca that has dissolved, called the **instantaneous dissolution**, is obtained by dividing {@eq-conc-depth-integral} by {@eq-evenly-mixed}, both evaluated over the entire column (typically from 0 to 2 m depth)
+Furthermore, the overall proportion of the available Ca that has dissolved, called the **instantaneous dissolution**, is obtained by dividing @eq-conc-depth-integral by @eq-evenly-mixed, both evaluated over the entire column (typically from 0 to 2 m depth)
 
 $$
 D_{inst} = \frac{\int_{0}^{2} C(x) \ dx}{10 F_{Ca} (2 - 0)}
 $$ {#eq-inst-diss}
 
-The integral in {@eq-inst-diss} can be approximated from the measured data using either [Simpson's rule](https://en.wikipedia.org/wiki/Simpson%27s_rule) or the [trapezoidal rule](https://en.wikipedia.org/wiki/Trapezoidal_rule) (by default, the application uses the trapezoidal rule).
+The integral in @eq-inst-diss can be approximated from the measured data using either [Simpson's rule](https://en.wikipedia.org/wiki/Simpson%27s_rule) or the [trapezoidal rule](https://en.wikipedia.org/wiki/Trapezoidal_rule) (by default, the application uses the trapezoidal rule).
 
 The main output from the instantaneous dissolution test is a characteristic curve showing the dissolution proportion at each pH value (@fig-instantaneous-dissolution-curve).
 
@@ -50,7 +50,7 @@ The main output from the instantaneous dissolution test is a characteristic curv
 
 ## Overdosing {#sec-overdosing}
 
-Columns `A` to `E` are fixed at pH 4.6. Different amounts of lime are then added to each column, corresponding to the following lime concentrations (assuming complete dissolution): 10, 20, 35, 50 and 85 mg/l. The columns are left to equilibrate for 16 hours and the total instantaneous dissolution for each column is determined using the procedure described in {@sec-instant-dissolution}. The **overdosing factor** is then calculated as the ratio $D_{10} / D_{x}$, where $D_{10}$ is the instantaneous dissolution for the column where 10 mg/l of lime was initially added, and $D_{x}$ is the instantaneous dissolution for the column where $x$ mg/l of lime was added.
+Columns `A` to `E` are fixed at pH 4.6. Different amounts of lime are then added to each column, corresponding to the following lime concentrations (assuming complete dissolution): 10, 20, 35, 50 and 85 mg/l. The columns are left to equilibrate for 16 hours and the total instantaneous dissolution for each column is determined using the procedure described in @sec-instant-dissolution. The **overdosing factor** is then calculated as the ratio $D_{10} / D_{x}$, where $D_{10}$ is the instantaneous dissolution for the column where 10 mg/l of lime was initially added, and $D_{x}$ is the instantaneous dissolution for the column where $x$ mg/l of lime was added.
 
 A typical curve for overdosing factors is shown in @fig-overdosing-curve.
 
