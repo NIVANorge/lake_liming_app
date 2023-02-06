@@ -28,12 +28,16 @@ User documentation for the application is [here](https://nivanorge.github.io/lak
 
 The documentation is built using [Quarto](https://quarto.org/). Files are stored in the main repository within the `docs` sub-folder. To update the documentation, simply update the files in this folder and push your changes to `main`. This will trigger a GitHub "action" ([here](https://github.com/NIVANorge/lake_liming_app/blob/main/.github/workflows/quarto-publish.yml)) that will rebuild the website and publish a new version via GitHub-Pages.
 
-## 4. Contributing
+## 4. Data templates
+
+Blank data templates for use with the app are available [here](https://github.com/NIVANorge/lake_liming_app/tree/main/data). Templates containing example data for use when testing are also provided.
+
+## 5. Contributing
 
 Please use the [Discussions board](https://github.com/NIVANorge/lake_liming_app/discussions) for general questions & ideas, and the [Issue tracker](https://github.com/NIVANorge/lake_liming_app/issues) for specific suggestions (i.e. anything requiring a definite action or resolution). Further details about the project can be found on the [Wiki](https://github.com/NIVANorge/lake_liming_app/wiki) and in the [user-facing documentation](https://nivanorge.github.io/lake_liming_app/). All code relating to the project is [here](https://github.com/NIVANorge/lake_liming_app).
 
 
-## 5. Other resources
+## 6. Other resources
 
  * **[Column test template](./data/liming_app_data_template_v1-0.xlsx)**. A proposed template for uploading column test data to the app.
  
