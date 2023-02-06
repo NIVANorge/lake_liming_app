@@ -18,7 +18,7 @@ website:
     tools:
       - icon: github
         menu:
-          - text: Code repository
+          - text: GitHub repository
             url:  https://github.com/NIVANorge/lake_liming_app
     contents:
       - text: "Home"
