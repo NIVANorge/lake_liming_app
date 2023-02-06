@@ -241,11 +241,11 @@ M_{Ca} = 10 F_{Ca} A (x_2 - x_1)
 <p><span id="eq-conc-depth-integral"><span class="math display">\[
 M_{Ca} = A \int_{x_1}^{x_2} C(x) \ dx
 \tag{2}\]</span></span></p>
-<p>Furthermore, the overall proportion of the available Ca that has dissolved, called the <strong>instantaneous dissolution</strong>, is obtained by dividing {<a href="#eq-conc-depth-integral">Equation&nbsp;2</a>} by {<a href="#eq-evenly-mixed">Equation&nbsp;1</a>}, both evaluated over the entire column (typically from 0 to 2 m depth)</p>
+<p>Furthermore, the overall proportion of the available Ca that has dissolved, called the <strong>instantaneous dissolution</strong>, is obtained by dividing <a href="#eq-conc-depth-integral">Equation&nbsp;2</a> by <a href="#eq-evenly-mixed">Equation&nbsp;1</a>, both evaluated over the entire column (typically from 0 to 2 m depth)</p>
 <p><span id="eq-inst-diss"><span class="math display">\[
 D_{inst} = \frac{\int_{0}^{2} C(x) \ dx}{10 F_{Ca} (2 - 0)}
 \tag{3}\]</span></span></p>
-<p>The integral in {<a href="#eq-inst-diss">Equation&nbsp;3</a>} can be approximated from the measured data using either <a href="https://en.wikipedia.org/wiki/Simpson%27s_rule">Simpson’s rule</a> or the <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapezoidal rule</a> (by default, the application uses the trapezoidal rule).</p>
+<p>The integral in <a href="#eq-inst-diss">Equation&nbsp;3</a> can be approximated from the measured data using either <a href="https://en.wikipedia.org/wiki/Simpson%27s_rule">Simpson’s rule</a> or the <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapezoidal rule</a> (by default, the application uses the trapezoidal rule).</p>
 <p>The main output from the instantaneous dissolution test is a characteristic curve showing the dissolution proportion at each pH value (<a href="#fig-instantaneous-dissolution-curve">Figure&nbsp;1</a>).</p>
 <div id="fig-instantaneous-dissolution-curve" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -256,7 +256,7 @@ D_{inst} = \frac{\int_{0}^{2} C(x) \ dx}{10 F_{Ca} (2 - 0)}
 </section>
 <section id="sec-overdosing" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="sec-overdosing"><span class="header-section-number">2</span> Overdosing</h2>
-<p>Columns <code>A</code> to <code>E</code> are fixed at pH 4.6. Different amounts of lime are then added to each column, corresponding to the following lime concentrations (assuming complete dissolution): 10, 20, 35, 50 and 85 mg/l. The columns are left to equilibrate for 16 hours and the total instantaneous dissolution for each column is determined using the procedure described in {<a href="#sec-instant-dissolution">Section&nbsp;1</a>}. The <strong>overdosing factor</strong> is then calculated as the ratio <span class="math inline">\(D_{10} / D_{x}\)</span>, where <span class="math inline">\(D_{10}\)</span> is the instantaneous dissolution for the column where 10 mg/l of lime was initially added, and <span class="math inline">\(D_{x}\)</span> is the instantaneous dissolution for the column where <span class="math inline">\(x\)</span> mg/l of lime was added.</p>
+<p>Columns <code>A</code> to <code>E</code> are fixed at pH 4.6. Different amounts of lime are then added to each column, corresponding to the following lime concentrations (assuming complete dissolution): 10, 20, 35, 50 and 85 mg/l. The columns are left to equilibrate for 16 hours and the total instantaneous dissolution for each column is determined using the procedure described in <a href="#sec-instant-dissolution">Section&nbsp;1</a>. The <strong>overdosing factor</strong> is then calculated as the ratio <span class="math inline">\(D_{10} / D_{x}\)</span>, where <span class="math inline">\(D_{10}\)</span> is the instantaneous dissolution for the column where 10 mg/l of lime was initially added, and <span class="math inline">\(D_{x}\)</span> is the instantaneous dissolution for the column where <span class="math inline">\(x\)</span> mg/l of lime was added.</p>
 <p>A typical curve for overdosing factors is shown in <a href="#fig-overdosing-curve">Figure&nbsp;2</a>.</p>
 <div id="fig-overdosing-curve" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
