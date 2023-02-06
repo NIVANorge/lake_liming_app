@@ -24,16 +24,16 @@ def app():
 
             # Print basic info for test as a whole
             par_val_dict = par_df.to_dict()["Value"]
-            init_col_conc = (
+            lime_conc_all_dis = (
                 1000 * par_val_dict["mass_lime_g"] / par_val_dict["water_vol_l"]
             )
-            conc_all_dis = init_col_conc * par_val_dict["lime_prod_ca_pct"] / 100
+            ca_conc_all_dis = init_col_conc * par_val_dict["lime_prod_ca_pct"] / 100
             st.markdown(
                 f"""
                 ### Processing data for product: `{par_val_dict['lime_product_name']}`
                 **Total Ca content by mass:** {par_val_dict['lime_prod_ca_pct']} %
 
-                **Concentration of lime added:** {init_col_conc:.1f} mg/l
+                **Concentration of lime added:** {lime_conc_all_dis:.1f} mg/l
             """
             )
 
@@ -43,15 +43,17 @@ def app():
             with left_col:
                 # Table
                 inst_res_df = instantaneous_test(
-                    inst_df, conc_all_dis, method="trapezoidal"
+                    inst_df, ca_conc_all_dis, method="trapezoidal"
                 )
-                st.dataframe(inst_res_df.style.format("{:.1f}"), use_container_width=True)
+                st.dataframe(
+                    inst_res_df.style.format("{:.1f}"), use_container_width=True
+                )
 
                 # Plot
                 inst_chart = make_chart(
                     inst_res_df,
                     "pH",
-                    "Instantaneous dissolution (%)",
+                    "Dissolution (%)",
                     "Instantaneous dissolution test",
                 )
                 st.altair_chart(inst_chart, use_container_width=True)
@@ -169,16 +171,17 @@ def instantaneous_test(df, conc_all_dis, method="trapezoidal"):
     inst_diss_list_pct = []
     st.markdown("### Instantaneous dissolution")
     for col, col_df in col_groups:
+        col_df.sort_values("Depth_m", inplace=True)
         ph = col_df["pH"].iloc[0]
         ys = col_df["Ca_mg/l"].values
         xs = col_df["Depth_m"].values
+        xmin, xmax = xs.min(), xs.max()
 
         if method == "trapezoidal":
             res = trapz(ys, xs)
         else:
             res = simpson(ys, xs)
-
-        inst_diss_pct = 100 * res / (2 * conc_all_dis)
+        inst_diss_pct = 100 * res / (conc_all_dis * (xmax - xmin))
 
         col_list.append(col)
         ph_list.append(ph)
@@ -188,7 +191,7 @@ def instantaneous_test(df, conc_all_dis, method="trapezoidal"):
         {
             "Column": col_list,
             "pH": ph_list,
-            "Instantaneous dissolution (%)": inst_diss_list_pct,
+            "Dissolution (%)": inst_diss_list_pct,
         }
     )
     res_df.set_index("Column", inplace=True)
@@ -227,16 +230,17 @@ def overdosing_test(df, lime_prod_ca_pct, method="trapezoidal"):
     inst_diss_list_pct = []
     st.markdown("### Overdosing factors")
     for col, col_df in col_groups:
+        col_df.sort_values("Depth_m", inplace=True)
         od = col_df["Lime_added_mg/l"].iloc[0]
         ys = col_df["Ca_mg/l"].values
         xs = col_df["Depth_m"].values
+        xmin, xmax = xs.min(), xs.max()
 
         if method == "trapezoidal":
             res = trapz(ys, xs)
         else:
             res = simpson(ys, xs)
-
-        inst_diss_pct = res / (1.6 * od * lime_prod_ca_pct)
+        inst_diss_pct = res / (od * lime_prod_ca_pct * (xmax - xmin))
 
         col_list.append(col)
         od_list.append(od)
