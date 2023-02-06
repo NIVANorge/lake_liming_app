@@ -8,3 +8,11 @@ This website provides documentation for the liming application.
 The current pages are just placeholder (in English). The final website should be translated to Norwegian. 
 
 ## Overview {#sec-overview}
+
+The application performs two kinds of calculation:
+
+ 1. **Summarising data from column tests**. Users can upload column test data using a standard template and calculate characteristic curves for **instantaneous dissolution** and **overdosing factor**.
+ 
+ 2. **Lake modelling**. Estimate the amount of lime required to achieve a target change in pH (for specified lime type, lake characteristics and application method).
+
+
