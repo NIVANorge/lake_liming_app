@@ -42,7 +42,7 @@ Columns `A` to `E` are adjusted to have pH values of 4, 4.5, 5, 5.5 and 6, respe
 |      E     |    6.0 |         1.6 |        1.00 |
 |      E     |    6.0 |         2.0 |        1.80 |
 
-: Example data from the instantaneous dissolution test. {#tbl-instantaneous-dissolution}
+: Example data from the instantaneous dissolution test. {tbl-colwidths="[8,8,8,8]"}{#tbl-instantaneous-dissolution}
 
 @tbl-instantaneous-dissolution is used to estimate the total amount of Ca that has dissolved in each column after 16 hours. This is done by numerically integrating the concentration-depth relationship. If this relationship was perfectly known for all depths in the column, the total amount of Ca between depths $d_1$ and $d_2$ would be given by the integral
 
