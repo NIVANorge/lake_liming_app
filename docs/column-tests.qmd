@@ -17,7 +17,7 @@ $$ {#eq-evenly-mixed}
 
 where $A$ is the cross-sectional area of the column. 
 
-In practice, not all the lime dissolves and the columns do equilibrate to uniform concentrations. After 16 hours, the concentration of Ca in each column is determined at different depths using ICP-OES (Inductively Coupled Plasma - Optical Emission Spectrometry). Measurements are taken every 40 cm from the surface down to 2 m - a total of six measurements. A typical dataset for a single column is shown in @tbl-instantaneous-dissolution.
+In practice, not all the lime dissolves and the columns do not equilibrate to uniform concentrations. After 16 hours, the concentration of Ca in each column is determined at different depths using ICP-OES (Inductively Coupled Plasma - Optical Emission Spectrometry). Measurements are taken every 40 cm from the surface down to 2 m - a total of six measurements. A typical dataset for a single column is shown in @tbl-instantaneous-dissolution.
 
 | **Column** | **pH** | **Depth_m** | **Ca_mg/l** |
 |:----------:|:------:|:-----------:|:-----------:|
