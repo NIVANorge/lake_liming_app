@@ -117,7 +117,7 @@ def read_template(template_path):
     inst_unique_vals = {
         "Column": ("A", "B", "C", "D", "E"),
         "pH": (4.0, 4.5, 5.0, 5.5, 6.0),
-        "Depth_m": (0.0, 0.4, 0.8, 1.2, 1.6, 2.0),
+        "Depth_m": (0.0, 0.4, 0.8, 1.2, 1.6),
     }
     for key, val in inst_unique_vals.items():
         check_column_values(inst_df, key, set(val))
