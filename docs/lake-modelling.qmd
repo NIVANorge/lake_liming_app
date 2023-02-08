@@ -13,16 +13,16 @@ Lime manufacturers will typically specify the proportion of calcium and magnesiu
 
 In terms of lake liming, magnesium carbonate has a slightly larger effect on pH than calcium carbonate, so when comparing limes with different compositions it is usual to multiply the magnesium proportion by a factor of $1.187$. This gives an effective **neutralising value** (NV), estimated as the sum of calcium carbonate *equivalents* (@tbl-nv).
 
-+-------------+---------------+-------------+-------------+
-| **Parameter**               |**Microdol5**|   **VK3**   |
-+=============+===============+=============+=============+
-|**Calcium**  |-  CaCO3 (%)   |        53.7 |        99.0 |
-+-------------+---------------+-------------+-------------+
-|**Magnesium**|- MgCO3 (%)    |        44.4 |         1.0 |
-|             |- CaCO3-ekv (%)|        52.7 |         1.2 |
-+=============+===============+=============+=============+
-|**NV** (sum of CaCO3; %)     |       106.4 |       100.2 |
-+-----------------------------+-------------+-------------+
++-------------+---------------+-------------+-------+
+| **Parameter**               |**Microdol5**|**VK3**|
++=============+===============+=============+=======+
+|**Calcium**  |- CaCO3 (%)    |        53.7 |  99.0 |
++-------------+---------------+-------------+-------+
+|**Magnesium**|- MgCO3 (%)    |        44.4 |   1.0 |
+|             |- CaCO3-ekv (%)|        52.7 |   1.2 |
++=============+===============+=============+=======+
+|**NV** (sum of CaCO3-ekv; %) |       106.4 | 100.2 |
++-----------------------------+-------------+-------+
 
 : Estimating the **neutralising value** (NV) for two different lime products. $MgCO_3$ content is converted to $CaCO_3$-equivalents by multiplying by 1.187. {#tbl-nv}
 
