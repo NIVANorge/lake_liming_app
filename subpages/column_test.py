@@ -1,7 +1,8 @@
 from io import BytesIO
+
+import altair as alt
 import pandas as pd
 import streamlit as st
-import altair as alt
 from numpy import trapz
 from scipy.integrate import simpson
 
@@ -32,6 +33,8 @@ def app():
                 f"""
                 ### Processing data for product: `{par_val_dict['lime_product_name']}`
                 **Total Ca content by mass:** {par_val_dict['lime_prod_ca_pct']} %
+                
+                **Total Mg content by mass:** {par_val_dict['lime_prod_mg_pct']} %
             """
             )
 
@@ -109,9 +112,13 @@ def read_template(template_path):
     Returns
         None. Values are added to the session state.
     """
-    par_df = pd.read_excel(template_path, sheet_name="parameters", index_col=0)
-    inst_df = pd.read_excel(template_path, sheet_name="instantaneous_dissolution_data")
-    od_df = pd.read_excel(template_path, sheet_name="overdosing_data")
+    par_df = pd.read_excel(template_path, sheet_name="parameters", index_col=0).fillna(
+        0
+    )
+    inst_df = pd.read_excel(
+        template_path, sheet_name="instantaneous_dissolution_data"
+    ).fillna(0)
+    od_df = pd.read_excel(template_path, sheet_name="overdosing_data").fillna(0)
 
     # Check input template
     inst_unique_vals = {
