@@ -3,4 +3,64 @@ title: "Lake modelling"
 number-sections: true
 ---
 
-Describe the lake modelling. 
+The calculations performed by the application described on this page are a subset of those implemented by the original [TPKALK application](https://niva.brage.unit.no/niva-xmlui/handle/11250/208709) developed by NIVA during the 1990s.
+
+## Types of lime {#sec-lime-types}
+
+Lime types used for vassdragskalking are a mixture of **calcium carbonate** ($CaCO_3$) and **magnesium carbonate** ($MgCO_3$). Pure $CaCO_3$ is commonly called **limestone**, whereas carbonate rocks with significant proportions of magnesium are called **dolomite** or dolomitic limestones.
+
+Lime manufacturers will typically specify the proportion of calcium and magnesium carbonate in their products. For example, `Microdol5` is reported as being 53.7% $CaCO_3$ and 44.4% $MgCO_3$ by mass (with 1.9% other impurities).
+
+In terms of lake liming, magnesium carbonate has a slightly larger effect on pH than calcium carbonate, so when comparing limes with different compositions it is usual to multiply the magnesium proportion by a factor of 1.187. This gives an effective *neutralising value** (NV), estimated as the sum of calcium carbonate *equivalents* (@tbl-nv).
+
++-------------+---------------+-------------+-------------+
+| **Parameter**               |**Microdol5**|   **VK3**   |
++=============+===============+=============+=============+
+|**Calcium**  | CaCO3 (%)     |        53.7 |        99.0 |
++-------------+---------------+-------------+-------------+
+|**Magnesium**| MgCO3 (%)     |        44.4 |         1.0 |
+|             | CaCO3-ekv (%) |        52.7 |         1.2 |
++-----------------------------+-------------+-------------+
+|**NV** (sum CaCo3-ekv; %)    |       106.4 |       100.2 |
++-----------------------------+-------------+-------------+
+
+: Estimating the **neutralising value** (NV) for two different lime products by converting the $MgCO3$ content to $CaCO3$-equivalents. {#tbl-nv}
+
+If all the lime added to a waterbody dissolved completely, lime products with a higher NV would be more effective at increasing lake pH. However, solubility factors must also be considered - see the [Column tests](./column-tests.qmd) page for details. 
+
+## Relationships between Ca and pH {#sec-ca-ph}
+
+A simple empirical relationship between pH and expected change in calcium concentration is given in @eq-ph-ca
+
+$$
+pH = pH_0 + A_{pH} log(\delta Ca)
+$$ {#eq-ph-ca}
+
+where $pH$ is the expected pH *after* liming; $pH_0$ and $A_{pH}$ are constants determined by lake properties; and $\delta Ca$ is the change in calcium concentration due to liming expressed in $\mu ekv/l$ (i.e. micro-moles of charge).
+
+::: {.callout-note}
+We need to check this equation, as its physical interpretation seems questionable: it only makes sense for $\delta Ca \geq 1$, otherwise adding smaller amount of Ca actually *reduces* the pH. Furthermore, if $\delta Ca$ is zero, the result is undefined (whereas I would expect the change in pH in this case to be zero and for $pH_0$ to reflect the pH before liming. This does not seem to be the case).
+:::
+
+For any given lake, if detailed measurements of pH and calcium concentration are available before and after liming, the parameters $pH_0$ and $A_{pH}$ can be estimated from @eq-ph-ca using linear regression. If measured data series are not available, the [TPKALK report](https://niva.brage.unit.no/niva-xmlui/bitstream/handle/11250/208709/3412_200dpi.pdf?sequence=2&isAllowed=y) suggests default values based on water colour and pH *before* liming (@tbl-ph0-aph). TPKALK also limits user-supplied values of $pH_0$ to lie in the range 0 to 6, and $A_{pH}$ to be in the range from 0 to 3.
+
+| pH før kalking | Fargetall (mgPt) | $pH_0$ | $A_{pH}$ |
+|----------------|------------------|--------|----------|
+| 5              | 0                | 3.5    | 1.8      |
+| 5              | < 5              | 3.9    | 1.2      |
+| < 5            | < 20             | 3.5    | 1.5      |
+| 5              | > 20             | 4.3    | 0.7      |
+
+: Suggested values for the parameters $pH_0$ and $A_{pH}$ for lakes with different initial water chemistry (pH and colour). From Table 2 of the [TPKALK report](https://niva.brage.unit.no/niva-xmlui/bitstream/handle/11250/208709/3412_200dpi.pdf?sequence=2&isAllowed=y). {#tbl-ph0-aph}
+
+## Effects of overdosing {#sec-overdosing}
+
+If large amounts of lime are added to a lake at one time, the overall effect on pH is usually less than might be achieved if smaller amounts were added more regularly. This is because, at high does, pH and calcium concentration increase in the immediate vicinity of the lime particles, which then sink to the lake bottom without dissolving efficiently. It is also more likely that lime particle will clump together and sink more rapidly. 
+
+The reduced effectiveness of high lime doses is called **overdosing** and it can be quantified using overdosing tests (see the [Column tests](./column-tests.qmd) page for details). For each lime type, these tests yield a set of **overdosing factors** like the example [here](https://nivanorge.github.io/lake_liming_app/column-tests.html#fig-overdosing-curve), for a lime product called `Miljøkalk EY3`.
+
+::: {.callout-tip}
+## Overdosing example
+
+Consider a lake with a volume of 1 000 000 $m^3$ that has 50 tonnes of `Miljøkalk EY3` added. If all the lime dissolves completely, this corresponds to 50 $g/m^3$ or 50 mg/l of lime. Based on the figure [here](https://nivanorge.github.io/lake_liming_app/column-tests.html#fig-overdosing-curve), the overdosing factor for this lime at 50 mg/l is 2.2. Furthermore, the calcium content of this lime reported by the manufacturer is 38.5 %. We therefore expect the liming operation to change the concentration of calcium in the lake by $0.385 * 50 / 2.2 = 8.75$ mg/l, which corresponds to $\delta Ca = 437.5 \ \mu ekv/l$. If the values for $pH_0$ and $A_{pH}$ for the lake are known (see @sec-ca-ph), this $\delta Ca$ can be used in @eq-ph-ca to estimate the pH after liming.
+:::
