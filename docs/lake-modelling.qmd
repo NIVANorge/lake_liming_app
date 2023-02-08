@@ -11,12 +11,12 @@ Lime types used for vassdragskalking are a mixture of **calcium carbonate** ($Ca
 
 Lime manufacturers will typically specify the proportion of calcium and magnesium carbonate in their products. For example, `Microdol5` is reported as being 53.7% $CaCO_3$ and 44.4% $MgCO_3$ by mass (with 1.9% other impurities).
 
-In terms of lake liming, magnesium carbonate has a slightly larger effect on pH than calcium carbonate, so when comparing limes with different compositions it is usual to multiply the magnesium proportion by a factor of 1.187. This gives an effective *neutralising value** (NV), estimated as the sum of calcium carbonate *equivalents* (@tbl-nv).
+In terms of lake liming, magnesium carbonate has a slightly larger effect on pH than calcium carbonate, so when comparing limes with different compositions it is usual to multiply the magnesium proportion by a factor of $1.187$. This gives an effective **neutralising value** (NV), estimated as the sum of calcium carbonate *equivalents* (@tbl-nv).
 
 +-------------+---------------+-------------+-------------+
 | **Parameter**               |**Microdol5**|   **VK3**   |
 +=============+===============+=============+=============+
-|**Calcium**  | CaCO3 (%)     |        53.7 |        99.0 |
+|**Calcium**  |-  CaCO3 (%)   |        53.7 |        99.0 |
 +-------------+---------------+-------------+-------------+
 |**Magnesium**|- MgCO3 (%)    |        44.4 |         1.0 |
 |             |- CaCO3-ekv (%)|        52.7 |         1.2 |
@@ -24,7 +24,7 @@ In terms of lake liming, magnesium carbonate has a slightly larger effect on pH 
 |**NV** (sum of CaCO3; %)     |       106.4 |       100.2 |
 +-----------------------------+-------------+-------------+
 
-: Estimating the **neutralising value** (NV) for two different lime products by converting the $MgCO_3$ content to $CaCO_3$-equivalents. {#tbl-nv}
+: Estimating the **neutralising value** (NV) for two different lime products. $MgCO_3$ content is converted to $CaCO_3$-equivalents by multiplying by 1.187. {#tbl-nv}
 
 If all the lime added to a waterbody dissolved completely, lime products with a higher NV would be more effective at increasing lake pH. However, solubility factors must also be considered - see the [Column tests](./column-tests.qmd) page for details. 
 
