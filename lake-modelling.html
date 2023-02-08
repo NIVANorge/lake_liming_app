@@ -59,6 +59,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -146,7 +147,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-lime-types" id="toc-sec-lime-types" class="nav-link active" data-scroll-target="#sec-lime-types"><span class="toc-section-number">1</span>  Types of lime</a></li>
+  <li><a href="#sec-ca-ph" id="toc-sec-ca-ph" class="nav-link" data-scroll-target="#sec-ca-ph"><span class="toc-section-number">2</span>  Relationships between Ca and pH</a></li>
+  <li><a href="#sec-overdosing" id="toc-sec-overdosing" class="nav-link" data-scroll-target="#sec-overdosing"><span class="toc-section-number">3</span>  Effects of overdosing</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -168,9 +177,133 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Describe the lake modelling.</p>
+<p>The calculations performed by the application described on this page are a subset of those implemented by the original <a href="https://niva.brage.unit.no/niva-xmlui/handle/11250/208709">TPKALK application</a> developed by NIVA during the 1990s.</p>
+<section id="sec-lime-types" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="sec-lime-types"><span class="header-section-number">1</span> Types of lime</h2>
+<p>Lime types used for vassdragskalking are a mixture of <strong>calcium carbonate</strong> (<span class="math inline">\(CaCO_3\)</span>) and <strong>magnesium carbonate</strong> (<span class="math inline">\(MgCO_3\)</span>). Pure <span class="math inline">\(CaCO_3\)</span> is commonly called <strong>limestone</strong>, whereas carbonate rocks with significant proportions of magnesium are called <strong>dolomite</strong> or dolomitic limestones.</p>
+<p>Lime manufacturers will typically specify the proportion of calcium and magnesium carbonate in their products. For example, <code>Microdol5</code> is reported as being 53.7% <span class="math inline">\(CaCO_3\)</span> and 44.4% <span class="math inline">\(MgCO_3\)</span> by mass (with 1.9% other impurities).</p>
+<p>In terms of lake liming, magnesium carbonate has a slightly larger effect on pH than calcium carbonate, so when comparing limes with different compositions it is usual to multiply the magnesium proportion by a factor of 1.187. This gives an effective *neutralising value** (NV), estimated as the sum of calcium carbonate <em>equivalents</em> (<a href="#tbl-nv">Table&nbsp;1</a>).</p>
+<div id="tbl-nv" class="anchored">
+<table class="table">
+<caption>Table&nbsp;1: Estimating the <strong>neutralising value</strong> (NV) for two different lime products by converting the <span class="math inline">\(MgCO3\)</span> content to <span class="math inline">\(CaCO3\)</span>-equivalents.</caption>
+<colgroup>
+<col style="width: 19%">
+<col style="width: 22%">
+<col style="width: 19%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th colspan="2"><strong>Parameter</strong></th>
+<th><strong>Microdol5</strong></th>
+<th><strong>VK3</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Calcium</strong></td>
+<td>CaCO3 (%)</td>
+<td><pre><code>   53.7</code></pre></td>
+<td><pre><code>   99.0</code></pre></td>
+</tr>
+<tr class="even">
+<td colspan="2"><strong>Magnesium</strong>| MgCO3 (%) | CaCO3-ekv (%)</td>
+<td><pre><code>   44.4
+   52.7</code></pre></td>
+<td><pre><code>    1.0
+    1.2</code></pre></td>
+</tr>
+<tr class="odd">
+<td colspan="2"><strong>NV</strong> (sum CaCo3-ekv; %)</td>
+<td><pre><code>  106.4</code></pre></td>
+<td><pre><code>  100.2</code></pre></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If all the lime added to a waterbody dissolved completely, lime products with a higher NV would be more effective at increasing lake pH. However, solubility factors must also be considered - see the <a href="./column-tests.html">Column tests</a> page for details.</p>
+</section>
+<section id="sec-ca-ph" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sec-ca-ph"><span class="header-section-number">2</span> Relationships between Ca and pH</h2>
+<p>A simple empirical relationship between pH and expected change in calcium concentration is given in <a href="#eq-ph-ca">Equation&nbsp;1</a></p>
+<p><span id="eq-ph-ca"><span class="math display">\[
+pH = pH_0 + A_{pH} log(\delta Ca)
+\tag{1}\]</span></span></p>
+<p>where <span class="math inline">\(pH\)</span> is the expected pH <em>after</em> liming; <span class="math inline">\(pH_0\)</span> and <span class="math inline">\(A_{pH}\)</span> are constants determined by lake properties; and <span class="math inline">\(\delta Ca\)</span> is the change in calcium concentration due to liming expressed in <span class="math inline">\(\mu ekv/l\)</span> (i.e.&nbsp;micro-moles of charge).</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We need to check this equation, as its physical interpretation seems questionable: it only makes sense for <span class="math inline">\(\delta Ca \geq 1\)</span>, otherwise adding smaller amount of Ca actually <em>reduces</em> the pH. Furthermore, if <span class="math inline">\(\delta Ca\)</span> is zero, the result is undefined (whereas I would expect the change in pH in this case to be zero and for <span class="math inline">\(pH_0\)</span> to reflect the pH before liming. This does not seem to be the case).</p>
+</div>
+</div>
+<p>For any given lake, if detailed measurements of pH and calcium concentration are available before and after liming, the parameters <span class="math inline">\(pH_0\)</span> and <span class="math inline">\(A_{pH}\)</span> can be estimated from <a href="#eq-ph-ca">Equation&nbsp;1</a> using linear regression. If measured data series are not available, the <a href="https://niva.brage.unit.no/niva-xmlui/bitstream/handle/11250/208709/3412_200dpi.pdf?sequence=2&amp;isAllowed=y">TPKALK report</a> suggests default values based on water colour and pH <em>before</em> liming (<a href="#tbl-ph0-aph">Table&nbsp;2</a>). TPKALK also limits user-supplied values of <span class="math inline">\(pH_0\)</span> to lie in the range 0 to 6, and <span class="math inline">\(A_{pH}\)</span> to be in the range from 0 to 3.</p>
+<div id="tbl-ph0-aph" class="anchored">
+<table class="table">
+<caption>Table&nbsp;2: Suggested values for the parameters <span class="math inline">\(pH_0\)</span> and <span class="math inline">\(A_{pH}\)</span> for lakes with different initial water chemistry (pH and colour). From Table 2 of the <a href="https://niva.brage.unit.no/niva-xmlui/bitstream/handle/11250/208709/3412_200dpi.pdf?sequence=2&amp;isAllowed=y">TPKALK report</a>.</caption>
+<thead>
+<tr class="header">
+<th>pH før kalking</th>
+<th>Fargetall (mgPt)</th>
+<th><span class="math inline">\(pH_0\)</span></th>
+<th><span class="math inline">\(A_{pH}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5</td>
+<td>0</td>
+<td>3.5</td>
+<td>1.8</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>&lt; 5</td>
+<td>3.9</td>
+<td>1.2</td>
+</tr>
+<tr class="odd">
+<td>&lt; 5</td>
+<td>&lt; 20</td>
+<td>3.5</td>
+<td>1.5</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>&gt; 20</td>
+<td>4.3</td>
+<td>0.7</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sec-overdosing" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="sec-overdosing"><span class="header-section-number">3</span> Effects of overdosing</h2>
+<p>If large amounts of lime are added to a lake at one time, the overall effect on pH is usually less than might be achieved if smaller amounts were added more regularly. This is because, at high does, pH and calcium concentration increase in the immediate vicinity of the lime particles, which then sink to the lake bottom without dissolving efficiently. It is also more likely that lime particle will clump together and sink more rapidly.</p>
+<p>The reduced effectiveness of high lime doses is called <strong>overdosing</strong> and it can be quantified using overdosing tests (see the <a href="./column-tests.html">Column tests</a> page for details). For each lime type, these tests yield a set of <strong>overdosing factors</strong> like the example <a href="https://nivanorge.github.io/lake_liming_app/column-tests.html#fig-overdosing-curve">here</a>, for a lime product called <code>Miljøkalk EY3</code>.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Overdosing example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider a lake with a volume of 1 000 000 <span class="math inline">\(m^3\)</span> that has 50 tonnes of <code>Miljøkalk EY3</code> added. If all the lime dissolves completely, this corresponds to 50 <span class="math inline">\(g/m^3\)</span> or 50 mg/l of lime. Based on the figure <a href="https://nivanorge.github.io/lake_liming_app/column-tests.html#fig-overdosing-curve">here</a>, the overdosing factor for this lime at 50 mg/l is 2.2. Furthermore, the calcium content of this lime reported by the manufacturer is 38.5 %. We therefore expect the liming operation to change the concentration of calcium in the lake by <span class="math inline">\(0.385 * 50 / 2.2 = 8.75\)</span> mg/l, which corresponds to <span class="math inline">\(\delta Ca = 437.5 \ \mu ekv/l\)</span>. If the values for <span class="math inline">\(pH_0\)</span> and <span class="math inline">\(A_{pH}\)</span> for the lake are known (see <a href="#sec-ca-ph">Section&nbsp;2</a>), this <span class="math inline">\(\delta Ca\)</span> can be used in <a href="#eq-ph-ca">Equation&nbsp;1</a> to estimate the pH after liming.</p>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
