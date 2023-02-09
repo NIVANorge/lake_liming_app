@@ -8,10 +8,10 @@ website:
     left:
       - text: "Home"
         file: index.qmd
-      - text: "Column tests"
-        file: column-tests.qmd
       - text: "Lake modelling"
         file: lake-modelling.qmd
+      - text: "Column tests"
+        file: column-tests.qmd
   sidebar:
     style: "docked"
     search: true
@@ -23,10 +23,10 @@ website:
     contents:
       - text: "Home"
         file: index.qmd
-      - text: "Column tests"
-        file: column-tests.qmd
       - text: "Lake modelling"
         file: lake-modelling.qmd
+      - text: "Column tests"
+        file: column-tests.qmd
 format:
   html:
     theme: cosmo

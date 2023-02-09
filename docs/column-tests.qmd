@@ -53,11 +53,11 @@ The main output from the first experiment is a set instantaneous dissolution val
 
 ### Varying dose {#sec-vary-dose}
 
-In the second experiment, columns `A` to `E` are fixed at pH 4.6 and different doses are added to each column, corresponding to lime concentrations of 10, 20, 35, 50 and 85 mg/l (assuming complete dissolution). The columns are again left to equilibrate for **16 hours** and the **instantaneous dissolution** for each column is then determined using the procedure described in @sec-vary-ph. 
+In the second experiment, columns `A` to `E` are fixed at pH 4.6 and different doses are added to each column, corresponding to lime concentrations of 10, 20, 35, 50 and 85 mg/l (assuming complete dissolution). The columns are again left to equilibrate for **16 hours** and the **instantaneous dissolution** for each column is determined using the procedure described in @sec-vary-ph. 
 
 ### Combining datasets {#sec-combining}
 
-The two experiments described in @sec-sec-vary-ph and @sec-vary-dose yield data in the format shown in @tbl-expt-design. 
+The two experiments described in @sec-vary-ph and @sec-vary-dose yield data in the format shown in @tbl-expt-design. 
 
 | **pH**<br>**Dose** | **4** | **4.5** | **5** | **5.5** | **6** |
 |:------------------:|:-----:|:-------:|:-----:|:-------:|:-----:|
@@ -67,7 +67,7 @@ The two experiments described in @sec-sec-vary-ph and @sec-vary-dose yield data 
 |       **50**       |       |    x    |       |         |       |
 |       **85**       |       |    x    |       |         |       |
 
-: Experimental design for typical column test. Each `x` coresponds to a single column for which instantaneous dissolution is determined. {#tbl-expt-design}
+: Experimental design for column tests. Each `x` coresponds to a single column for which instantaneous dissolution is determined. {#tbl-expt-design}
 
 The **overdosing factor** is then calculated as the ratio $D_{10} / D_{x}$, where $D_{10}$ is the instantaneous dissolution for the column where 10 mg/l of lime was initially added, and $D_{x}$ is the instantaneous dissolution for the column where $x$ mg/l of lime was added.
 
