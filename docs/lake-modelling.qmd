@@ -78,3 +78,31 @@ Consider a lake with an initial pH of 4.5, colour value of 15 mgPt and a volume 
 
 Using @tbl-ph0-aph, for this lake $pH_0 = 3.5$ and $A_{pH} = 1.5$. Substituting values into @eq-ph-ca yields an estimate for the pH after liming of around 7.5.
 :::
+
+## Mass balance model {#sec-mass-bal-model}
+
+The example above is simplistic, since it ignores factors such as hydrology and the dissolution of lime accumulated on the lake bottom, which can have a significant effect on calcium concentrations in the water. It also only provides an estimate of the initial change in pH due to liming, and not the subsequent evolution of pH over time. 
+
+The original TPKALK model implemented a simple mass balance, where volume of water in the lake, $V$, is assumed to **remain constant** (i.e. the inflow discharge is equal to the outflow discharge at all times). For this model, the rate of change of mass of Ca dissolved in the lake water, $\frac{dM_{lake}}{dt}$ is expressed as a mass balance of sources and sinks (@eq-mass-bal).
+
+$$
+\frac{dM_{lake}}{dt} = F_{in} + F_{dose} + F_{bunn} - F_{ut}
+$$ {#eq-mass-bal}
+
+Where $F_{in}$, the input flux of calcium, is equal to the inflow discharge, $Q$, multiplied by the inflow concentration, $C_{in}$; and the output flux, $F_{ut}$, is the outflow discharge (also $Q$, since $V$ is assumed constant), multiplied by the lake concentration, $C_{lake}$. @eq-mass-bal can therefore be rewritten as
+
+$$
+\frac{dM_{lake}}{dt} = V \frac{dC_{lake}}{dt} = Q C_{in} + F_{dose} + F_{bunn} - Q C_{ut}
+$$ {#eq-mass-bal2}
+
+Where $F_{dose}$ is the flux of added lime that dissolves instantly (i.e. the instantaneous dissolution; see above), and $F_{bunn}$ represents the slower dissolution flux from the remaining lime i.e. that which does not dissolve instantly, but instead accumulates on the lake bottom and dissolves over a longer period of time (@fig-box-model).
+
+![Box model for lake calcium concentration under the assumption of fixed water volume.](./images/box_model.png){#fig-box-model}
+
+In the model, $F_{dose}$ is added instantaneously to $C_{lake}$, while the remainder of the calcium that does not dissolve accumulates as a store with initial concentration $B$. The Ca contribution from lime on the lake bottom is assumed to decay exponentially through time
+
+$$
+F_{bunn} = K_L B e^{-K_L t}
+$$ {#eq-fbunn}
+
+Where $K_L$ is the "deaktiveringskoeffisient", a constant controlling how fast lime on the lake bottom dissolves.
