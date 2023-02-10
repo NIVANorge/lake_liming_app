@@ -11,8 +11,8 @@ The current pages are just placeholders (in English).
 
 The application performs two kinds of calculation:
 
- 1. **Summarising data from column tests**. Upload column test data using a standard template and calculate characteristic curves for **instantaneous dissolution** and **overdosing factor**.
+ 1. **Summarising data from [column tests](./column-tests.qmd)**. Upload column test data using a standard template and calculate characteristic curves for **instantaneous dissolution** and **overdosing factor**.
  
- 2. **Lake modelling**. Estimate the amount of lime required to achieve a target change in pH (depending on the type of lime, lake characteristics and lime application method).
+ 2. **[Lake modelling](./lake-modelling.qmd)**. Estimate the amount of lime required to achieve a target change in pH (depending on the type of lime, lake characteristics and lime application method).
 
 
