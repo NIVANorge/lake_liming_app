@@ -154,6 +154,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sec-lime-types" id="toc-sec-lime-types" class="nav-link active" data-scroll-target="#sec-lime-types"><span class="toc-section-number">1</span>  Types of lime</a></li>
   <li><a href="#sec-solubility" id="toc-sec-solubility" class="nav-link" data-scroll-target="#sec-solubility"><span class="toc-section-number">2</span>  Lime solubility</a></li>
   <li><a href="#sec-ca-ph" id="toc-sec-ca-ph" class="nav-link" data-scroll-target="#sec-ca-ph"><span class="toc-section-number">3</span>  Relationships between Ca and pH</a></li>
+  <li><a href="#sec-mass-bal-model" id="toc-sec-mass-bal-model" class="nav-link" data-scroll-target="#sec-mass-bal-model"><span class="toc-section-number">4</span>  Mass balance model</a></li>
   </ul>
 </nav>
     </div>
@@ -316,6 +317,30 @@ Simple worked example
 <p>Using <a href="#tbl-ph0-aph">Table&nbsp;2</a>, for this lake <span class="math inline">\(pH_0 = 3.5\)</span> and <span class="math inline">\(A_{pH} = 1.5\)</span>. Substituting values into <a href="#eq-ph-ca">Equation&nbsp;1</a> yields an estimate for the pH after liming of around 7.5.</p>
 </div>
 </div>
+</section>
+<section id="sec-mass-bal-model" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="sec-mass-bal-model"><span class="header-section-number">4</span> Mass balance model</h2>
+<p>The example above is simplistic, since it ignores factors such as hydrology and the dissolution of lime accumulated on the lake bottom, which can have a significant effect on calcium concentrations in the water. It also only provides an estimate of the initial change in pH due to liming, and not the subsequent evolution of pH over time.</p>
+<p>The original TPKALK model implemented a simple mass balance, where volume of water in the lake, <span class="math inline">\(V\)</span>, is assumed to <strong>remain constant</strong> (i.e.&nbsp;the inflow discharge is equal to the outflow discharge at all times). For this model, the rate of change of mass of Ca dissolved in the lake water, <span class="math inline">\(\frac{dM_{lake}}{dt}\)</span> is expressed as a mass balance of sources and sinks (<a href="#eq-mass-bal">Equation&nbsp;2</a>).</p>
+<p><span id="eq-mass-bal"><span class="math display">\[
+\frac{dM_{lake}}{dt} = F_{in} + F_{dose} + F_{bunn} - F_{ut}
+\tag{2}\]</span></span></p>
+<p>Where <span class="math inline">\(F_{in}\)</span>, the input flux of calcium, is equal to the inflow discharge, <span class="math inline">\(Q\)</span>, multiplied by the inflow concentration, <span class="math inline">\(C_{in}\)</span>; and the output flux, <span class="math inline">\(F_{ut}\)</span>, is the outflow discharge (also <span class="math inline">\(Q\)</span>, since <span class="math inline">\(V\)</span> is assumed constant), multiplied by the lake concentration, <span class="math inline">\(C_{lake}\)</span>. <a href="#eq-mass-bal">Equation&nbsp;2</a> can therefore be rewritten as</p>
+<p><span id="eq-mass-bal2"><span class="math display">\[
+\frac{dM_{lake}}{dt} = V \frac{dC_{lake}}{dt} = Q C_{in} + F_{dose} + F_{bunn} - Q C_{ut}
+\tag{3}\]</span></span></p>
+<p>Where <span class="math inline">\(F_{dose}\)</span> is the flux of added lime that dissolves instantly (i.e.&nbsp;the instantaneous dissolution; see above), and <span class="math inline">\(F_{bunn}\)</span> represents the slower dissolution flux from the remaining lime i.e.&nbsp;that which does not dissolve instantly, but instead accumulates on the lake bottom and dissolves over a longer period of time (<a href="#fig-box-model">Figure&nbsp;1</a>).</p>
+<div id="fig-box-model" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/box_model.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Box model for lake calcium concentration under the assumption of fixed water volume.</figcaption><p></p>
+</figure>
+</div>
+<p>In the model, <span class="math inline">\(F_{dose}\)</span> is added instantaneously to <span class="math inline">\(C_{lake}\)</span>, while the remainder of the calcium that does not dissolve accumulates as a store with initial concentration <span class="math inline">\(B\)</span>. The Ca contribution from lime on the lake bottom is assumed to decay exponentially through time</p>
+<p><span id="eq-fbunn"><span class="math display">\[
+F_{bunn} = K_L B e^{-K_L t}
+\tag{4}\]</span></span></p>
+<p>Where <span class="math inline">\(K_L\)</span> is the “deaktiveringskoeffisient”, a constant controlling how fast lime on the lake bottom dissolves.</p>
 
 
 </section>
