@@ -313,34 +313,48 @@ Simple worked example
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>The expected change in lake pH <strong>soon after liming</strong> can be estimated using <a href="#eq-ph-ca">Equation&nbsp;1</a> and data describing how much of the lime will dissolve quickly (i.e.&nbsp;the <strong>instantaneous dissolution</strong> from <a href="./column-tests.html">column tests</a>).</p>
 <p>Consider a lake with an initial pH of 4.5, colour value of 15 mgPt and a volume of 1 000 000 <span class="math inline">\(m^3\)</span>. 50 tonnes of <code>Miljøkalk EY3</code> added, which corresponds to a <strong>dose</strong> 50 <span class="math inline">\(g/m^3\)</span> or 50 mg/l of lime. Based on the figure <a href="https://nivanorge.github.io/lake_liming_app/column-tests.html#fig-overdosing-curve">here</a>, the overdosing factor for this lime at 50 mg/l is 2.2, which means around <span class="math inline">\(100 / 2.2 = 45.5 \ %\)</span> of the lime will dissolve rapidly. Furthermore, the calcium content of this lime reported by the manufacturer is 38.5 %. We therefore expect the liming operation to change the concentration of calcium in the lake by <span class="math inline">\(0.45 \times 0.385 \times 50 = 8.75\)</span> mg/l, which corresponds to <span class="math inline">\(\Delta Ca = 437.5 \ \mu ekv/l\)</span>.</p>
-<p>Using <a href="#tbl-ph0-aph">Table&nbsp;2</a>, for this lake <span class="math inline">\(pH_0 = 3.5\)</span> and <span class="math inline">\(A_{pH} = 1.5\)</span>. Substituting values into <a href="#eq-ph-ca">Equation&nbsp;1</a> yields an estimate for the pH after liming of around 7.5.</p>
+<p>Using <a href="#tbl-ph0-aph">Table&nbsp;2</a>, for this lake <span class="math inline">\(pH_0 = 3.5\)</span> and <span class="math inline">\(A_{pH} = 1.5\)</span>. Substituting values into <a href="#eq-ph-ca">Equation&nbsp;1</a> yields an estimate for the pH shortly after liming of around 7.5.</p>
 </div>
 </div>
 </section>
 <section id="sec-mass-bal-model" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="sec-mass-bal-model"><span class="header-section-number">4</span> Mass balance model</h2>
-<p>The example above is simplistic, since it ignores factors such as hydrology and the dissolution of lime accumulated on the lake bottom, which can have a significant effect on calcium concentrations in the water. It also only provides an estimate of the initial change in pH due to liming, and not the subsequent evolution of pH over time.</p>
-<p>The original TPKALK model implemented a simple mass balance, where volume of water in the lake, <span class="math inline">\(V\)</span>, is assumed to <strong>remain constant</strong> (i.e.&nbsp;the inflow discharge is equal to the outflow discharge at all times). For this model, the rate of change of mass of Ca dissolved in the lake water, <span class="math inline">\(\frac{dM_{lake}}{dt}\)</span> is expressed as a mass balance of sources and sinks (<a href="#eq-mass-bal">Equation&nbsp;2</a>).</p>
-<p><span id="eq-mass-bal"><span class="math display">\[
-\frac{dM_{lake}}{dt} = F_{in} + F_{dose} + F_{bunn} - F_{ut}
-\tag{2}\]</span></span></p>
-<p>Where <span class="math inline">\(F_{in}\)</span>, the input flux of calcium, is equal to the inflow discharge, <span class="math inline">\(Q\)</span>, multiplied by the inflow concentration, <span class="math inline">\(C_{in}\)</span>; and the output flux, <span class="math inline">\(F_{ut}\)</span>, is the outflow discharge (also <span class="math inline">\(Q\)</span>, since <span class="math inline">\(V\)</span> is assumed constant), multiplied by the lake concentration, <span class="math inline">\(C_{lake}\)</span>. <a href="#eq-mass-bal">Equation&nbsp;2</a> can therefore be rewritten as</p>
-<p><span id="eq-mass-bal2"><span class="math display">\[
-\frac{dM_{lake}}{dt} = V \frac{dC_{lake}}{dt} = Q C_{in} + F_{dose} + F_{bunn} - Q C_{ut}
-\tag{3}\]</span></span></p>
-<p>Where <span class="math inline">\(F_{dose}\)</span> is the flux of added lime that dissolves instantly (i.e.&nbsp;the instantaneous dissolution; see above), and <span class="math inline">\(F_{bunn}\)</span> represents the slower dissolution flux from the remaining lime i.e.&nbsp;that which does not dissolve instantly, but instead accumulates on the lake bottom and dissolves over a longer period of time (<a href="#fig-box-model">Figure&nbsp;1</a>).</p>
+<p>The example above is simplistic, since it ignores several factors that influence long term calcium concentrations in lake water. In particular, the example only considers short term effects from instantaneous dissolution and ignores longer terms effects of lime accumulating on the lake bottom and dissolving over periods of months and years.</p>
+<p>To provide an estimate of both the initial change in lake conditions due to liming and the subsequent evolution over time, the original TPKALK model implemented a mass balance “box model”(<a href="#fig-box-model">Figure&nbsp;1</a>) where:</p>
+<ul>
+<li><span class="math inline">\(D\)</span> is the dose of lime added (adjusted for Ca content i.e.&nbsp;the actual dose of Ca in mg/l)</li>
+<li><span class="math inline">\(C_{inst}\)</span> is the “immediate” increase in lake Ca concentration (in mg/l) due to <strong>instantaneous dissolution</strong></li>
+<li><span class="math inline">\(C_{bott} = D - C_{inst}\)</span> is the amount of Ca (in mg/l) that sinks to the lake bottom, forming a layer that dissolves more slowly</li>
+<li><span class="math inline">\(F_{slow}\)</span> is the rate at which concentration increases (in mg/l/month) due to dissolution of the bottom layer</li>
+<li><span class="math inline">\(C_{in}\)</span> and <span class="math inline">\(C_{out}\)</span> are the inflow and outflow concentrations of Ca, respectively (both in mg/l)</li>
+<li><span class="math inline">\(V\)</span> is the lake volume in litres. The lake is assumed to be in <strong>steady state</strong> i.e.&nbsp;<span class="math inline">\(V\)</span> is constant</li>
+<li><span class="math inline">\(Q\)</span> is the discharge in l/month. To satisfy the steady state assumption, the inflow discharge must equal the outflow discharge</li>
+<li><span class="math inline">\(M_{lake}\)</span> is the mass of Ca dissolved in the lake water (in mg)</li>
+<li><span class="math inline">\(C_{lake}\)</span> is the Ca concentration in the lake, equal to <span class="math inline">\(\frac{M_{lake}}{V}\)</span>. The lake is assumed to be <strong>well mixed</strong>, such that the outflow concentration, <span class="math inline">\(C_{out}\)</span>, is equal to <span class="math inline">\(C_{lake}\)</span></li>
+</ul>
 <div id="fig-box-model" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./images/box_model.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: Box model for lake calcium concentration under the assumption of fixed water volume.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: TPKALK box model for lake calcium concentration in a single lake under the assumption of fixed water volume. Symbols are defined in the text.</figcaption><p></p>
 </figure>
 </div>
-<p>In the model, <span class="math inline">\(F_{dose}\)</span> is added instantaneously to <span class="math inline">\(C_{lake}\)</span>, while the remainder of the calcium that does not dissolve accumulates as a store with initial concentration <span class="math inline">\(B\)</span>. The Ca contribution from lime on the lake bottom is assumed to decay exponentially through time</p>
-<p><span id="eq-fbunn"><span class="math display">\[
-F_{bunn} = K_L B e^{-K_L t}
+<p>Balancing the main sources and sinks of Ca to the lake gives</p>
+<p><span id="eq-dMlake_dt"><span class="math display">\[
+\frac{dM_{lake}}{dt} = V \frac{dC_{lake}}{dt} = Q C_{in} - Q C_{lake} + V C_{inst} + V F_{slow}
+\tag{2}\]</span></span></p>
+<p>or</p>
+<p><span id="eq-dClake_dt"><span class="math display">\[
+\frac{dC_{lake}}{dt} = \frac{Q C_{in} - Q C_{lake}}{V} + C_{inst} + F_{slow}
+\tag{3}\]</span></span></p>
+<p>The lime that sinks to the bottom, <span class="math inline">\(C_{bott}\)</span>, is assumed to dissolve quickly at first, then more slowly as time passes. TPKALK uses an exponential function to represent this slow dissolution effect</p>
+<p><span id="eq-dCslow_dt"><span class="math display">\[
+F_{slow} = \frac{dC_{slow}}{dt} = C_{bott} K_L e^{-K_L t}
 \tag{4}\]</span></span></p>
-<p>Where <span class="math inline">\(K_L\)</span> is the “deaktiveringskoeffisient”, a constant controlling how fast lime on the lake bottom dissolves.</p>
+<p>The integral of the function <span class="math inline">\(K_L exp(-K_L t)\)</span> from zero to infinity is equal to 1. This functional form is chosen in order to conserve mass: the total amount of lime on the bottom of the lake is enough to increase the lake concentration by <span class="math inline">\(C_{bott}\)</span> mg/l. Between any two time points, the function for <span class="math inline">\(F_{slow}\)</span> can be integrated to give a number between 0 and 1 representing the proportion of <span class="math inline">\(C_{bott}\)</span> that dissolves within the period. For periods soon after adding lime this proportion will be large, and it decays over time. However, because the total area under the curve is equal to one, the total amount of lime that dissolves from the bottom layer can never be greater than <span class="math inline">\(C_{bott}\)</span>.</p>
+<p>The parameter <span class="math inline">\(K_L\)</span> (units <span class="math inline">\(month^{-1}\)</span>) is the “deaktiveringskoeffisient”, a constant that controls how fast lime on the lake bottom dissolves.</p>
+<p>An initial Python implementation of this model is <a href="https://nbviewer.org/github/NIVANorge/lake_liming_app/blob/main/notebooks/box_model.ipynb">here</a>.</p>
 
 
 </section>
