@@ -74,18 +74,18 @@ For any given lake, if detailed measurements of pH and calcium concentration are
 ::: {.callout-tip}
 ## Simple worked example
 
-The expected change in lake pH **soon after liming** can be estimated using @eq-ph-ca and data describing how much of the lime will dissolve quickly (i.e. the **instantaneous dissolution** from [column tests](./column-tests.qmd)). 
+The expected change in lake pH **soon after liming** can be estimated using @eq-ph-ca and data describing how much of the lime will dissolve quickly (e.g. the **instantaneous dissolution** fraction determined from [column tests](./column-tests.qmd)). 
 
-Consider a lake with an initial pH of 4.5, colour value of 15 mgPt and a volume of 1 000 000 $m^3$. 50 tonnes of `Miljøkalk EY3` added, which corresponds to a **dose** 50 $g/m^3$ or 50 mg/l of lime. Based on the figure [here](https://nivanorge.github.io/lake_liming_app/column-tests.html#fig-overdosing-curve), the overdosing factor for this lime at 50 mg/l is 2.2, which means around $100 / 2.2 = 45.5 \ %$ of the lime will dissolve rapidly. Furthermore, the calcium content of this lime reported by the manufacturer is 38.5 %. We therefore expect the liming operation to change the concentration of calcium in the lake by $0.45 \times 0.385 \times 50 = 8.75$ mg/l, which corresponds to $\Delta Ca = 437.5 \ \mu ekv/l$. 
+Consider a lake with an initial pH of 4.5, colour value of 15 mgPt and a volume of 1 000 000 $m^3$. 50 tonnes of `Miljøkalk EY3` added, which corresponds to a **dose** 50 $g/m^3$ or 50 mg/l of lime. Based on the figure [here](https://nivanorge.github.io/lake_liming_app/column-tests.html#fig-overdosing-curve), the overdosing factor for this lime at 50 mg/l is 2.2, which means around $100 / 2.2 = 45.5$ % of the lime will dissolve rapidly. Furthermore, the calcium content of this lime reported by the manufacturer is 38.5 %. We therefore expect the liming operation to change the concentration of calcium in the lake by $0.455 \times 0.385 \times 50 = 8.75$ mg/l, which corresponds to $\Delta Ca = 437.5 \ \mu ekv/l$. 
 
-Using @tbl-ph0-aph, for this lake $pH_0 = 3.5$ and $A_{pH} = 1.5$. Substituting values into @eq-ph-ca yields an estimate for the pH shortly after liming of around 7.5.
+Using @tbl-ph0-aph, for this lake $pH_0 = 3.5$ and $A_{pH} = 1.5$. Substituting values into @eq-ph-ca yields an estimate for the **pH shortly after liming of around 7.5**.
 :::
 
 ## Mass balance model {#sec-mass-bal-model}
 
-The example above is simplistic, since it ignores several factors that influence long term calcium concentrations in lake water. In particular, the example only considers short term effects from instantaneous dissolution and ignores longer terms effects of lime accumulating on the lake bottom and dissolving over periods of months and years.
+The example above is simplistic, since it ignores several factors that influence long term calcium concentrations in lake water. In particular, the example only considers short term effects from instantaneous dissolution and ignores longer term effects of lime accumulating on the lake bottom and dissolving over periods of months and years.
 
-To provide an estimate of both the initial change in lake conditions due to liming and the subsequent evolution over time, the original TPKALK model implemented a mass balance "box model"(@fig-box-model) where:
+To provide an estimate of both the initial change in lake conditions due to liming, and the subsequent evolution over time, the original TPKALK model implemented a mass balance "box model"(@fig-box-model) where:
 
  * $D$ is the dose of lime added (adjusted for Ca content i.e. the actual dose of Ca in mg/l)
  * $C_{inst}$ is the "immediate" increase in lake Ca concentration (in mg/l) due to **instantaneous dissolution**
@@ -97,7 +97,7 @@ To provide an estimate of both the initial change in lake conditions due to limi
  * $M_{lake}$ is the mass of Ca dissolved in the lake water (in mg)
  * $C_{lake}$ is the Ca concentration in the lake, equal to $\frac{M_{lake}}{V}$. The lake is assumed to be **well mixed**, such that the outflow concentration, $C_{out}$, is equal to $C_{lake}$
  
-![TPKALK box model for lake calcium concentration in a single lake under the assumption of fixed water volume. Symbols are defined in the text.](./images/box_model.png){#fig-box-model}
+![Schematic illustration of the TPKALK box model for lake calcium concentration for a single lake under the assumption of fixed water volume. Symbols are defined in the text.](./images/box_model.png){#fig-box-model}
 
 Balancing the main sources and sinks of Ca to the lake gives
 
@@ -119,6 +119,6 @@ $$ {#eq-dCslow_dt}
 
 The integral of the function $K_L exp(-K_L t)$ from zero to infinity is equal to 1. This functional form is chosen in order to conserve mass: the total amount of lime on the bottom of the lake is enough to increase the lake concentration by $C_{bott}$ mg/l. Between any two time points, the function for $F_{slow}$ can be integrated to give a number between 0 and 1 representing the proportion of $C_{bott}$ that dissolves within the period. For periods soon after adding lime this proportion will be large, and it decays over time. However, because the total area under the curve is equal to one, the total amount of lime that dissolves from the bottom layer can never be greater than $C_{bott}$.
 
-The parameter $K_L$ (units $month^{-1}$) is the “deaktiveringskoeffisient”, a constant that controls how fast lime on the lake bottom dissolves.
+The parameter $K_L$ (units $month^{-1}$) is the “deaktiveringskoeffisient”, a constant that controls how fast lime on the lake bottom dissolves (larger values mean faster dissolution).
 
 An initial Python implementation of this model is [here](https://nbviewer.org/github/NIVANorge/lake_liming_app/blob/main/notebooks/box_model.ipynb).
