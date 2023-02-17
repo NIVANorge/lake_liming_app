@@ -326,7 +326,7 @@ Note
 <section id="sec-mass-bal-model" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="sec-mass-bal-model"><span class="header-section-number">2.2</span> Mass balance model</h3>
 <p><a href="#eq-ph-ca">Equation&nbsp;1</a> transforms the problem of modelling pH into one of modelling <span class="math inline">\(\Delta Ca\)</span> (and <span class="math inline">\(\Delta Mg\)</span> too, if relevant). When we add lime to a lake, some of it dissolves instantly, giving a sudden increase in pH, while the remainder sinks to the bottom and dissolves more slowly.</p>
-<p>To provide an estimate of both the initial change in lake conditions due to liming and the subsequent evolution over time, the original TPKALK model implemented a mass balance “box model”(<strong>?@fig-box-model</strong>) where:</p>
+<p>To provide an estimate of both the initial change in lake conditions due to liming and the subsequent evolution over time, the original TPKALK model implemented a mass balance “box model”(<a href="#fig-box-model">Figure&nbsp;1</a>) where:</p>
 <ul>
 <li><span class="math inline">\(D\)</span> is the dose of lime added (adjusted for Ca content i.e.&nbsp;the actual dose of Ca in mg/l)</li>
 <li><span class="math inline">\(C_{inst}\)</span> is the “immediate” increase in lake Ca concentration (in mg/l) due to <strong>instantaneous dissolution</strong></li>
@@ -338,7 +338,12 @@ Note
 <li><span class="math inline">\(M_{lake}\)</span> is the mass of Ca dissolved in the lake water (in mg)</li>
 <li><span class="math inline">\(C_{lake}\)</span> is the Ca concentration in the lake, equal to <span class="math inline">\(\frac{M_{lake}}{V}\)</span>. The lake is assumed to be <strong>well mixed</strong>, such that the outflow concentration, <span class="math inline">\(C_{out}\)</span>, is equal to <span class="math inline">\(C_{lake}\)</span></li>
 </ul>
-<p><img src="./images/box_model.png" id="fig-box-model" class="img-fluid" alt="Schematic illustration of the TPKALK box model for lake calcium concentration for a single lake under the assumption of fixed water volume. Symbols are defined in the text.">{width=400}</p>
+<div id="fig-box-model" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/box_model.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Schematic illustration of the TPKALK box model for lake calcium concentration for a single lake under the assumption of fixed water volume. Symbols are defined in the text.</figcaption><p></p>
+</figure>
+</div>
 <p>Balancing the main sources and sinks of Ca to the lake gives</p>
 <p><span id="eq-dMlake_dt"><span class="math display">\[
 \frac{dM_{lake}}{dt} = V \frac{dC_{lake}}{dt} = Q C_{in} - Q C_{lake} + V C_{inst} + V F_{slow}
