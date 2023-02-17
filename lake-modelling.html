@@ -158,7 +158,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#sec-modelling" id="toc-sec-modelling" class="nav-link" data-scroll-target="#sec-modelling"><span class="toc-section-number">2</span>  Modelling procedure</a>
   <ul class="collapse">
-  <li><a href="#sec-ca-ph" id="toc-sec-ca-ph" class="nav-link" data-scroll-target="#sec-ca-ph"><span class="toc-section-number">2.1</span>  Relationships between Ca and pH</a></li>
+  <li><a href="#sec-ca-ph" id="toc-sec-ca-ph" class="nav-link" data-scroll-target="#sec-ca-ph"><span class="toc-section-number">2.1</span>  Relationship between Ca and pH</a></li>
   <li><a href="#sec-mass-bal-model" id="toc-sec-mass-bal-model" class="nav-link" data-scroll-target="#sec-mass-bal-model"><span class="toc-section-number">2.2</span>  Mass balance model</a></li>
   <li><a href="#sec-inst-diss" id="toc-sec-inst-diss" class="nav-link" data-scroll-target="#sec-inst-diss"><span class="toc-section-number">2.3</span>  Estimating instantaneous dissolution</a></li>
   <li><a href="#sec-standard-lake" id="toc-sec-standard-lake" class="nav-link" data-scroll-target="#sec-standard-lake"><span class="toc-section-number">2.4</span>  Simulating a “standard lake”</a></li>
@@ -231,14 +231,14 @@ ul.task-list li input[type="checkbox"] {
 1.2</code></pre></td>
 </tr>
 <tr class="odd">
-<td colspan="2"><strong>TNV</strong> (sum of CaCO3-ekv; %)</td>
+<td colspan="2"><strong>NV</strong> (sum of CaCO3-ekv; %)</td>
 <td><pre><code>  106.5</code></pre></td>
 <td>100.2</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>NV is usually specified in percent: pure calcium carbonate has an NV of 100 %, pure magnesium carbonate has a NV of 119 %, and typical dolomite products have NVs that are somewhere in between. For the same mass, products with a higher NV will be more effective at increasing pH, <em>as long as all the lime dissolves</em>. In practice, different limes exhibit different dissolution rates, which must also be accounted for.</p>
+<p>The NV is usually specified in percent: pure calcium carbonate has a NV of 100 %; pure magnesium carbonate has a NV of 119 %; and typical dolomite products have NVs that are somewhere in between. For the same mass, products with a higher NV will be more effective at increasing pH, <em>as long as all the lime dissolves</em>. In practice, different limes exhibit different dissolution rates, which must also be accounted for (<a href="#sec-solubility">Section&nbsp;1.2</a>).</p>
 </section>
 <section id="sec-solubility" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="sec-solubility"><span class="header-section-number">1.2</span> Lime solubility</h3>
@@ -258,7 +258,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="2" class="anchored" data-anchor-id="sec-modelling"><span class="header-section-number">2</span> Modelling procedure</h2>
 <p><strong>The overall goal is to model changes in lake pH due to liming with different products</strong>. The model should provide an evidence base to decide which lime products to apply under different circumstances.</p>
 <section id="sec-ca-ph" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="sec-ca-ph"><span class="header-section-number">2.1</span> Relationships between Ca and pH</h3>
+<h3 data-number="2.1" class="anchored" data-anchor-id="sec-ca-ph"><span class="header-section-number">2.1</span> Relationship between Ca and pH</h3>
 <p>When we add liming material, the concentration of CaCO3 (and MgCO3, if relevant) in the lake increases, which leads to an increase in pH. A simple empirical relationship between pH and change in calcium concentration is given in <a href="#eq-ph-ca">Equation&nbsp;1</a></p>
 <p><span id="eq-ph-ca"><span class="math display">\[
 pH = pH_0 + A_{pH} log(\Delta Ca)
@@ -325,12 +325,12 @@ Note
 </section>
 <section id="sec-mass-bal-model" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="sec-mass-bal-model"><span class="header-section-number">2.2</span> Mass balance model</h3>
-<p><a href="#eq-ph-ca">Equation&nbsp;1</a> transforms the problem of modelling pH into one of modelling <span class="math inline">\(\delta Ca\)</span>$ (and <span class="math inline">\(\delta Mg\)</span>$ too, if relevant). When we add lime to a lake, some of it dissolves instantly, giving a sudden increase in pH, while the remainder sinks to the bottom and dissolves more slowly.</p>
-<p>To provide an estimate of both the initial change in lake conditions due to liming, and the subsequent evolution over time, the original TPKALK model implemented a mass balance “box model”(<a href="#fig-box-model">Figure&nbsp;1</a>) where:</p>
+<p><a href="#eq-ph-ca">Equation&nbsp;1</a> transforms the problem of modelling pH into one of modelling <span class="math inline">\(\Delta Ca\)</span> (and <span class="math inline">\(\Delta Mg\)</span> too, if relevant). When we add lime to a lake, some of it dissolves instantly, giving a sudden increase in pH, while the remainder sinks to the bottom and dissolves more slowly.</p>
+<p>To provide an estimate of both the initial change in lake conditions due to liming and the subsequent evolution over time, the original TPKALK model implemented a mass balance “box model”(<a href="#fig-box-model">Figure&nbsp;1</a>) where:</p>
 <ul>
 <li><span class="math inline">\(D\)</span> is the dose of lime added (adjusted for Ca content i.e.&nbsp;the actual dose of Ca in mg/l)</li>
 <li><span class="math inline">\(C_{inst}\)</span> is the “immediate” increase in lake Ca concentration (in mg/l) due to <strong>instantaneous dissolution</strong></li>
-<li><span class="math inline">\(C_{bott} = F_{active} (D - C_{inst})\)</span> is the amount of Ca (in mg/l) that sinks to the lake bottom and remains active for dissolution. Note that <span class="math inline">\((D - C_{inst})\)</span> is the total amount of lime that sinks to the bottom, and <span class="math inline">\(F_{active}\)</span> is the proportion of this that remains “active”. Typical values are around 0.4, based on the observation that about 60% of the lime arriving on the lake bottom becomes “deactivated” and never dissolves.</li>
+<li><span class="math inline">\(C_{bott} = F_{active} (D - C_{inst})\)</span> is the amount of Ca (in mg/l) that sinks to the lake bottom and remains active for dissolution. Note that <span class="math inline">\((D - C_{inst})\)</span> is the total amount of lime that sinks to the bottom, and <span class="math inline">\(F_{active}\)</span> is the proportion of this that remains “active”. Typical values for <span class="math inline">\(F_{active}\)</span> are around 0.4, based on the observation that about 60% of the lime arriving on the lake bottom becomes “deactivated” and never dissolves.</li>
 <li><span class="math inline">\(F_{slow}\)</span> is the rate at which concentration increases (in mg/l/month) due to dissolution of the bottom layer</li>
 <li><span class="math inline">\(C_{in}\)</span> and <span class="math inline">\(C_{out}\)</span> are the inflow and outflow concentrations of Ca, respectively (both in mg/l)</li>
 <li><span class="math inline">\(V\)</span> is the lake volume in litres. The lake is assumed to be in <strong>steady state</strong> i.e.&nbsp;<span class="math inline">\(V\)</span> is constant</li>
@@ -362,7 +362,7 @@ F_{slow} = \frac{dC_{slow}}{dt} = C_{bott} K_L e^{-K_L t}
 </section>
 <section id="sec-inst-diss" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="sec-inst-diss"><span class="header-section-number">2.3</span> Estimating instantaneous dissolution</h3>
-<p>For the model to produce reasonable simulations, it is important to have an accurate estimate for the proportion of lime material that dissolves quickly (i.e.&nbsp;the instantaneous dissolution fraction, <span class="math inline">\(C_{inst}\)</span>). Instantaneous dissolution is measured in a laboratory using <a href="./column-tests.html">column tests</a>, which tell us how much lime will typically dissolve in a 2 m (sometimes 5 m) column with a known initial pH and lime dose. However, before the column test data can be used for lake modelling, it is necessary to adjust for:</p>
+<p>For the model to produce reasonable simulations, it is important to have an accurate estimate for the proportion of lime material that dissolves quickly (i.e.&nbsp;the instantaneous dissolution fraction, <span class="math inline">\(C_{inst}\)</span>). Instantaneous dissolution can be measured in the laboratory using <a href="./column-tests.html">column tests</a>, which tell us how much lime will typically dissolve in a 2 m (sometimes 5 m) column given a known initial pH and lime dose. However, before the column test data can be used for lake modelling, it is necessary to adjust for:</p>
 <ul>
 <li><p><strong>Spreading method</strong>. For dry spreading (e.g.&nbsp;by helicopter) the amount of lime material that dissolves immediately is typically 0.5 to 0.7 times the proportion predicted by column tests (see Sverdrup Table 3; Espen Enge used 0.8 for much of his work). No adjustment is required for wet spreading (e.g.&nbsp;from a boat).</p></li>
 <li><p><strong>Lake depth</strong>. Deeper lakes give the lime more time to dissolve as it sinks. The instantaneous dissolution for a lake of depth <span class="math inline">\(d_{lake}\)</span> and initial pH <span class="math inline">\(X\)</span> is assumed to be similar to the dissolution in a test column of depth <span class="math inline">\(d_{col}\)</span> with pH <span class="math inline">\((X - a)\)</span> where</p></li>
@@ -387,7 +387,7 @@ Note
 </section>
 <section id="sec-standard-lake" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="sec-standard-lake"><span class="header-section-number">2.4</span> Simulating a “standard lake”</h3>
-<p>The model defined above is capable of simulating how pH and Ca concentration (and Mg, if relevant) will change over time for a single lake. The model requires the following iinputs:</p>
+<p>The model defined above is capable of simulating how pH and Ca concentration (and Mg, if relevant) change over time for a single lake. The model requires the following iinputs:</p>
 <ul>
 <li><p><span class="math inline">\(pH_0\)</span> and <span class="math inline">\(A_{pH}\)</span> to define the relationship between Ca concentration and pH.</p></li>
 <li><p>Lake <strong>volume</strong> (often provided as surface area and mean depth) and <strong>discharge</strong>, which together define the <strong>residence time</strong>. Note that this model assumes the volume is fixed, but discharge can vary over time, if desired.</p></li>
@@ -397,7 +397,7 @@ Note
 <li><p><strong>The fraction of the lime on the lake bottom that remains “active”</strong> for dissolution over long time periods.</p></li>
 <li><p>The parameter <span class="math inline">\(K_L\)</span> (for both Ca and Mg), which determines how fast “active” lime on the lake bottom dissolves.</p></li>
 </ul>
-<p>To simplify the process of comparing different lime products, it is common to consider a <strong>standard lake</strong> with a typical <strong>discharge profile</strong>.</p>
+<p>To avoid having to specify all these parameters when comparing different lime products, it is common to consider a <strong>standard lake</strong> with a typical <strong>discharge profile</strong>.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -412,21 +412,21 @@ Note
 <p>From Karl-Jan’s e-mails, the standard lake has the following properties:</p>
 <ul>
 <li><p><strong>Area:</strong> 20 ha. <em>OK.</em></p></li>
-<li><p><strong>Mean depth:</strong> 5 m. <em>OK, but please see ‘discharge’, below.</em></p></li>
-<li><p><strong>Residence time:</strong> 0.7 years. <em>OK, but please see ‘discharge’, below.</em></p></li>
-<li><p><strong>Discharge:</strong> <em>If the three parameters above are fixed, then the discharge is pre-determined and must be held constant. However, it has also been suggested that we (i) should use a typical flow profile that varies by month, in which case the lake will also have a set of monthly residence times, and (ii) tune both the discharge and mean depth to achieve different residence times. In both these cases, it appears that mean depth and residence time are not actually fixed characteristics of the standard lake?</em></p></li>
-<li><p><strong>pH before liming:</strong> 4.0, 4.5, 5.0, 5.5 and 6.0. <em>OK, but given the range of variation I suggest treating this as a variable rather than “standard characteristic”.</em></p></li>
+<li><p><strong>Mean depth:</strong> 5 m. <em>OK, but please see <code>discharge</code>, below.</em></p></li>
+<li><p><strong>Residence time:</strong> 0.7 years. <em>OK, but please see <code>discharge</code>, below.</em></p></li>
+<li><p><strong>Discharge:</strong> <em>If the three parameters above are fixed, then the discharge is pre-determined and must be held constant. However, it has also been suggested that we (i) should use a typical flow profile that varies by month, in which case the lake will also have a set of monthly residence times, and (ii) tune both the discharge and mean depth to achieve different residence times. In both these cases, it appears that mean depth and residence time are <strong>not</strong> fixed characteristics of the standard lake?</em></p></li>
+<li><p><strong>pH before liming:</strong> 4.0, 4.5, 5.0, 5.5 and 6.0. <em>OK, but given the range of variation I suggest treating this as a variable rather than a “standard characteristic”.</em></p></li>
 <li><p><strong>Desired pH change:</strong> +1.5. <em>I’m not sure what is meant by this, since the pH will change over time. What does the +1.5 refer to? Is it the instantaneous dissolution effect, or the maximum change, or the change 1 year after liming, or something else?</em></p></li>
 <li><p><strong>Dosering:</strong> 10 g/m3. <em>OK.</em></p></li>
 <li><p><strong>Nøytraliseringsbehov:</strong> Justeres slik at kalkdosen blir 10 g/m3. <em>I’m not sure what this refers to. Aren’t the neutralising needs defined by the desired pH change?</em></p></li>
-<li><p><strong>Andel av innsjøoverflate som kalkes:</strong> 50%. <em>I’m not sure what effect this should have, since the “dose” is defined in mg/l based on the volume of the whole lake. In the context of the TPKALK model, what effect should this parameter have on the calculations?</em></p></li>
-<li><p><strong>CaCO3-ekv:</strong> 107% (Microdol 5). <em>OK, but presumably this isn’t a fixed parameter for the “standard lake”, as I thought the whole purpose was to compare different lime types?</em></p></li>
-<li><p><strong>Application method:</strong> Wet spreading from boat. <em>I think. OK if so.</em></p></li>
+<li><p><strong>Andel av innsjøoverflate som kalkes:</strong> 50%. <em>I’m not sure what effect this should have, since the “dose” is defined in mg/l based on the volume of the whole lake. In the context of TPKALK, what effect should this parameter have on the calculations?</em></p></li>
+<li><p><strong>CaCO3-ekv:</strong> 107% (Microdol 5). <em>OK, but presumably this isn’t a fixed parameter for the “standard lake”, as I thought the main purpose was to compare different lime types?</em></p></li>
+<li><p><strong>Application method:</strong> Wet spreading from boat. <em>OK.</em></p></li>
 </ul>
-<p>In addition, the following characteristics have not been mentioned, but seem to be required for a standard lake:</p>
+<p>In addition, the following characteristics have not been mentioned yet in relation to the standard lake, but seem to be required by the model:</p>
 <ul>
 <li><span class="math inline">\(pH_0\)</span> and <span class="math inline">\(A_{pH}\)</span></li>
-<li>Initial Ca (and Mg, if relevant) concentrations in the lake (or are these estimated some other way?)</li>
+<li><strong>Initial Ca concentration</strong> in the lake (and Mg, if relevant). Or are these estimated in some other way based on the characteristics specified above?</li>
 </ul>
 </div>
 </div>
@@ -440,19 +440,19 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Some initial comments from Atle:</strong></p>
+<p><strong>Some additional initial comments from Atle:</strong></p>
 <blockquote class="blockquote">
 <p>Harald Sverdrup har en likning som korrigerer for det, dvs. regner ut prosentvis oppløsning basert på kalktype, pH og synkedyp, så vidt jeg husker.</p>
 </blockquote>
-<p>Is this the same equation as described above in <a href="#sec-inst-diss">Section&nbsp;2.3</a> (<strong>?@eq-eq-cor-depth</strong>), or is Atle referring to an alternative? An equation that directly estimated the change in instantaneous dissolution would be more practical than <a href="#eq-cor-depth">Equation&nbsp;5</a> (which instead modifies the pH values used in a lookup table).</p>
+<p>Is this the same equation as described above in <a href="#sec-inst-diss">Section&nbsp;2.3</a> (<a href="#eq-cor-depth">Equation&nbsp;5</a>), or is Atle referring to an alternative? An equation that directly estimates the change in instantaneous dissolution would be more practical than <a href="#eq-cor-depth">Equation&nbsp;5</a> (which instead modifies the pH values used in a lookup table).</p>
 <blockquote class="blockquote">
 <p>Men løst organisk materiale krever også sitt for å oppnå ønsket pH. Jeg har laget titreringskurver (pH-tilsatt Ca) for ulike kons av TOC, slik at tilsatt kalkkons kan korrigeres.</p>
 </blockquote>
-<p>This suggests that there may be a better way of accounting for organic matter concentration than using <span class="math inline">\(A_{pH}\)</span> in <strong>?@eq-eq-ph-ca</strong>?</p>
+<p>This suggests there may be a better way of accounting for organic matter concentration than using <span class="math inline">\(A_{pH}\)</span> in <a href="#eq-ph-ca">Equation&nbsp;1</a>?</p>
 <blockquote class="blockquote">
 <p>Grunne innsjøer vil gjerne ha en større andel kalk som synker ned på bunnen. Siden kalk på bunnen vil inaktiveres over tid, er det bare noen få år bidraget kan regnes inn. Men vi har fulgt kalkede innsjøer etter kalkslutt og funnet at denne «halen» er betydelig lenger enn det ren fortynning (basert på teoretisk oppholdstid) skulle tilsi. Tror ikke det er data for å underbygge forskjeller i langtidsoppløsning mellom kalktyper – trolig temmelig uavhengig.</p>
 </blockquote>
-<p>Based on this, it sounds as though we might be able to treat all lime products the same in terms of long-term dissolution. This could correspond to using a single <span class="math inline">\(K_L\)</span> value for all lime types, although this will also mean that medium term dissolution rates (i.e.&nbsp;the first lake-bottom lime to dissolve) will also be the same. Thoughts?</p>
+<p>Based on this, it sounds as though we might be able to treat all lime products the same in terms of long-term dissolution? This could correspond to using a single <span class="math inline">\(K_L\)</span> value for all lime types, although this will also mean that medium term dissolution rates (i.e.&nbsp;the first lake-bottom lime to dissolve) will also be the same for all limes. Thoughts?</p>
 </div>
 </div>
 
