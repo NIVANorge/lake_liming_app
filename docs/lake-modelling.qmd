@@ -99,7 +99,7 @@ To provide an estimate of both the initial change in lake conditions due to limi
  * $M_{lake}$ is the mass of Ca dissolved in the lake water (in mg)
  * $C_{lake}$ is the Ca concentration in the lake, equal to $\frac{M_{lake}}{V}$. The lake is assumed to be **well mixed**, such that the outflow concentration, $C_{out}$, is equal to $C_{lake}$
  
-![Schematic illustration of the TPKALK box model for lake calcium concentration for a single lake under the assumption of fixed water volume. Symbols are defined in the text.](./images/box_model.png){#fig-box-model}
+![Schematic illustration of the TPKALK box model for lake calcium concentration for a single lake under the assumption of fixed water volume. Symbols are defined in the text.](./images/box_model.png){#fig-box-model}{width=400}
 
 Balancing the main sources and sinks of Ca to the lake gives
 
