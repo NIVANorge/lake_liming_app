@@ -1,6 +1,6 @@
 import streamlit as st
-from src.utils.func_utils import *
-from src.utils.input_data_utils import *
+from src.col_tests.utils.column_tests import *
+from src.col_tests.utils.read_input import *
 
 
 def app():
@@ -21,10 +21,6 @@ def app():
 
             # Print basic info for test as a whole
             par_val_dict = par_df.to_dict()["Value"]
-            lime_conc_all_dis = (
-                1000 * par_val_dict["mass_lime_g"] / par_val_dict["water_vol_l"]
-            )
-            ca_conc_all_dis = lime_conc_all_dis * par_val_dict["lime_prod_ca_pct"] / 100
             st.markdown(
                 f"""
                 ### Processing data for product: `{par_val_dict['lime_product_name']}`
@@ -37,12 +33,25 @@ def app():
             # left_col, pad, right_col = st.columns([10, 1, 10])
             left_col, right_col = st.columns(2)
 
+            # TODO: if no data - display warning and not display table & plots!!!
+
             # Instantaneous test
             with left_col:
-                # Table
-                inst_res_df = instantaneous_test(
-                    inst_df, lime_conc_all_dis, ca_conc_all_dis, method="trapezoidal"
+                lime_conc_all_dis = (
+                    1000 * par_val_dict["mass_lime_g"] / par_val_dict["water_vol_l"]
+                    )
+                ca_conc_all_dis = lime_conc_all_dis * par_val_dict["lime_prod_ca_pct"] / 100
+
+                st.markdown("### Instantaneous dissolution")
+                st.markdown(
+                    f"**Lime added:** {lime_conc_all_dis:.1f} mg/l ({ca_conc_all_dis:.1f} mg/l of Ca)"
                 )
+                inst_res_df = get_test_results(
+                    inst_df, ca_conc_all_dis, test_type="instantaneous", method="trapezoidal"
+                )
+                # TODO: Here check if flag triggered!!!
+
+                # Table
                 st.dataframe(
                     inst_res_df.style.format("{:.1f}"), use_container_width=True
                 )
@@ -58,12 +67,13 @@ def app():
 
             # Overdosing test
             with right_col:
-                # Table
-                od_res_df = overdosing_test(
-                    od_df, par_val_dict["lime_prod_ca_pct"], method="trapezoidal"
+                st.markdown("### Overdosing factors")
+                st.markdown("**Column pH:** 4.6")
+                od_res_df = get_test_results(
+                    od_df, par_val_dict["lime_prod_ca_pct"], test_type="overdosing", method="trapezoidal"
                 )
+                # Table
                 st.dataframe(od_res_df.style.format("{:.1f}"), use_container_width=True)
-
                 # Plot
                 od_chart = make_chart(
                     od_res_df,
