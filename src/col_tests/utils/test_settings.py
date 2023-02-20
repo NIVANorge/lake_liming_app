@@ -1,6 +1,16 @@
 def get_test_settings(test_type):
+    """Returns basic parameter settings for either instantaneous
+    or overdosing test calculations.
 
-    # TODO: Can I populate this directly from the spreadsheet instead of hardcoding?
+    Args
+        test_type (str):    'instantaneous' or 'overdosing'
+
+    Returns
+        param_settings (dict): Dictionary of parameter values for
+                               specified test type.
+    """
+
+    # TODO: Can we populate this directly from the spreadsheet instead of hardcoding?
 
     if (test_type == 'instantaneous'):
         param_settings = dict(

@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 
+
 def check_column_values(df, col_name, expected_set):
     """Checks the unique values in 'df' column 'col_name' are equal
     to the set 'expected_set.'
@@ -25,7 +26,7 @@ def check_column_values(df, col_name, expected_set):
 
 
 def read_template(template_path):
-    """Read a data template supplied by user and add results to the session state.
+    """Reads a data template supplied by user and add results to the session state.
 
     Args
         template_path: Str. Path to completed Excel template
