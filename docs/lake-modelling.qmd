@@ -206,11 +206,11 @@ Is this the same equation as described above in @sec-inst-diss (@eq-cor-depth), 
 
 > Men løst organisk materiale krever også sitt for å oppnå ønsket pH. Jeg har laget titreringskurver (pH-tilsatt Ca) for ulike kons av TOC, slik at tilsatt kalkkons kan korrigeres.
 
-This suggests there may be a better way of accounting for organic matter concentration than using $A_{pH}$ in @eq-ph-ca?
+This suggests there may be a better way of accounting for organic matter concentration than using $pH_0$ and $A_{pH}$ in @eq-ph-ca?
 
 > Grunne innsjøer vil gjerne ha en større andel kalk som synker ned på bunnen. Siden kalk på bunnen vil inaktiveres over tid, er det bare noen få år bidraget kan regnes inn. Men vi har fulgt kalkede innsjøer etter kalkslutt og funnet at denne «halen» er betydelig lenger enn det ren fortynning (basert på teoretisk oppholdstid) skulle tilsi. Tror ikke det er data for å underbygge forskjeller i langtidsoppløsning mellom kalktyper – trolig temmelig uavhengig.
 
-Based on this, it sounds as though we might be able to treat all lime products the same in terms of long-term dissolution? This could correspond to using a single $K_L$ value for all lime types, although this will also mean that medium term dissolution rates (i.e. the first lake-bottom lime to dissolve) will also be the same for all limes. Thoughts?
+Based on this, it sounds as though we might be able to treat all lime products the same in terms of long-term dissolution? This could correspond to using single $F_{active}$ and $K_L$ values for all lime types, although this will also mean that medium term dissolution rates (i.e. the first lake-bottom lime to dissolve) will also be the same for all limes. Thoughts?
 :::
 
 
