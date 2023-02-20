@@ -3,11 +3,11 @@ def get_test_settings(test_type):
     or overdosing test calculations.
 
     Args
-        test_type (str):    'instantaneous' or 'overdosing'
+        test_type:      Str. Either 'instantaneous' or 'overdosing'
 
     Returns
-        param_settings (dict): Dictionary of parameter values for
-                               specified test type.
+        param_settings: Dict. Dictionary of parameter values for
+                        specified test type.
     """
 
     # TODO: Can we populate this directly from the spreadsheet instead of hardcoding?

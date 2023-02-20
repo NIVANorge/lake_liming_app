@@ -8,11 +8,11 @@ def get_lime_added(par_val_dict, element):
     """ Calculates lime and element concentration.
 
     Args
-        par_val_dict (dict):    Dictionary of parameter values from parameter worksheet
-        element (str):          Chemical element to use. Either 'Ca' or 'Mg'
+        par_val_dict:   Dict. Dictionary of parameter values from parameter worksheet
+        element:        Str. Chemical element to use. Either 'Ca' or 'Mg'
 
     Returns
-        tuple of lime and element concentrations
+        Tuple of lime and element concentrations as floats.
     """
 
     lime_conc_all_dis = (
@@ -32,8 +32,8 @@ def plot_and_table(df, title):
     """ Creates a table and chart from DataFrame.
 
     Args
-        df (DataFrame):     DataFrame of values to plot
-        title (str):        Plot title
+        df:     DataFrame of values to plot
+        title:  Str. Plot title
 
     Returns
         None. Displays the table and chart in streamlit.
@@ -86,17 +86,13 @@ def display_results(par_val, df, element="Ca", test_type="instantaneous", method
     overdosing factor column tests. Two methods are supported.
 
     Args
-        par_val (dict):     Dictionary of parameter names & values from the parameter
-                            worksheet of the spreadsheet.
-        df (DataFrame):     Data from a test result worksheet of the spreadsheet.
-        element (str):      Default 'Ca'. Either 'Ca' or 'Mg'.
-        test_type (str):    Default 'instantaneous'. Either 'instantaneous' or 'overdosing'.
-        method (str):       Default 'trapezoidal'. Either 'trapezoidal' or 'simpson'.
-                            Method to use for integration. See
-                             https://en.wikipedia.org/wiki/Trapezoidal_rule
-                            and
-                             https://en.wikipedia.org/wiki/Simpson%27s_rule
-                            for details.
+        par_val:    Dict. Dictionary of parameter names & values from the parameter
+                    worksheet of the spreadsheet.
+        df:         DataFrame. Data from a test result worksheet of the spreadsheet.
+        element:    Str. Default 'Ca'. Either 'Ca' or 'Mg'.
+        test_type:  Str. Default 'instantaneous'. Either 'instantaneous' or 'overdosing'.
+        method:     Str. Default 'trapezoidal'. Either 'trapezoidal' or 'simpson'.
+
     Returns
         None
     """

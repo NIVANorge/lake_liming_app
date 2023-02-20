@@ -7,19 +7,19 @@ def get_test_results(df, element, test_input, test_type="instantaneous", method=
     under a curve. Two methods for solving this are supported.
 
     Args
-        df (DataFrame):     Data from a test result worksheet of the template.
-        test_input (float): Instantaneous test:
-                                Expected Ca concentration in the column if all dissolved
-                                and evenly mixed
-                            Overdosing test:
-                                Percentage of Ca in the lime being tested.
-        test_type (str):    Default 'instantaneous'. Either 'instantaneous' or 'overdosing'.
-        method (str):       Default 'trapezoidal'. Either 'trapezoidal' or 'simpson'.
-                            Method to use for integration. See
-                             https://en.wikipedia.org/wiki/Trapezoidal_rule
-                            and
-                             https://en.wikipedia.org/wiki/Simpson%27s_rule
-                            for details.
+        df:         DataFrame. Data from a test result worksheet of the template.
+        test_input: Float. For instantaneous test:
+                        Expected Ca concentration in the column if all dissolved
+                        and evenly mixed
+                    For overdosing test:
+                        Percentage of Ca in the lime being tested.
+        test_type:  Str. Default 'instantaneous'. Either 'instantaneous' or 'overdosing'.
+        method:     Str. Default 'trapezoidal'. Either 'trapezoidal' or 'simpson'.
+                    Method to use for integration. See
+                        https://en.wikipedia.org/wiki/Trapezoidal_rule
+                    and
+                        https://en.wikipedia.org/wiki/Simpson%27s_rule
+                    for details.
 
     Returns
         Dataframe with column ID as the index and

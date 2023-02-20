@@ -9,12 +9,12 @@ def integrate(y, x, method):
     """ Approximates integral for inst. dissolution equation.
 
     Args
-        y (Series):         Input array over which to integrate
-        x (Series):         Array of sample points corresponding to the input array
-        method (str):       Approximation rule. Either 'trapezoidal' or 'simpson'
+        y:          Input array over which to integrate
+        x:          Array of sample points corresponding to the input array
+        method:     Str. Approximation rule. Either 'trapezoidal' or 'simpson'
 
     Returns
-        res (float):        Approximated integral value
+        res:        Float. Approximated integral value
     """
     if method == "trapezoidal":
         res = trapz(y, x)
@@ -25,17 +25,17 @@ def integrate(y, x, method):
 
 
 def calculate_inst_dissolution(col_groups, element, test_input, test_type, method):
-    """ Calculates inst. dissolution for test columns.
+    """ Calculates instantaneous dissolution for test columns.
 
     Args
-        col_groups (DataFrameGroupBy):  DataFrame of input data grouped by test columns
-        element (str):                  Chemical element for which to calculate. Either 'Ca' or 'Mg'
-        test_input (float):             Test parameter value
-        test_type (str):                Type of the test. Either 'instantaneous' or 'overdosing'
-        method (str):                   Approximation rule. Either 'trapezoidal' or 'simpson'
+        col_groups:     DataFrameGroupBy. DataFrame of input data grouped by test columns
+        element:        Str. Chemical element for which to calculate. Either 'Ca' or 'Mg'
+        test_input:     Float. Test parameter value
+        test_type:      Str. Type of the test. Either 'instantaneous' or 'overdosing'
+        method:         Str. Approximation rule. Either 'trapezoidal' or 'simpson'
 
     Returns
-        inst_dist_list (list):          List of inst. dissolution values for each test column
+        inst_dist_list: List of instantaneous dissolution values for each test column
     """
     inst_diss_list = []
     param_settings = get_test_settings(test_type)
@@ -57,14 +57,14 @@ def get_inst_dissolution(df, element, test_input, test_type, method):
     """ Creates DataFrame of instantaneous dissolution results.
 
     Args
-        df (DataFrame):         DataFrame of original input data (worksheet of the template)
-        element (str):          Chemical element for which to create the result df. Either 'Ca' or 'Mg'
-        test_input (float):     Test parameter value
-        test_type (str):        Type of the test. Either 'instantaneous' or 'overdosing'
-        method (str):           Approximation rule. Either 'trapezoidal' or 'simpson'
+        df:         DataFrame of original input data (worksheet of the template)
+        element:    Str. Chemical element for which to create the result df. Either 'Ca' or 'Mg'
+        test_input: Float. Test parameter value
+        test_type:  Str. Type of the test. Either 'instantaneous' or 'overdosing'
+        method:     Str. Approximation rule. Either 'trapezoidal' or 'simpson'
 
     Returns
-        res_df (DataFrame):     Resulting DataFrame of dissolution value for each test column
+        res_df:     Resulting DataFrame of dissolution value for each test column
     """
 
     param_settings = get_test_settings(test_type)
