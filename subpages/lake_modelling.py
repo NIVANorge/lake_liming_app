@@ -9,28 +9,18 @@ def app():
     """Main function for the 'lake_modelling' page."""
     st.markdown("## Lake modelling")
 
-    C_lake0, C_in0, C_bott0, area, mean_depth, mean_flow = getLakeParams()
+    lake = getLakeParams()
 
-    lime_dose, pct_ca, od_fac, K_L = getLimProd()
+    product = getLimProd()
 
     n_months = getDuration()
 
     lake_model, x_title, y_title = model(
-        lime_dose,
-        pct_ca,
-        od_fac,
-        C_bott0,
-        C_lake0,
-        area,
-        mean_depth,
-        mean_flow,
-        C_in0,
-        K_L,
+        lake,
+        product,
         n_months,
         f,
     )
-    # st.write(lake_model)
-
     plotResult(lake_model, x_title, y_title)
 
     return None
@@ -53,7 +43,9 @@ def getLakeParams():
     mean_depth = col2.number_input("Mean lake depth (m)", min_value=0.0, value=5.6)
     mean_flow = col2.number_input("Mean flow rate (m3/s)", min_value=0.0, value=0.2)
 
-    return (C_lake0, C_in0, C_bott0, area, mean_depth, mean_flow)
+    lakeParams = (C_lake0, C_in0, C_bott0, area, mean_depth, mean_flow)
+
+    return lakeParams
 
 
 def getLimProd():
@@ -97,6 +89,7 @@ def getLimProd():
             prod[content].values[0],
             prod[overdosing].values[0],
             prod[dissolution].values[0],
+            prod[name].values[0],
         )
 
 
@@ -108,11 +101,11 @@ def getCustomLimParam():
     od_fac = col2.number_input("Overdosing factor (-)", min_value=0.0, value=1.5)
     K_L = col2.number_input(
         "Lime dissoltuion rate on the bottom of the lake (month^-1)",
-        min_value=1,
+        min_value=0,
         value=1,
     )
 
-    return (lime_dose, pct_ca, od_fac, K_L)
+    return (lime_dose, pct_ca, od_fac, K_L, "Custom")
 
 
 def getDuration():
@@ -157,19 +150,14 @@ def f(y, t, params):
 
 
 def model(
-    lime_dose,
-    pct_ca,
-    od_fac,
-    C_bott0,
-    C_lake0,
-    area,
-    mean_depth,
-    mean_flow,
-    C_in0,
-    K_L,
+    lake,
+    product,
     n_months,
     f,
 ):
+    C_lake0, C_in0, C_bott0, area, mean_depth, mean_flow = lake
+    lime_dose, pct_ca, od_fac, K_L, name = product
+
     ca_dose = lime_dose * pct_ca / 100
     C_inst = ca_dose / od_fac
     C_bott = C_bott0 + ca_dose - C_inst
