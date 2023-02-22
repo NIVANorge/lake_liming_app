@@ -11,7 +11,12 @@ def integrate(y, x, method):
     Args
         y:          Input array over which to integrate
         x:          Array of sample points corresponding to the input array
-        method:     Str. Approximation rule. Either 'trapezoidal' or 'simpson'
+        method:     Str. Approximation rule. Either 'trapezoidal' or 'simpson'.
+                    See
+                        https://en.wikipedia.org/wiki/Trapezoidal_rule
+                    and
+                        https://en.wikipedia.org/wiki/Simpson%27s_rule
+                    for details.
 
     Returns
         res:        Float. Approximated integral value
@@ -37,7 +42,7 @@ def calculate_inst_dissolution(col_groups, element, element_prop, test_type, met
     Returns
         inst_dist_list: List of instantaneous dissolution values for each test column
     """
-    import streamlit as st
+
     inst_diss_list = []
     param_settings = get_test_settings(test_type)
 

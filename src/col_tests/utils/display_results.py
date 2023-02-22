@@ -113,20 +113,13 @@ def display_results(par_val, df, element="Ca", test_type="instantaneous", method
     lime_conc, element_conc, element_prop = get_concentrations(par_val, element)
 
     if (test_type == "instantaneous"):
-
-        #lime_conc, element_conc = get_lime_added(par_val, element)
-
         test_title = test_type.capitalize() + " dissolution"
-        #test_input = element_conc
-
         st.markdown(f"### {test_title}")
         st.markdown(
             f"**Lime added:** {lime_conc:.1f} mg/l ({element_conc:.1f} mg/l of {element})"
         )
     else:
         test_title = test_type.capitalize() + " factors"
-        #test_input = par_val["lime_prod_ca_pct"]
-
         st.markdown(f"### {test_title}")
         st.markdown(f"**Column pH:** {df['pH'].iloc[0]}")
 
