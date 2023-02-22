@@ -16,21 +16,19 @@ def get_test_settings(test_type):
         param_settings = dict(
             col_name = 'pH',
             xlabel = 'pH (-)',
-            percent_factor = 100,
-            od_factor = {
-                'A': 1,
-                'B': 1,
-                'C': 1,
-                'D': 1,
-                'E': 1,
+            lime_dose = {
+                'A': 10,
+                'B': 10,
+                'C': 10,
+                'D': 10,
+                'E': 10,
             },
         )
     else:
         param_settings = dict(
             col_name = 'Lime_added_mg/l',
             xlabel = 'Lime added (mg/l)',
-            percent_factor = 1,
-            od_factor = {
+            lime_dose = {
                 'A': 10,
                 'B': 20,
                 'C': 35,

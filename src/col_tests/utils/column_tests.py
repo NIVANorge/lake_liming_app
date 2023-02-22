@@ -1,18 +1,15 @@
 from src.col_tests.utils.inst_dissolution import get_inst_dissolution
 
 
-def get_test_results(df, element, test_input, test_type="instantaneous", method="trapezoidal"):
+def get_test_results(df, element, element_prop, test_type="instantaneous", method="trapezoidal"):
     """Calculate results for either the instantaneous dissolution or
     overdosing factor column tests. This involves estimating the area
     under a curve. Two methods for solving this are supported.
 
     Args
         df:         DataFrame. Data from a test result worksheet of the template.
-        test_input: Float. For instantaneous test:
-                        Expected Ca concentration in the column if all dissolved
-                        and evenly mixed
-                    For overdosing test:
-                        Percentage of Ca in the lime being tested.
+        element:    Str. Chemical element. Either 'Ca' or 'Mg'
+        element_prop:   Float. Proportion of the element in lime by mass
         test_type:  Str. Default 'instantaneous'. Either 'instantaneous' or 'overdosing'.
         method:     Str. Default 'trapezoidal'. Either 'trapezoidal' or 'simpson'.
                     Method to use for integration. See
@@ -29,7 +26,7 @@ def get_test_results(df, element, test_input, test_type="instantaneous", method=
         for overdosing test.
     """
 
-    res_df = get_inst_dissolution(df, element, test_input, test_type, method)
+    res_df = get_inst_dissolution(df, element, element_prop, test_type, method)
 
     # Adjust the dissolution to overdosing factor if needed
     if (test_type == 'overdosing'):

@@ -24,42 +24,44 @@ def integrate(y, x, method):
     return res
 
 
-def calculate_inst_dissolution(col_groups, element, test_input, test_type, method):
+def calculate_inst_dissolution(col_groups, element, element_prop, test_type, method):
     """ Calculates instantaneous dissolution for test columns.
 
     Args
         col_groups:     DataFrameGroupBy. DataFrame of input data grouped by test columns
         element:        Str. Chemical element for which to calculate. Either 'Ca' or 'Mg'
-        test_input:     Float. Test parameter value
+        element_prop:   Float. Proportion of the element in lime by mass
         test_type:      Str. Type of the test. Either 'instantaneous' or 'overdosing'
         method:         Str. Approximation rule. Either 'trapezoidal' or 'simpson'
 
     Returns
         inst_dist_list: List of instantaneous dissolution values for each test column
     """
+    import streamlit as st
     inst_diss_list = []
     param_settings = get_test_settings(test_type)
 
     for col, col_df in col_groups:
+        lime_dose = param_settings['lime_dose'][col]
         col_df.sort_values("Depth_m", inplace=True)
         ys = col_df[element + "_mg/l"].values
         xs = col_df["Depth_m"].values
         xmin, xmax = xs.min(), xs.max()
 
         res = integrate(ys, xs, method)
-        inst_diss_pct = param_settings['percent_factor'] * res / (param_settings['od_factor'][col] * test_input * (xmax - xmin))
+        inst_diss_pct = 100 * res / (lime_dose * element_prop * (xmax - xmin))
         inst_diss_list.append(inst_diss_pct)
 
     return inst_diss_list
 
 
-def get_inst_dissolution(df, element, test_input, test_type, method):
+def get_inst_dissolution(df, element, element_prop, test_type, method):
     """ Creates DataFrame of instantaneous dissolution results.
 
     Args
         df:         DataFrame of original input data (worksheet of the template)
         element:    Str. Chemical element for which to create the result df. Either 'Ca' or 'Mg'
-        test_input: Float. Test parameter value
+        element_prop:   Float. Proportion of the element in lime by mass
         test_type:  Str. Type of the test. Either 'instantaneous' or 'overdosing'
         method:     Str. Approximation rule. Either 'trapezoidal' or 'simpson'
 
@@ -73,7 +75,7 @@ def get_inst_dissolution(df, element, test_input, test_type, method):
     col_list = df["Column"].unique().tolist()
     x_list = df[param_settings['col_name']].unique().tolist()
 
-    inst_diss_list_pct = calculate_inst_dissolution(col_groups, element, test_input, test_type, method)
+    inst_diss_list_pct = calculate_inst_dissolution(col_groups, element, element_prop, test_type, method)
 
     res_df = pd.DataFrame(
         {

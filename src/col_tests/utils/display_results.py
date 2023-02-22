@@ -4,27 +4,27 @@ import streamlit as st
 from src.col_tests.utils.column_tests import get_test_results
 
 
-def get_lime_added(par_val_dict, element):
-    """ Calculates lime and element concentration.
+def get_concentrations(par_val_dict, element):
+    """ Calculates lime and element concentrations
+    as well as proportion of the element in lime by mass.
 
     Args
         par_val_dict:   Dict. Dictionary of parameter values from parameter worksheet
         element:        Str. Chemical element to use. Either 'Ca' or 'Mg'
 
     Returns
-        Tuple of lime and element concentrations as floats.
+        Tuple of lime and element concentration and element proportion as floats.
     """
 
     lime_conc_all_dis = (
         1000 * par_val_dict["mass_lime_g"] / par_val_dict["water_vol_l"]
        )
 
-    if (element == "Ca"):
-        element_conc_all_dis = lime_conc_all_dis * par_val_dict["lime_prod_ca_pct"] / 100
-    else:
-        element_conc_all_dis = lime_conc_all_dis * par_val_dict["lime_prod_mg_pct"] / 100
+    element_percentage = par_val_dict[f'lime_prod_{element.lower()}_pct']
+    element_prop = element_percentage / 100
+    element_conc_all_dis = lime_conc_all_dis * element_prop
 
-    return lime_conc_all_dis, element_conc_all_dis
+    return lime_conc_all_dis, element_conc_all_dis, element_prop
 
 
 def plot_and_table(df, title):
@@ -110,12 +110,14 @@ def display_results(par_val, df, element="Ca", test_type="instantaneous", method
         "simpson",
     ), "'method' must be either 'trapezoidal' or 'simpson'."
 
+    lime_conc, element_conc, element_prop = get_concentrations(par_val, element)
+
     if (test_type == "instantaneous"):
 
-        lime_conc, element_conc = get_lime_added(par_val, element)
+        #lime_conc, element_conc = get_lime_added(par_val, element)
 
         test_title = test_type.capitalize() + " dissolution"
-        test_input = element_conc
+        #test_input = element_conc
 
         st.markdown(f"### {test_title}")
         st.markdown(
@@ -123,11 +125,11 @@ def display_results(par_val, df, element="Ca", test_type="instantaneous", method
         )
     else:
         test_title = test_type.capitalize() + " factors"
-        test_input = par_val["lime_prod_ca_pct"]
+        #test_input = par_val["lime_prod_ca_pct"]
 
         st.markdown(f"### {test_title}")
         st.markdown(f"**Column pH:** {df['pH'].iloc[0]}")
 
-    results_df = get_test_results(df, element, test_input, test_type, method)
+    results_df = get_test_results(df, element, element_prop, test_type, method)
 
     plot_and_table(results_df, f"{test_title} test")
