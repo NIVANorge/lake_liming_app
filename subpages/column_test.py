@@ -33,7 +33,13 @@ def app():
             """
             )
 
-            st.subheader(":blue[Calcium results]")
+            def subheader(str):
+                st.markdown(
+                    f'<p style="color:#0047AB;font-size:28px;padding-top:10px"><b>{str}</b></p>',
+                    unsafe_allow_html=True,
+                )
+
+            subheader("Calcium results")
             left_col, right_col = st.columns(2)
             # Instantaneous test
             with left_col:
@@ -56,7 +62,7 @@ def app():
 
             # Display Mg results if data present
             if (inst_df['Mg_mg/l'].sum() != 0):
-                st.subheader(":blue[Magnesium results]")
+                subheader("Magnesium results")
                 left_col, right_col = st.columns(2)
                 with left_col:
                     # Instantaneous test
