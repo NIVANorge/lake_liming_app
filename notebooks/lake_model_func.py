@@ -253,7 +253,7 @@ def run_ca_model(par_dict, dt=0.01):
     # Hydrology
     V = 1000 * area * 1e6 * mean_depth  # Lake volume in litres
     q_mean = V / (12 * res_time)  # Annual mean flow in litres/month to give res_time
-    q_df = pd.read_excel("relative_discharge_by_month.xlsx", index_col=0)
+    q_df = pd.read_excel("../data/flow_typologies.xlsx", index_col=0)
 
     # Time domain
     months = range(1, n_months + 1)
