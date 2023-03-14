@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 
+from math import floor
+
 from scipy.integrate import odeint
 
 
@@ -65,41 +67,51 @@ def run_ca_model(
     lake,
     lim_param,
     products,
-    dt=0.01,
+    dt=0.1,
 ):
     """Run the model for Ca concentration using parameters from 'par_dict'.
     Args
         par_dict: Dict of model parameters:
                       par_dict = {
                             "C_lake0": C_lake0,
-                            "C_in0": C_in0,
-                            "C_bott0": C_bott0,
                             "pH_lake0": pH_lake0,
                             "lime_prod": lime_prod,
                             "lime_dose": lime_dose,
-                            "lime_month": lime_month,
                             "spr_meth": spr_meth,
                             "K_L": K_L,
-                            "F_active": F_active,
-                            "area": area,
-                            "mean_depth": mean_depth,
+                            "F_sol": F_sol,
                             "res_time": res_time,
                             "flow_profile": flow_profile,
-                            "n_months": n_months,
                         }
+        C_lake0:        Lake Ca concentration (mg/l)
+        pH_lake0:       Lake pH
+        lime_prod:      Name of product. Must be in the "database"
+        lime_dose:      Dose as lime (not Ca) in mg/l
+        spr_meth:       Distribution method 'wet' or 'dry'
+        K_L:            Rate of dissolution of "active" bottom lime (month^-1)
+        F_sol:          Proportion of lake-bottom lime that remains "active" (i.e. available for dissolution)
+        res_time:       Residency time (Volume / mean_annual_q)
+        flow_profile:   'none', 'fjell' or 'kyst'
+
+        C_in0:      Lake inflow concentration (mg/l)
+        C_bott0:    "Active" lime on the lake bottom at t=0 (mg/l)
+        lime_month: Month in which lime is added. Must be < 'n_months'
+        area:       Lake area (km2)
+        mean_depth: Lake's mean depth (m)
+        n_months:   Number of months to simulate
         dt:         Float between 0 and 1 (months). Time resolution in decimal
                     months for evaluating the model within each monthly time step.
                     NOTE: This parameter does not affect how the ODEs are solved
                     (that is handled automatically). It simply sets the level of
                     temporal detail in the output. Larger values run faster, but
-                    give coarser output. Default 0.01.
+                    give coarser output. Default 0.1.
     Returns
         Dataframe with time index (in decimal months) and Ca concentration.
     """
     # Unpack parameters
     C_lake0, C_in0, C_bott0, pH_lake0 = init_cond
     area, mean_depth, res_time, flow_profile = lake
-    lime_prod, lime_dose, lime_month, spr_meth, K_L, F_active, n_months = lim_param
+    lime_prod, lime_dose, lime_month, spr_meth, K_L, F_sol, n_months = lim_param
     par_dict = {
         "C_lake0": C_lake0,
         "pH_lake0": pH_lake0,
@@ -107,14 +119,14 @@ def run_ca_model(
         "lime_dose": lime_dose,
         "spr_meth": spr_meth,
         "K_L": K_L,
-        "F_active": F_active,
+        "F_sol": F_sol,
         "res_time": res_time,
         "flow_profile": flow_profile,
     }
 
     LIME_DATA = products
 
-    if spr_meth == "dry":
+    if spr_meth == "Dry":
         spr_fac = LIME_DATA[lime_prod]["DryFac"]
     else:
         spr_fac = 1
@@ -136,8 +148,11 @@ def run_ca_model(
     q_df = pd.read_excel("data/flow_typologies.xlsx", index_col=0)
 
     # Time domain
-    months = range(1, n_months + 1)
+    months = list(round(x / 10, 1) for x in range(1, n_months * 10 + 1))
     month_ids = (list(range(1, 13)) * n_months)[:n_months]
+    lime_month_round = round(
+        lime_month, 1
+    )  # rounding up to avoid inconsistencies due to float input
 
     # Loop  over months
     C_bott = C_bott0
@@ -145,14 +160,14 @@ def run_ca_model(
     ys = []
     tis = []
     for month in months:
-        if month == lime_month:
+        if month == lime_month_round:
             # Lake concentration immediately increases by C_inst, and some lime
             # is added to the bottom to contribute to 'slow' dissolution
-            C_bott = C_bott + F_active * (ca_dose - C_inst)
+            C_bott = C_bott + F_sol * (ca_dose - C_inst)
             C_lake = C_lake + C_inst
 
         # Estimate flow this month
-        q = q_mean * q_df.loc[month_ids[month - 1], flow_profile]
+        q = q_mean * q_df.loc[month_ids[floor(month) - 1], flow_profile]
 
         # Solve ODEs. NOTE: 'ti' should be a one-month period with the desired time
         # step, 'dt'. For the basic balance of inflow and outflow, ANY one-month
@@ -161,23 +176,25 @@ def run_ca_model(
         # place).
         y0 = [C_lake]
         params = [q, V, C_in0, C_bott, K_L]
-        if month >= lime_month:
+        if month >= lime_month_round:
             ti = np.linspace(
-                month - lime_month, month - lime_month + 1, num=int(1 + 1 / dt)
+                month - lime_month_round,
+                month - lime_month_round + 0.1,
+                num=int(1 + 1 / dt),
             )
         else:
-            ti = np.linspace(month - 1, month, num=int(1 + 1 / dt))
+            ti = np.linspace(month - 0.1, month, num=int(1 + 1 / dt))
         y = odeint(dCdt, y0, ti, args=(params,))
         y = y[:, 0]
-        if month >= lime_month:
-            ti = ti + lime_month - 1
+        if month >= lime_month_round:
+            ti = ti + lime_month_round - 1
         ys.append(y)
         tis.append(ti)
 
         # Update initial conditions for next step
         C_lake = y[-1]
 
-        # Build df from output
+    # Build df from output
     df = pd.DataFrame(
         data=np.concatenate(ys),
         columns=["Ca (mg/l)"],
@@ -189,7 +206,7 @@ def run_ca_model(
         "C_lake0",
         "pH_lake0",
         "K_L",
-        "F_active",
+        "F_sol",
         "flow_profile",
         "lime_prod",
         "lime_dose",
@@ -204,6 +221,7 @@ def run_ca_model(
     # The first and last time points in successive segments are therefore
     # duplicated. Remove these. Also shoft month index by +1 so that e.g.
     # January is between time points 1 and 2 (instead of 0 and 1) etc.
+    df.index = np.round(df.index, 2)
     df = df[~df.index.duplicated(keep="last")]
     df.index = df.index + 1
 
