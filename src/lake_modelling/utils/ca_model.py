@@ -66,39 +66,30 @@ def run_ca_model(
     init_cond,
     lake,
     lim_param,
-    products,
+    LIME_DATA,
     dt=0.1,
 ):
-    """Run the model for Ca concentration using parameters from 'par_dict'.
+    """Run the model for Ca concentration.
     Args
-        par_dict: Dict of model parameters:
-                      par_dict = {
-                            "C_lake0": C_lake0,
-                            "pH_lake0": pH_lake0,
-                            "lime_prod": lime_prod,
-                            "lime_dose": lime_dose,
-                            "spr_meth": spr_meth,
-                            "K_L": K_L,
-                            "F_sol": F_sol,
-                            "res_time": res_time,
-                            "flow_profile": flow_profile,
-                        }
-        C_lake0:        Lake Ca concentration (mg/l)
-        pH_lake0:       Lake pH
-        lime_prod:      Name of product. Must be in the "database"
-        lime_dose:      Dose as lime (not Ca) in mg/l
-        spr_meth:       Distribution method 'wet' or 'dry'
-        K_L:            Rate of dissolution of "active" bottom lime (month^-1)
-        F_sol:          Proportion of lake-bottom lime that remains "active" (i.e. available for dissolution)
-        res_time:       Residency time (Volume / mean_annual_q)
-        flow_profile:   'none', 'fjell' or 'kyst'
-
-        C_in0:      Lake inflow concentration (mg/l)
-        C_bott0:    "Active" lime on the lake bottom at t=0 (mg/l)
-        lime_month: Month in which lime is added. Must be < 'n_months'
-        area:       Lake area (km2)
-        mean_depth: Lake's mean depth (m)
-        n_months:   Number of months to simulate
+        init_cond:  Tuple of initial condition parameters:
+                        C_lake0:        Lake Ca concentration (mg/l)
+                        pH_lake0:       Lake pH
+                        C_in0:      Lake inflow concentration (mg/l)
+                        C_bott0:    "Active" lime on the lake bottom at t=0 (mg/l)
+        lake:       Tuple of lake characteriscs:
+                        area:           Lake area (km2)
+                        mean_depth:     Lake's mean depth (m)
+                        res_time:       Residency time (Volume / mean_annual_q)
+                        flow_profile:   'none', 'fjell' or 'kyst'
+        lim_param:  Tuple of liming paramethers:
+                        lime_prod:      Name of product. Must be in the "database"
+                        lime_dose:      Dose as lime (not Ca) in mg/l
+                        lime_month:     Month in which lime is added. Must be < 'n_months'
+                        spr_meth:       Distribution method 'wet' or 'dry'
+                        K_L:            Rate of dissolution of "active" bottom lime (month^-1)
+                        F_sol:          Proportion of lake-bottom lime that remains "active" (i.e. available for dissolution)
+                        n_months:       Number of months to simulate
+        LIME_DATA:  "Database" of liming products
         dt:         Float between 0 and 1 (months). Time resolution in decimal
                     months for evaluating the model within each monthly time step.
                     NOTE: This parameter does not affect how the ODEs are solved
@@ -123,8 +114,6 @@ def run_ca_model(
         "res_time": res_time,
         "flow_profile": flow_profile,
     }
-
-    LIME_DATA = products
 
     if spr_meth == "Dry":
         spr_fac = LIME_DATA[lime_prod]["DryFac"]

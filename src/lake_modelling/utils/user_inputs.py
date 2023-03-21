@@ -44,8 +44,8 @@ def get_lake_params():
 
 def get_duration():
     st.markdown("### Model setup")
-    n_months = st.number_input("Number of months to simulate", min_value=2, value=12)
-    return n_months
+    n_months = st.number_input("Number of months to simulate", min_value=1, value=12)
+    return n_months + 1
 
 
 def get_lim_param(n_months, products):
