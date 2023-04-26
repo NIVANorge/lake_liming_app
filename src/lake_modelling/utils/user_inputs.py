@@ -58,11 +58,9 @@ def get_lim_param(n_months, products):
     )
     lime_month = col1.number_input(
         "Month in which lime is added, must be less than length of simulation",
-        max_value=float(n_months) - 1.0,
-        value=1.0,
-        min_value=1.0,
-        step=0.1,
-        format="%.1f",
+        max_value=n_months - 1,
+        value=1,
+        min_value=1,
     )
     spr_meth = col2.selectbox("Choose distribution method", ("Wet", "Dry"))
     K_L = col2.number_input(
