@@ -28,42 +28,14 @@ def get_lake_params():
 def get_prod_and_duration(products):
     col1, col2 = st.columns(2)
 
+    products.append("Custom Product")
+
     col1.markdown("### Liming products")
     prod_name = col1.selectbox("Choose liming product", (products))
+    if prod_name == "Custom Product":
+        st.text("Input for custom liming product to be implemented")
 
     col2.markdown("### Simulation length")
     n_months = col2.number_input("Number of months to simulate", min_value=1, value=24)
 
     return (prod_name, n_months + 1)
-
-
-def get_lim_param(n_months, products):
-    st.markdown("### Liming product")
-    col1, col2 = st.columns(2)
-
-    lime_prod = col1.selectbox("Choose liming product", (products))
-    lime_dose = col1.number_input(
-        'Liming "dose" (mg-lime/l)', min_value=0.0, value=10.0
-    )
-    lime_month = col1.number_input(
-        "Month in which lime is added, must be less than length of simulation",
-        max_value=n_months - 1,
-        value=1,
-        min_value=1,
-    )
-    spr_meth = col2.selectbox("Choose distribution method", ("Wet", "Dry"))
-    K_L = col2.number_input(
-        "Lime dissoltuion rate on the bottom of the lake (month^-1)",
-        min_value=0.0,
-        value=1.0,
-    )
-    F_sol = col2.number_input(
-        'Proportion of lake-bottom lime that remains "soluble" (i.e. available for dissolution)',
-        min_value=0.0,
-        max_value=1.0,
-        value=0.4,
-    )
-
-    lim_param = (lime_prod, lime_dose, lime_month, spr_meth, K_L, F_sol, n_months)
-
-    return lim_param
