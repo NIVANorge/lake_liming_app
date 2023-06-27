@@ -6,8 +6,6 @@ from src.lake_modelling.utils.read_products import (
     lime_products,
 )
 
-from src.lake_modelling.utils.ca_model import run_ca_model
-
 from src.lake_modelling.utils.user_inputs import (
     get_prod_and_duration,
     get_lake_params,
