@@ -1,5 +1,4 @@
 import streamlit as st
-import altair as alt
 
 from src.lake_modelling.utils.read_products import (
     lime_product_names,
@@ -34,27 +33,12 @@ def app():
 
     new_model = Model(lake=new_lake, lime_product=new_prod, n_months=n_months)
 
-    df = new_model.run()
+    st.markdown("## Result")
 
-    st.markdown("## New Model Result")
-    ph_chart = (
-        alt.Chart(df)
-        .mark_line()
-        .encode(x=alt.X("date", axis=alt.Axis(title="Months", grid=True)), y="pH")
+    plot_lib = st.selectbox(
+        "Choose a plotting library:", options=["Altair", "Matplotlib"]
     )
-    ca_chart = (
-        alt.Chart(df)
-        .mark_line()
-        .encode(
-            x=alt.X(
-                "date",
-                axis=alt.Axis(title="Months", grid=True),
-            ),
-            y=alt.Y("Delta Ca (mg/l)", axis=alt.Axis(title="\u0394Ca (mg/l)")),
-        )
-    )
-    st.altair_chart(ca_chart, use_container_width=True)
-    st.altair_chart(ph_chart, use_container_width=True)
-    # st.altair_chart(alt.vconcat(ca_chart, ph_chart), use_container_width=True)
+
+    new_model.plot_result(plot_lib)
 
     return None

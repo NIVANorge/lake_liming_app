@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 
 import streamlit as st
 import matplotlib.pyplot as plt
+import altair as alt
 import numpy as np
 import pandas as pd
 from scipy.integrate import odeint
@@ -581,19 +582,51 @@ class Model:
 
         return df
 
-    def plot_result(self):
+    def plot_result(self, lib):
         """Plot results using Matplotlib.
 
         TO DO: Generalise to take an argument that switches between
         Matplotlib and Altair.
         """
         # Make sure results are up-to-date
-        self.run()
-        df = self.result_df.copy()
-        df.set_index("date", inplace=True)
-        df = df.resample("D").mean()
-        axes = df.plot(subplots=True, legend=False, title=self.lime_product._name)
-        axes[0].set_ylabel("$\Delta Ca_{ekv}$ (mg/l)")
-        axes[1].set_ylabel("Lake pH (-)")
-        axes[1].set_xlabel("")
-        plt.tight_layout()
+        df = self.run()
+
+        if lib == "Matplotlib":
+            # Matplotlib charts
+            df = self.result_df.copy()
+            df.set_index("date", inplace=True)
+            df = df.resample("D").mean()
+            axes = df.plot(subplots=True, legend=False, title=self.lime_product._name)
+            axes[0].set_ylabel("$\Delta Ca_{ekv}$ (mg/l)")
+            axes[1].set_ylabel("Lake pH (-)")
+            axes[1].set_xlabel("")
+            plt.tight_layout()
+            st.set_option("deprecation.showPyplotGlobalUse", False)
+            st.pyplot()
+        else:
+            # Altait charts
+            ph_chart = (
+                alt.Chart(df)
+                .mark_line()
+                .encode(
+                    x=alt.X("date", axis=alt.Axis(title="Months", grid=True)), y="pH"
+                )
+                .properties(width=600, height=200)
+            )
+            ca_chart = (
+                alt.Chart(df)
+                .mark_line()
+                .encode(
+                    x=alt.X(
+                        "date",
+                        axis=alt.Axis(title=" ", grid=True, labels=False),
+                    ),
+                    y=alt.Y(
+                        "Delta Ca (mg/l)",
+                        axis=alt.Axis(title="\u0394Ca (mg/l)"),
+                        # scale=alt.Scale(zero=False),
+                    ),
+                )
+                .properties(width=600, height=200)
+            )
+            st.altair_chart(alt.vconcat(ca_chart, ph_chart), use_container_width=True)
