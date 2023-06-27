@@ -9,6 +9,8 @@ from scipy.interpolate import interp1d
 
 plt.style.use("ggplot")
 
+LIME_PRODUCTS_DATA = "data/lime_products.xlsx"
+
 
 class Lake:
     def __init__(
@@ -218,7 +220,7 @@ class LimeProduct:
         Returns
             None. Attributes are updated
         """
-        df = pd.read_excel("data/lime_products.xlsx", index_col=0)
+        df = pd.read_excel(LIME_PRODUCTS_DATA, index_col=0)
         if name not in df.columns:
             raise KeyError(f"Lime product '{name}' not found in database.")
 

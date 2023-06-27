@@ -2,48 +2,41 @@ import streamlit as st
 import altair as alt
 
 from src.lake_modelling.utils.read_products import (
-    get_lime_product_names,
-    get_lime_products,
+    lime_product_names,
+    lime_products,
 )
 
 from src.lake_modelling.utils.ca_model import run_ca_model
 
 from src.lake_modelling.utils.user_inputs import (
-    get_duration,
-    get_initial_cond,
+    get_prod_and_duration,
     get_lake_params,
-    get_lim_param,
 )
 
-from src.lake_modelling.utils.lake_model import Model, Lake, LimeProduct
+from src.lake_modelling.utils.lake_model import (
+    Model,
+    Lake,
+    LimeProduct,
+    LIME_PRODUCTS_DATA,
+)
 
 from src.lake_modelling.utils.plot import plot_result
-
-LIME_PRODUCTS_DATA = "data/lime_products.xlsx"
 
 
 def app():
     """Main function for the 'lake_modelling' page."""
     st.markdown("## Lake modelling")
 
-    init_cond = get_initial_cond()
+    products = lime_product_names(lime_products(LIME_PRODUCTS_DATA))
+    # st.text(products)
+    area, depth, tau, flow_prof, pH_lake0, colour_lake0 = get_lake_params()
 
-    lake = get_lake_params()
+    name, n_months = get_prod_and_duration(products)
 
-    n_months = get_duration()
+    new_lake = Lake(area, depth, tau, flow_prof, pH_lake0, colour_lake0)
+    new_prod = LimeProduct(name)
 
-    products = get_lime_products(LIME_PRODUCTS_DATA)
-
-    lim_param = get_lim_param(n_months, get_lime_product_names(products))
-
-    ca_sim = run_ca_model(init_cond, lake, lim_param, products)
-
-    # plot_result(ca_sim.reset_index(), "index", "Ca (mg/l)")
-
-    new_lake = Lake()
-    new_prod = LimeProduct("SK2")
-
-    new_model = Model(new_lake, new_prod)
+    new_model = Model(lake=new_lake, lime_product=new_prod, n_months=n_months)
 
     df = new_model.run()
 
