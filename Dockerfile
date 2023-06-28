@@ -1,21 +1,19 @@
-FROM python:3.9-slim
+FROM python:3.10.6
 
 WORKDIR /app
 
-RUN apt-get update -qq && apt-get -y --no-install-recommends install \
-    build-essential \
-    curl \
-    software-properties-common &&\
+RUN apt-get update -qq &&\
     rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt ./requirements.txt
+RUN pip3 install -r requirements.txt
 
 COPY app.py ./app.py
 COPY /src ./src
 COPY /subpages ./subpages
 COPY /data ./data
-COPY /images    ./images 
-COPY requirements.txt ./requirements.txt
+COPY /images ./images 
 
-RUN pip3 install -r requirements.txt
 
 EXPOSE 8501
 
