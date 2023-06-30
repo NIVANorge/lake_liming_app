@@ -3,18 +3,14 @@ title: "Vassdragskalking app dokumentasjon"
 number-sections: true
 ---
 
-This website provides documentation for the liming application. 
+This website provides documentation for the lake liming application. 
 
-The current pages are just placeholders (in English). 
+The current pages are placeholders (in English). 
 
 ## Overview {#sec-overview}
 
 The application performs two kinds of calculation:
 
- 1. **[Lake modelling](./lake-modelling.qmd)**. Estimate the amount of lime required to achieve a target change in pH (depending on the type of lime, lake characteristics and lime application method).
+ 1. **[Lake modelling](./lake-modelling.qmd)**. Estimate the change in lake pH over time for a given lime dose (depending on the type of lime, lake characteristics and lime application method).
 
- 2. **Summarising data from [column tests](./column-tests.qmd)**. Upload column test data using a standard template and calculate characteristic curves for **instantaneous dissolution** and **overdosing factor**.
- 
-
-
-
+ 2. Summarising data from **[column tests](./column-tests.qmd)**. Upload column test data using a standard template and calculate characteristic curves for **instantaneous dissolution** and **overdosing factor**.

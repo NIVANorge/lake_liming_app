@@ -13,7 +13,7 @@ For each type of lime, we would like to know the proportion that will dissolve "
 
 ### Varying pH {#sec-vary-ph}
 
-For the first set of tests, columns `A` to `E` are adjusted to have pH values of 4, 4.5, 5, 5.5 and 6, respectively. 0.579 g of dried lime are then added to the top of each column, corresponding to a uniform **dose** of 10 mg/l of lime. If all of this dissolves and mixes evenly, the total mass of Ca or Mg dissolved in the column between any two depths $x_1$ and $x_2$ (where $x_2 > x_1$) is given by
+For the first set of tests, columns `A` to `E` are adjusted to have pH values of 4, 4.5, 5, 5.5 and 6, respectively. 0.579 g of dried lime are added to the top of each column, corresponding to a uniform **dose** of 10 mg/l of lime. If all of this dissolves and mixes evenly, the total mass of Ca or Mg dissolved in the column between any two depths $x_1$ and $x_2$ (where $x_2 > x_1$) is given by
 
 $$
 M_{par} = 10 F_{par} A (x_2 - x_1)
@@ -42,10 +42,10 @@ $$ {#eq-conc-depth-integral}
 The overall proportion of the available Ca that has dissolved, called the **instantaneous dissolution**, can then be obtained by dividing @eq-conc-depth-integral by @eq-evenly-mixed, both evaluated between 0 and 1.6 m depth (and the same calculation performed for magnesium, if relevant).
 
 $$
-D_{inst} = \frac{\int_{0}^{2} C(x) \ dx}{10 F_{Ca} (2 - 0)}
+D_{inst} = \frac{\int_{0}^{1.6} C(x) \ dx}{10 F_{Ca} (1.6 - 0)}
 $$ {#eq-inst-diss}
 
-The integral in @eq-inst-diss can be approximated from the measured data using e.g. [Simpson's rule](https://en.wikipedia.org/wiki/Simpson%27s_rule) or the [trapezoidal rule](https://en.wikipedia.org/wiki/Trapezoidal_rule). By default, the application uses the trapezoidal rule.
+The integral in @eq-inst-diss can be approximated from the measured data (@tbl-instantaneous-dissolution) using e.g. [Simpson's rule](https://en.wikipedia.org/wiki/Simpson%27s_rule) or the [trapezoidal rule](https://en.wikipedia.org/wiki/Trapezoidal_rule). By default, the application uses the trapezoidal rule.
 
 The main output from the first experiment is a set instantaneous dissolution values (usually expressed in percent) showing how the **dissolution changes with initial pH at a fixed dose** (@fig-instantaneous-dissolution-curve).
 
@@ -53,7 +53,7 @@ The main output from the first experiment is a set instantaneous dissolution val
 
 ### Varying dose {#sec-vary-dose}
 
-In the second experiment, columns `A` to `E` are fixed at pH 4.6 and different doses are added to each column, corresponding to lime concentrations of 10, 20, 35, 50 and 85 mg/l (assuming complete dissolution). The columns are again left to equilibrate for **16 hours** and the **instantaneous dissolution** for each column is determined using the procedure described in @sec-vary-ph. 
+In the second experiment, columns `A` to `E` are fixed at pH 4.5 and different doses are added to each column, corresponding to lime concentrations of 10, 20, 35, 50 and 85 mg/l (assuming complete dissolution). The columns are again left to equilibrate for **16 hours** and the **instantaneous dissolution** for each column is determined using the procedure described in @sec-vary-ph. 
 
 ### Combining datasets {#sec-combining}
 
