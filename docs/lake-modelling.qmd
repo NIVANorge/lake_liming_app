@@ -133,7 +133,7 @@ The model defined above is capable of simulating how pH and Ca concentration (an
 
 To avoid having to specify all these parameters when comparing different lime products, it is common to consider a **standard lake** with an area of 20 ha, mean depth of 5 m and mean residence time of 0.7 years. These parameters, in turn, define the mean annual discharge. If desired, this can be modified by selecting a monthly **flow profile** (`fjell` or `kyst`; see @fig-flow-profiles), which adjusts the flows up or down in each month, but in such a way that the overall annual average maintains a residence time of 0.7 years.
 
-![Monthly flow profiles that can be used to modify the default (constant) flows assumed for the "standard lake".](./images/flow_typologies.png){#@fig-flow-profiles}
+![Monthly flow profiles that can be used to modify the default (constant) flows assumed for the "standard lake".](./images/flow_typologies.png){#fig-flow-profiles}
 
 ::: {.callout-note}
 **Some additional initial comments from Atle:**
