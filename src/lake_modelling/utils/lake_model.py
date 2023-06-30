@@ -139,21 +139,46 @@ class Lake:
                 "'pH_0' and 'A_pH' are undefined for lakes with the specified initial pH and colour."
             )
 
-    def plot_flow_profile(self):
+    def plot_flow_profile(self, lib):
         """Plot monthly flows using Matplotlib.
 
         TO DO: Generalise to take an argument that switches between
         Matplotlib and Altair.
         """
+
         months = range(1, 13)
         q_lpmon = np.array([self.monthly_flows[i] for i in months])
         q_m3ps = q_lpmon / (1000 * 60 * 60 * 24 * 30)
+
+        df_flow = pd.DataFrame({"Month": months, "Discharge ($m^3/s$)": q_m3ps})
+
         q_mean = self.mean_annual_flow / (1000 * 60 * 60 * 24 * 30)
-        plt.plot(months, q_m3ps, "ro-")
-        plt.axhline(q_mean, c="k", ls="--", label="Annual mean")
-        plt.xlabel("Month")
-        plt.ylabel("Discharge ($m^3/s$)")
-        plt.legend()
+
+        df_mean = pd.DataFrame(
+            {"Month": [1, 12], "Discharge ($m^3/s$)": [q_mean, q_mean]}
+        )
+
+        if lib == "Matplotlib":
+            plt.plot(months, q_m3ps, "ro-")
+            plt.axhline(q_mean, c="k", ls="--", label="Annual mean")
+            plt.xlabel("Month")
+            plt.ylabel("Discharge ($m^3/s$)")
+            plt.legend()
+            st.set_option("deprecation.showPyplotGlobalUse", False)
+            st.pyplot()
+        else:
+            c = (
+                alt.Chart(df_flow)
+                .mark_line()
+                .encode(x="Month", y="Discharge ($m^3/s$)")
+            )
+            l = (
+                alt.Chart(df_mean)
+                .mark_line(color="black", strokeDash=[8, 8])
+                .encode(x="Month", y="Discharge ($m^3/s$)")
+            )
+            # TO DO: add annual mean line legend
+            st.altair_chart(c + l, use_container_width=True)
 
 
 class LimeProduct:
@@ -263,30 +288,64 @@ class LimeProduct:
 
         return id_d10 / od_ph46
 
-    def plot_column_data(self):
+    def plot_column_data(self, lib):
         """Plot column test data using Matplotlib.
 
         TO DO: Generalise to take an argument that switches between
         Matplotlib and Altair.
         """
-        fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(8, 4))
 
-        # ID values at dose = 10 mg/l
-        axes[0].plot([4, 4.5, 5, 5.5, 6], self.id_list, "ro-")
-        axes[0].set_ylim(bottom=0)
-        axes[0].set_title(f"{self.col_depth} m column; 10 mg/l of lime", fontsize=14)
-        axes[0].set_ylabel("Instantaneous dissolution (%)")
-        axes[0].set_xlabel("Column pH (-)")
+        if lib == "Matplotlib":
+            fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(8, 4))
 
-        # OD values at pH 4.6
-        axes[1].plot([10, 20, 35, 50, 85], self.od_list, "ro-")
-        axes[1].set_ylim(bottom=0)
-        axes[1].set_title(f"{self.col_depth} m column; pH 4.6", fontsize=14)
-        axes[1].set_ylabel("Overdosing factor (-)")
-        axes[1].set_xlabel("Lime dose (mg/l)")
+            # ID values at dose = 10 mg/l
+            axes[0].plot([4, 4.5, 5, 5.5, 6], self.id_list, "ro-")
+            axes[0].set_ylim(bottom=0)
+            axes[0].set_title(
+                f"{self.col_depth} m column; 10 mg/l of lime", fontsize=14
+            )
+            axes[0].set_ylabel("Instantaneous dissolution (%)")
+            axes[0].set_xlabel("Column pH (-)")
 
-        fig.suptitle(self._name, fontsize=16)
-        plt.tight_layout()
+            # OD values at pH 4.6
+            axes[1].plot([10, 20, 35, 50, 85], self.od_list, "ro-")
+            axes[1].set_ylim(bottom=0)
+            axes[1].set_title(f"{self.col_depth} m column; pH 4.6", fontsize=14)
+            axes[1].set_ylabel("Overdosing factor (-)")
+            axes[1].set_xlabel("Lime dose (mg/l)")
+
+            fig.suptitle(self._name, fontsize=16)
+            plt.tight_layout()
+            st.set_option("deprecation.showPyplotGlobalUse", False)
+            st.pyplot()
+        else:
+            inst_diss = pd.DataFrame(
+                {
+                    "Column pH (-)": [4, 4.5, 5, 5.5, 6],
+                    "Instantaneous dissolution (%)": self.id_list,
+                }
+            )
+            chart_1 = (
+                alt.Chart(inst_diss)
+                .mark_line()
+                .encode(x="Column pH (-)", y="Instantaneous dissolution (%)")
+                .properties(width=250, height=200)
+            )
+            over_fac = pd.DataFrame(
+                {
+                    "Lime dose (mg/l)": [10, 20, 35, 50, 85],
+                    "Overdosing factor (-)": self.od_list,
+                }
+            )
+            chart_2 = (
+                alt.Chart(over_fac)
+                .mark_line()
+                .encode(x="Lime dose (mg/l)", y="Overdosing factor (-)")
+                .properties(width=250, height=200)
+            )
+            # TO DO: add chart titles
+            st.altair_chart(alt.hconcat(chart_1, chart_2), use_container_width=True)
+            pass
 
 
 class Model:
