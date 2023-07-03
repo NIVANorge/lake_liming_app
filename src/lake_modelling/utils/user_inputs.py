@@ -25,17 +25,19 @@ def get_lake_params():
     return lake_params
 
 
-def get_prod_and_duration(products):
-    col1, col2 = st.columns(2)
-
+def get_product(products):
     products.append("Custom Product")
 
-    col1.markdown("### Liming products")
-    prod_name = col1.selectbox("Choose liming product", (products))
+    st.markdown("### Liming products")
+    prod_name = st.selectbox("Choose liming product", (products))
     if prod_name == "Custom Product":
         st.text("Input for custom liming product to be implemented")
 
-    col2.markdown("### Simulation length")
-    n_months = col2.number_input("Number of months to simulate", min_value=1, value=24)
+    return prod_name
 
-    return (prod_name, n_months + 1)
+
+def get_duration():
+    st.markdown("### Simulation length")
+    n_months = st.number_input("Number of months to simulate", min_value=1, value=24)
+
+    return n_months + 1

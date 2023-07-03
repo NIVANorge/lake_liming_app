@@ -6,7 +6,8 @@ from src.lake_modelling.utils.read_products import (
 )
 
 from src.lake_modelling.utils.user_inputs import (
-    get_prod_and_duration,
+    get_product,
+    get_duration,
     get_lake_params,
 )
 
@@ -31,10 +32,11 @@ def app():
     new_lake = Lake(area, depth, tau, flow_prof, pH_lake0, colour_lake0)
     new_lake.plot_flow_profile(plot_lib)
 
-    name, n_months = get_prod_and_duration(products)
+    name = get_product(products)
     new_prod = LimeProduct(name)
     new_prod.plot_column_data(plot_lib)
 
+    n_months = get_duration()
     new_model = Model(lake=new_lake, lime_product=new_prod, n_months=n_months)
     st.markdown("## Result")
 
