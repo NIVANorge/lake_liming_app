@@ -5,8 +5,13 @@ on:
       - 'main'
     paths:
       - '.github/workflows/**'
-      - 'dscreator/**'
       - 'Dockerfile'
+      - 'data/**'
+      - 'images/**'
+      - 'src/**'
+      - 'subpages/**'
+      - 'app.py'
+      - 'requirements.txt'
 env:
   IMAGE_NAME: lake-liming
 jobs:
