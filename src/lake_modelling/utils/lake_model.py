@@ -149,14 +149,7 @@ class Lake:
         months = range(1, 13)
         q_lpmon = np.array([self.monthly_flows[i] for i in months])
         q_m3ps = q_lpmon / (1000 * 60 * 60 * 24 * 30)
-
-        df_flow = pd.DataFrame({"Month": months, "Discharge ($m^3/s$)": q_m3ps})
-
         q_mean = self.mean_annual_flow / (1000 * 60 * 60 * 24 * 30)
-
-        df_mean = pd.DataFrame(
-            {"Month": [1, 12], "Discharge ($m^3/s$)": [q_mean, q_mean]}
-        )
 
         if lib == "Matplotlib":
             plt.plot(months, q_m3ps, "ro-")
@@ -167,18 +160,55 @@ class Lake:
             st.set_option("deprecation.showPyplotGlobalUse", False)
             st.pyplot()
         else:
-            c = (
-                alt.Chart(df_flow)
+            df_long_form = pd.DataFrame(
+                {
+                    "Month": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                    ],
+                    "Flow": ["Monthly flow"] * 12 + ["Annual mean"] * 12,
+                    "Discharge (m\u00b3/s)": q_m3ps.tolist() + [q_mean] * 12,
+                }
+            )
+            chart = (
+                alt.Chart(df_long_form)
                 .mark_line()
-                .encode(x="Month", y="Discharge ($m^3/s$)")
+                .encode(
+                    x="Month:N",
+                    y="Discharge (m\u00b3/s):Q",
+                    color="Flow:N",
+                    strokeDash=alt.condition(
+                        alt.datum.Flow == "Annual mean",
+                        alt.value(
+                            [8, 8]
+                        ),  # dashed line: 5 pixels  dash + 5 pixels space
+                        alt.value([0]),  # solid line
+                    ),
+                )
             )
-            l = (
-                alt.Chart(df_mean)
-                .mark_line(color="black", strokeDash=[8, 8])
-                .encode(x="Month", y="Discharge ($m^3/s$)")
-            )
-            # TO DO: add annual mean line legend
-            st.altair_chart(c + l, use_container_width=True)
+            st.altair_chart(chart, use_container_width=True)
 
 
 class LimeProduct:
@@ -325,8 +355,10 @@ class LimeProduct:
                     "Instantaneous dissolution (%)": self.id_list,
                 }
             )
-            chart_1 = (
-                alt.Chart(inst_diss)
+            inst_chart = (
+                alt.Chart(
+                    inst_diss, title=f"{self.col_depth} m column; 10 mg/l of lime"
+                )
                 .mark_line()
                 .encode(x="Column pH (-)", y="Instantaneous dissolution (%)")
                 .properties(width=250, height=200)
@@ -337,14 +369,19 @@ class LimeProduct:
                     "Overdosing factor (-)": self.od_list,
                 }
             )
-            chart_2 = (
-                alt.Chart(over_fac)
+            over_chart = (
+                alt.Chart(over_fac, title=f"{self.col_depth} m column; pH 4.6")
                 .mark_line()
                 .encode(x="Lime dose (mg/l)", y="Overdosing factor (-)")
                 .properties(width=250, height=200)
             )
             # TO DO: add chart titles
-            st.altair_chart(alt.hconcat(chart_1, chart_2), use_container_width=True)
+            st.altair_chart(
+                alt.hconcat(inst_chart, over_chart, title=self._name).configure_title(
+                    anchor="middle"
+                ),
+                use_container_width=True,
+            )
             pass
 
 
@@ -668,7 +705,8 @@ class Model:
                 alt.Chart(df)
                 .mark_line()
                 .encode(
-                    x=alt.X("date", axis=alt.Axis(title="Months", grid=True)), y="pH"
+                    x=alt.X("date", axis=alt.Axis(title="Months", grid=True)),
+                    y=alt.Y("pH", axis=alt.Axis(title="Lake pH (-)")),
                 )
                 .properties(width=600, height=200)
             )
@@ -682,7 +720,7 @@ class Model:
                     ),
                     y=alt.Y(
                         "Delta Ca (mg/l)",
-                        axis=alt.Axis(title="\u0394Ca (mg/l)"),
+                        axis=alt.Axis(title="\u0394Ca\u2091\u2096\u1D65 (mg/l)"),
                         # scale=alt.Scale(zero=False),
                     ),
                 )
