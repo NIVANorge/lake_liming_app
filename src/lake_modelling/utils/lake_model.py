@@ -206,7 +206,7 @@ class Lake:
                         ),  # dashed line: 5 pixels  dash + 5 pixels space
                         alt.value([0]),  # solid line
                     ),
-                )
+                ).interactive()
             )
             st.altair_chart(chart, use_container_width=True)
 
