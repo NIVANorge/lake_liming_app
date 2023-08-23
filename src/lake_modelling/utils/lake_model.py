@@ -196,7 +196,7 @@ class Lake:
                 alt.Chart(df_long_form)
                 .mark_line()
                 .encode(
-                    x="Month:N",
+                    alt.X("Month:N", axis=alt.Axis(labelAngle=0)),
                     y="Discharge (m\u00b3/s):Q",
                     color="Flow:N",
                     strokeDash=alt.condition(
@@ -206,7 +206,9 @@ class Lake:
                         ),  # dashed line: 5 pixels  dash + 5 pixels space
                         alt.value([0]),  # solid line
                     ),
+                    tooltip=["Month:N", "Discharge (m\u00b3/s):Q", "Flow:N"],
                 )
+                .interactive()
             )
             st.altair_chart(chart, use_container_width=True)
 
@@ -360,8 +362,13 @@ class LimeProduct:
                     inst_diss, title=f"{self.col_depth} m column; 10 mg/l of lime"
                 )
                 .mark_line()
-                .encode(x="Column pH (-)", y="Instantaneous dissolution (%)")
+                .encode(
+                    x="Column pH (-)",
+                    y="Instantaneous dissolution (%)",
+                    tooltip=["Column pH (-)", "Instantaneous dissolution (%)"],
+                )
                 .properties(width=250, height=200)
+                .interactive()
             )
             over_fac = pd.DataFrame(
                 {
@@ -372,8 +379,13 @@ class LimeProduct:
             over_chart = (
                 alt.Chart(over_fac, title=f"{self.col_depth} m column; pH 4.6")
                 .mark_line()
-                .encode(x="Lime dose (mg/l)", y="Overdosing factor (-)")
+                .encode(
+                    x="Lime dose (mg/l)",
+                    y="Overdosing factor (-)",
+                    tooltip=["Lime dose (mg/l)", "Overdosing factor (-)"],
+                )
                 .properties(width=250, height=200)
+                .interactive()
             )
             # TO DO: add chart titles
             st.altair_chart(
@@ -707,8 +719,10 @@ class Model:
                 .encode(
                     x=alt.X("date", axis=alt.Axis(title="Months", grid=True)),
                     y=alt.Y("pH", axis=alt.Axis(title="Lake pH (-)")),
+                    tooltip=["date", "pH"],
                 )
                 .properties(width=600, height=200)
+                .interactive()
             )
             ca_chart = (
                 alt.Chart(df)
@@ -716,14 +730,16 @@ class Model:
                 .encode(
                     x=alt.X(
                         "date",
-                        axis=alt.Axis(title=" ", grid=True, labels=False),
+                        axis=alt.Axis(title=" ", grid=True),
                     ),
                     y=alt.Y(
                         "Delta Ca (mg/l)",
                         axis=alt.Axis(title="\u0394Ca\u2091\u2096\u1D65 (mg/l)"),
                         # scale=alt.Scale(zero=False),
                     ),
+                    tooltip=["date", "Delta Ca (mg/l)"],
                 )
                 .properties(width=600, height=200)
+                .interactive()
             )
             st.altair_chart(alt.vconcat(ca_chart, ph_chart), use_container_width=True)
