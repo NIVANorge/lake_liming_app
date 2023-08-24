@@ -206,7 +206,7 @@ class Lake:
                         ),  # dashed line: 5 pixels  dash + 5 pixels space
                         alt.value([0]),  # solid line
                     ),
-                    tooltip=["Month:N", "Discharge (m\u00b3/s):Q", "Flow:N"],
+                    tooltip=["Month:N", alt.Tooltip("Discharge (m\u00b3/s):Q", format=",.2f"), "Flow:N"],
                 )
                 .interactive()
             )
@@ -719,7 +719,7 @@ class Model:
                 .encode(
                     x=alt.X("date", axis=alt.Axis(title="Months", grid=True)),
                     y=alt.Y("pH", axis=alt.Axis(title="Lake pH (-)")),
-                    tooltip=["date", "pH"],
+                    tooltip=["date", alt.Tooltip("pH", format=",.2f")],
                 )
                 .properties(width=600, height=200)
                 .interactive()
@@ -737,7 +737,7 @@ class Model:
                         axis=alt.Axis(title="\u0394Ca\u2091\u2096\u1D65 (mg/l)"),
                         # scale=alt.Scale(zero=False),
                     ),
-                    tooltip=["date", "Delta Ca (mg/l)"],
+                    tooltip=["date", alt.Tooltip("Delta Ca (mg/l)", format=",.2f")],
                 )
                 .properties(width=600, height=200)
                 .interactive()
