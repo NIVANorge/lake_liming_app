@@ -5,8 +5,8 @@ def get_lake_params():
     st.markdown("### Lake characteristics")
     col1, col2 = st.columns(2)
 
-    area = col1.number_input("Lake area (km2)", min_value=0.01, value=0.2)
-    depth = col1.number_input("Mean lake depth (m)", min_value=0.01, value=5.0)
+    area = col1.number_input("Surface area (km²)", min_value=0.01, value=0.2)
+    depth = col1.number_input("Mean depth (m)", min_value=0.01, value=5.0)
     tau = col1.number_input(
         "Water residence time (years)",
         min_value=0.1,
@@ -15,29 +15,52 @@ def get_lake_params():
         format="%.1f",
     )
     flow_prof = (
-        col2.selectbox("Choose profile", ("None", "Fjell", "Kyst"), index=1)
+        col2.selectbox("Flow profile", ("None", "Fjell", "Kyst"), index=1)
     ).lower()
-    pH_lake0 = col2.number_input("Lake pH", min_value=1.0, max_value=7.0, value=4.5)
-    colour_lake0 = col2.number_input("Lake colour (mgPt/l)", value=10.0)
+    pH_lake0 = col2.number_input("Initial pH", min_value=1.0, max_value=7.0, value=4.5)
+    toc_lake0 = col2.number_input("TOC concentration (mg/l)", min_value=0.0, value=4.0)
 
-    lake_params = (area, depth, tau, flow_prof, pH_lake0, colour_lake0)
+    lake_params = (area, depth, tau, flow_prof, pH_lake0, toc_lake0)
 
     return lake_params
 
 
 def get_product(products):
-    products.append("Custom Product")
+    # products.append("Custom Product")
 
     st.markdown("### Liming products")
     prod_name = st.selectbox("Choose liming product", (products))
-    if prod_name == "Custom Product":
-        st.text("Input for custom liming product to be implemented")
+    # if prod_name == "Custom Product":
+    #     st.text("Input for custom liming product to be implemented")
 
     return prod_name
 
 
-def get_duration():
-    st.markdown("### Simulation length")
-    n_months = st.number_input("Number of months to simulate", min_value=1, value=24)
+def get_model_params():
+    st.markdown("### Model parameters")
+    col1, col2 = st.columns(2)
 
-    return n_months + 1
+    lime_dose = col1.number_input(
+        "Lime dose (mg/l of product)", min_value=0.1, value=10.0
+    )
+    spr_prop = col1.number_input(
+        "Proportion of lake surface area limed (-)", min_value=0.0, max_value=1.0, value=0.5
+    )
+    spr_meth = col1.selectbox("Application method", ("Wet", "Dry"), index=0).lower()
+    lime_month = col1.number_input(
+        "Application month", min_value=1, max_value=12, value=1
+    )
+    F_sol = col2.number_input(
+        "Proportion of lake-bottom lime that remains soluble (-)",
+        min_value=0.0,
+        max_value=1.0,
+        value=0.4,
+    )
+    K_L = col2.number_input(
+        "Dissolution rate for lake-bottom lime (per month)", min_value=0.0, value=1.0
+    )
+    n_months = col2.number_input("Number of months to simulate", min_value=1, value=24)
+
+    model_params = (lime_dose, lime_month, spr_meth, spr_prop, F_sol, K_L, n_months + 1)
+
+    return model_params
