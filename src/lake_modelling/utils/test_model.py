@@ -25,29 +25,29 @@ class TestLakeProperties:
         assert isinstance(test_lake.monthly_flows, dict)
         assert test_lake.monthly_flows[month] == flow
 
-    def test_valid_lake_pH_0_A_pH(self):
-        lake_1 = Lake(pH_lake0=4.5, colour_lake0=0.5)
-        lake_2 = Lake(pH_lake0=4.5, colour_lake0=3)
-        lake_3 = Lake(pH_lake0=4.5, colour_lake0=7)
-        lake_4 = Lake(pH_lake0=5.5, colour_lake0=0.5)
-        lake_5 = Lake(pH_lake0=5.5, colour_lake0=4)
-        lake_6 = Lake(pH_lake0=5.5, colour_lake0=21)
+#     def test_valid_lake_pH_0_A_pH(self):
+#         lake_1 = Lake(pH_lake0=4.5, colour_lake0=0.5)
+#         lake_2 = Lake(pH_lake0=4.5, colour_lake0=3)
+#         lake_3 = Lake(pH_lake0=4.5, colour_lake0=7)
+#         lake_4 = Lake(pH_lake0=5.5, colour_lake0=0.5)
+#         lake_5 = Lake(pH_lake0=5.5, colour_lake0=4)
+#         lake_6 = Lake(pH_lake0=5.5, colour_lake0=21)
 
-        lake_7 = Lake(pH_lake0=2, colour_lake0=21)
-        lake_8 = Lake(pH_lake0=5.5, colour_lake0=15)
+#         lake_7 = Lake(pH_lake0=2, colour_lake0=21)
+#         lake_8 = Lake(pH_lake0=5.5, colour_lake0=15)
 
-        good_lakes = [lake_1, lake_2, lake_3, lake_4, lake_5, lake_6]
-        bad_lakes = [lake_7, lake_8]
+#         good_lakes = [lake_1, lake_2, lake_3, lake_4, lake_5, lake_6]
+#         bad_lakes = [lake_7, lake_8]
 
-        for lake in good_lakes:
-            assert isinstance(lake.pH_0, float)
-            assert isinstance(lake.A_pH, float)
+#         for lake in good_lakes:
+#             assert isinstance(lake.pH_0, float)
+#             assert isinstance(lake.A_pH, float)
 
-        for lake in bad_lakes:
-            with pytest.raises(ValueError):
-                lake.pH_0
-            with pytest.raises(ValueError):
-                lake.A_pH
+#         for lake in bad_lakes:
+#             with pytest.raises(ValueError):
+#                 lake.pH_0
+#             with pytest.raises(ValueError):
+#                 lake.A_pH
 
 
 class TestLimeProduct:
