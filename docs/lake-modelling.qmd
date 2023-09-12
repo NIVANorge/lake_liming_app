@@ -70,7 +70,7 @@ A mass balance "box model" (@fig-box-model) is used to provide an estimate of bo
  * $M_{lake}$ is the mass of Ca dissolved in the lake water (in mg)
  * $C_{lake}$ is the Ca concentration in the lake, equal to $\frac{M_{lake}}{V}$. The lake is assumed to be **well mixed**, such that the outflow concentration, $C_{out}$, is equal to $C_{lake}$
  
-![Schematic illustration of the TPKALK box model for lake calcium concentration for a single lake under the assumption of fixed water volume. Symbols are defined in the text.](./images/box_model.png){#fig-box-model}
+![Schematic illustration of a box model for lake calcium concentration for a single lake under the assumption of fixed water volume. Symbols are defined in the text.](./images/box_model.png){#fig-box-model}
 
 Balancing the main sources and sinks of Ca to the lake gives
 
@@ -121,9 +121,9 @@ The model defined above is capable of simulating how pH and Ca concentration (an
 
  * Lake **volume** (often provided as surface area and mean depth) and **discharge**, which together define the **residence time**. Note that this model assumes the volume is fixed, but discharge can vary over time, if desired.
 
- * **Initial pH and TOC concentration** for the lake. The lake is initially assumed to be in "steady state" i.e. the flow concentration of Ca is equal to the outflow concentration (although this can be changed, if desired).
+ * **Initial pH and TOC concentration** for the lake. The lake is initially assumed to be in "steady state" i.e. the inflow concentration of Ca is equal to the outflow concentration.
 
- * The **dose** of liming material added and the **proportion of Ca and Mg by mass** in the lime. **Overdosing factors** are also relevant for higher doses
+ * The **dose** of liming material added and the **proportion of Ca and Mg by mass** in the lime. **Overdosing factors** are also relevant for higher doses.
 
  * **Lake mean depth** and **Spreading method** (i.e. "wet" or "dry"), both of which are used to adjust the instantaneous dissolution values from column tests (@eq-cor-depth).
 

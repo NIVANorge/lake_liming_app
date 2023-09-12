@@ -17,7 +17,7 @@ class Lake:
         tau=0.7,
         flow_prof="fjell",
         pH_lake0=4.5,
-        colour_lake0=10,
+        toc_lake0=4,
     ):
         """Initialise lake object.
 
@@ -29,7 +29,7 @@ class Lake:
                           annual mean flow). Must be defined in 'flow_typologies.xlsx'
                           One of ('none', 'fjell', 'kyst')
             pH_lake0:     Float. Lake initial pH (dimensionless)
-            colour_lake0: Float. Lake colour (mgPt)
+            toc_lake0:    Float. Lake initial TOC concentration (mg/l)
 
         Returns
             None.
@@ -40,7 +40,7 @@ class Lake:
         self.tau = tau
         self.flow_prof = flow_prof
         self.pH_lake0 = pH_lake0
-        self.colour_lake0 = colour_lake0
+        self.toc_lake0 = toc_lake0
         self._validate_input()
 
         # Fixed attributes
@@ -58,8 +58,8 @@ class Lake:
             "fjell",
             "kyst",
         ), "'flow_prof' must be one of ('none', 'fjell', 'kyst')."
-        assert 1 < self.pH_lake0 < 7, "'pH_lake0' must be between 1 and 7."
-        assert self.colour_lake0 >= 0, "'colour_lake0' must be greater than 0."
+        assert 4.5 <= self.pH_lake0 <= 6.5, "'pH_lake0' must be between 4.5 and 6.5."
+        assert self.toc_lake0 >= 0, "'toc_lake0' must be greater than or equal to 0."
 
     @property
     def volume(self):
@@ -82,58 +82,58 @@ class Lake:
 
         return q_dict
 
-    @property
-    def pH_0(self):
-        return self._get_pH0_ApH()[0]
+    # @property
+    # def pH_0(self):
+    #     return self._get_pH0_ApH()[0]
 
-    @property
-    def A_pH(self):
-        return self._get_pH0_ApH()[1]
+    # @property
+    # def A_pH(self):
+    #     return self._get_pH0_ApH()[1]
 
-    def _get_pH0_ApH(self):
-        """Determine pH_0 and A_pH from lake colour and initial pH. These parameters
-        determine the titration curve used to predict how changes in Ca concentration
-        affect lake pH. Modified from Table 2 of the TPKALK report:
+    # def _get_pH0_ApH(self):
+    #     """Determine pH_0 and A_pH from lake colour and initial pH. These parameters
+    #     determine the titration curve used to predict how changes in Ca concentration
+    #     affect lake pH. Modified from Table 2 of the TPKALK report:
 
-        https://niva.brage.unit.no/niva-xmlui/bitstream/handle/11250/208709/3412_200dpi.pdf?sequence=2&isAllowed=y#page=11
+    #     https://niva.brage.unit.no/niva-xmlui/bitstream/handle/11250/208709/3412_200dpi.pdf?sequence=2&isAllowed=y#page=11
 
-        Args
-            None
+    #     Args
+    #         None
 
-        Returns
-            Tuple (pH_0, A_pH)
-        """
-        # Based on Table 2 dict[(lake_ph, lake_colour)] => (pH_0, A_pH)
-        data_dict = {
-            ("<5", ">=0to<1"): (3.5, 1.5),
-            ("<5", ">=1to<5"): (3.5, 1.5),
-            ("<5", ">=5to<20"): (3.5, 1.5),
-            ("<5", ">=20"): (None, None),
-            (">=5", ">=0to<1"): (3.5, 1.8),
-            (">=5", ">=1to<5"): (3.9, 1.2),
-            (">=5", ">=5to<20"): (None, None),
-            (">=5", ">=20"): (4.3, 0.7),
-        }
+    #     Returns
+    #         Tuple (pH_0, A_pH)
+    #     """
+    #     # Based on Table 2 dict[(lake_ph, lake_colour)] => (pH_0, A_pH)
+    #     data_dict = {
+    #         ("<5", ">=0to<1"): (3.5, 1.5),
+    #         ("<5", ">=1to<5"): (3.5, 1.5),
+    #         ("<5", ">=5to<20"): (3.5, 1.5),
+    #         ("<5", ">=20"): (None, None),
+    #         (">=5", ">=0to<1"): (3.5, 1.8),
+    #         (">=5", ">=1to<5"): (3.9, 1.2),
+    #         (">=5", ">=5to<20"): (None, None),
+    #         (">=5", ">=20"): (4.3, 0.7),
+    #     }
 
-        # Get colour class
-        bins = [0, 1, 5, 20, 1e3]
-        labels = [">=0to<1", ">=1to<5", ">=5to<20", ">=20"]
-        col_class = pd.cut([self.colour_lake0], bins, labels=labels, right=False)[0]
+    #     # Get colour class
+    #     bins = [0, 1, 5, 20, 1e3]
+    #     labels = [">=0to<1", ">=1to<5", ">=5to<20", ">=20"]
+    #     col_class = pd.cut([self.colour_lake0], bins, labels=labels, right=False)[0]
 
-        # Get pH class
-        if self.pH_lake0 < 5:
-            pH_class = "<5"
-        else:
-            pH_class = ">=5"
+    #     # Get pH class
+    #     if self.pH_lake0 < 5:
+    #         pH_class = "<5"
+    #     else:
+    #         pH_class = ">=5"
 
-        # Get pH_0 and A_pH
-        pH_0, A_pH = data_dict[pH_class, col_class]
-        if pH_0:
-            return (pH_0, A_pH)
-        else:
-            raise ValueError(
-                "'pH_0' and 'A_pH' are undefined for lakes with the specified initial pH and colour."
-            )
+    #     # Get pH_0 and A_pH
+    #     pH_0, A_pH = data_dict[pH_class, col_class]
+    #     if pH_0:
+    #         return (pH_0, A_pH)
+    #     else:
+    #         raise ValueError(
+    #             "'pH_0' and 'A_pH' are undefined for lakes with the specified initial pH and colour."
+    #         )
 
     def plot_flow_profile(self):
         """Plot monthly flows using Matplotlib.
@@ -293,6 +293,7 @@ class Model:
         lime_dose=10,
         lime_month=1,
         spr_meth="wet",
+        spr_prop=0.5,
         F_sol=0.4,
         K_L=1,
         n_months=24,
@@ -305,8 +306,9 @@ class Model:
             lime_dose:    Float. Lime dose added (in mg/l)
             lime_month:   Int between 1 and 12. Month in which lime is added
             spr_meth:     Str. Liming method. Either 'wet' or 'dry'
+            spr_prop:     Float between 0 and 1. Fraction of lake surface area that is limed
             F_sol:        Float. Proportion of lake-bottom lime that remains soluble
-            K_L:          Float. Parameter control dissolution rate of lake-bottom lime
+            K_L:          Float. Parameter controlling the dissolution rate of lake-bottom lime
             n_months:     Int. Number of months to simulate, starting at 'lime_month'
         """
         # User-defined attributes
@@ -315,6 +317,7 @@ class Model:
         self.lime_dose = lime_dose
         self.lime_month = lime_month
         self.spr_meth = spr_meth
+        self.spr_prop=spr_prop
         self.F_sol = F_sol
         self.K_L = K_L
         self.n_months = n_months
@@ -322,10 +325,10 @@ class Model:
 
     def _validate_input(self):
         """Check user-supplied values are reasonable."""
-        assert isinstance(self.lake, Lake), "'lake' must be Lake object."
+        assert isinstance(self.lake, Lake), "'lake' must be a Lake object."
         assert isinstance(
             self.lime_product, LimeProduct
-        ), "'lime_product' must be LimeProduct object."
+        ), "'lime_product' must be a LimeProduct object."
         assert self.lime_dose > 0, "'lime_dose' must be greater than 0."
         assert isinstance(self.lime_month, int) and (
             1 <= self.lime_month <= 12
@@ -334,6 +337,7 @@ class Model:
             "wet",
             "dry",
         ), "'spr_meth' must be either 'wet' or 'dry'."
+        assert 0 <= self.spr_prop <= 1, "'spr_prop' must be between 0 and 1."
         assert 0 <= self.F_sol <= 1, "'F_sol' must be between 0 and 1."
         assert self.K_L > 0, "'K_L' must be greater than 0."
         assert isinstance(self.n_months, int) and (
@@ -352,13 +356,17 @@ class Model:
 
     @property
     def C_inst0(self):
-        """Total instantaneous dissolution in Ca-equivalents (mg/l)."""
-        return self._partition_lime_equivalents()[0]
+        """Total instantaneous dissolution in Ca-equivalents (mg/l), allowing for 
+        the proportion of the lake surface that is limed.
+        """
+        return self.spr_prop * self._partition_lime_equivalents()[0]
 
     @property
     def C_bott0(self):
-        """Soluble lake-bottom lime in Ca-equivalents (mg/l)."""
-        return self._partition_lime_equivalents()[1]
+        """Soluble lake-bottom lime in Ca-equivalents (mg/l), allowing for 
+        the proportion of the lake surface that is limed.
+        """
+        return self.spr_prop * self._partition_lime_equivalents()[1]
 
     def _get_effective_ph_for_depth(self, par):
         """To generalise the column test data to lakes with different depths, a
@@ -385,7 +393,7 @@ class Model:
         """Estimate the instantaneous dissolution of the Ca and Mg componets.
         Convert Mg to Ca-equivalents and partition into two fractions: one that
         dissolves "instantly" and another that sinks to the bottom but remains
-        soluble for slow dissolution.
+        available for slow dissolution.
 
         Args
             None
@@ -395,11 +403,11 @@ class Model:
             in lake Ca concentration (in mg/l of Ca-equivalents) due to rapid
             dissolution of CaCO3 and MgCo3; C_bott is the remainder of the lime
             (also in mg/l of Ca-equivalents) that sinks to the bottom of the lake
-            and remains soluble for dissolution.
+            and remains available for dissolution.
         """
         # Molar masses
-        MM_MgCO3 = 84.31
-        MM_CaCO3 = 100.09
+        # MM_MgCO3 = 84.31
+        # MM_CaCO3 = 100.09
         MM_Mg = 24.31
         MM_Ca = 40.08
 
@@ -431,35 +439,28 @@ class Model:
 
     def _pH_from_delta_Ca(self):
         """Build a titration curve linking change in Ca-equivalents to lake pH.
-        The curve is linear for small changes in Ca concentration and logarithmic
-        for larger ones. The "breakpoint" is determined by lake initial pH.
         """
-
-        def titration_curve(delta_ca):
-            """Modified Henderson-Hasselbalch equation for logarithmic portion."""
-            return self.lake.pH_0 + self.lake.A_pH * np.log10(delta_ca)
-
-        # Convert modelled change in Ca to ueq/l
-        delta_ca_mod = self.model_delta_ca_mgpl * 50
-
-        # Determine coordinates of breakpoint
-        if self.lake.pH_lake0 < 5.5:
-            break_point_x = 40
+        # Get TOC class
+        if self.lake.toc_lake0 <= 3:
+            toc_class = "TOC ≤ 3"
+        elif 3 < self.lake.toc_lake0 <= 5:
+            toc_class = "3 < TOC ≤ 5"
         else:
-            break_point_x = 60
-        break_point_y = titration_curve(break_point_x)
+            toc_class = "TOC > 5"
 
-        # Build titration curve
-        delta_ca_lin = np.array([0, break_point_x])
-        ph_lin = np.array([self.lake.pH_lake0, break_point_y])
-        delta_ca_log = np.linspace(break_point_x, delta_ca_mod.max(), 100)
-        ph_log = titration_curve(delta_ca_log)
-        titr_delta_ca = np.concatenate([delta_ca_lin, delta_ca_log])
-        titr_ph = np.concatenate([ph_lin, ph_log])
-        titr_curve = interp1d(titr_delta_ca, titr_ph)
+        # Build interpolator
+        df = pd.read_excel("../data/titration_curves_atle_hindar.xlsx")
+        df = df.query("`TOC class (mg/l)` == @toc_class")
+        interp_ph = interp1d(df['pH'].values, df['CaCO3 (mg/l)'].values, fill_value="extrapolate")
+        interp_ca = interp1d(df['CaCO3 (mg/l)'].values, df['pH'].values, fill_value="extrapolate")
 
-        # Predict pH from modelled delta Ca
-        ph_mod = titr_curve(delta_ca_mod)
+        # Convert modelled change in Ca to abs. conc. of CaCO3
+        delta_caco3_mod = self.model_delta_ca_mgpl * 100.09 / 40.08
+        caco3_0 = interp_ph(self.lake.pH_lake0)
+        caco3_mod = caco3_0 + delta_caco3_mod
+
+        # Predict pH from modelled CaCO3
+        ph_mod = interp_ca(caco3_mod)
 
         return ph_mod
 
@@ -590,6 +591,8 @@ class Model:
         df.set_index("date", inplace=True)
         df = df.resample("D").mean()
         axes = df.plot(subplots=True, legend=False, title=self.lime_product._name)
+        axes[0].set_ylim(bottom=0)
+        axes[1].axhline(y=self.lake.pH_lake0, ls='--', c='k')
         axes[0].set_ylabel("$\Delta Ca_{ekv}$ (mg/l)")
         axes[1].set_ylabel("Lake pH (-)")
         axes[1].set_xlabel("")
