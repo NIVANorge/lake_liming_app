@@ -294,7 +294,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-box-model" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./images/box_model.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Schematic illustration of the TPKALK box model for lake calcium concentration for a single lake under the assumption of fixed water volume. Symbols are defined in the text.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2: Schematic illustration of a box model for lake calcium concentration for a single lake under the assumption of fixed water volume. Symbols are defined in the text.</figcaption>
 </figure>
 </div>
 <p>Balancing the main sources and sinks of Ca to the lake gives</p>
@@ -333,8 +333,8 @@ a = log⁡(\frac{d_{lake}}{d_{col}})
 <p>The model defined above is capable of simulating how pH and Ca concentration (and Mg, if relevant) change over time for a single lake. The model requires the following iinputs:</p>
 <ul>
 <li><p>Lake <strong>volume</strong> (often provided as surface area and mean depth) and <strong>discharge</strong>, which together define the <strong>residence time</strong>. Note that this model assumes the volume is fixed, but discharge can vary over time, if desired.</p></li>
-<li><p><strong>Initial pH and TOC concentration</strong> for the lake. The lake is initially assumed to be in “steady state” i.e.&nbsp;the flow concentration of Ca is equal to the outflow concentration (although this can be changed, if desired).</p></li>
-<li><p>The <strong>dose</strong> of liming material added and the <strong>proportion of Ca and Mg by mass</strong> in the lime. <strong>Overdosing factors</strong> are also relevant for higher doses</p></li>
+<li><p><strong>Initial pH and TOC concentration</strong> for the lake. The lake is initially assumed to be in “steady state” i.e.&nbsp;the inflow concentration of Ca is equal to the outflow concentration.</p></li>
+<li><p>The <strong>dose</strong> of liming material added and the <strong>proportion of Ca and Mg by mass</strong> in the lime. <strong>Overdosing factors</strong> are also relevant for higher doses.</p></li>
 <li><p><strong>Lake mean depth</strong> and <strong>Spreading method</strong> (i.e.&nbsp;“wet” or “dry”), both of which are used to adjust the instantaneous dissolution values from column tests (<a href="#eq-cor-depth">Equation&nbsp;5</a>).</p></li>
 <li><p><strong>The fraction of the lime on the lake bottom that remains “active”</strong> for dissolution over long time periods.</p></li>
 <li><p>The parameter <span class="math inline">\(K_L\)</span> (for both Ca and Mg), which determines how fast “active” lime on the lake bottom dissolves.</p></li>
