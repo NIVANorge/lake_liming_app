@@ -20,7 +20,7 @@ To deploy the app for testing via JupyterHub:
 
 3.  Run `streamlit run app.py` to start the app
 
-4.  Open a new browser tab and navigate to https://jupyterhub.niva.no/hub/user-redirect/proxy/8501/ to view the app
+4.  Open a new browser tab and navigate to https://hub.p.niva.no/hub/user-redirect/proxy/8501/ to view the app
 
 ## 3. Documentation
 
