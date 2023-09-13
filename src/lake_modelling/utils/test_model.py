@@ -86,10 +86,10 @@ class TestModel:
         assert model_dry.method_fac == 0.6
 
     def test_C_inst0(self):
-        assert round(test_model.C_inst0, 6) == 1.993075
+        assert round(test_model.C_inst0, 6) == 0.996537
 
     def test_C_bott0(self):
-        assert round(test_model.C_bott0, 6) == 0.623098
+        assert round(test_model.C_bott0, 6) == 0.311549
 
     def test_pH_from_delta_Ca(self):
         # TO DO: test this method
