@@ -142,7 +142,7 @@ class Lake:
             )
             chart = (
                 alt.Chart(df_long_form)
-                .mark_line()
+                .mark_line(point=True)
                 .encode(
                     alt.X("Month:N", axis=alt.Axis(labelAngle=0)),
                     y="Discharge (m\u00b3/s):Q",
@@ -317,7 +317,7 @@ class LimeProduct:
                 alt.Chart(
                     inst_diss, title=f"{self.col_depth} m column; 10 mg/l of lime"
                 )
-                .mark_line()
+                .mark_line(point=True)
                 .encode(
                     x="Column pH (-)",
                     y="Instantaneous dissolution (%)",
@@ -334,7 +334,7 @@ class LimeProduct:
             )
             over_chart = (
                 alt.Chart(over_fac, title=f"{self.col_depth} m column; pH 4.6")
-                .mark_line()
+                .mark_line(point=True)
                 .encode(
                     x="Lime dose (mg/l)",
                     y="Overdosing factor (-)",
@@ -589,7 +589,7 @@ class Model:
         self.dt = dt
         self.month_ids = month_ids
 
-        # Loop over months
+        # Loop over months       
         C_bott = self.C_bott0
         C_lake = self.lake.C_lake0 + self.C_inst0
         ys = []
@@ -657,13 +657,12 @@ class Model:
         Matplotlib and Altair.
         """
         # Make sure results are up-to-date
-        df = self.run()
-
+        df = self.run().copy()
+        df.set_index("date", inplace=True)
+        df = df.resample("D").mean()
+        
         if lib == "Matplotlib":
             # Matplotlib charts
-            df = self.result_df.copy()
-            df.set_index("date", inplace=True)
-            df = df.resample("D").mean()
             axes = df.plot(subplots=True, legend=False, title=self.lime_product._name)
             axes[0].set_ylim(bottom=0)
             axes[1].axhline(y=self.lake.pH_lake0, ls="--", c="k")
@@ -674,7 +673,8 @@ class Model:
             st.set_option("deprecation.showPyplotGlobalUse", False)
             st.pyplot()
         else:
-            # Altait charts
+            # Altair charts
+            df.reset_index(inplace=True)
             init_ph = (
                 alt.Chart(pd.DataFrame({"pH": [self.lake.pH_lake0]}))
                 .mark_rule(strokeDash=[10, 10])
