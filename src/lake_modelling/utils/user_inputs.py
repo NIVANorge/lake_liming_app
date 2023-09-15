@@ -44,7 +44,10 @@ def get_model_params():
         "Lime dose (mg/l of product)", min_value=0.1, max_value=85.0, value=10.0
     )
     spr_prop = col1.number_input(
-        "Proportion of lake surface area limed (-)", min_value=0.0, max_value=1.0, value=0.5
+        "Proportion of lake surface area limed (-)",
+        min_value=0.0,
+        max_value=1.0,
+        value=0.5,
     )
     spr_meth = col1.selectbox("Application method", ("Wet", "Dry"), index=0).lower()
     lime_month = col1.number_input(
@@ -56,11 +59,31 @@ def get_model_params():
         max_value=1.0,
         value=0.4,
     )
-    K_L = col2.number_input(
-        "Dissolution rate for lake-bottom lime (per month)", min_value=0.0, value=1.0
+    rate_const = col2.number_input(
+        "Initial dissolution rate for lake-bottom lime (per month)",
+        min_value=0.0,
+        value=1.0,
+    )
+    activity_const = col2.number_input(
+        "Rate at which lake-bottom lime becomes 'inactive' (per month)",
+        min_value=0.0,
+        value=0.1,
+    )
+    ca_aq_sat = col2.number_input(
+        "'ca_aq_sat' (testing only)", min_value=0.1, value=8.5
     )
     n_months = col2.number_input("Number of months to simulate", min_value=1, value=24)
 
-    model_params = (lime_dose, lime_month, spr_meth, spr_prop, F_sol, K_L, n_months + 1)
+    model_params = (
+        lime_dose,
+        lime_month,
+        spr_meth,
+        spr_prop,
+        F_sol,
+        rate_const,
+        activity_const,
+        ca_aq_sat,
+        n_months + 1,
+    )
 
     return model_params

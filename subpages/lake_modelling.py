@@ -33,7 +33,18 @@ def app():
     new_prod = LimeProduct(name)
     new_prod.plot_column_data(plot_lib)
 
-    lime_dose, lime_month, spr_meth, spr_prop, F_sol, K_L, n_months = get_model_params()
+    (
+        lime_dose,
+        lime_month,
+        spr_meth,
+        spr_prop,
+        F_sol,
+        rate_const,
+        activity_const,
+        ca_aq_sat,
+        n_months,
+    ) = get_model_params()
+    
     new_model = Model(
         lake=new_lake,
         lime_product=new_prod,
@@ -42,7 +53,9 @@ def app():
         spr_meth=spr_meth,
         spr_prop=spr_prop,
         F_sol=F_sol,
-        K_L=K_L,
+        rate_const=rate_const,
+        activity_const=activity_const,
+        ca_aq_sat=ca_aq_sat,
         n_months=n_months,
     )
     st.markdown("## Result")
