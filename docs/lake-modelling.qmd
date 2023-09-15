@@ -52,9 +52,9 @@ When we add liming material, the concentration of CaCO3 (and MgCO3, if relevant)
 
 ![Titration curves relating changes in CaCO3-equivalents to changes in pH for lakes with different Total Organic Carbon (TOC) concentrations.](./images/titration_curves.png){#fig-titration-curves}
 
-For a lake with a given initial pH and TOC concentration, the model uses sigmoid curves based on the empirical data (@fig-titration-curves-interpolated) to lookup an initial (idealised) CaCO3 concentration representing the initial buffering capacity of the lake. The model then simulates changes in CaCO3-equivalent concentrations over time (relative to the initial concentration), and uses the curves to estimate corresponding changes in pH.
+For a lake with a given initial pH and TOC concentration, the model uses sigmoid curves based on the empirical data (@fig-titration-curves-interpolated) to lookup an idealised CaCO3 concentration representing the initial buffering capacity of the lake. The model then simulates changes in CaCO3-equivalent concentrations over time (relative to the initial concentration), and uses the curves to estimate corresponding changes in pH.
 
-![Sigmoid curves fitted to the data in @fig-titration-curves. These are used by the model to convert changes in CaCO3-equivalents to changes in pH for lakes with different Total Organic Carbon (TOC) concentrations.](./images/titration_curves.png){#fig-titration-curves-interpolated}
+![Sigmoid curves fitted to the data in @fig-titration-curves. These are used by the model to convert changes in CaCO3-equivalents to changes in pH for lakes with different Total Organic Carbon (TOC) concentrations.](./images/titration_curves_interpolated.png){#fig-titration-curves-interpolated}
 
 ### Mass balance model {#sec-mass-bal-model}
 
@@ -86,7 +86,7 @@ $$
 \frac{dC_{lake}}{dt} = \frac{Q C_{in} - Q C_{lake}}{V} + C_{inst} + F_{slow}
 $$ {#eq-dClake_dt}
 
-Lime that does not dissolve instantly sinks to the bottom of the lake and dissolves more slowly. Dissolution of lake-bottom lime is modelled as a first-order reaction with initial rate coefficient $K_0$. However, this rate coefficient is assumed to decay exponentially over time, reflecting the observation that lime accumulating in lake sediments becomes less "active" over time and dissolves more slowly. The rate at which the reaction coefficient decays is controlled by the "activity coefficient" $\lambda$
+Lime that does not dissolve instantly sinks to the bottom of the lake and dissolves more slowly. Dissolution of lake-bottom lime is modelled as a first-order reaction with initial rate coefficient $K_0$. However, this rate coefficient is assumed to decay exponentially over time, based on the observation that lime accumulating in lake sediments becomes less "active" over time and therefore dissolves more slowly. The rate at which the reaction coefficient decays is controlled by the "activity coefficient", $\lambda$
 
 $$
 K_t = K_0 e^{- \lambda t}
@@ -94,7 +94,7 @@ $$ {#eq-Kt}
 
 where $K_t$ is the first order reaction coefficient at time $t$.
 
-The effective rate coefficient, $K_t$, is further modified by a "rate factor", $R$, which reduces the dissolution rate as concentrations of dissolved CaCO3 in the lake become high. In particular, $R$ forces the coefficient $K_t$ towards zero as dissolved concentrations approach saturation. This is done primarily to ensure the model's output remains plausible even if users set extreme parameter values in the user interface; for most realistic choices of input parameters, lake concentrations will not approach saturation and the value of $R$ will be close to 1.
+The effective rate coefficient, $K_t$, is further modified by a "rate factor", $R$, which reduces the dissolution rate as concentrations of dissolved CaCO3 in the lake become high. In particular, $R$ forces $K_t$ towards zero as dissolved concentrations approach saturation. This is done primarily to ensure the model's output remains plausible even if users set extreme parameter values in the user interface; for most realistic choices of input parameters, lake concentrations will not approach saturation and the value of $R$ will be close to 1.
 
 $$
 R = \frac{1}{1 + e^{10 (C_{lake} - C_{sat})}}
@@ -141,7 +141,7 @@ The model defined above is capable of simulating how pH and Ca concentration (an
 
  * **The fraction of the lime on the lake bottom that remains "active"** for dissolution over long time periods.
 
- * The parameter $K_L$ (for both Ca and Mg), which determines how fast "active" lime on the lake bottom dissolves.
+ * The parameters $K_0$ and $\lambda$, which determine how fast lime on the lake bottom dissolves, and how long it remains "active".
 
 To avoid having to specify all these parameters when comparing different lime products, it is common to consider a **standard lake** with an area of 20 ha, mean depth of 5 m and mean residence time of 0.7 years. These parameters, in turn, define the mean annual discharge. If desired, this can be modified by selecting a monthly **flow profile** (`fjell` or `kyst`; see @fig-flow-profiles), which adjusts the flows up or down in each month, but in such a way that the overall annual average maintains a residence time of 0.7 years.
 
