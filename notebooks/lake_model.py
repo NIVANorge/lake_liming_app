@@ -449,7 +449,7 @@ class Model:
             toc_class = "TOC > 5"
 
         # Build interpolator
-        df = pd.read_excel("../data/titration_curves_atle_hindar.xlsx")
+        df = pd.read_excel("../data/titration_curves_interpolated.xlsx")
         df = df.query("`TOC class (mg/l)` == @toc_class")
         interp_ph = interp1d(df['pH'].values, df['CaCO3 (mg/l)'].values, fill_value="extrapolate")
         interp_ca = interp1d(df['CaCO3 (mg/l)'].values, df['pH'].values, fill_value="extrapolate")

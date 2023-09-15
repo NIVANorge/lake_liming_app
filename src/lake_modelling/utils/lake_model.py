@@ -12,7 +12,7 @@ plt.style.use("ggplot")
 
 LIME_PRODUCTS_DATA = "data/lime_products.xlsx"
 FLOW_TYPES_DATA = "data/flow_typologies.xlsx"
-TITRATION_CURVE_DATA = "data/titration_curves_atle_hindar.xlsx"
+TITRATION_CURVE_DATA = "data/titration_curves_interpolated.xlsx"
 
 
 class Lake:
@@ -397,7 +397,7 @@ class Model:
         assert isinstance(
             self.lime_product, LimeProduct
         ), "'lime_product' must be a LimeProduct object."
-        assert self.lime_dose > 0, "'lime_dose' must be greater than 0."
+        assert 0 <= self.lime_dose <= 85, "'lime_dose' must be between 0 and 85 mg/l."
         assert isinstance(self.lime_month, int) and (
             1 <= self.lime_month <= 12
         ), "'lime_month' must be an integer between 1 and 12."

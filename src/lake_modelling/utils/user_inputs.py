@@ -41,7 +41,7 @@ def get_model_params():
     col1, col2 = st.columns(2)
 
     lime_dose = col1.number_input(
-        "Lime dose (mg/l of product)", min_value=0.1, value=10.0
+        "Lime dose (mg/l of product)", min_value=0.1, max_value=85.0, value=10.0
     )
     spr_prop = col1.number_input(
         "Proportion of lake surface area limed (-)", min_value=0.0, max_value=1.0, value=0.5
