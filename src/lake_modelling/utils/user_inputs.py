@@ -57,7 +57,7 @@ def get_model_params():
         "Proportion of lake-bottom lime that remains soluble (-)",
         min_value=0.0,
         max_value=1.0,
-        value=0.4,
+        value=1.0,
     )
     rate_const = col2.number_input(
         "Initial dissolution rate for lake-bottom lime (per month)",

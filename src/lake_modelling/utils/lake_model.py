@@ -377,7 +377,7 @@ class Model:
         lime_month=1,
         spr_meth="wet",
         spr_prop=0.5,
-        F_sol=0.4,
+        F_sol=1,
         rate_const=1,
         activity_const=0.1,
         ca_aq_sat=8.5,
