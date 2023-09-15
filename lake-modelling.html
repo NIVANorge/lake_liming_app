@@ -274,12 +274,18 @@ ul.task-list li input[type="checkbox"] {
 <figcaption class="figure-caption">Figure&nbsp;1: Titration curves relating changes in CaCO3-equivalents to changes in pH for lakes with different Total Organic Carbon (TOC) concentrations.</figcaption>
 </figure>
 </div>
-<p>For a lake with a given initial pH and TOC concentration, the model uses <a href="#fig-titration-curves">Figure&nbsp;1</a> to lookup an initial (idealised) CaCO3 concentration representing the initial buffering capacity of the lake. The model then simulates changes in CaCO3-equivalent concentrations over time (relative to the initial concentration), and uses the titration curves to estimate corresponding changes in pH.</p>
+<p>For a lake with a given initial pH and TOC concentration, the model uses sigmoid curves based on the empirical data (<a href="#fig-titration-curves-interpolated">Figure&nbsp;2</a>) to lookup an initial (idealised) CaCO3 concentration representing the initial buffering capacity of the lake. The model then simulates changes in CaCO3-equivalent concentrations over time (relative to the initial concentration), and uses the curves to estimate corresponding changes in pH.</p>
+<div id="fig-titration-curves-interpolated" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/titration_curves.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Sigmoid curves fitted to the data in <a href="#fig-titration-curves">Figure&nbsp;1</a>. These are used by the model to convert changes in CaCO3-equivalents to changes in pH for lakes with different Total Organic Carbon (TOC) concentrations.</figcaption>
+</figure>
+</div>
 </section>
 <section id="sec-mass-bal-model" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="sec-mass-bal-model"><span class="header-section-number">2.2</span> Mass balance model</h3>
-<p>The titration curves in <a href="#fig-titration-curves">Figure&nbsp;1</a> transform the problem of modelling pH into one of modelling <span class="math inline">\(\Delta Ca\)</span> (and <span class="math inline">\(\Delta Mg\)</span> too, if relevant). When we add lime to a lake, some of it dissolves instantly, giving a sudden increase in pH, while the remainder sinks to the bottom and dissolves more slowly.</p>
-<p>A mass balance “box model” (<a href="#fig-box-model">Figure&nbsp;2</a>) is used to provide an estimate of both the initial change in lake conditions due to liming and the subsequent evolution over time. For simplicity, only one set of calculations is shown (e.g.&nbsp;for calcium), but an identical set of calculations for magnesium are also performed in parallel, if relevant. The Mg-fraction is then converted to CaCO3-equivalents before making the link to changes in pH (<a href="#sec-ca-ph">Section&nbsp;2.1</a>). Taking calcium as an example, the symbols in <a href="#fig-box-model">Figure&nbsp;2</a> are as follows:</p>
+<p>The titration curves in <a href="#fig-titration-curves-interpolated">Figure&nbsp;2</a> transform the problem of modelling pH into one of modelling <span class="math inline">\(\Delta Ca\)</span> (and <span class="math inline">\(\Delta Mg\)</span> too, if relevant). When we add lime to a lake, some of it dissolves instantly, giving a sudden increase in pH, while the remainder sinks to the bottom and dissolves more slowly.</p>
+<p>A mass balance “box model” (<a href="#fig-box-model">Figure&nbsp;3</a>) is used to provide an estimate of both the initial change in lake conditions due to liming and the subsequent evolution over time. For simplicity, only one set of calculations is shown (e.g.&nbsp;for calcium), but an identical set of calculations for magnesium are also performed in parallel, if relevant. The Mg-fraction is then converted to CaCO3-equivalents before making the link to changes in pH (<a href="#sec-ca-ph">Section&nbsp;2.1</a>). Taking calcium as an example, the symbols in <a href="#fig-box-model">Figure&nbsp;3</a> are as follows:</p>
 <ul>
 <li><span class="math inline">\(D\)</span> is the dose of lime added (adjusted for Ca content i.e.&nbsp;the actual dose of Ca in mg/l)</li>
 <li><span class="math inline">\(C_{inst}\)</span> is the “immediate” increase in lake Ca concentration (in mg/l) due to <strong>instantaneous dissolution</strong></li>
@@ -294,7 +300,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-box-model" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./images/box_model.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Schematic illustration of a box model for lake calcium concentration for a single lake under the assumption of fixed water volume. Symbols are defined in the text.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;3: Schematic illustration of a box model for lake calcium concentration for a single lake under the assumption of fixed water volume. Symbols are defined in the text.</figcaption>
 </figure>
 </div>
 <p>Balancing the main sources and sinks of Ca to the lake gives</p>
@@ -305,12 +311,19 @@ ul.task-list li input[type="checkbox"] {
 <p><span id="eq-dClake_dt"><span class="math display">\[
 \frac{dC_{lake}}{dt} = \frac{Q C_{in} - Q C_{lake}}{V} + C_{inst} + F_{slow}
 \tag{2}\]</span></span></p>
-<p>The lime that sinks to the bottom and remains “active”, <span class="math inline">\(C_{bott}\)</span>, is assumed to dissolve quickly at first, then more slowly as time passes. An exponential function is used to represent this slow dissolution effect</p>
-<p><span id="eq-dCslow_dt"><span class="math display">\[
-F_{slow} = \frac{dC_{slow}}{dt} = C_{bott} K_L e^{-K_L t}
+<p>Lime that does not dissolve instantly sinks to the bottom of the lake and dissolves more slowly. Dissolution of lake-bottom lime is modelled as a first-order reaction with initial rate coefficient <span class="math inline">\(K_0\)</span>. However, this rate coefficient is assumed to decay exponentially over time, reflecting the observation that lime accumulating in lake sediments becomes less “active” over time and dissolves more slowly. The rate at which the reaction coefficient decays is controlled by the “activity coefficient” <span class="math inline">\(\lambda\)</span></p>
+<p><span id="eq-Kt"><span class="math display">\[
+K_t = K_0 e^{- \lambda t}
 \tag{3}\]</span></span></p>
-<p>The integral of the function <span class="math inline">\(K_L exp(-K_L t)\)</span> from zero to infinity is equal to 1. This functional form is chosen in order to conserve mass: the total amount of “active” lime on the bottom of the lake is enough to increase the lake concentration by <span class="math inline">\(C_{bott}\)</span> mg/l. Between any two time points, the function for <span class="math inline">\(F_{slow}\)</span> can be integrated to give a number between 0 and 1 representing the proportion of <span class="math inline">\(C_{bott}\)</span> that dissolves within the period. For periods soon after adding lime this proportion will be large, and it decays over time. However, because the total area under the curve is equal to one, the total amount of lime that dissolves from the bottom layer can never be greater than <span class="math inline">\(C_{bott}\)</span>.</p>
-<p>The parameter <span class="math inline">\(K_L\)</span> (units <span class="math inline">\(month^{-1}\)</span>) is the “deaktiveringskoeffisient”, a constant that controls how fast lime on the lake bottom dissolves (larger values mean faster dissolution).</p>
+<p>where <span class="math inline">\(K_t\)</span> is the first order reaction coefficient at time <span class="math inline">\(t\)</span>.</p>
+<p>The effective rate coefficient, <span class="math inline">\(K_t\)</span>, is further modified by a “rate factor”, <span class="math inline">\(R\)</span>, which reduces the dissolution rate as concentrations of dissolved CaCO3 in the lake become high. In particular, <span class="math inline">\(R\)</span> forces the coefficient <span class="math inline">\(K_t\)</span> towards zero as dissolved concentrations approach saturation. This is done primarily to ensure the model’s output remains plausible even if users set extreme parameter values in the user interface; for most realistic choices of input parameters, lake concentrations will not approach saturation and the value of <span class="math inline">\(R\)</span> will be close to 1.</p>
+<p><span id="eq-R"><span class="math display">\[
+R = \frac{1}{1 + e^{10 (C_{lake} - C_{sat})}}
+\tag{4}\]</span></span></p>
+<p>where <span class="math inline">\(C_{sat}\)</span> is the saturation concentration of Ca in lake water (i.e.&nbsp;the maximum value permitted by the model).</p>
+<p><span id="eq-dCslow_dt"><span class="math display">\[
+F_{slow} = - \frac{dC_{bott}}{dt} = C_{bott} K_t R
+\tag{5}\]</span></span></p>
 </section>
 <section id="sec-inst-diss" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="sec-inst-diss"><span class="header-section-number">2.3</span> Estimating instantaneous dissolution</h3>
@@ -321,12 +334,12 @@ F_{slow} = \frac{dC_{slow}}{dt} = C_{bott} K_L e^{-K_L t}
 </ul>
 <p><span id="eq-diss-h-depth"><span class="math display">\[
 D_{inst} \propto [H^+] \times d
-\tag{4}\]</span></span></p>
+\tag{6}\]</span></span></p>
 <p>It is therefore possible to generalise instantaneous dissolution estimates from fixed-depth column tests to lakes with different depths by considering compensating changes in pH. For example, the expected dissolution for lake of depth <span class="math inline">\(d\)</span> and hydrogen ion concentration <span class="math inline">\(H^+\)</span> is the same as for a lake with depth <span class="math inline">\(2d\)</span> and hydrogen ion concentration <span class="math inline">\(0.5H^+\)</span>. Re-writing in terms of pH, the instantaneous dissolution for a lake of depth <span class="math inline">\(d_{lake}\)</span> and initial pH <span class="math inline">\(X\)</span> is assumed to be similar to the dissolution in a test column of depth <span class="math inline">\(d_{col}\)</span> with pH <span class="math inline">\((X - a)\)</span> where</p>
 <p><span id="eq-cor-depth"><span class="math display">\[
 a = log⁡(\frac{d_{lake}}{d_{col}})
-\tag{5}\]</span></span></p>
-<p>Note that <a href="#eq-cor-depth">Equation&nbsp;5</a> applies to the CaCO3 fraction; for MgCO3, Sverdrup proposed the modification <span class="math inline">\((X - 0.5a)\)</span> as a more appropriate depth correction.</p>
+\tag{7}\]</span></span></p>
+<p>Note that <a href="#eq-cor-depth">Equation&nbsp;7</a> applies to the CaCO3 fraction; for MgCO3, Sverdrup proposed the modification <span class="math inline">\((X - 0.5a)\)</span> as a more appropriate depth correction.</p>
 </section>
 <section id="sec-standard-lake" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="sec-standard-lake"><span class="header-section-number">2.4</span> Simulating a “standard lake”</h3>
@@ -335,30 +348,16 @@ a = log⁡(\frac{d_{lake}}{d_{col}})
 <li><p>Lake <strong>volume</strong> (often provided as surface area and mean depth) and <strong>discharge</strong>, which together define the <strong>residence time</strong>. Note that this model assumes the volume is fixed, but discharge can vary over time, if desired.</p></li>
 <li><p><strong>Initial pH and TOC concentration</strong> for the lake. The lake is initially assumed to be in “steady state” i.e.&nbsp;the inflow concentration of Ca is equal to the outflow concentration.</p></li>
 <li><p>The <strong>dose</strong> of liming material added and the <strong>proportion of Ca and Mg by mass</strong> in the lime. <strong>Overdosing factors</strong> are also relevant for higher doses.</p></li>
-<li><p><strong>Lake mean depth</strong> and <strong>Spreading method</strong> (i.e.&nbsp;“wet” or “dry”), both of which are used to adjust the instantaneous dissolution values from column tests (<a href="#eq-cor-depth">Equation&nbsp;5</a>).</p></li>
+<li><p><strong>Lake mean depth</strong> and <strong>Spreading method</strong> (i.e.&nbsp;“wet” or “dry”), both of which are used to adjust the instantaneous dissolution values from column tests (<a href="#eq-cor-depth">Equation&nbsp;7</a>).</p></li>
 <li><p><strong>The fraction of the lime on the lake bottom that remains “active”</strong> for dissolution over long time periods.</p></li>
 <li><p>The parameter <span class="math inline">\(K_L\)</span> (for both Ca and Mg), which determines how fast “active” lime on the lake bottom dissolves.</p></li>
 </ul>
-<p>To avoid having to specify all these parameters when comparing different lime products, it is common to consider a <strong>standard lake</strong> with an area of 20 ha, mean depth of 5 m and mean residence time of 0.7 years. These parameters, in turn, define the mean annual discharge. If desired, this can be modified by selecting a monthly <strong>flow profile</strong> (<code>fjell</code> or <code>kyst</code>; see <a href="#fig-flow-profiles">Figure&nbsp;3</a>), which adjusts the flows up or down in each month, but in such a way that the overall annual average maintains a residence time of 0.7 years.</p>
+<p>To avoid having to specify all these parameters when comparing different lime products, it is common to consider a <strong>standard lake</strong> with an area of 20 ha, mean depth of 5 m and mean residence time of 0.7 years. These parameters, in turn, define the mean annual discharge. If desired, this can be modified by selecting a monthly <strong>flow profile</strong> (<code>fjell</code> or <code>kyst</code>; see <a href="#fig-flow-profiles">Figure&nbsp;4</a>), which adjusts the flows up or down in each month, but in such a way that the overall annual average maintains a residence time of 0.7 years.</p>
 <div id="fig-flow-profiles" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./images/flow_typologies.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Monthly flow profiles that can be used to modify the default (constant) flows assumed for the “standard lake”.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;4: Monthly flow profiles that can be used to modify the default (constant) flows assumed for the “standard lake”.</figcaption>
 </figure>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Some additional initial comments from Atle:</strong> &gt; Grunne innsjøer vil gjerne ha en større andel kalk som synker ned på bunnen. Siden kalk på bunnen vil inaktiveres over tid, er det bare noen få år bidraget kan regnes inn. Men vi har fulgt kalkede innsjøer etter kalkslutt og funnet at denne «halen» er betydelig lenger enn det ren fortynning (basert på teoretisk oppholdstid) skulle tilsi. Tror ikke det er data for å underbygge forskjeller i langtidsoppløsning mellom kalktyper – trolig temmelig uavhengig.</p>
-<p>Based on this, it sounds as though we might be able to treat all lime products the same in terms of long-term dissolution? This could correspond to using single <span class="math inline">\(F_{active}\)</span> and <span class="math inline">\(K_L\)</span> values for all lime types, although this will also mean that medium term dissolution rates (i.e.&nbsp;the first lake-bottom lime to dissolve) will also be the same for all limes. Thoughts?</p>
-</div>
 </div>
 
 
