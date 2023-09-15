@@ -1,3 +1,4 @@
+import os
 from datetime import datetime, timedelta
 
 import altair as alt
@@ -80,18 +81,23 @@ class Lake:
     @property
     def monthly_flows(self):
         """Monthly flows (in litres/month) based on mean annual flow and flow typology."""
-        q_df = (
-            pd.read_excel(FLOW_TYPES_DATA, index_col=0) * self.mean_annual_flow
-        ).round(0)
+        xl_path = os.path.join(
+            os.path.dirname(os.path.realpath(__file__)), f"../../../{FLOW_TYPES_DATA}"
+        )
+        q_df = (pd.read_excel(xl_path, index_col=0) * self.mean_annual_flow).round(0)
         q_dict = q_df[self.flow_prof].to_dict()
 
         return q_dict
 
     def plot_flow_profile(self, lib):
-        """Plot monthly flows using Matplotlib.
+        """Plot monthly flows.
 
-        TO DO: Generalise to take an argument that switches between
-        Matplotlib and Altair.
+        Args
+            lib: Str. Plotting library to use. Either 'Altair' or 'Matplotlib'.
+
+        Returns
+            Chart object. The chart is also added to the Streamlit app if Streamlit
+            is running.
         """
 
         months = range(1, 13)
@@ -107,6 +113,7 @@ class Lake:
             plt.legend()
             st.set_option("deprecation.showPyplotGlobalUse", False)
             st.pyplot()
+
         else:
             df_long_form = pd.DataFrame(
                 {
@@ -163,6 +170,8 @@ class Lake:
                 .interactive()
             )
             st.altair_chart(chart, use_container_width=True)
+
+            return chart
 
 
 class LimeProduct:
@@ -234,7 +243,11 @@ class LimeProduct:
         Returns
             None. Attributes are updated
         """
-        df = pd.read_excel(LIME_PRODUCTS_DATA, index_col=0)
+        xl_path = os.path.join(
+            os.path.dirname(os.path.realpath(__file__)),
+            f"../../../{LIME_PRODUCTS_DATA}",
+        )
+        df = pd.read_excel(xl_path, index_col=0)
         if name not in df.columns:
             raise KeyError(f"Lime product '{name}' not found in database.")
 
@@ -277,10 +290,14 @@ class LimeProduct:
         return id_d10 / od_ph46
 
     def plot_column_data(self, lib):
-        """Plot column test data using Matplotlib.
+        """Plot column test data.
 
-        TO DO: Generalise to take an argument that switches between
-        Matplotlib and Altair.
+        Args
+            lib: Str. Plotting library to use. Either 'Altair' or 'Matplotlib'.
+
+        Returns
+            Chart object. The chart is also added to the Streamlit app if Streamlit
+            is running.
         """
 
         if lib == "Matplotlib":
@@ -343,14 +360,12 @@ class LimeProduct:
                 .properties(width=250, height=200)
                 .interactive()
             )
-            # TO DO: add chart titles
-            st.altair_chart(
-                alt.hconcat(inst_chart, over_chart, title=self._name).configure_title(
-                    anchor="middle"
-                ),
-                use_container_width=True,
-            )
-            pass
+            chart = alt.hconcat(
+                inst_chart, over_chart, title=self._name
+            ).configure_title(anchor="middle")
+            st.altair_chart(chart, use_container_width=True)
+
+            return chart
 
 
 class Model:
@@ -363,21 +378,26 @@ class Model:
         spr_meth="wet",
         spr_prop=0.5,
         F_sol=0.4,
-        K_L=1,
+        rate_const=1,
+        activity_const=0.1,
+        ca_aq_sat=8.5,
         n_months=24,
     ):
         """Initialise model object.
 
         Args
-            lake:         Obj. Instance of Lake class
-            lime_product: Obj. Instance of LimeProduct class
-            lime_dose:    Float. Lime dose added (in mg/l)
-            lime_month:   Int between 1 and 12. Month in which lime is added
-            spr_meth:     Str. Liming method. Either 'wet' or 'dry'
-            spr_prop:     Float between 0 and 1. Fraction of lake surface area that is limed
-            F_sol:        Float. Proportion of lake-bottom lime that remains soluble
-            K_L:          Float. Parameter controlling the dissolution rate of lake-bottom lime
-            n_months:     Int. Number of months to simulate, starting at 'lime_month'
+            lake:           Obj. Instance of Lake class
+            lime_product:   Obj. Instance of LimeProduct class
+            lime_dose:      Float. Lime dose added (in mg/l)
+            lime_month:     Int between 1 and 12. Month in which lime is added
+            spr_meth:       Str. Liming method. Either 'wet' or 'dry'
+            spr_prop:       Float between 0 and 1. Fraction of lake surface area that is limed
+            F_sol:          Float. Proportion of lake-bottom lime that remains soluble
+            rate_const:     Float. Parameter controlling the initial dissolution rate of lake-bottom lime
+            activity_const: Float. Parameter controlling the rate that lake-bottom lime becomes inactive
+            ca_aq_sat:      Float. Maximum Ca concentration (in mg-Ca/l) for a "saturated" solution. Used
+                            to limit dissolution of lake-bottom lime when Ca concentrations become high
+            n_months:       Int. Number of months to simulate, starting at 'lime_month'
         """
         # User-defined attributes
         self.lake = lake
@@ -387,7 +407,9 @@ class Model:
         self.spr_meth = spr_meth
         self.spr_prop = spr_prop
         self.F_sol = F_sol
-        self.K_L = K_L
+        self.rate_const = rate_const
+        self.activity_const = activity_const
+        self.ca_aq_sat = ca_aq_sat
         self.n_months = n_months
         self._validate_input()
 
@@ -407,7 +429,11 @@ class Model:
         ), "'spr_meth' must be either 'wet' or 'dry'."
         assert 0 <= self.spr_prop <= 1, "'spr_prop' must be between 0 and 1."
         assert 0 <= self.F_sol <= 1, "'F_sol' must be between 0 and 1."
-        assert self.K_L > 0, "'K_L' must be greater than 0."
+        assert self.rate_const >= 0, "'rate_const' must be greater than or equal to 0."
+        assert (
+            self.activity_const >= 0
+        ), "'activity_const' must be greater than or equal to 0."
+        assert self.ca_aq_sat > 0, "'ca_aq_sat' must be greater than 0."
         assert isinstance(self.n_months, int) and (
             self.n_months > 1
         ), "'n_months' must be an integer greater than 1."
@@ -516,7 +542,11 @@ class Model:
             toc_class = "TOC > 5"
 
         # Build interpolator
-        df = pd.read_excel(TITRATION_CURVE_DATA)
+        xl_path = os.path.join(
+            os.path.dirname(os.path.realpath(__file__)),
+            f"../../../{TITRATION_CURVE_DATA}",
+        )
+        df = pd.read_excel(xl_path)
         df = df.query("`TOC class (mg/l)` == @toc_class")
         interp_ph = interp1d(
             df["pH"].values, df["CaCO3 (mg/l)"].values, fill_value="extrapolate"
@@ -554,31 +584,44 @@ class Model:
                 y:      List. [C_lake]. Current lake Ca concentration in mg/l of Ca-
                         equivalents
                 t:      Array. Time points at which to evaluate C_lake (in months)
-                params: Tuple. (Q, V, C_in, C_bott, K_L).
-                            Q is mean flow in litres/month
-                            V is lake volume in litres
-                            C_in in lake inflow concentration of Ca in mg/l
-                            C_bott is the 'dose' of lime on the lake bottom in mg-Ca/l
-                            K_L determines the rate of dissoltuion of lime on the bottom
-                            of the lake (months^-1)
+                params: Tuple. (Q, V, C_in, rate_const, activity_const, ca_aq_sat).
+                            'Q' is mean flow in litres/month
+                            'V' is lake volume in litres
+                            'C_in' in lake inflow concentration of Ca in mg/l
+                            'rate_const' determines the initial rate of dissoltuion of lime
+                            on the bottom of the lake (months^-1)
+                            'activity_const' determines how rapidly lake bottom limes
+                            becomes inactive (months^-1)
+                            'ca_aq_sat' is the maximum Ca concentration (in mg-Ca/l) for a
+                            saturated solution
 
             Returns
                 Array.
             """
             # Unpack incremental value for C_lake
-            C_lake = y[0]
+            C_lake, C_bott = y
 
             # Unpack fixed params
-            Q, V, C_in, C_bott0, K_L = params
+            Q, V, C_in, rate_const, activity_const, ca_aq_sat = params
 
-            # Model equations
-            dCslow_dt = C_bott0 * K_L * np.exp(-K_L * t)
-            dClake_dt = (Q * C_in - Q * C_lake) / V + dCslow_dt
+            # Time-dependent first-order rate constant for lake-bottom lime
+            k = rate_const * np.exp(-activity_const * t)
 
-            # Add results of equations to an array
-            res = np.array([dClake_dt])
+            # Sigmoid function to reduce reaction rate as the solution approaches saturation
+            rate_factor = 1 / (1 + np.exp(10 * (C_lake - ca_aq_sat)))
 
-            return res
+            # Assume simple 1st order reaction for dissolution of lake-bottom CaCO3
+            # modified to include declining lime "activity" over time and to stop
+            # dissolution if C_lake is near saturation
+            dCbott_dt = -k * rate_factor * min(C_bott, (ca_aq_sat - C_lake))
+
+            # Lake conc. depends on flow regime and amount of lake bottom lime that dissolves
+            # Note (-1 * dCbott_dt) because dCbott_dt is negative
+            dClake_dt = (Q * C_in - Q * C_lake) / V - dCbott_dt
+
+            dydt = [dClake_dt, dCbott_dt]
+
+            return dydt
 
         # Setup time domain
         assert 0 < dt < 1, "'dt' must be between 0 and 1."
@@ -589,7 +632,7 @@ class Model:
         self.dt = dt
         self.month_ids = month_ids
 
-        # Loop over months       
+        # Loop over months
         C_bott = self.C_bott0
         C_lake = self.lake.C_lake0 + self.C_inst0
         ys = []
@@ -600,29 +643,30 @@ class Model:
             q_month = self.lake.monthly_flows[month_id]
 
             # Solve ODEs
-            y0 = [C_lake]
+            y0 = [C_lake, C_bott]
             params = [
                 q_month,
                 self.lake.volume,
                 self.lake.C_in0,
-                self.C_bott0,
-                self.K_L,
+                self.rate_const,
+                self.activity_const,
+                self.ca_aq_sat,
             ]
             ti = np.linspace(month, month + 1, num=int(1 + 1 / dt))
             y = odeint(dCdt, y0, ti, args=(params,))
-            y = y[:, 0]
             ys.append(y)
             tis.append(ti)
 
             # Update initial conditions for next step
-            C_lake = y[-1]
+            C_lake, C_bott = y[-1]
 
         # Build df from output
         df = pd.DataFrame(
             data=np.concatenate(ys),
-            columns=["Delta Ca (mg/l)"],
+            columns=["Delta Ca (mg/l)", "Delta Ca bottom (mg/l)"],
             index=np.concatenate(tis),
         )
+        del df["Delta Ca bottom (mg/l)"]
 
         # At each time step, the solver runs from month to (month + 1) inclusive.
         # The first and last time points in successive segments are therefore
@@ -645,22 +689,25 @@ class Model:
             df.index * 365 / 12, unit="D"
         )
         df = df[["date", "Delta Ca (mg/l)", "pH"]]
-        # df = df.round(2)
         self.result_df = df
 
         return df
 
     def plot_result(self, lib):
-        """Plot results using Matplotlib.
+        """Plot results.
 
-        TO DO: Generalise to take an argument that switches between
-        Matplotlib and Altair.
+        Args
+            lib: Str. Plotting library to use. Either 'Altair' or 'Matplotlib'.
+
+        Returns
+            Chart object. The chart is also added to the Streamlit app if Streamlit
+            is running.
         """
         # Make sure results are up-to-date
         df = self.run().copy()
         df.set_index("date", inplace=True)
         df = df.resample("D").mean()
-        
+
         if lib == "Matplotlib":
             # Matplotlib charts
             axes = df.plot(subplots=True, legend=False, title=self.lime_product._name)
@@ -713,6 +760,7 @@ class Model:
                 .properties(width=600, height=200)
                 .interactive()
             )
-            st.altair_chart(
-                alt.vconcat(ca_chart, ph_chart + init_ph), use_container_width=True
-            )
+            chart = alt.vconcat(ca_chart, ph_chart + init_ph)
+            st.altair_chart(chart, use_container_width=True)
+
+            return chart
