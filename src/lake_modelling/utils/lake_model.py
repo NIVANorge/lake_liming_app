@@ -495,7 +495,7 @@ class Model:
         Returns
             Tuple of floats (C_inst, C_bott). C_inst is the "instantaneous" increase
             in lake Ca concentration (in mg/l of Ca-equivalents) due to rapid
-            dissolution of CaCO3 and MgCo3; C_bott is the remainder of the lime
+            dissolution of CaCO3 and MgCO3; C_bott is the remainder of the lime
             (also in mg/l of Ca-equivalents) that sinks to the bottom of the lake
             and remains available for dissolution.
         """
