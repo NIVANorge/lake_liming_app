@@ -380,7 +380,7 @@ class Model:
         F_sol=1,
         rate_const=1,
         activity_const=0.1,
-        ca_aq_sat=8.5,
+        ca_aq_sat=15,
         n_months=24,
     ):
         """Initialise model object.
