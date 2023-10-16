@@ -8,3 +8,4 @@ pytest==7.4.0
 streamlit==1.13.0
 streamlit-aggrid==0.3.3
 streamlit-option-menu==0.3.2
+seaborn==0.13.0
