@@ -3,7 +3,6 @@ from src.lake_modelling.utils.lake_model import (
     LIME_PRODUCTS_DATA,
     Lake,
     LimeProduct,
-    Model,
 )
 from src.lake_modelling.utils.read_products import lime_product_names, lime_products
 from src.lake_modelling.utils.run_products import (
@@ -12,7 +11,6 @@ from src.lake_modelling.utils.run_products import (
 )
 from src.lake_modelling.utils.user_inputs import (
     get_lake_params,
-    get_model_params,
     get_product,
 )
 
