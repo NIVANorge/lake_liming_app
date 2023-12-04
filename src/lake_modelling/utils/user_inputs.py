@@ -70,7 +70,7 @@ def get_model_params():
         value=0.1,
     )
     ca_aq_sat = col2.number_input(
-        "'ca_aq_sat' (testing only)", min_value=0.1, value=15
+        "'ca_aq_sat' (testing only)", min_value=0.1, value=15.
     )
     n_months = col2.number_input("Number of months to simulate", min_value=1, value=24)
 
