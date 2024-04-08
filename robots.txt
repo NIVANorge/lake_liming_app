@@ -1,1 +1,1 @@
-Sitemap: https://github.com/NIVANorge/lake_liming_app/sitemap.xml
+Sitemap: https://NIVANorge.github.io/lake_liming_app/sitemap.xml

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -45,7 +45,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -54,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -63,6 +70,33 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -70,9 +104,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Vassdragskalking applikasjon</span>
     </a>
@@ -84,31 +118,31 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./lake-modelling.html" rel="" target="">
- <span class="menu-text">Lake modelling</span></a>
+    <a class="nav-link" href="./lake-modelling.html"> 
+<span class="menu-text">Lake modelling</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./column-tests.html" rel="" target="">
- <span class="menu-text">Column tests</span></a>
+    <a class="nav-link" href="./column-tests.html"> 
+<span class="menu-text">Column tests</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lake-modelling.html">Lake modelling</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lake-modelling.html">Lake modelling</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -118,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -159,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -199,7 +233,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>The calculations performed by the application and described on this page are a subset of those implemented by the original <a href="https://niva.brage.unit.no/niva-xmlui/handle/11250/208709">TPKALK application</a> developed by NIVA during the 1990s.</p>
 <section id="sec-background" class="level2" data-number="1">
@@ -208,10 +244,14 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="1.1" class="anchored" data-anchor-id="sec-lime-types"><span class="header-section-number">1.1</span> Types of liming material</h3>
 <p>Lime products used for catchment management are usually a mixture of <strong>calcium carbonate</strong> (calcite, <span class="math inline">\(CaCO_3\)</span>) and <strong>magnesium carbonate</strong> (<span class="math inline">\(MgCO_3\)</span>). Rocks composed primarily of <span class="math inline">\(CaCO_3\)</span> are commonly called <strong>limestones</strong> and <strong>chalks</strong>, whereas carbonate rocks with significant proportions of magnesium are called <strong>dolomites</strong> (&gt; 10% Mg) or magnesian limestones (2 to 10% Mg).</p>
 <p>Lime manufacturers will typically specify the proportion of calcium and magnesium carbonate in their products. For example, <code>Microdol5</code> is reported as being 53.7% <span class="math inline">\(CaCO_3\)</span> and 44.4% <span class="math inline">\(MgCO_3\)</span> by mass (with 1.9% other impurities).</p>
-<p>Magnesium carbonate has a higher proportion of carbonate by mass (and therefore a greater acid neutralising capacity; ANC) than calcium carbonate: 1 g of magnesium carbonate will neutralise as much acid as 1.19 g of calcium carbonate. When comparing limes with different compositions, it is therefore necessary to multiply the magnesium carbonate proportion by a factor of 1.19. This gives a <strong>neutralising value (NV)</strong>, estimated as the sum of calcium carbonate <em>equivalents</em> (e.g. <a href="#tbl-nv">Table&nbsp;1</a>). The NV is best determined by titration according to EN-12945. It may also be estimated from Ca and Mg element analyses, but in some cases these elements may be fixed to minerals other than carbonates with little or no neutralising capacity.</p>
-<div id="tbl-nv" class="anchored">
+<p>Magnesium carbonate has a higher proportion of carbonate by mass (and therefore a greater acid neutralising capacity; ANC) than calcium carbonate: 1 g of magnesium carbonate will neutralise as much acid as 1.19 g of calcium carbonate. When comparing limes with different compositions, it is therefore necessary to multiply the magnesium carbonate proportion by a factor of 1.19. This gives a <strong>neutralising value (NV)</strong>, estimated as the sum of calcium carbonate <em>equivalents</em> (e.g. <a href="#tbl-nv" class="quarto-xref">Table&nbsp;1</a>). The NV is best determined by titration according to EN-12945. It may also be estimated from Ca and Mg element analyses, but in some cases these elements may be fixed to minerals other than carbonates with little or no neutralising capacity.</p>
+<div id="tbl-nv" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-nv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Estimating the <strong>neutralising value (NV)</strong> for two lime products. <span class="math inline">\(MgCO_3\)</span> content is converted to <span class="math inline">\(CaCO_3\)</span>-equivalents by multiplying by 1.19.
+</figcaption>
+<div aria-describedby="tbl-nv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
-<caption>Table&nbsp;1: Estimating the <strong>neutralising value (NV)</strong> for two lime products. <span class="math inline">\(MgCO_3\)</span> content is converted to <span class="math inline">\(CaCO_3\)</span>-equivalents by multiplying by 1.19.</caption>
 <colgroup>
 <col style="width: 14%">
 <col style="width: 14%">
@@ -246,7 +286,9 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </div>
-<p>The NV is usually specified in percent: pure calcium carbonate has a NV of 100 %; pure magnesium carbonate has a NV of 119 %; and typical dolomite products have NVs that are somewhere in between. For the same mass, products with a higher NV will be more effective at increasing pH, <em>as long as all the lime dissolves</em>. In practice, different limes exhibit different dissolution rates, which must also be accounted for (<a href="#sec-solubility">Section&nbsp;1.2</a>).</p>
+</figure>
+</div>
+<p>The NV is usually specified in percent: pure calcium carbonate has a NV of 100 %; pure magnesium carbonate has a NV of 119 %; and typical dolomite products have NVs that are somewhere in between. For the same mass, products with a higher NV will be more effective at increasing pH, <em>as long as all the lime dissolves</em>. In practice, different limes exhibit different dissolution rates, which must also be accounted for (<a href="#sec-solubility" class="quarto-xref">Section&nbsp;1.2</a>).</p>
 </section>
 <section id="sec-solubility" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="sec-solubility"><span class="header-section-number">1.2</span> Lime solubility</h3>
@@ -267,25 +309,33 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>The overall goal is to model changes in lake pH due to liming with different products</strong>. The model provides one part of the evidence base to decide which lime products to apply under different circumstances.</p>
 <section id="sec-ca-ph" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="sec-ca-ph"><span class="header-section-number">2.1</span> Relationship between Ca-equivalents and pH</h3>
-<p>When we add liming material, the concentration of CaCO3 (and MgCO3, if relevant) in the lake increases, which leads to an increase in pH. <a href="#fig-titration-curves">Figure&nbsp;1</a> shows relationships derived empirically by Atle Hindar relating changes in CaCO3-equivalents to changes in pH for lakes with different concentrations of Total Organic Carbon (TOC).</p>
-<div id="fig-titration-curves" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/titration_curves.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Titration curves relating changes in CaCO3-equivalents to changes in pH for lakes with different Total Organic Carbon (TOC) concentrations.</figcaption>
+<p>When we add liming material, the concentration of CaCO3 (and MgCO3, if relevant) in the lake increases, which leads to an increase in pH. <a href="#fig-titration-curves" class="quarto-xref">Figure&nbsp;1</a> shows relationships derived empirically by Atle Hindar relating changes in CaCO3-equivalents to changes in pH for lakes with different concentrations of Total Organic Carbon (TOC).</p>
+<div id="fig-titration-curves" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-titration-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/titration_curves.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-titration-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Titration curves relating changes in CaCO3-equivalents to changes in pH for lakes with different Total Organic Carbon (TOC) concentrations.
+</figcaption>
 </figure>
 </div>
-<p>For a lake with a given initial pH and TOC concentration, the model uses sigmoid curves based on the empirical data (<a href="#fig-titration-curves-interpolated">Figure&nbsp;2</a>) to lookup an idealised CaCO3 concentration representing the initial buffering capacity of the lake. The model then simulates changes in CaCO3-equivalent concentrations over time (relative to the initial concentration), and uses the curves to estimate corresponding changes in pH.</p>
-<div id="fig-titration-curves-interpolated" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/titration_curves_interpolated.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Sigmoid curves fitted to the data in <a href="#fig-titration-curves">Figure&nbsp;1</a>. These are used by the model to convert changes in CaCO3-equivalents to changes in pH for lakes with different Total Organic Carbon (TOC) concentrations.</figcaption>
+<p>For a lake with a given initial pH and TOC concentration, the model uses sigmoid curves based on the empirical data (<a href="#fig-titration-curves-interpolated" class="quarto-xref">Figure&nbsp;2</a>) to lookup an idealised CaCO3 concentration representing the initial buffering capacity of the lake. The model then simulates changes in CaCO3-equivalent concentrations over time (relative to the initial concentration), and uses the curves to estimate corresponding changes in pH.</p>
+<div id="fig-titration-curves-interpolated" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-titration-curves-interpolated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/titration_curves_interpolated.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-titration-curves-interpolated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Sigmoid curves fitted to the data in <a href="#fig-titration-curves" class="quarto-xref">Figure&nbsp;1</a>. These are used by the model to convert changes in CaCO3-equivalents to changes in pH for lakes with different Total Organic Carbon (TOC) concentrations.
+</figcaption>
 </figure>
 </div>
 </section>
 <section id="sec-mass-bal-model" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="sec-mass-bal-model"><span class="header-section-number">2.2</span> Mass balance model</h3>
-<p>The titration curves in <a href="#fig-titration-curves-interpolated">Figure&nbsp;2</a> transform the problem of modelling pH into one of modelling <span class="math inline">\(\Delta Ca\)</span> (and <span class="math inline">\(\Delta Mg\)</span> too, if relevant). When we add lime to a lake, some of it dissolves instantly, giving a sudden increase in pH, while the remainder sinks to the bottom and dissolves more slowly.</p>
-<p>A mass balance “box model” (<a href="#fig-box-model">Figure&nbsp;3</a>) is used to provide an estimate of both the initial change in lake conditions due to liming and the subsequent evolution over time. For simplicity, only one set of calculations is shown (e.g.&nbsp;for calcium), but an identical set of calculations for magnesium are also performed in parallel, if relevant. The Mg-fraction is then converted to CaCO3-equivalents before making the link to changes in pH (<a href="#sec-ca-ph">Section&nbsp;2.1</a>). Taking calcium as an example, the symbols in <a href="#fig-box-model">Figure&nbsp;3</a> are as follows:</p>
+<p>The titration curves in <a href="#fig-titration-curves-interpolated" class="quarto-xref">Figure&nbsp;2</a> transform the problem of modelling pH into one of modelling <span class="math inline">\(\Delta Ca\)</span> (and <span class="math inline">\(\Delta Mg\)</span> too, if relevant). When we add lime to a lake, some of it dissolves instantly, giving a sudden increase in pH, while the remainder sinks to the bottom and dissolves more slowly.</p>
+<p>A mass balance “box model” (<a href="#fig-box-model" class="quarto-xref">Figure&nbsp;3</a>) is used to provide an estimate of both the initial change in lake conditions due to liming and the subsequent evolution over time. For simplicity, only one set of calculations is shown (e.g.&nbsp;for calcium), but an identical set of calculations for magnesium are also performed in parallel, if relevant. The Mg-fraction is then converted to CaCO3-equivalents before making the link to changes in pH (<a href="#sec-ca-ph" class="quarto-xref">Section&nbsp;2.1</a>). Taking calcium as an example, the symbols in <a href="#fig-box-model" class="quarto-xref">Figure&nbsp;3</a> are as follows:</p>
 <ul>
 <li><span class="math inline">\(D\)</span> is the dose of lime added (adjusted for Ca content i.e.&nbsp;the actual dose of Ca in mg/l)</li>
 <li><span class="math inline">\(C_{inst}\)</span> is the “immediate” increase in lake Ca concentration (in mg/l) due to <strong>instantaneous dissolution</strong></li>
@@ -297,10 +347,14 @@ ul.task-list li input[type="checkbox"] {
 <li><span class="math inline">\(M_{lake}\)</span> is the mass of Ca dissolved in the lake water (in mg)</li>
 <li><span class="math inline">\(C_{lake}\)</span> is the Ca concentration in the lake, equal to <span class="math inline">\(\frac{M_{lake}}{V}\)</span>. The lake is assumed to be <strong>well mixed</strong>, such that the outflow concentration, <span class="math inline">\(C_{out}\)</span>, is equal to <span class="math inline">\(C_{lake}\)</span></li>
 </ul>
-<div id="fig-box-model" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/box_model.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Schematic illustration of a box model for lake calcium concentration for a single lake under the assumption of fixed water volume. Symbols are defined in the text.</figcaption>
+<div id="fig-box-model" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-box-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/box_model.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-box-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Schematic illustration of a box model for lake calcium concentration for a single lake under the assumption of fixed water volume. Symbols are defined in the text.
+</figcaption>
 </figure>
 </div>
 <p>Balancing the main sources and sinks of Ca to the lake gives</p>
@@ -339,7 +393,7 @@ D_{inst} \propto [H^+] \times d
 <p><span id="eq-cor-depth"><span class="math display">\[
 a = log⁡(\frac{d_{lake}}{d_{col}})
 \tag{7}\]</span></span></p>
-<p>Note that <a href="#eq-cor-depth">Equation&nbsp;7</a> applies to the CaCO3 fraction; for MgCO3, Sverdrup proposed the modification <span class="math inline">\((X - 0.5a)\)</span> as a more appropriate depth correction.</p>
+<p>Note that <a href="#eq-cor-depth" class="quarto-xref">Equation&nbsp;7</a> applies to the CaCO3 fraction; for MgCO3, Sverdrup proposed the modification <span class="math inline">\((X - 0.5a)\)</span> as a more appropriate depth correction.</p>
 </section>
 <section id="sec-standard-lake" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="sec-standard-lake"><span class="header-section-number">2.4</span> Simulating a “standard lake”</h3>
@@ -348,15 +402,19 @@ a = log⁡(\frac{d_{lake}}{d_{col}})
 <li><p>Lake <strong>volume</strong> (often provided as surface area and mean depth) and <strong>discharge</strong>, which together define the <strong>residence time</strong>. Note that this model assumes the volume is fixed, but discharge can vary over time, if desired.</p></li>
 <li><p><strong>Initial pH and TOC concentration</strong> for the lake. The lake is initially assumed to be in “steady state” i.e.&nbsp;the inflow concentration of Ca is equal to the outflow concentration.</p></li>
 <li><p>The <strong>dose</strong> of liming material added and the <strong>proportion of Ca and Mg by mass</strong> in the lime. <strong>Overdosing factors</strong> are also relevant for higher doses.</p></li>
-<li><p><strong>Lake mean depth</strong> and <strong>Spreading method</strong> (i.e.&nbsp;“wet” or “dry”), both of which are used to adjust the instantaneous dissolution values from column tests (<a href="#eq-cor-depth">Equation&nbsp;7</a>).</p></li>
+<li><p><strong>Lake mean depth</strong> and <strong>Spreading method</strong> (i.e.&nbsp;“wet” or “dry”), both of which are used to adjust the instantaneous dissolution values from column tests (<a href="#eq-cor-depth" class="quarto-xref">Equation&nbsp;7</a>).</p></li>
 <li><p><strong>The fraction of the lime on the lake bottom that remains “active”</strong> for dissolution over long time periods.</p></li>
 <li><p>The parameters <span class="math inline">\(K_0\)</span> and <span class="math inline">\(\lambda\)</span>, which determine how fast lime on the lake bottom dissolves, and how long it remains “active”.</p></li>
 </ul>
-<p>To avoid having to specify all these parameters when comparing different lime products, it is common to consider a <strong>standard lake</strong> with an area of 20 ha, mean depth of 5 m and mean residence time of 0.7 years. These parameters, in turn, define the mean annual discharge. If desired, this can be modified by selecting a monthly <strong>flow profile</strong> (<code>fjell</code> or <code>kyst</code>; see <a href="#fig-flow-profiles">Figure&nbsp;4</a>), which adjusts the flows up or down in each month, but in such a way that the overall annual average maintains a residence time of 0.7 years.</p>
-<div id="fig-flow-profiles" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/flow_typologies.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Monthly flow profiles that can be used to modify the default (constant) flows assumed for the “standard lake”.</figcaption>
+<p>To avoid having to specify all these parameters when comparing different lime products, it is common to consider a <strong>standard lake</strong> with an area of 20 ha, mean depth of 5 m and mean residence time of 0.7 years. These parameters, in turn, define the mean annual discharge. If desired, this can be modified by selecting a monthly <strong>flow profile</strong> (<code>fjell</code> or <code>kyst</code>; see <a href="#fig-flow-profiles" class="quarto-xref">Figure&nbsp;4</a>), which adjusts the flows up or down in each month, but in such a way that the overall annual average maintains a residence time of 0.7 years.</p>
+<div id="fig-flow-profiles" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flow-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/flow_typologies.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flow-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Monthly flow profiles that can be used to modify the default (constant) flows assumed for the “standard lake”.
+</figcaption>
 </figure>
 </div>
 
@@ -444,10 +502,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/NIVANorge\.github\.io\/lake_liming_app\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -457,8 +532,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -470,7 +554,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -514,6 +721,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -539,6 +747,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -599,6 +833,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
