@@ -1,13 +1,12 @@
 import streamlit as st
-from streamlit_option_menu import option_menu
-
 import subpages.column_test
 import subpages.home
 import subpages.lake_modelling
+from streamlit_option_menu import option_menu
 
 PAGES = {
     "Home": subpages.home,
-    "Column tests": subpages.column_test,
+    "Upload column test data": subpages.column_test,
     "Lake modelling": subpages.lake_modelling,
 }
 
@@ -19,7 +18,7 @@ def main():
     with st.sidebar:
         selection = option_menu(
             None,
-            options=["Home", "Column tests", "Lake modelling"],
+            options=["Home", "Upload column test data", "Lake modelling"],
             icons=["house", "clipboard-data", "droplet"],
             default_index=0,
         )
