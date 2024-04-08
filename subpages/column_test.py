@@ -1,5 +1,4 @@
 import streamlit as st
-
 from src.col_tests.utils.display_results import display_results
 from src.col_tests.utils.read_input import read_template
 
@@ -8,6 +7,17 @@ def app():
     """Main function for the 'column_test' page."""
 
     st.markdown("## Column tests")
+    with st.expander("Help"):
+        st.markdown(
+            """
+        Use this page to upload **new column test data** from an Excel template.
+        A blank copy of the template is available 
+        [here](https://github.com/NIVANorge/lake_liming_app/blob/main/data/liming_app_data_template_v1-1.xlsx).
+
+        Note that you can explore column test results for **existing lime products**
+        (i.e. those already in the database) from the `Lake modelling` tab.
+        """
+        )
     data_file = st.sidebar.file_uploader("Upload template")
     if data_file:
         st.session_state["data_file"] = data_file
@@ -48,7 +58,7 @@ def app():
                     inst_df,
                     element="Ca",
                     test_type="instantaneous",
-                    method="trapezoidal"
+                    method="trapezoidal",
                 )
             # Overdosing test
             with right_col:
@@ -57,11 +67,11 @@ def app():
                     od_df,
                     element="Ca",
                     test_type="overdosing",
-                    method="trapezoidal"
+                    method="trapezoidal",
                 )
 
             # Display Mg results if data present
-            if (inst_df['Mg_mg/l'].sum() != 0):
+            if inst_df["Mg_mg/l"].sum() != 0:
                 subheader("Magnesium results")
                 left_col, right_col = st.columns(2)
                 with left_col:
@@ -71,7 +81,7 @@ def app():
                         inst_df,
                         element="Mg",
                         test_type="instantaneous",
-                        method="trapezoidal"
+                        method="trapezoidal",
                     )
                 with right_col:
                     # Overdosing test
@@ -80,7 +90,7 @@ def app():
                         od_df,
                         element="Mg",
                         test_type="overdosing",
-                        method="trapezoidal"
+                        method="trapezoidal",
                     )
 
     return None

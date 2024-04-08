@@ -8,5 +8,5 @@ def lime_products(path):
 
 
 def lime_product_names(products):
-    prod_names = [*products]
+    prod_names = sorted([*products])
     return prod_names
