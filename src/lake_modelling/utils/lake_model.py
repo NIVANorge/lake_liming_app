@@ -15,6 +15,12 @@ LIME_PRODUCTS_DATA = "data/lime_products.xlsx"
 FLOW_TYPES_DATA = "data/flow_typologies.xlsx"
 TITRATION_CURVE_DATA = "data/titration_curves_interpolated.xlsx"
 
+# Molar masses (g/mol)
+MM_MgCO3 = 84.31
+MM_CaCO3 = 100.09
+MM_Mg = 24.31
+MM_Ca = 40.08
+
 
 class Lake:
     def __init__(
@@ -24,6 +30,7 @@ class Lake:
         tau=0.7,
         flow_prof="fjell",
         pH_lake0=4.5,
+        pH_inflow=4.5,
         toc_lake0=4,
     ):
         """Initialise lake object.
@@ -36,6 +43,7 @@ class Lake:
                           annual mean flow). Must be defined in 'flow_typologies.xlsx'
                           One of ('none', 'fjell', 'kyst')
             pH_lake0:     Float. Lake initial pH (dimensionless)
+            pH_inflow:    Float. Inflow pH (dimensionless)
             toc_lake0:    Float. Lake initial TOC concentration (mg/l)
 
         Returns
@@ -47,13 +55,9 @@ class Lake:
         self.tau = tau
         self.flow_prof = flow_prof
         self.pH_lake0 = pH_lake0
+        self.pH_inflow = pH_inflow
         self.toc_lake0 = toc_lake0
         self._validate_input()
-
-        # Fixed attributes
-        self.C_lake0 = 0
-        self.C_in0 = 0
-        self.C_bott = 0
 
     def _validate_input(self):
         """Check user-supplied values are reasonable."""
@@ -66,6 +70,7 @@ class Lake:
             "kyst",
         ), "'flow_prof' must be one of ('none', 'fjell', 'kyst')."
         assert 4.5 <= self.pH_lake0 <= 6.5, "'pH_lake0' must be between 4.5 and 6.5."
+        assert 4.5 <= self.pH_inflow <= 6.5, "'pH_inflow' must be between 4.5 and 6.5."
         assert self.toc_lake0 >= 0, "'toc_lake0' must be greater than or equal to 0."
 
     @property
@@ -374,13 +379,13 @@ class Model:
         lake,
         lime_product,
         lime_dose=10,
-        lime_month=1,
+        lime_month=7,
         spr_meth="wet",
         spr_prop=0.5,
         F_sol=1,
-        rate_const=1,
+        rate_const=0.1,
         activity_const=0.1,
-        ca_aq_sat=15,
+        ca_aq_sat=8.5,
         n_months=24,
     ):
         """Initialise model object.
@@ -412,6 +417,11 @@ class Model:
         self.ca_aq_sat = ca_aq_sat
         self.n_months = n_months
         self._validate_input()
+
+        # Derived attributes
+        interp = self._interp_caco3_from_ph()
+        self.C_lake0 = interp(self.lake.pH_lake0) * MM_Ca / MM_CaCO3
+        self.C_in0 = interp(self.lake.pH_inflow) * MM_Ca / MM_CaCO3
 
     def _validate_input(self):
         """Check user-supplied values are reasonable."""
@@ -499,12 +509,6 @@ class Model:
             (also in mg/l of Ca-equivalents) that sinks to the bottom of the lake
             and remains available for dissolution.
         """
-        # Molar masses
-        # MM_MgCO3 = 84.31
-        # MM_CaCO3 = 100.09
-        MM_Mg = 24.31
-        MM_Ca = 40.08
-
         # Get dose of Ca and Mg
         ca_dose = self.lime_product.ca_pct * self.lime_dose / 100
         mg_dose = self.lime_product.mg_pct * self.lime_dose / 100
@@ -531,8 +535,8 @@ class Model:
 
         return (C_inst0, C_bott0)
 
-    def _pH_from_delta_Ca(self):
-        """Build a titration curve linking change in Ca-equivalents to lake pH."""
+    def _interp_ph_from_caco3(self):
+        """Estimate pH from on CaCO3 concentration based on titration curves."""
         # Get TOC class
         if self.lake.toc_lake0 <= 3:
             toc_class = "TOC ≤ 3"
@@ -548,20 +552,43 @@ class Model:
         )
         df = pd.read_excel(xl_path)
         df = df.query("`TOC class (mg/l)` == @toc_class")
-        interp_ph = interp1d(
-            df["pH"].values, df["CaCO3 (mg/l)"].values, fill_value="extrapolate"
-        )
-        interp_ca = interp1d(
+        interp = interp1d(
             df["CaCO3 (mg/l)"].values, df["pH"].values, fill_value="extrapolate"
         )
 
-        # Convert modelled change in Ca to abs. conc. of CaCO3
-        delta_caco3_mod = self.model_delta_ca_mgpl * 100.09 / 40.08
-        caco3_0 = interp_ph(self.lake.pH_lake0)
-        caco3_mod = caco3_0 + delta_caco3_mod
+        return interp
+
+    def _interp_caco3_from_ph(self):
+        """Estimate CaCO3 concentration from pH based on titration curves."""
+        # Get TOC class
+        if self.lake.toc_lake0 <= 3:
+            toc_class = "TOC ≤ 3"
+        elif 3 < self.lake.toc_lake0 <= 5:
+            toc_class = "3 < TOC ≤ 5"
+        else:
+            toc_class = "TOC > 5"
+
+        # Build interpolator
+        xl_path = os.path.join(
+            os.path.dirname(os.path.realpath(__file__)),
+            f"../../../{TITRATION_CURVE_DATA}",
+        )
+        df = pd.read_excel(xl_path)
+        df = df.query("`TOC class (mg/l)` == @toc_class")
+        interp = interp1d(
+            df["pH"].values, df["CaCO3 (mg/l)"].values, fill_value="extrapolate"
+        )
+
+        return interp
+
+    def _pH_from_delta_Ca(self):
+        """Build a titration curve linking change in Ca-equivalents to lake pH."""
+        # Convert modelled Ca to CaCO3
+        caco3_mod = self.model_ca_mgpl * MM_CaCO3 / MM_Ca
 
         # Predict pH from modelled CaCO3
-        ph_mod = interp_ca(caco3_mod)
+        interp = self._interp_ph_from_caco3()
+        ph_mod = interp(caco3_mod)
 
         return ph_mod
 
@@ -581,8 +608,8 @@ class Model:
             """Define the ODE system.
 
             Args
-                y:      List. [C_lake]. Current lake Ca concentration in mg/l of Ca-
-                        equivalents
+                y:      List. [C_lake, C_bott]. Current lake Ca concentration in mg/l of
+                        Ca-equivalents
                 t:      Array. Time points at which to evaluate C_lake (in months)
                 params: Tuple. (Q, V, C_in, rate_const, activity_const, ca_aq_sat).
                             'Q' is mean flow in litres/month
@@ -634,7 +661,7 @@ class Model:
 
         # Loop over months
         C_bott = self.C_bott0
-        C_lake = self.lake.C_lake0 + self.C_inst0
+        C_lake = self.C_lake0 + self.C_inst0
         ys = []
         tis = []
         for month in months:
@@ -647,7 +674,7 @@ class Model:
             params = [
                 q_month,
                 self.lake.volume,
-                self.lake.C_in0,
+                self.C_in0,
                 self.rate_const,
                 self.activity_const,
                 self.ca_aq_sat,
@@ -663,10 +690,10 @@ class Model:
         # Build df from output
         df = pd.DataFrame(
             data=np.concatenate(ys),
-            columns=["Delta Ca (mg/l)", "Delta Ca bottom (mg/l)"],
+            columns=["Ca (mg/l)", "Ca bottom (mg/l)"],
             index=np.concatenate(tis),
         )
-        del df["Delta Ca bottom (mg/l)"]
+        del df["Ca bottom (mg/l)"]
 
         # At each time step, the solver runs from month to (month + 1) inclusive.
         # The first and last time points in successive segments are therefore
@@ -676,7 +703,7 @@ class Model:
         df.index = df.index + self.lime_month - 1
 
         self.model_time_months = df.index.values
-        self.model_delta_ca_mgpl = df["Delta Ca (mg/l)"].values
+        self.model_ca_mgpl = df["Ca (mg/l)"].values
 
         # Convert delta Ca to pH
         ph_mod = self._pH_from_delta_Ca()
@@ -688,7 +715,7 @@ class Model:
         df["date"] = datetime(2000, 1, 1) + pd.to_timedelta(
             df.index * 365 / 12, unit="D"
         )
-        df = df[["date", "Delta Ca (mg/l)", "pH"]]
+        df = df[["date", "Ca (mg/l)", "pH"]]
         self.result_df = df
 
         return df
@@ -713,7 +740,7 @@ class Model:
             axes = df.plot(subplots=True, legend=False, title=self.lime_product._name)
             axes[0].set_ylim(bottom=0)
             axes[1].axhline(y=self.lake.pH_lake0, ls="--", c="k")
-            axes[0].set_ylabel("$\Delta Ca_{ekv}$ (mg/l)")
+            axes[0].set_ylabel("$\Ca_{ekv}$ (mg/l)")
             axes[1].set_ylabel("Lake pH (-)")
             axes[1].set_xlabel("")
             plt.tight_layout()
@@ -751,11 +778,11 @@ class Model:
                         axis=alt.Axis(title=" ", grid=True),
                     ),
                     y=alt.Y(
-                        "Delta Ca (mg/l)",
-                        axis=alt.Axis(title="\u0394Ca\u2091\u2096\u1D65 (mg/l)"),
+                        "Ca (mg/l)",
+                        axis=alt.Axis(title="Ca\u2091\u2096\u1D65 (mg/l)"),
                         # scale=alt.Scale(zero=False),
                     ),
-                    tooltip=["date", alt.Tooltip("Delta Ca (mg/l)", format=",.2f")],
+                    tooltip=["date", alt.Tooltip("Ca (mg/l)", format=",.2f")],
                 )
                 .properties(width=600, height=200)
                 .interactive()
