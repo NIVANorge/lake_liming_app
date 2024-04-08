@@ -58,13 +58,14 @@ def run_multiple_products(lake, products):
     return df
 
 
-def plot_multiple_products(df, pH_lake0, lib):
+def plot_multiple_products(df, pH_lake0, pH_inflow, lib):
     """Plot results from 'run_multiple_products'.
 
     Args
-        df:       Dataframe. AS returned by 'run_multiple_products'
-        pH_lake0: Float. Float. Lake initial pH (dimensionless)
-        lib:      Str. Plotting library to use. Either 'Altair' or 'Matplotlib'
+        df:        Dataframe. As returned by 'run_multiple_products'
+        pH_lake0:  Float. Float. Lake initial pH (dimensionless)
+        pH_inflow: Float. Float. Lake inflow pH (dimensionless)
+        lib:       Str. Plotting library to use. Either 'Altair' or 'Matplotlib'
 
     Returns
             Chart object. The chart is also added to the Streamlit app if Streamlit
@@ -87,7 +88,8 @@ def plot_multiple_products(df, pH_lake0, lib):
         )
         g.axes[0, 0].set_ylim(bottom=0)
         g.axes[1, 0].axhline(y=pH_lake0, ls="--", c="k")
-        g.axes[0, 0].set_ylabel("$\Delta Ca_{ekv}$ (mg/l)")
+        g.axes[1, 0].axhline(y=pH_inflow, ls="--", c="k")
+        g.axes[0, 0].set_ylabel("$\Ca_{ekv}$ (mg/l)")
         g.axes[1, 0].set_ylabel("Lake pH (-)")
         g.axes[1, 0].set_xlabel("")
         g.axes[0, 0].set_title("")
@@ -98,8 +100,14 @@ def plot_multiple_products(df, pH_lake0, lib):
         st.pyplot()
     else:
         # Altair charts
-        init_ph = (
+        checkbox_selection = alt.selection_point(fields=["product"], bind="legend")
+        init_lake_ph = (
             alt.Chart(pd.DataFrame({"pH": [pH_lake0]}))
+            .mark_rule(strokeDash=[10, 10])
+            .encode(y="pH")
+        )
+        inflow_ph = (
+            alt.Chart(pd.DataFrame({"pH": [pH_inflow]}))
             .mark_rule(strokeDash=[10, 10])
             .encode(y="pH")
         )
@@ -114,8 +122,10 @@ def plot_multiple_products(df, pH_lake0, lib):
                     scale=alt.Scale(zero=False),
                 ),
                 color="product",
+                opacity=alt.condition(checkbox_selection, alt.value(1), alt.value(0)),
                 tooltip=["product", "date", alt.Tooltip("pH", format=",.2f")],
             )
+            .add_params(checkbox_selection)
             .properties(width=600, height=200)
             .interactive()
         )
@@ -128,21 +138,23 @@ def plot_multiple_products(df, pH_lake0, lib):
                     axis=alt.Axis(title=" ", grid=True),
                 ),
                 y=alt.Y(
-                    "Delta Ca (mg/l)",
-                    axis=alt.Axis(title="\u0394Ca\u2091\u2096\u1D65 (mg/l)"),
+                    "Ca (mg/l)",
+                    axis=alt.Axis(title="Ca\u2091\u2096\u1D65 (mg/l)"),
                     # scale=alt.Scale(zero=False),
                 ),
                 color="product",
+                opacity=alt.condition(checkbox_selection, alt.value(1), alt.value(0)),
                 tooltip=[
                     "product",
                     "date",
-                    alt.Tooltip("Delta Ca (mg/l)", format=",.2f"),
+                    alt.Tooltip("Ca (mg/l)", format=",.2f"),
                 ],
             )
+            .add_params(checkbox_selection)
             .properties(width=600, height=200)
             .interactive()
         )
-        chart = alt.vconcat(ca_chart, ph_chart + init_ph)
+        chart = alt.vconcat(ca_chart, ph_chart + init_lake_ph + inflow_ph)
         st.altair_chart(chart, use_container_width=True)
 
         return chart
