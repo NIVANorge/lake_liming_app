@@ -33,26 +33,6 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Vassdragskalking app dokumentasjon",
-    "section": "",
-    "text": "This website provides documentation for the lake liming application.\nThe current pages are placeholders (in English).",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#sec-overview",
-    "href": "index.html#sec-overview",
-    "title": "Vassdragskalking app dokumentasjon",
-    "section": "1 Overview",
-    "text": "1 Overview\nThe application performs two kinds of calculation:\n\nLake modelling. Estimate the change in lake pH over time for a given lime dose (depending on the type of lime, lake characteristics and lime application method).\nSummarising data from column tests. Upload column test data using a standard template and calculate characteristic curves for instantaneous dissolution and overdosing factor.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
     "objectID": "column-tests.html",
     "href": "column-tests.html",
     "title": "Column tests",
@@ -72,6 +52,26 @@
     "crumbs": [
       "Home",
       "Column tests"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Vassdragskalking app dokumentasjon",
+    "section": "",
+    "text": "This website provides documentation for the lake liming application.\nThe current pages are placeholders (in English).",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#sec-overview",
+    "href": "index.html#sec-overview",
+    "title": "Vassdragskalking app dokumentasjon",
+    "section": "1 Overview",
+    "text": "1 Overview\nThe application performs two kinds of calculation:\n\nLake modelling. Estimate the change in lake pH over time for a given lime dose (depending on the type of lime, lake characteristics and lime application method).\nSummarising data from column tests. Upload column test data using a standard template and calculate characteristic curves for instantaneous dissolution and overdosing factor.",
+    "crumbs": [
+      "Home"
     ]
   }
 ]
