@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Innsjøkalking applikasjon - Column tests</title>
+<title>Innsjøkalking applikasjon - User guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,35 +67,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -144,7 +115,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./column-tests.html">Column tests</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./user-guide.html">User guide</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -184,7 +155,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./user-guide.html" class="sidebar-item-text sidebar-link">
+  <a href="./user-guide.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">User guide</span></a>
   </div>
 </li>
@@ -196,7 +167,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./column-tests.html" class="sidebar-item-text sidebar-link active">
+  <a href="./column-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Column tests</span></a>
   </div>
 </li>
@@ -210,12 +181,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sec-instant-dissolution" id="toc-sec-instant-dissolution" class="nav-link active" data-scroll-target="#sec-instant-dissolution"><span class="header-section-number">1</span> Instantaneous dissolution</a>
-  <ul class="collapse">
-  <li><a href="#sec-vary-ph" id="toc-sec-vary-ph" class="nav-link" data-scroll-target="#sec-vary-ph"><span class="header-section-number">1.1</span> Varying pH</a></li>
-  <li><a href="#sec-vary-dose" id="toc-sec-vary-dose" class="nav-link" data-scroll-target="#sec-vary-dose"><span class="header-section-number">1.2</span> Varying dose</a></li>
-  <li><a href="#sec-combining" id="toc-sec-combining" class="nav-link" data-scroll-target="#sec-combining"><span class="header-section-number">1.3</span> Combining datasets</a></li>
-  </ul></li>
+  <li><a href="#sec-overview" id="toc-sec-overview" class="nav-link active" data-scroll-target="#sec-overview"><span class="header-section-number">1</span> Overview</a></li>
+  <li><a href="#sec-lake-modelling" id="toc-sec-lake-modelling" class="nav-link" data-scroll-target="#sec-lake-modelling"><span class="header-section-number">2</span> Lake modelling</a></li>
+  <li><a href="#sec-comparison-factors" id="toc-sec-comparison-factors" class="nav-link" data-scroll-target="#sec-comparison-factors"><span class="header-section-number">3</span> Omregningsfaktorer</a></li>
+  <li><a href="#sec-column-tests" id="toc-sec-column-tests" class="nav-link" data-scroll-target="#sec-column-tests"><span class="header-section-number">4</span> Column tests</a></li>
   </ul>
 </nav>
     </div>
@@ -224,7 +193,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Column tests</h1>
+<h1 class="title">User guide</h1>
 </div>
 
 
@@ -241,179 +210,19 @@ window.Quarto = {
 </header>
 
 
-<p>When lime is added to a lake, some of it dissolves quickly while the rest sinks to the bottom where it may dissolve more slowly. How much of the lime dissolves immediately depends on the lake chemistry, application method, and the properties of the lime product being used (see <a href="./lake-modelling.html">’Lake modelling</a> for details).</p>
-<p>The proportion of a lime product that will dissolve “immediately” can be estimated using <strong>column tests</strong> (in this case, the term “immediately” means “within days”, rather than weeks, months or years). Each experiment involves 5 columns, labelled <code>A</code> to <code>E</code>. The columns are 19 cm in diameter and at least 205 cm high, and they are initially filled with 57.9 litres of deionised water containing 0.01% KCl, adjusted to the desired pH using sulphuric acid.</p>
-<p>For each lime tested, the supplier must specify the typical proportions of Ca and Mg (by mass) in their product, <span class="math inline">\(F_{Ca}\)</span> and <span class="math inline">\(F_{Mg}\)</span>. These fractions are used in the calculations below.</p>
-<section id="sec-instant-dissolution" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="sec-instant-dissolution"><span class="header-section-number">1</span> Instantaneous dissolution</h2>
-<p>For each type of lime, we would like to know the proportion that will dissolve “immediately” for a range of <strong>initial pH values</strong> and <strong>dose concentrations</strong>. The dose is usually expressed as a concentration in mg/l of lime i.e.&nbsp;the total mass of lime added, divided by the total volume of water in the column (or waterbody). If the dose concentration is <span class="math inline">\(D \ mg/l\)</span> of lime and the proportion of calcium in the lime product by mass is <span class="math inline">\(F_{Ca}\)</span>, then if all the lime dissolves completely the concetration of Ca in the column will be <span class="math inline">\(F_{Ca} D \ mg/l\)</span>. The aim of the tests is to see how much of the lime actually dissolves under different conditions.</p>
-<section id="sec-vary-ph" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="sec-vary-ph"><span class="header-section-number">1.1</span> Varying pH</h3>
-<p>For the first set of tests, columns <code>A</code> to <code>E</code> are adjusted to have pH values of 4, 4.5, 5, 5.5 and 6, respectively. 0.579 g of dried lime are added to the top of each column, corresponding to a uniform <strong>dose</strong> of 10 mg/l of lime. If all of this dissolves and mixes evenly, the total mass of Ca or Mg dissolved in the column between any two depths <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> (where <span class="math inline">\(x_2 &gt; x_1\)</span>) is given by</p>
-<p><span id="eq-evenly-mixed"><span class="math display">\[
-M_{par} = 10 F_{par} A (x_2 - x_1)
-\tag{1}\]</span></span></p>
-<p>where <span class="math inline">\(A\)</span> is the cross-sectional area of the column and <span class="math inline">\(par\)</span> is either Ca or Mg.</p>
-<p>In practice, not all the lime dissolves and the columns do not achieve uniform concentrations. After <strong>16 hours</strong>, the concentration of Ca (and Mg, if relevant) in each column is determined at different depths using ICP-OES (Inductively Coupled Plasma - Optical Emission Spectrometry). Five measurements are taken from each column: every 40 cm from the surface down to 1.6 m. A typical dataset for a single column for a non-dolomitic lime (i.e.&nbsp;Ca only) is shown in <a href="#tbl-instantaneous-dissolution" class="quarto-xref">Table&nbsp;1</a>.</p>
-<div id="tbl-instantaneous-dissolution" class="quarto-float anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-instantaneous-dissolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Example data for a single column from the instantaneous dissolution test for calcium.
-</figcaption>
-<div aria-describedby="tbl-instantaneous-dissolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><strong>Column</strong></th>
-<th style="text-align: center;"><strong>pH</strong></th>
-<th style="text-align: center;"><strong>Depth (m)</strong></th>
-<th style="text-align: center;"><strong>Ca (mg/l)</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">A</td>
-<td style="text-align: center;">4.0</td>
-<td style="text-align: center;">0.0</td>
-<td style="text-align: center;">2.82</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">A</td>
-<td style="text-align: center;">4.0</td>
-<td style="text-align: center;">0.4</td>
-<td style="text-align: center;">2.62</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">A</td>
-<td style="text-align: center;">4.0</td>
-<td style="text-align: center;">0.8</td>
-<td style="text-align: center;">2.64</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">A</td>
-<td style="text-align: center;">4.0</td>
-<td style="text-align: center;">1.2</td>
-<td style="text-align: center;">2.76</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">A</td>
-<td style="text-align: center;">4.0</td>
-<td style="text-align: center;">1.6</td>
-<td style="text-align: center;">2.81</td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<p><a href="#tbl-instantaneous-dissolution" class="quarto-xref">Table&nbsp;1</a> is used to estimate the total amount of Ca that has actually dissolved in each column after 16 hours. It is assumed that each column is horizontally well-mixed and that concentrations only vary with depth, <span class="math inline">\(x\)</span>. The total amount of Ca between depths <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> is given by the integral</p>
-<p><span id="eq-conc-depth-integral"><span class="math display">\[
-M_{Ca} = A \int_{x_1}^{x_2} C(x) \ dx
-\tag{2}\]</span></span></p>
-<p>The overall proportion of the available Ca that has dissolved, called the <strong>instantaneous dissolution</strong>, can then be obtained by dividing <a href="#eq-conc-depth-integral" class="quarto-xref">Equation&nbsp;2</a> by <a href="#eq-evenly-mixed" class="quarto-xref">Equation&nbsp;1</a>, both evaluated between 0 and 1.6 m depth (and the same calculation performed for magnesium, if relevant).</p>
-<p><span id="eq-inst-diss"><span class="math display">\[
-D_{inst} = \frac{\int_{0}^{1.6} C(x) \ dx}{10 F_{Ca} (1.6 - 0)}
-\tag{3}\]</span></span></p>
-<p>The integral in <a href="#eq-inst-diss" class="quarto-xref">Equation&nbsp;3</a> is approximated from the measured data (<a href="#tbl-instantaneous-dissolution" class="quarto-xref">Table&nbsp;1</a>) using the <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapezoidal rule</a>.</p>
-<p>The main output from this experiment is a set instantaneous dissolution values (usually expressed in percent) showing how the <strong>dissolution changes with initial pH at a fixed lime dose</strong> (<a href="#fig-instantaneous-dissolution-curve" class="quarto-xref">Figure&nbsp;1</a>).</p>
-<div id="fig-instantaneous-dissolution-curve" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-instantaneous-dissolution-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="./images/instantaneous_dissolution_example.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-instantaneous-dissolution-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Instantaneous dissolution curve for varying pH (with the dose fixed at 10 mg/l of lime).
-</figcaption>
-</figure>
-</div>
+<section id="sec-overview" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="sec-overview"><span class="header-section-number">1</span> Overview</h2>
 </section>
-<section id="sec-vary-dose" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="sec-vary-dose"><span class="header-section-number">1.2</span> Varying dose</h3>
-<p>In the second experiment, columns <code>A</code> to <code>E</code> are fixed at pH 4.5 and different doses are added to each column, corresponding to lime concentrations of 10, 20, 35, 50 and 85 mg/l (assuming complete dissolution). The columns are again left for <strong>16 hours</strong> and the <strong>instantaneous dissolution</strong> for each column is determined using the procedure described in <a href="#sec-vary-ph" class="quarto-xref">Section&nbsp;1.1</a>.</p>
-<p>At high doses, the proportion of lime that dissolves immediately is typically <strong>lower</strong> than in the first experiment, because high doses lead to high calcium concentrations in the immediate vicinity of the lime particles, which inhibits dissolution. This effect is called <strong>overdosing</strong>.</p>
-<p>The main output from the second experiment is a set of <strong>overdosing factors</strong>, calculated as the ratio <span class="math inline">\(D_{10} / D_{x}\)</span>, where <span class="math inline">\(D_{10}\)</span> is the instantaneous dissolution for the column where 10 mg/l of lime was initially added, and <span class="math inline">\(D_{x}\)</span> is the instantaneous dissolution for the column where <span class="math inline">\(x\)</span> mg/l of lime was added.</p>
-<p>A typical curve for overdosing factors is shown in <a href="#fig-overdosing-curve" class="quarto-xref">Figure&nbsp;2</a>.</p>
-<div id="fig-overdosing-curve" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-overdosing-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="./images/overdosing_example.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-overdosing-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Overdosing factors for different lime doses (with column pH fixed at 4.5).
-</figcaption>
-</figure>
-</div>
+<section id="sec-lake-modelling" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sec-lake-modelling"><span class="header-section-number">2</span> Lake modelling</h2>
 </section>
-<section id="sec-combining" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="sec-combining"><span class="header-section-number">1.3</span> Combining datasets</h3>
-<p>The two experiments described in <a href="#sec-vary-ph" class="quarto-xref">Section&nbsp;1.1</a> and <a href="#sec-vary-dose" class="quarto-xref">Section&nbsp;1.2</a> yield data in the format shown in <a href="#tbl-expt-design" class="quarto-xref">Table&nbsp;2</a>.</p>
-<div id="tbl-expt-design" class="quarto-float anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-expt-design-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Experimental design for column tests. Each <code>x</code> corresponds to a single column for which instantaneous dissolution is determined.
-</figcaption>
-<div aria-describedby="tbl-expt-design-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><strong>pH</strong><br><strong>Dose</strong></th>
-<th style="text-align: center;"><strong>4</strong></th>
-<th style="text-align: center;"><strong>4.5</strong></th>
-<th style="text-align: center;"><strong>5</strong></th>
-<th style="text-align: center;"><strong>5.5</strong></th>
-<th style="text-align: center;"><strong>6</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><strong>10</strong></td>
-<td style="text-align: center;">x</td>
-<td style="text-align: center;">x</td>
-<td style="text-align: center;">x</td>
-<td style="text-align: center;">x</td>
-<td style="text-align: center;">x</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>20</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">x</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>35</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">x</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>50</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">x</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>85</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">x</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<p>Using these data, the expected instantaneous dissolution for any pH and lime dose can be estimated by interpolation.</p>
+<section id="sec-comparison-factors" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="sec-comparison-factors"><span class="header-section-number">3</span> Omregningsfaktorer</h2>
+</section>
+<section id="sec-column-tests" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="sec-column-tests"><span class="header-section-number">4</span> Column tests</h2>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

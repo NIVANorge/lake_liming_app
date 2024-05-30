@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Vassdragskalking applikasjon - Vassdragskalking app dokumentasjon</title>
+<title>Innsjøkalking applikasjon - Innsjøkalking app dokumentasjon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -79,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Vassdragskalking applikasjon</span>
+    <span class="navbar-title">Innsjøkalking applikasjon</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -91,6 +91,10 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./user-guide.html"> 
+<span class="menu-text">User guide</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./lake-modelling.html"> 
@@ -151,6 +155,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./user-guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">User guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./lake-modelling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lake modelling</span></a>
   </div>
@@ -167,20 +177,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#sec-overview" id="toc-sec-overview" class="nav-link active" data-scroll-target="#sec-overview"><span class="header-section-number">1</span> Overview</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Vassdragskalking app dokumentasjon</h1>
+<h1 class="title">Innsjøkalking app dokumentasjon</h1>
 </div>
 
 
@@ -197,18 +201,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This website provides documentation for the lake liming application.</p>
-<p>The current pages are placeholders (in English).</p>
-<section id="sec-overview" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="sec-overview"><span class="header-section-number">1</span> Overview</h2>
-<p>The application performs two kinds of calculation:</p>
-<ol type="1">
-<li><p><strong><a href="./lake-modelling.html">Lake modelling</a></strong>. Estimate the change in lake pH over time for a given lime dose (depending on the type of lime, lake characteristics and lime application method).</p></li>
-<li><p>Summarising data from <strong><a href="./column-tests.html">column tests</a></strong>. Upload column test data using a standard template and calculate characteristic curves for <strong>instantaneous dissolution</strong> and <strong>overdosing factor</strong>.</p></li>
-</ol>
+<p>This website provides documentation for the <a href="https://lake-liming.t.niva.no/">lake liming application</a>. The model aims to simulate typical/idealised responses of lake water chemistry (calcium concentration and pH) to various liming strategies.</p>
+<ul>
+<li><p>For a description of how to use the application, see the <a href="./user_guide.qmd">User guide</a>.</p></li>
+<li><p>To understand how the model works, see <a href="./lake_modelling.qmd">Lake modelling</a>.</p></li>
+<li><p>For details of the empirical data used to represent different lime products, see <a href="./column_tests.qmd">Column tests</a>.</p></li>
+</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
