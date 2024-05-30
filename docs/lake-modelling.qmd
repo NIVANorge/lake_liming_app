@@ -44,7 +44,11 @@ Lime dissolution rates and the effects of overdosing are determined experimental
 
 ## Modelling procedure {#sec-modelling}
 
-**The overall goal is to model changes in lake pH due to liming with different products**. The model provides one part of the evidence base to decide which lime products to apply under different circumstances.
+The goal of the model is to simulate changes in lake pH due to liming with different products. It provides one part of the evidence base to decide which lime products to apply under different circumstances.
+
+::: {.callout-note}
+The model attempts to simulate a "typical" lake and results must therefore be considered as illustrative. Measured data from real lakes demonstrates that dose-response relationships are highly variable and may depend strongly on local factors. The model uses idealised empirical relationships based on Norwegian monitoring data and lab tests. It is not designed for detailed simulation of individual lakes.
+:::
 
 ### Relationship between Ca-equivalents and pH {#sec-ca-ph}
 
@@ -62,15 +66,15 @@ The titration curves in @fig-titration-curves-interpolated transform the problem
 
 A mass balance "box model" (@fig-box-model) is used to provide an estimate of both the initial change in lake conditions due to liming and the subsequent evolution over time. For simplicity, only one set of calculations is shown (e.g. for calcium), but an identical set of calculations for magnesium are also performed in parallel, if relevant. The Mg-fraction is then converted to CaCO3-equivalents before making the link to changes in pH (@sec-ca-ph). Taking calcium as an example, the symbols in @fig-box-model are as follows:
 
- * $D$ is the dose of lime added (adjusted for Ca content i.e. the actual dose of Ca in mg/l)
- * $C_{inst}$ is the "immediate" increase in lake Ca concentration (in mg/l) due to **instantaneous dissolution**
- * $C_{bott} = F_{active} (D - C_{inst})$ is the amount of Ca (in mg/l) that sinks to the lake bottom and remains active for dissolution. Note that $(D - C_{inst})$ is the total amount of lime that sinks to the bottom, and $F_{active}$ is the proportion of this that remains "active". Typical values for $F_{active}$ are around 0.4, based on the observation that about 60% of the lime arriving on the lake bottom becomes "deactivated" and never dissolves.
- * $F_{slow}$ is the rate at which concentration increases (in mg/l/month) due to dissolution of the bottom layer
- * $C_{in}$ and $C_{out}$ are the inflow and outflow concentrations of Ca, respectively (both in mg/l)
- * $V$ is the lake volume in litres. The lake is assumed to be in **steady state** i.e. $V$ is constant
- * $Q$ is the discharge in l/month. To satisfy the steady state assumption, the inflow discharge must equal the outflow discharge
- * $M_{lake}$ is the mass of Ca dissolved in the lake water (in mg)
- * $C_{lake}$ is the Ca concentration in the lake, equal to $\frac{M_{lake}}{V}$. The lake is assumed to be **well mixed**, such that the outflow concentration, $C_{out}$, is equal to $C_{lake}$
+ * $D$ is the dose of lime added (adjusted for Ca content i.e. the actual dose of Ca in mg/l).
+ * $C_{inst}$ is the "immediate" increase in lake Ca concentration (in mg/l) due to **instantaneous dissolution**.
+ * $C_{bott} = (D - C_{inst})$ is the amount of Ca (in mg/l) that sinks to the lake bottom and dissolves more slowly.
+ * $F_{slow}$ is the rate at which concentration increases (in mg/l/month) due to dissolution of the bottom layer.
+ * $C_{in}$ and $C_{out}$ are the inflow and outflow concentrations of Ca, respectively (both in mg/l).
+ * $V$ is the lake volume in litres. The lake is assumed to be in **steady state** i.e. $V$ is constant.
+ * $Q$ is the discharge in l/month. To satisfy the steady state assumption, the inflow discharge must equal the outflow discharge.
+ * $M_{lake}$ is the mass of Ca dissolved in the lake water (in mg).
+ * $C_{lake}$ is the Ca concentration in the lake, equal to $\frac{M_{lake}}{V}$. The lake is assumed to be **well mixed**, such that the outflow concentration, $C_{out}$, is equal to $C_{lake}$.
  
 ![Schematic illustration of a box model for lake calcium concentration for a single lake under the assumption of fixed water volume. Symbols are defined in the text.](./images/box_model.png){#fig-box-model}
 
@@ -86,7 +90,7 @@ $$
 \frac{dC_{lake}}{dt} = \frac{Q C_{in} - Q C_{lake}}{V} + C_{inst} + F_{slow}
 $$ {#eq-dClake_dt}
 
-Lime that does not dissolve instantly sinks to the bottom of the lake and dissolves more slowly. Dissolution of lake-bottom lime is modelled as a first-order reaction with initial rate coefficient $K_0$. However, this rate coefficient is assumed to decay exponentially over time, based on the observation that lime accumulating in lake sediments becomes less "active" over time and therefore dissolves more slowly. The rate at which the reaction coefficient decays is controlled by the "activity coefficient", $\lambda$
+Lime that does not dissolve instantly sinks to the bottom of the lake and dissolves more slowly ($C_{bott}$). Dissolution of lake-bottom lime is modelled as a first-order reaction with initial rate coefficient $K_0$. However, this rate coefficient is assumed to decay exponentially over time, based on the observation that lime accumulating in lake sediments becomes less "active" over time and therefore dissolves more slowly. The rate at which the reaction coefficient decays is controlled by the "activity coefficient", $\lambda$
 
 $$
 K_t = K_0 e^{- \lambda t}
@@ -110,7 +114,7 @@ $$ {#eq-dCslow_dt}
 
 For the model to produce reasonable simulations, it is important to have an accurate estimate for the proportion of lime material that dissolves quickly (i.e. the instantaneous dissolution fraction, $C_{inst}$). Instantaneous dissolution can be measured in the laboratory using [column tests](./column-tests.qmd), which tell us how much lime will typically dissolve in a column given a known initial pH and lime dose. However, before the column test data can be used for lake modelling, it is necessary to adjust for:
 
- * **Spreading method**. For dry spreading (e.g. by helicopter) the amount of lime material that dissolves immediately is typically 0.5 to 0.7 times the proportion predicted by column tests (see Sverdrup Table 3; Espen Enge used 0.8 for much of his work). No adjustment is required for wet spreading (e.g. from a boat).
+ * **Spreading method**. For dry spreading (e.g. by helicopter) the amount of lime material that dissolves immediately is typically 0.5 to 0.7 times the proportion predicted by column tests. No adjustment is required for wet spreading (e.g. from a boat).
 
  * **Lake depth**. Deeper lakes give the lime more time to dissolve as it sinks. In his PhD thesis, [Sverdrup (1985)](https://www.osti.gov/etdeweb/biblio/7808260) noted that, for CaCO3, the instantaneous dissolution is directly proportional to both $H^+$ concentration and sinking depth
  
@@ -129,17 +133,15 @@ Note that @eq-cor-depth applies to the CaCO3 fraction; for MgCO3, Sverdrup propo
 
 ### Simulating a "standard lake" {#sec-standard-lake}
 
-The model defined above is capable of simulating how pH and Ca concentration (and Mg, if relevant) change over time for a single lake. The model requires the following iinputs:
+The model defined above is capable of simulating how pH and Ca concentration (and Mg, if relevant) change over time for a single lake. The model requires the following inputs:
 
  * Lake **volume** (often provided as surface area and mean depth) and **discharge**, which together define the **residence time**. Note that this model assumes the volume is fixed, but discharge can vary over time, if desired.
 
- * **Initial pH and TOC concentration** for the lake. The lake is initially assumed to be in "steady state" i.e. the inflow concentration of Ca is equal to the outflow concentration.
+ * **Lake pH**, **inflow pH** and **TOC concentration**.
 
  * The **dose** of liming material added and the **proportion of Ca and Mg by mass** in the lime. **Overdosing factors** are also relevant for higher doses.
 
  * **Lake mean depth** and **Spreading method** (i.e. "wet" or "dry"), both of which are used to adjust the instantaneous dissolution values from column tests (@eq-cor-depth).
-
- * **The fraction of the lime on the lake bottom that remains "active"** for dissolution over long time periods.
 
  * The parameters $K_0$ and $\lambda$, which determine how fast lime on the lake bottom dissolves, and how long it remains "active".
 

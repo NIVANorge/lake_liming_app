@@ -1,16 +1,12 @@
 ---
-title: "Vassdragskalking app dokumentasjon"
+title: "Innsjøkalking app dokumentasjon"
 number-sections: true
 ---
 
-This website provides documentation for the lake liming application. 
+This website provides documentation for the [lake liming application](https://lake-liming.t.niva.no/). The model aims to simulate typical/idealised responses of lake water chemistry (calcium concentration and pH) to various liming strategies.
 
-The current pages are placeholders (in English). 
+ * For a description of how to use the application, see the [User guide](./user_guide.qmd).
 
-## Overview {#sec-overview}
+ * To understand how the model works, see [Lake modelling](./lake_modelling.qmd).
 
-The application performs two kinds of calculation:
-
- 1. **[Lake modelling](./lake-modelling.qmd)**. Estimate the change in lake pH over time for a given lime dose (depending on the type of lime, lake characteristics and lime application method).
-
- 2. Summarising data from **[column tests](./column-tests.qmd)**. Upload column test data using a standard template and calculate characteristic curves for **instantaneous dissolution** and **overdosing factor**.
+ * For details of the empirical data used to represent different lime products, see [Column tests](./column_tests.qmd).

@@ -3,7 +3,9 @@ title: "Column tests"
 number-sections: true
 ---
 
-The proportion of lime that will dissolve "immediately" can be estimated using **column tests** (in this case, the term "immediately" means "*within days*", rather than weeks, months or years). Each experiment involves 5 columns, labelled `A` to `E`. The columns are 19 cm in diameter and at least 205 cm high, and they are initially filled with 57.9 litres of deionised water containing 0.01% KCl, adjusted to the desired pH using sulphuric acid.
+When lime is added to a lake, some of it dissolves quickly while the rest sinks to the bottom where it may dissolve more slowly. How much of the lime dissolves immediately depends on the lake chemistry, application method, and the properties of the lime product being used (see ['Lake modelling](./lake-modelling.qmd) for details).
+
+The proportion of a lime product that will dissolve "immediately" can be estimated using **column tests** (in this case, the term "immediately" means "within days", rather than weeks, months or years). Each experiment involves 5 columns, labelled `A` to `E`. The columns are 19 cm in diameter and at least 205 cm high, and they are initially filled with 57.9 litres of deionised water containing 0.01% KCl, adjusted to the desired pH using sulphuric acid.
 
 For each lime tested, the supplier must specify the typical proportions of Ca and Mg (by mass) in their product, $F_{Ca}$ and $F_{Mg}$. These fractions are used in the calculations below.
 
@@ -23,13 +25,13 @@ where $A$ is the cross-sectional area of the column and $par$ is either Ca or Mg
 
 In practice, not all the lime dissolves and the columns do not achieve uniform concentrations. After **16 hours**, the concentration of Ca (and Mg, if relevant) in each column is determined at different depths using ICP-OES (Inductively Coupled Plasma - Optical Emission Spectrometry). Five measurements are taken from each column: every 40 cm from the surface down to 1.6 m. A typical dataset for a single column for a non-dolomitic lime (i.e. Ca only) is shown in @tbl-instantaneous-dissolution.
 
-| **Column** | **pH** | **Depth_m** | **Ca_mg/l** |
-|:----------:|:------:|:-----------:|:-----------:|
-|      A     |    4.0 |         0.0 |        2.82 |
-|      A     |    4.0 |         0.4 |        2.62 |
-|      A     |    4.0 |         0.8 |        2.64 |
-|      A     |    4.0 |         1.2 |        2.76 |
-|      A     |    4.0 |         1.6 |        2.81 |
+| **Column** | **pH** | **Depth (m)** | **Ca (mg/l)** |
+|:----------:|:------:|:-------------:|:-------------:|
+|      A     |    4.0 |           0.0 |          2.82 |
+|      A     |    4.0 |           0.4 |          2.62 |
+|      A     |    4.0 |           0.8 |          2.64 |
+|      A     |    4.0 |           1.2 |          2.76 |
+|      A     |    4.0 |           1.6 |          2.81 |
 
 : Example data for a single column from the instantaneous dissolution test for calcium. {#tbl-instantaneous-dissolution}
 
@@ -45,15 +47,23 @@ $$
 D_{inst} = \frac{\int_{0}^{1.6} C(x) \ dx}{10 F_{Ca} (1.6 - 0)}
 $$ {#eq-inst-diss}
 
-The integral in @eq-inst-diss can be approximated from the measured data (@tbl-instantaneous-dissolution) using e.g. [Simpson's rule](https://en.wikipedia.org/wiki/Simpson%27s_rule) or the [trapezoidal rule](https://en.wikipedia.org/wiki/Trapezoidal_rule). By default, the application uses the trapezoidal rule.
+The integral in @eq-inst-diss is approximated from the measured data (@tbl-instantaneous-dissolution) using the [trapezoidal rule](https://en.wikipedia.org/wiki/Trapezoidal_rule).
 
-The main output from the first experiment is a set instantaneous dissolution values (usually expressed in percent) showing how the **dissolution changes with initial pH at a fixed dose** (@fig-instantaneous-dissolution-curve).
+The main output from this experiment is a set instantaneous dissolution values (usually expressed in percent) showing how the **dissolution changes with initial pH at a fixed lime dose** (@fig-instantaneous-dissolution-curve).
 
-![Instantaneous dissolution curve for varying pH (with dose fixed at 10 mg/l of lime).](./images/instantaneous_dissolution_example.png){#fig-instantaneous-dissolution-curve}
+![Instantaneous dissolution curve for varying pH (with the dose fixed at 10 mg/l of lime).](./images/instantaneous_dissolution_example.png){#fig-instantaneous-dissolution-curve}
 
 ### Varying dose {#sec-vary-dose}
 
-In the second experiment, columns `A` to `E` are fixed at pH 4.5 and different doses are added to each column, corresponding to lime concentrations of 10, 20, 35, 50 and 85 mg/l (assuming complete dissolution). The columns are again left to equilibrate for **16 hours** and the **instantaneous dissolution** for each column is determined using the procedure described in @sec-vary-ph. 
+In the second experiment, columns `A` to `E` are fixed at pH 4.5 and different doses are added to each column, corresponding to lime concentrations of 10, 20, 35, 50 and 85 mg/l (assuming complete dissolution). The columns are again left for **16 hours** and the **instantaneous dissolution** for each column is determined using the procedure described in @sec-vary-ph. 
+
+At high doses, the proportion of lime that dissolves immediately is typically **lower** than in the first experiment, because high doses lead to high calcium concentrations in the immediate vicinity of the lime particles, which inhibits dissolution. This effect is called **overdosing**. 
+
+The main output from the second experiment is a set of **overdosing factors**, calculated as the ratio $D_{10} / D_{x}$, where $D_{10}$ is the instantaneous dissolution for the column where 10 mg/l of lime was initially added, and $D_{x}$ is the instantaneous dissolution for the column where $x$ mg/l of lime was added.
+
+A typical curve for overdosing factors is shown in @fig-overdosing-curve.
+
+![Overdosing factors for different lime doses (with column pH fixed at 4.5).](./images/overdosing_example.png){#fig-overdosing-curve}
 
 ### Combining datasets {#sec-combining}
 
@@ -67,10 +77,6 @@ The two experiments described in @sec-vary-ph and @sec-vary-dose yield data in t
 |       **50**       |       |    x    |       |         |       |
 |       **85**       |       |    x    |       |         |       |
 
-: Experimental design for column tests. Each `x` coresponds to a single column for which instantaneous dissolution is determined. {#tbl-expt-design}
+: Experimental design for column tests. Each `x` corresponds to a single column for which instantaneous dissolution is determined. {#tbl-expt-design}
 
-The **overdosing factor** is then calculated as the ratio $D_{10} / D_{x}$, where $D_{10}$ is the instantaneous dissolution for the column where 10 mg/l of lime was initially added, and $D_{x}$ is the instantaneous dissolution for the column where $x$ mg/l of lime was added.
-
-A typical curve for overdosing factors is shown in @fig-overdosing-curve.
-
-![Overdosing factors.](./images/overdosing_example.png){#fig-overdosing-curve}
+Using these data, the expected instantaneous dissolution for any pH and lime dose can be estimated by interpolation.
