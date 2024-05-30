@@ -5,7 +5,29 @@ number-sections: true
 
 ## Overview {#sec-overview}
 
+The application is online [here](https://lake-liming.t.niva.no/) and consists of four separate pages or "tabs", which are selected from the left sidebar:
+
+ 1. **Forside** displays a welcome message and a link to this documentation.
+
+ 2. **Innsjømodellering** allows users to:
+     * Explore **column test** results for lime products in the application's database.
+     * Specify **lake characteristics** and **liming parameters**, which are then used to simulate **changes in lake water chemistry** (calcium-equivalent concentration and pH) over time.
+
+ 3. **Omregningsfaktorer** shows plots comparing the modelled effectiveness of different lime products for a range of lake characteristics (mean depths and water residence times). Generating these plots involves running the model many times, so to save users time they are pre-computed and presented here for reference.
+
+ 4. **Last opp kolonnetestdata** allows users to upload their own column test data (i.e. for lime products not already in the database). Users may download and complete an Excel template, which can then be uploaded using the `Browse files` button. The app will display plots of **instantaneous dissolution** and **overdosing factors** based on the data provided.
+
 ## Lake modelling {#sec-lake-modelling}
+
+The `Innsjømodellering` tab is the main page of the application and it is divided into four sections: `Liming products` and `Lake characteristics`, `Liming parameters` and `Model results`. Under each heading, you will find expandable `Help` boxes providing tips for how to use the app.
+
+### Liming products {#sec-liming-products}
+
+### Lake characteristics {#sec-lake-characteristics}
+
+### Liming parameters {#sec-liming-parameters}
+
+### Model results {#sec-model-results}
 
 ## Omregningsfaktorer {#sec-comparison-factors}
 

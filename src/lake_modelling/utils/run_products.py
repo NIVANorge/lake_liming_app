@@ -32,8 +32,8 @@ def run_multiple_products(lake, products):
         n_months,
     ) = get_model_params()
 
-    lime_tonnes = lime_dose * lake.volume / 1e9
-    st.markdown(f"Lime product added: {lime_tonnes:.2f} tonnes.")
+    lime_tonnes = spr_prop * lime_dose * lake.volume / 1e9
+    st.markdown(f"**Amount of product added: {lime_tonnes:.2f} tonnes.**")
 
     df_list = []
     for prod_name in products:

@@ -21,8 +21,8 @@ def get_lake_params():
     flow_prof = (
         col1.selectbox("Flow profile", ("None", "Fjell", "Kyst"), index=1)
     ).lower()
-    pH_lake0 = col2.number_input("Initial pH", min_value=4.5, max_value=6.5, value=4.5)
-    pH_inflow = col2.number_input("Inflow pH", min_value=4.5, max_value=6.5, value=4.5)
+    pH_lake0 = col2.number_input("Initial pH", min_value=4.5, max_value=6.5, value=5.0)
+    pH_inflow = col2.number_input("Inflow pH", min_value=4.5, max_value=6.5, value=5.0)
     toc_lake0 = col2.number_input("TOC concentration (mg/l)", min_value=0.0, value=4.0)
     lake_params = (area, depth, tau, flow_prof, pH_lake0, pH_inflow, toc_lake0)
 
@@ -67,7 +67,7 @@ def get_model_params():
     lime_month = col2.number_input(
         "Application month", min_value=1, max_value=12, value=7
     )
-    n_months = col2.number_input("Number of months to simulate", min_value=1, value=24)
+    n_months = col2.number_input("Number of months to simulate", min_value=1, value=12)
     # F_sol = col1.number_input(
     #     "Proportion of lake-bottom lime that remains soluble (-)",
     #     min_value=0.0,

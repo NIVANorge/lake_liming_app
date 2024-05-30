@@ -1,5 +1,6 @@
 import streamlit as st
 import subpages.column_test
+import subpages.comparison_factors
 import subpages.home
 import subpages.lake_modelling
 from streamlit_option_menu import option_menu
