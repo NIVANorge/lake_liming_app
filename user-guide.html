@@ -224,26 +224,77 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Innsjømodellering</strong> allows users to:</p>
 <ul>
 <li>Explore <strong>column test</strong> results for lime products in the application’s database.</li>
-<li>Specify <strong>lake characteristics</strong> and <strong>liming parameters</strong>, which are then used to simulate <strong>changes in lake water chemistry</strong> (calcium-equivalent concentration and pH) over time.</li>
+<li>Specify <strong>lake characteristics</strong> and <strong>liming parameters</strong>, which are then used to simulate <strong>changes in lake water chemistry</strong> (calcium-equivalent concentration and pH).</li>
 </ul></li>
-<li><p><strong>Omregningsfaktorer</strong> shows plots comparing the modelled effectiveness of different lime products for a range of lake characteristics (mean depths and water residence times). Generating these plots involves running the model many times, so to save users time they are pre-computed and presented here for reference.</p></li>
-<li><p><strong>Last opp kolonnetestdata</strong> allows users to upload their own column test data (i.e.&nbsp;for lime products not already in the database). Users may download and complete an Excel template, which can then be uploaded using the <code>Browse files</code> button. The app will display plots of <strong>instantaneous dissolution</strong> and <strong>overdosing factors</strong> based on the data provided.</p></li>
+<li><p><strong>Omregningsfaktorer</strong> shows plots comparing the modelled effectiveness of different lime products for a range of lake characteristics (mean depths and water residence times). Generating these plots involves running the model many times, so for efficiency they are pre-computed and presented here for reference.</p></li>
+<li><p><strong>Last opp kolonnetestdata</strong> allows users to upload their own column test data (i.e.&nbsp;for lime products not already in the database). Users may download and fill-in an Excel template, which can then be uploaded using the <code>Browse files</code> button. The app will display plots of <strong>instantaneous dissolution</strong> and <strong>overdosing factors</strong> based on the data provided.</p></li>
 </ol>
 </section>
 <section id="sec-lake-modelling" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="sec-lake-modelling"><span class="header-section-number">2</span> Lake modelling</h2>
-<p>The <code>Innsjømodellering</code> tab is the main page of the application and it is divided into four sections: <code>Liming products</code> and <code>Lake characteristics</code>, <code>Liming parameters</code> and <code>Model results</code>. Under each heading, you will find expandable <code>Help</code> boxes providing tips for how to use the app.</p>
+<p>The <code>Innsjømodellering</code> tab is the main page of the application and is divided into four sections: <code>Liming products</code>, <code>Lake characteristics</code>, <code>Liming parameters</code> and <code>Model results</code>. Under each heading, you will find expandable <code>Help</code> boxes providing tips for how to use the app.</p>
 <section id="sec-liming-products" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="sec-liming-products"><span class="header-section-number">2.1</span> Liming products</h3>
+<p>Select your product of interest using the drop-down list labelled <code>Choose liming product</code>. The app will display plots of instantaneous dissolution and overdosing factors based on the latest column test data in the database. Click the ellipsis button (<code>[...]</code>) that appears near the top right of the plot area to export the plots in PNG or SVG format (<a href="#fig-column-test-results" class="quarto-xref">Figure&nbsp;1</a>).</p>
+<p>See the <a href="https://nivanorge.github.io/lake_liming_app/column-tests.html">Column tests</a> for a detailed description of the laboratory tests on which these plots are based.</p>
+<div id="fig-column-test-results" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-column-test-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/column_test_results.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-column-test-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Column test results for a user-selected lime product. The plots can be saved as PNG or SVG.
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="sec-lake-characteristics" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="sec-lake-characteristics"><span class="header-section-number">2.2</span> Lake characteristics</h3>
+<p>Use the input boxes to enter data for you lake of interest.</p>
+<p><code>Surface area</code> and <code>mean depth</code> are used to estimate lake volume. The ratio of lake volume to mean annual discharge volume is the <code>water residence time</code> (in years), which is the length of time, on average, that water spends circulating in the lake. The <code>initial pH</code> of the lake and the <code>inflow pH</code> are used to define the water chemistry at the start of the simulation. For lakes that are unlimed, or which have not been limed for a long time, it can be assumed that <code>initial pH</code> and <code>inflow pH</code> are equal, whereas recently limed lakes will typically have <code>initial pH &gt; inflow pH</code>. If no additional lime is added, the pH of the model lake will tend towards the inflow pH at a rate determined by the water residence time (lakes with shorter residence times reach the inflow pH faster). The Total Organic Carbon (TOC) concentration in the lake is also important, as the presence of organic acids means that more lime will be needed to achieve a given change in pH (see <a href="https://nivanorge.github.io/lake_liming_app/lake-modelling.html#sec-ca-ph">Innsjømodellering</a> for details).</p>
+<p>Users must also specify a <code>Flow profile</code>, which determines the idealised monthly flow regime used by the model (see the plot <a href="https://nivanorge.github.io/lake_liming_app/lake-modelling.html#fig-flow-profiles">here</a> for details). Three choices are available:</p>
+<ul>
+<li><strong>None</strong>. Monthly flows are constant throughout the year.</li>
+<li><strong>Fjell</strong>. The profile is characterised by high springtime flows (associated with snow-melting), a wet autumn, and low flows during the winter. Suitable for simulating upland lakes with significant snow accumulation.</li>
+<li><strong>Kyst</strong>. The profile is characterised by dry summers with wet autumns and winters. Suitable for lowland lakes with no significant snow accumulation.</li>
+</ul>
+<p>If <code>Flow profile</code> is <code>None</code>, the flow rate is determined from the lake volume and water residence time. For <code>Fjell</code> and <code>Kyst</code>, monthly values are scaled to match the chosen pattern, but the mean annual flow rate remains the same (i.e.&nbsp;consistent with the specified lake volume and water residence time).</p>
 </section>
 <section id="sec-liming-parameters" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="sec-liming-parameters"><span class="header-section-number">2.3</span> Liming parameters</h3>
+<p>Use the input boxes to define the liming schedule. The <code>lime dose</code> is the amount of product added divided by the volume of water limed. In cases where lime is only spread over part of the lake’s surface, use <code>Proportion of lake surface area limed</code> to specify the extent of liming. If this value is less than one, it is assumed that the lake has a rectangular depth profile and that lime sinks approximately vertically, such that liming half of the lake surface is equivalent to liming half of the lake volume.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The model assumes that the lake eventually becomes well-mixed, regardless of the areal extent of liming. Adding 10 mg/l of lime product over the whole lake is therefore similar to adding 20 mg/l over 50% of the surface area. However, in the latter case, <strong>overdosing</strong> effects will modify the instantaneous dissolution, meaning that slightly less lime will dissolve immediately and more will sink to the lake bottom (and potentially dissolve later). See the <a href="https://nivanorge.github.io/lake_liming_app/lake-modelling.html#sec-mass-bal-model">Lake modelling</a> page for details.</p>
+</div>
+</div>
+<p>The <code>Application method</code> can be either <code>Wet</code> or <code>Dry</code>, where <code>Wet</code> corresponds to adding lime as a slurry (e.g.&nbsp;from a boat) and <code>Dry</code> corresponds to adding the raw material directly without any pre-mixing (e.g.&nbsp;from a helicopter). Dry lime dissolves in lake water more slowly than slurry. If <code>Dry</code> is selected, instantaneous dissolution values from the column tests are adjusted downwards slightly to account for this.</p>
+<p><code>Application month</code> is the month of the year in which liming takes place and <code>Number of months to simulate</code> determines the length of the time series generated. If <code>Flow profile</code> is set to <code>None</code> (<a href="#sec-lake-characteristics" class="quarto-xref">Section&nbsp;2.2</a>), <code>Application month</code> will have no effect, because flows remain constant throughout the year. However, for the <code>Fjell</code> and <code>Kyst</code> flow profiles the application month can be important - especially for upland lakes with short residence times, where water is cycled quickly during spring snow-melt episodes.</p>
 </section>
 <section id="sec-model-results" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="sec-model-results"><span class="header-section-number">2.4</span> Model results</h3>
+<p>Changing values in any of the input boxes will automatically trigger an update of the model results. While this happens, a <code>RUNNING</code> message will be displayed at the top-right of the screen. When the model run is finished, the application will display idealised time series of Ca-equivalent concentrations and pH for the number of months specified. Simulations are produced for all lime products in the database, making it easy to compare results for different products. <strong>The plots are interactive</strong> - expand the <code>Help</code> section under the <code>Model results</code> heading for an overview of how to explore them.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Time series produced by the model are based on generalised/typical relationships that do not account for local factors (which may be important). Results indicate the expected response of a typical lake, but are not intended for detailed, site-specific assessments.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="sec-comparison-factors" class="level2" data-number="3">
