@@ -9,15 +9,17 @@ def app():
     st.markdown("## Column tests")
     with st.expander("Help"):
         st.markdown(
-            """
-        Use this page to upload **new column test data** from an Excel template.
-        A blank copy of the template is available 
-        [here](https://github.com/NIVANorge/lake_liming_app/blob/main/data/liming_app_data_template_v1-1.xlsx).
-
-        Note that you can explore column test results for **existing lime products**
-        (i.e. those already in the database) from the `Lake modelling` tab.
-        """
+            """Use this page to upload **new** column test data from an Excel template.
+        First download a blank copy of the template from 
+        [here](https://github.com/NIVANorge/lake_liming_app/raw/main/data/liming_app_data_template_v1-1.xlsx).
+        Fill-in your column test results and then upload the completed template 
+        using the button in the left sidebar."""
         )
+    st.info(
+        """You can easily explore column test results for lime products that are
+    already in the database from the `Lake modelling` tab.""",
+        icon="ℹ️",
+    )
     data_file = st.sidebar.file_uploader("Upload template")
     if data_file:
         st.session_state["data_file"] = data_file

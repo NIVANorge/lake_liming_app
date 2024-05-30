@@ -5,21 +5,27 @@ import subpages.lake_modelling
 from streamlit_option_menu import option_menu
 
 PAGES = {
-    "Home": subpages.home,
-    "Upload column test data": subpages.column_test,
-    "Lake modelling": subpages.lake_modelling,
+    "Forside": subpages.home,
+    "Last opp kolonnetestdata": subpages.column_test,
+    "Innsjømodellering": subpages.lake_modelling,
+    "Omregningsfaktorer": subpages.comparison_factors,
 }
 
 
 def main():
     """Main function of the app."""
-    st.title("Lake liming app")
+    st.title("Innsjøkalking applikasjon")
     st.sidebar.image(r"./images/niva-logo.png", use_column_width=True)
     with st.sidebar:
         selection = option_menu(
             None,
-            options=["Home", "Upload column test data", "Lake modelling"],
-            icons=["house", "clipboard-data", "droplet"],
+            options=[
+                "Forside",
+                "Innsjømodellering",
+                "Omregningsfaktorer",
+                "Last opp kolonnetestdata",
+            ],
+            icons=["house", "droplet", "graph-down", "clipboard-data"],
             default_index=0,
         )
     page = PAGES[selection]
