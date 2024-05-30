@@ -33,11 +33,33 @@
     ]
   },
   {
+    "objectID": "user-guide.html",
+    "href": "user-guide.html",
+    "title": "User guide",
+    "section": "",
+    "text": "The application is online here and consists of four separate pages or “tabs”, which are selected from the left sidebar:\n\nForside displays a welcome message and a link to this documentation.\nInnsjømodellering allows users to:\n\nExplore column test results for lime products in the application’s database.\nSpecify lake characteristics and liming parameters, which are then used to simulate changes in lake water chemistry (calcium-equivalent concentration and pH) over time.\n\nOmregningsfaktorer shows plots comparing the modelled effectiveness of different lime products for a range of lake characteristics (mean depths and water residence times). Generating these plots involves running the model many times, so to save users time they are pre-computed and presented here for reference.\nLast opp kolonnetestdata allows users to upload their own column test data (i.e. for lime products not already in the database). Users may download and complete an Excel template, which can then be uploaded using the Browse files button. The app will display plots of instantaneous dissolution and overdosing factors based on the data provided.",
+    "crumbs": [
+      "Home",
+      "User guide"
+    ]
+  },
+  {
+    "objectID": "user-guide.html#sec-overview",
+    "href": "user-guide.html#sec-overview",
+    "title": "User guide",
+    "section": "",
+    "text": "The application is online here and consists of four separate pages or “tabs”, which are selected from the left sidebar:\n\nForside displays a welcome message and a link to this documentation.\nInnsjømodellering allows users to:\n\nExplore column test results for lime products in the application’s database.\nSpecify lake characteristics and liming parameters, which are then used to simulate changes in lake water chemistry (calcium-equivalent concentration and pH) over time.\n\nOmregningsfaktorer shows plots comparing the modelled effectiveness of different lime products for a range of lake characteristics (mean depths and water residence times). Generating these plots involves running the model many times, so to save users time they are pre-computed and presented here for reference.\nLast opp kolonnetestdata allows users to upload their own column test data (i.e. for lime products not already in the database). Users may download and complete an Excel template, which can then be uploaded using the Browse files button. The app will display plots of instantaneous dissolution and overdosing factors based on the data provided.",
+    "crumbs": [
+      "Home",
+      "User guide"
+    ]
+  },
+  {
     "objectID": "user-guide.html#sec-lake-modelling",
     "href": "user-guide.html#sec-lake-modelling",
     "title": "User guide",
     "section": "2 Lake modelling",
-    "text": "2 Lake modelling",
+    "text": "2 Lake modelling\nThe Innsjømodellering tab is the main page of the application and it is divided into four sections: Liming products and Lake characteristics, Liming parameters and Model results. Under each heading, you will find expandable Help boxes providing tips for how to use the app.\n\n2.1 Liming products\n\n\n2.2 Lake characteristics\n\n\n2.3 Liming parameters\n\n\n2.4 Model results",
     "crumbs": [
       "Home",
       "User guide"
