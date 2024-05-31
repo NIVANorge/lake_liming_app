@@ -10,3 +10,5 @@ This website provides documentation for the [lake liming application](https://la
  * To understand how the model works, see [Lake modelling](https://nivanorge.github.io/lake_liming_app/lake-modelling.html).
 
  * For details of the empirical data used to represent different lime products, see [Column tests](https://nivanorge.github.io/lake_liming_app/column-tests.html).
+
+ * For further technical details, see the [development notebooks](https://github.com/NIVANorge/lake_liming_app/tree/main/notebooks). The model code is also Open Source and [available on GitHub](https://github.com/NIVANorge/lake_liming_app).
