@@ -1,0 +1,539 @@
+lnr,forening,name,kommune,year,tonnes,method,lime,nve_nr,utm33_north,utm33_east,lat,lon
+1690,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,1985,0.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+1691,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,1986,0.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+1692,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,1987,0.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+1693,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,1988,0.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+2379,Øvre Nidelv Fiskelag,Mjonevatn,Åmli,1988,0.0,Båt,Kalksteinmel,9407,6526303,129418,58.7173,8.59594
+2897,Hinnebu Sportsfiskere,Rosævatnet,Froland,1988,0.0,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+98,Begervannets Grl,Begervannet,Birkenes,1988,0.0,Båt,Kalksteinmel,10772,6497572,111932,58.4457,8.34513
+2107,Stigselv Fiskelag,Langvann,Birkenes,1988,0.0,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+3307,Stigselv Fiskelag,Steinsvann,Birkenes,1987,0.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+4106,Stigselv Fiskelag,Vestervann,Birkenes,1986,0.0,Båt,Kalksteinmel,10977,6490117,108700,58.3763,8.30282
+4107,Stigselv Fiskelag,Vestervann,Birkenes,1988,0.0,Båt,Kalksteinmel,10977,6490117,108700,58.3763,8.30282
+103,Begervannets Grl,Begervannet,Birkenes,2002,30.0,Båt,Kalksteinmel,10772,6497572,111932,58.4457,8.34513
+104,Begervannets Grl,Begervannet,Birkenes,2005,23.0,Båt,Kalksteinmel,10772,6497572,111932,58.4457,8.34513
+105,Begervannets Grl,Begervannet,Birkenes,2008,20.0,Båt,Kalksteinmel,10772,6497572,111932,58.4457,8.34513
+106,Begervannets Grl,Begervannet,Birkenes,2016,15.0,Båt,Kalksteinmel,10772,6497572,111932,58.4457,8.34513
+107,Begervannets Grl,Begervannet,Birkenes,2018,10.0,Båt,Kalksteinmel,10772,6497572,111932,58.4457,8.34513
+108,Begervannets Grl,Begervannet,Birkenes,2019,13.0,Båt,Kalksteinmel,10772,6497572,111932,58.4457,8.34513
+109,Begervannets Grl,Begervannet,Birkenes,2020,13.0,Båt,Kalksteinmel,10772,6497572,111932,58.4457,8.34513
+110,Begervannets Grl,Begervannet,Birkenes,2021,13.0,Båt,Kalksteinmel,10772,6497572,111932,58.4457,8.34513
+97,Begervannets Grl,Begervannet,Birkenes,2022,13.0,Båt,Kalksteinmel,10772,6497572,111932,58.4457,8.34513
+131,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,2001,24.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+132,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,2002,18.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+133,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,2003,25.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+134,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,2004,18.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+135,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,2005,15.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+136,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,2013,15.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+137,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,2015,10.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+138,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,2016,10.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+139,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,2019,9.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+140,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,2020,9.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+141,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,2021,9.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+142,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,2022,9.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+213,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,2001,23.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+214,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,2002,20.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+215,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,2003,15.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+216,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,2004,15.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+217,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,2005,15.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+218,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,2009,15.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+219,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,2011,15.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+220,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,2013,15.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+221,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,2015,10.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+222,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,2017,10.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+223,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,2018,10.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+224,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,2019,10.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+225,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,2020,10.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+226,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,2021,10.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+203,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,2022,10.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+798,Mykland Fiskelag,Flekevatnet,Froland,2002,13.0,Båt,Kalksteinmel,10164,6513807,111121,58.5898,8.30367
+799,Mykland Fiskelag,Flekevatnet,Froland,2005,17.0,Båt,Kalksteinmel,10164,6513807,111121,58.5898,8.30367
+800,Mykland Fiskelag,Flekevatnet,Froland,2009,15.0,Båt,Kalksteinmel,10164,6513807,111121,58.5898,8.30367
+849,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2001,32.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+850,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2002,30.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+851,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2003,30.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+852,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2004,29.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+853,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2005,28.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+854,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2006,25.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+855,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2009,30.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+856,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2010,35.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+857,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2011,25.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+858,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2012,35.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+859,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2013,35.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+860,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2014,35.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+861,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2015,30.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+862,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2016,35.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+863,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2017,35.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+864,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2018,35.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+865,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2019,34.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+866,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2020,34.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+867,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2021,30.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+815,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2022,35.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+876,Uråna Fiskelag,Gangvatn,Arendal,2001,15.5,Båt,Kalksteinmel,10636,6501036,122118,58.4855,8.51279
+877,Uråna Fiskelag,Gangvatn,Arendal,2002,13.0,Båt,Kalksteinmel,10636,6501036,122118,58.4855,8.51279
+878,Uråna Fiskelag,Gangvatn,Arendal,2003,15.0,Båt,Kalksteinmel,10636,6501036,122118,58.4855,8.51279
+879,Uråna Fiskelag,Gangvatn,Arendal,2004,16.0,Båt,Kalksteinmel,10636,6501036,122118,58.4855,8.51279
+971,Grimevann Fiskelag,Grimevatnet Vestre,Lillesand,2001,35.4,Båt,Kalksteinmel,11092,6483757,110707,58.3214,8.34764
+972,Grimevann Fiskelag,Grimevatnet Vestre,Lillesand,2002,40.0,Båt,Kalksteinmel,11092,6483757,110707,58.3214,8.34764
+973,Grimevann Fiskelag,Grimevatnet Vestre,Lillesand,2003,40.0,Båt,Kalksteinmel,11092,6483757,110707,58.3214,8.34764
+974,Grimevann Fiskelag,Grimevatnet Vestre,Lillesand,2004,35.0,Båt,Kalksteinmel,11092,6483757,110707,58.3214,8.34764
+975,Grimevann Fiskelag,Grimevatnet Vestre,Lillesand,2005,35.0,Båt,Kalksteinmel,11092,6483757,110707,58.3214,8.34764
+1144,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2001,110.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1145,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2002,90.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1146,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2003,75.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1147,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2004,72.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1148,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2005,68.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1149,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2006,60.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1150,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2008,60.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1151,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2009,40.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1152,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2010,40.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1153,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2011,60.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1154,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2012,50.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1155,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2013,40.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1156,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2014,50.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1157,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2015,40.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1158,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2015,40.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1159,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2017,40.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1160,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2018,40.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1161,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2019,42.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1162,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2020,42.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1163,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2021,40.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1138,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2022,40.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1515,Uråna Fiskelag,Hunsdalsvatn,Grimstad,2001,15.8,Båt,Kalksteinmel,10711,6499191,119343,58.4667,8.46857
+1516,Uråna Fiskelag,Hunsdalsvatn,Grimstad,2003,15.0,Båt,Kalksteinmel,10711,6499191,119343,58.4667,8.46857
+1633,Hinnebu Sportsfiskere,Håvatnet,Froland,2002,20.0,Båt,Kalksteinmel,10313,6509175,122571,58.5586,8.50704
+1634,Hinnebu Sportsfiskere,Håvatnet,Froland,2005,15.0,Båt,Kalksteinmel,10313,6509175,122571,58.5586,8.50704
+1705,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,2001,28.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+1706,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,2002,15.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+1707,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,2003,20.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+1708,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,2004,15.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+1768,Gjerstad JFF - Aust-Agder,Kleivvatn,Gjerstad,2002,25.0,Båt,Kalksteinmel,8330,6543713,148628,58.8888,8.89837
+1772,Gjerstad JFF - Aust-Agder,Kleivvatn,Gjerstad,2005,24.0,Båt,Kalksteinmel,8330,6543713,148628,58.8888,8.89837
+1775,Gjerstad JFF - Aust-Agder,Kleivvatn,Gjerstad,2007,26.0,Båt,Kalksteinmel,8330,6543713,148628,58.8888,8.89837
+1785,Gjerstad JFF - Aust-Agder,Kleivvatn,Gjerstad,2016,20.0,Båt,Kalksteinmel,8330,6543713,148628,58.8888,8.89837
+1787,Gjerstad JFF - Aust-Agder,Kleivvatn,Gjerstad,2018,15.0,Båt,Kalksteinmel,8330,6543713,148628,58.8888,8.89837
+1788,Gjerstad JFF - Aust-Agder,Kleivvatn,Gjerstad,2019,18.0,Båt,Kalksteinmel,8330,6543713,148628,58.8888,8.89837
+1789,Gjerstad JFF - Aust-Agder,Kleivvatn,Gjerstad,2020,18.0,Båt,Kalksteinmel,8330,6543713,148628,58.8888,8.89837
+1790,Gjerstad JFF - Aust-Agder,Kleivvatn,Gjerstad,2021,15.0,Båt,Kalksteinmel,8330,6543713,148628,58.8888,8.89837
+1751,Gjerstad JFF - Aust-Agder,Kleivvatn,Gjerstad,2022,15.0,Båt,Kalksteinmel,8330,6543713,148628,58.8888,8.89837
+1812,Håland-Kiland-Bjørkos Grl,Kollandsvann,Grimstad,2001,28.0,Båt,Kalksteinmel,10722,6498888,117517,58.4624,8.43798
+1813,Håland-Kiland-Bjørkos Grl,Kollandsvann,Grimstad,2003,20.0,Båt,Kalksteinmel,10722,6498888,117517,58.4624,8.43798
+1814,Håland-Kiland-Bjørkos Grl,Kollandsvann,Grimstad,2005,16.0,Båt,Kalksteinmel,10722,6498888,117517,58.4624,8.43798
+1815,Håland-Kiland-Bjørkos Grl,Kollandsvann,Grimstad,2011,16.0,Båt,Kalksteinmel,10722,6498888,117517,58.4624,8.43798
+1816,Håland-Kiland-Bjørkos Grl,Kollandsvann,Grimstad,2016,12.0,Båt,Kalksteinmel,10722,6498888,117517,58.4624,8.43798
+1817,Håland-Kiland-Bjørkos Grl,Kollandsvann,Grimstad,2019,12.0,Båt,Kalksteinmel,10722,6498888,117517,58.4624,8.43798
+1818,Håland-Kiland-Bjørkos Grl,Kollandsvann,Grimstad,2020,12.0,Båt,Kalksteinmel,10722,6498888,117517,58.4624,8.43798
+1819,Håland-Kiland-Bjørkos Grl,Kollandsvann,Grimstad,2021,12.0,Båt,Kalksteinmel,10722,6498888,117517,58.4624,8.43798
+1805,Håland-Kiland-Bjørkos Grl,Kollandsvann,Grimstad,2022,10.0,Båt,Kalksteinmel,10722,6498888,117517,58.4624,8.43798
+1987,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,2001,16.0,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+1988,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,2003,15.0,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+1989,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,2005,13.0,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+1990,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,2009,15.0,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+1991,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,2010,15.0,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+1992,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,2015,10.0,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+1993,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,2018,8.0,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+1994,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,2019,9.0,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+1995,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,2020,9.0,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+1996,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,2021,9.0,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+1980,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,2022,9.0,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+2118,Stigselv Fiskelag,Langvann,Birkenes,2001,13.0,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2119,Stigselv Fiskelag,Langvann,Birkenes,2002,13.0,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2120,Stigselv Fiskelag,Langvann,Birkenes,2003,15.0,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2121,Stigselv Fiskelag,Langvann,Birkenes,2004,15.0,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2122,Stigselv Fiskelag,Langvann,Birkenes,2005,11.0,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2123,Stigselv Fiskelag,Langvann,Birkenes,2011,11.0,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2124,Stigselv Fiskelag,Langvann,Birkenes,2015,10.0,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2125,Stigselv Fiskelag,Langvann,Birkenes,2019,8.0,Helikopter,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2126,Stigselv Fiskelag,Langvann,Birkenes,2020,8.0,Helikopter,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2127,Stigselv Fiskelag,Langvann,Birkenes,2021,8.0,Helikopter,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2106,Stigselv Fiskelag,Langvann,Birkenes,2022,8.0,Helikopter,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2386,Øvre Nidelv Fiskelag,Mjonevatn,Åmli,2001,15.6,Båt,Kalksteinmel,9407,6526303,129418,58.7173,8.59594
+2387,Øvre Nidelv Fiskelag,Mjonevatn,Åmli,2003,15.0,Båt,Kalksteinmel,9407,6526303,129418,58.7173,8.59594
+2388,Øvre Nidelv Fiskelag,Mjonevatn,Åmli,2007,20.0,Båt,Kalksteinmel,9407,6526303,129418,58.7173,8.59594
+4279,Ufsvann Fiskarlag,Vålevatn,Vegårdshei,2000,6.7,Båt,Kalksteinmel,9200,6529634,132431,58.7496,8.6422
+3539,Stråndevatn Fiskelag,Stråndevatn,Bygland,1997,7.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+3540,Stråndevatn Fiskelag,Stråndevatn,Bygland,1998,7.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+3541,Stråndevatn Fiskelag,Stråndevatn,Bygland,1999,7.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+2419,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,2001,28.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+2420,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,2003,15.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+2421,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,2005,13.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+2422,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,2007,15.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+2423,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,2010,15.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+2424,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,2012,20.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+2425,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,2013,42.2,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+2426,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,2015,15.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+2427,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,2017,5.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+2428,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,2018,10.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+2429,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,2019,10.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+2430,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,2020,10.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+2431,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,2021,10.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+2389,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,2022,8.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+2896,Hinnebu Sportsfiskere,Rosævatnet,Froland,1985,8.0,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+2900,Hinnebu Sportsfiskere,Rosævatnet,Froland,1997,8.0,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+874,Uråna Fiskelag,Gangvatn,Arendal,1998,8.0,Båt,Kalksteinmel,10636,6501036,122118,58.4855,8.51279
+2730,Oksetjønn og Skarketjønn FL,Okstjørn,Valle,2000,8.4,Helikopter,Kalksteinmel,15041,6573409,81655,59.0935,7.68919
+4278,Ufsvann Fiskarlag,Vålevatn,Vegårdshei,1999,9.0,Båt,Kalksteinmel,9200,6529634,132431,58.7496,8.6422
+3542,Stråndevatn Fiskelag,Stråndevatn,Bygland,2000,9.6,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+875,Uråna Fiskelag,Gangvatn,Arendal,2000,9.6,Båt,Kalksteinmel,10636,6501036,122118,58.4855,8.51279
+3538,Stråndevatn Fiskelag,Stråndevatn,Bygland,1996,10.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+4277,Ufsvann Fiskarlag,Vålevatn,Vegårdshei,1998,10.0,Båt,Kalksteinmel,9200,6529634,132431,58.7496,8.6422
+129,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,1998,10.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+873,Uråna Fiskelag,Gangvatn,Arendal,1997,10.0,Båt,Kalksteinmel,10636,6501036,122118,58.4855,8.51279
+2113,Stigselv Fiskelag,Langvann,Birkenes,1996,10.0,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2114,Stigselv Fiskelag,Langvann,Birkenes,1997,10.0,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2115,Stigselv Fiskelag,Langvann,Birkenes,1998,10.0,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+4112,Stigselv Fiskelag,Vestervann,Birkenes,1998,10.0,Båt,Kalksteinmel,10977,6490117,108700,58.3763,8.30282
+2704,Ogge Fiskelag,Ogge,Birkenes,2001,850.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2705,Ogge Fiskelag,Ogge,Birkenes,2002,750.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2706,Ogge Fiskelag,Ogge,Birkenes,2003,700.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2707,Ogge Fiskelag,Ogge,Birkenes,2004,350.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2708,Ogge Fiskelag,Ogge,Birkenes,2005,350.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2709,Ogge Fiskelag,Ogge,Birkenes,2006,350.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2710,Ogge Fiskelag,Ogge,Birkenes,2007,358.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2711,Ogge Fiskelag,Ogge,Birkenes,2008,320.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2712,Ogge Fiskelag,Ogge,Birkenes,2009,300.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2713,Ogge Fiskelag,Ogge,Birkenes,2010,320.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2714,Ogge Fiskelag,Ogge,Birkenes,2011,325.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2715,Ogge Fiskelag,Ogge,Birkenes,2012,340.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2716,Ogge Fiskelag,Ogge,Birkenes,2013,325.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2717,Ogge Fiskelag,Ogge,Birkenes,2014,325.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2718,Ogge Fiskelag,Ogge,Birkenes,2015,300.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2719,Ogge Fiskelag,Ogge,Birkenes,2016,300.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2720,Ogge Fiskelag,Ogge,Birkenes,2017,302.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2721,Ogge Fiskelag,Ogge,Birkenes,2018,250.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2722,Ogge Fiskelag,Ogge,Birkenes,2019,288.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2723,Ogge Fiskelag,Ogge,Birkenes,2020,288.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2724,Ogge Fiskelag,Ogge,Birkenes,2021,280.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2725,Ogge Fiskelag,Ogge,Birkenes,2022,280.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2731,Oksetjønn og Skarketjønn FL,Okstjørn,Valle,2001,8.3,Helikopter,Kalksteinmel,15041,6573409,81655,59.0935,7.68919
+2732,Oksetjønn og Skarketjønn FL,Okstjørn,Valle,2002,8.0,Helikopter,Kalksteinmel,15041,6573409,81655,59.0935,7.68919
+2733,Oksetjønn og Skarketjønn FL,Okstjørn,Valle,2003,9.0,Helikopter,Kalksteinmel,15041,6573409,81655,59.0935,7.68919
+2734,Oksetjønn og Skarketjønn FL,Okstjørn,Valle,2004,10.0,Helikopter,Kalksteinmel,15041,6573409,81655,59.0935,7.68919
+2735,Oksetjønn og Skarketjønn FL,Okstjørn,Valle,2005,8.0,Helikopter,Kalksteinmel,15041,6573409,81655,59.0935,7.68919
+2736,Oksetjønn og Skarketjønn FL,Okstjørn,Valle,2006,6.0,Helikopter,Kalksteinmel,15041,6573409,81655,59.0935,7.68919
+2737,Oksetjønn og Skarketjønn FL,Okstjørn,Valle,2007,5.0,Helikopter,Kalksteinmel,15041,6573409,81655,59.0935,7.68919
+2738,Oksetjønn og Skarketjønn FL,Okstjørn,Valle,2008,5.0,Helikopter,Kalksteinmel,15041,6573409,81655,59.0935,7.68919
+2739,Oksetjønn og Skarketjønn FL,Okstjørn,Valle,2010,5.0,Helikopter,Kalksteinmel,15041,6573409,81655,59.0935,7.68919
+2860,Skjerka Fellesfløting,Rossålvann,Vegårdshei,2001,24.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2861,Skjerka Fellesfløting,Rossålvann,Vegårdshei,2002,20.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2862,Skjerka Fellesfløting,Rossålvann,Vegårdshei,2003,15.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2863,Skjerka Fellesfløting,Rossålvann,Vegårdshei,2004,13.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2864,Skjerka Fellesfløting,Rossålvann,Vegårdshei,2006,17.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2865,Skjerka Fellesfløting,Rossålvann,Vegårdshei,2009,15.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2729,Oksetjønn og Skarketjønn FL,Okstjørn,Valle,1999,10.0,Helikopter,Kalksteinmel,15041,6573409,81655,59.0935,7.68919
+2866,Skjerka Fellesfløting,Rossålvann,Vegårdshei,2011,20.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2867,Skjerka Fellesfløting,Rossålvann,Vegårdshei,2013,20.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2868,Skjerka Fellesfløting,Rossålvann,Vegårdshei,2016,20.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2869,Skjerka Fellesfløting,Rossålvann,Vegårdshei,2018,20.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2870,Skjerka Fellesfløting,Rossålvann,Vegårdshei,2019,20.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2871,Skjerka Fellesfløting,Rossålvann,Vegårdshei,2020,20.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2872,Skjerka Fellesfløting,Rossålvann,Vegårdshei,2021,20.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2895,Skjerka Fellesfløting,Rossålvann,Vegårdshei,2022,15.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2902,Hinnebu Sportsfiskere,Rosævatnet,Froland,2001,25.8,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+2903,Hinnebu Sportsfiskere,Rosævatnet,Froland,2003,20.0,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+2904,Hinnebu Sportsfiskere,Rosævatnet,Froland,2005,20.0,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+2905,Hinnebu Sportsfiskere,Rosævatnet,Froland,2009,20.0,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+2906,Hinnebu Sportsfiskere,Rosævatnet,Froland,2015,15.0,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+2907,Hinnebu Sportsfiskere,Rosævatnet,Froland,2017,15.0,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+2908,Hinnebu Sportsfiskere,Rosævatnet,Froland,2018,12.0,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+2909,Hinnebu Sportsfiskere,Rosævatnet,Froland,2019,13.0,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+2910,Hinnebu Sportsfiskere,Rosævatnet,Froland,2020,13.0,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+2911,Hinnebu Sportsfiskere,Rosævatnet,Froland,2021,10.0,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+2912,Hinnebu Sportsfiskere,Rosævatnet,Froland,2022,10.0,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+3333,Steindalsbekken FL,Steinsvann,Lillesand,2000,10.1,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+2117,Stigselv Fiskelag,Langvann,Birkenes,2000,10.7,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2901,Hinnebu Sportsfiskere,Rosævatnet,Froland,1999,11.0,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+2116,Stigselv Fiskelag,Langvann,Birkenes,1999,11.0,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+3330,Steindalsbekken FL,Steinsvann,Lillesand,1997,12.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3331,Steindalsbekken FL,Steinsvann,Lillesand,1998,12.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3332,Steindalsbekken FL,Steinsvann,Lillesand,1999,12.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3092,Mykland Fiskelag,Saurdalsvatnet,Froland,2001,28.0,Båt,Kalksteinmel,10080,6515049,110949,58.6007,8.2986
+3093,Mykland Fiskelag,Saurdalsvatnet,Froland,2002,13.0,Båt,Kalksteinmel,10080,6515049,110949,58.6007,8.2986
+3094,Mykland Fiskelag,Saurdalsvatnet,Froland,2005,21.0,Båt,Kalksteinmel,10080,6515049,110949,58.6007,8.2986
+3095,Mykland Fiskelag,Saurdalsvatnet,Froland,2009,30.0,Båt,Kalksteinmel,10080,6515049,110949,58.6007,8.2986
+130,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,2000,12.4,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+2110,Stigselv Fiskelag,Langvann,Birkenes,1993,12.5,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+797,Mykland Fiskelag,Flekevatnet,Froland,2000,12.9,Båt,Kalksteinmel,10164,6513807,111121,58.5898,8.30367
+3537,Stråndevatn Fiskelag,Stråndevatn,Bygland,1995,13.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+4275,Ufsvann Fiskarlag,Vålevatn,Vegårdshei,1996,13.0,Båt,Kalksteinmel,9200,6529634,132431,58.7496,8.6422
+4276,Ufsvann Fiskarlag,Vålevatn,Vegårdshei,1997,13.0,Båt,Kalksteinmel,9200,6529634,132431,58.7496,8.6422
+2855,Skjerka Fellesfløting,Rossålvann,Vegårdshei,1996,13.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+1514,Uråna Fiskelag,Hunsdalsvatn,Grimstad,1999,13.0,Båt,Kalksteinmel,10711,6499191,119343,58.4667,8.46857
+2109,Stigselv Fiskelag,Langvann,Birkenes,1992,13.0,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+795,Mykland Fiskelag,Flekevatnet,Froland,1996,13.7,Båt,Kalksteinmel,10164,6513807,111121,58.5898,8.30367
+2112,Stigselv Fiskelag,Langvann,Birkenes,1995,14.0,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2111,Stigselv Fiskelag,Langvann,Birkenes,1994,14.5,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+2385,Øvre Nidelv Fiskelag,Mjonevatn,Åmli,2000,14.6,Båt,Kalksteinmel,9407,6526303,129418,58.7173,8.59594
+1986,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,2000,14.6,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+872,Uråna Fiskelag,Gangvatn,Arendal,1996,14.9,Båt,Kalksteinmel,10636,6501036,122118,58.4855,8.51279
+2417,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,1997,15.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+1703,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,1998,15.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+3766,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,1997,15.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+3767,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,1999,15.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+2857,Skjerka Fellesfløting,Rossålvann,Vegårdshei,1998,15.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2858,Skjerka Fellesfløting,Rossålvann,Vegårdshei,1999,15.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+796,Mykland Fiskelag,Flekevatnet,Froland,1998,15.0,Båt,Kalksteinmel,10164,6513807,111121,58.5898,8.30367
+210,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,1997,15.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+211,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,1998,15.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+127,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,1996,15.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+128,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,1997,15.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+1985,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,1998,15.0,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+1513,Uråna Fiskelag,Hunsdalsvatn,Grimstad,1997,15.0,Båt,Kalksteinmel,10711,6499191,119343,58.4667,8.46857
+4109,Stigselv Fiskelag,Vestervann,Birkenes,1992,15.0,Båt,Kalksteinmel,10977,6490117,108700,58.3763,8.30282
+3334,Steindalsbekken FL,Steinsvann,Lillesand,2001,18.6,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3315,Stigselv Fiskelag,Steinsvann,Birkenes,2001,50.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+3335,Steindalsbekken FL,Steinsvann,Lillesand,2002,16.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3316,Stigselv Fiskelag,Steinsvann,Birkenes,2002,20.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+3336,Steindalsbekken FL,Steinsvann,Lillesand,2003,15.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3337,Steindalsbekken FL,Steinsvann,Lillesand,2004,15.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3317,Stigselv Fiskelag,Steinsvann,Birkenes,2004,18.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+3338,Steindalsbekken FL,Steinsvann,Lillesand,2005,10.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3318,Stigselv Fiskelag,Steinsvann,Birkenes,2005,15.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+3339,Steindalsbekken FL,Steinsvann,Lillesand,2010,10.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3319,Stigselv Fiskelag,Steinsvann,Birkenes,2010,11.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+3340,Steindalsbekken FL,Steinsvann,Lillesand,2014,10.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3320,Stigselv Fiskelag,Steinsvann,Birkenes,2015,8.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+3341,Steindalsbekken FL,Steinsvann,Lillesand,2015,8.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3342,Steindalsbekken FL,Steinsvann,Lillesand,2016,8.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3321,Stigselv Fiskelag,Steinsvann,Birkenes,2016,10.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+3343,Steindalsbekken FL,Steinsvann,Lillesand,2017,6.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3344,Steindalsbekken FL,Steinsvann,Lillesand,2018,6.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3322,Stigselv Fiskelag,Steinsvann,Birkenes,2018,10.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+3345,Steindalsbekken FL,Steinsvann,Lillesand,2019,6.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3323,Stigselv Fiskelag,Steinsvann,Birkenes,2019,10.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+3346,Steindalsbekken FL,Steinsvann,Lillesand,2020,7.0,Helikopter,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3324,Stigselv Fiskelag,Steinsvann,Birkenes,2020,10.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+3325,Stigselv Fiskelag,Steinsvann,Birkenes,2021,10.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+3299,Steindalsbekken FL,Steinsvann,Lillesand,2022,7.0,Helikopter,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3300,Stigselv Fiskelag,Steinsvann,Birkenes,2022,15.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+3943,Ufsvann Fiskarlag,Ufsvatn,Vegårdshei,2000,15.7,Båt,Kalksteinmel,9337,6527366,133181,58.73,8.65878
+2418,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,1999,16.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+1704,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,1999,16.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+212,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,1999,16.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+4111,Stigselv Fiskelag,Vestervann,Birkenes,1996,16.0,Båt,Kalksteinmel,10977,6490117,108700,58.3763,8.30282
+3536,Stråndevatn Fiskelag,Stråndevatn,Bygland,1993,17.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+2384,Øvre Nidelv Fiskelag,Mjonevatn,Åmli,1998,17.0,Båt,Kalksteinmel,9407,6526303,129418,58.7173,8.59594
+2856,Skjerka Fellesfløting,Rossålvann,Vegårdshei,1997,17.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+3543,Stråndevatn Fiskelag,Stråndevatn,Bygland,2001,9.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+3544,Stråndevatn Fiskelag,Stråndevatn,Bygland,2003,15.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+3545,Stråndevatn Fiskelag,Stråndevatn,Bygland,2005,10.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+3546,Stråndevatn Fiskelag,Stråndevatn,Bygland,2008,10.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+3547,Stråndevatn Fiskelag,Stråndevatn,Bygland,2011,10.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+3548,Stråndevatn Fiskelag,Stråndevatn,Bygland,2015,8.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+2859,Skjerka Fellesfløting,Rossålvann,Vegårdshei,2000,17.4,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+794,Mykland Fiskelag,Flekevatnet,Froland,1994,17.5,Båt,Kalksteinmel,10164,6513807,111121,58.5898,8.30367
+3549,Stråndevatn Fiskelag,Stråndevatn,Bygland,2016,8.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+3550,Stråndevatn Fiskelag,Stråndevatn,Bygland,2017,15.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+3551,Stråndevatn Fiskelag,Stråndevatn,Bygland,2019,10.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+3552,Stråndevatn Fiskelag,Stråndevatn,Bygland,2020,10.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+3553,Stråndevatn Fiskelag,Stråndevatn,Bygland,2021,10.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+3554,Stråndevatn Fiskelag,Stråndevatn,Bygland,2022,12.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+3326,Steindalsbekken FL,Steinsvann,Lillesand,1993,18.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3329,Steindalsbekken FL,Steinsvann,Lillesand,1996,18.6,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+3764,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,1993,19.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+3535,Stråndevatn Fiskelag,Stråndevatn,Bygland,1992,20.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+209,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,1996,20.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+1984,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,1996,20.0,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+1811,Håland-Kiland-Bjørkos Grl,Kollandsvann,Grimstad,1998,20.0,Båt,Kalksteinmel,10722,6498888,117517,58.4624,8.43798
+3768,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,2001,19.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+3769,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,2003,15.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+3770,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,2008,15.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+3771,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,2011,15.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+3772,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,2015,12.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+3773,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,2017,8.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+3774,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,2019,10.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+3775,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,2020,10.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+3776,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,2021,10.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+3777,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,2022,10.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+2383,Øvre Nidelv Fiskelag,Mjonevatn,Åmli,1996,20.8,Båt,Kalksteinmel,9407,6526303,129418,58.7173,8.59594
+2108,Stigselv Fiskelag,Langvann,Birkenes,1991,21.0,Båt,Kalksteinmel,10908,6492444,110092,58.3983,8.32254
+4108,Stigselv Fiskelag,Vestervann,Birkenes,1990,21.0,Båt,Kalksteinmel,10977,6490117,108700,58.3763,8.30282
+3328,Steindalsbekken FL,Steinsvann,Lillesand,1995,21.0,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+2726,Oksetjønn og Skarketjønn FL,Okstjørn,Valle,1997,21.0,Helikopter,Kalksteinmel,15041,6573409,81655,59.0935,7.68919
+2727,Oksetjønn og Skarketjønn FL,Okstjørn,Valle,1997,21.0,Helikopter,Kalksteinmel,15041,6573409,81655,59.0935,7.68919
+1630,Hinnebu Sportsfiskere,Håvatnet,Froland,1996,21.8,Båt,Kalksteinmel,10313,6509175,122571,58.5586,8.50704
+1810,Håland-Kiland-Bjørkos Grl,Kollandsvann,Grimstad,1996,21.8,Båt,Kalksteinmel,10722,6498888,117517,58.4624,8.43798
+3327,Steindalsbekken FL,Steinsvann,Lillesand,1994,21.8,Båt,Kalksteinmel,11304,6475478,102081,58.2398,8.2156
+2696,Ogge Fiskelag,Ogge,Birkenes,1989,22.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+4110,Stigselv Fiskelag,Vestervann,Birkenes,1994,22.0,Båt,Kalksteinmel,10977,6490117,108700,58.3763,8.30282
+2382,Øvre Nidelv Fiskelag,Mjonevatn,Åmli,1994,22.5,Båt,Kalksteinmel,9407,6526303,129418,58.7173,8.59594
+3532,Stråndevatn Fiskelag,Stråndevatn,Bygland,1988,23.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+2898,Hinnebu Sportsfiskere,Rosævatnet,Froland,1992,23.0,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+2699,Ogge Fiskelag,Ogge,Birkenes,1993,23.5,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2698,Ogge Fiskelag,Ogge,Birkenes,1992,24.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+124,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,1993,24.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+3921,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2001,82.8,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3922,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2002,70.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3923,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2003,60.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3924,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2004,57.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3925,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2005,52.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3926,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2008,50.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+1632,Hinnebu Sportsfiskere,Håvatnet,Froland,2000,24.2,Båt,Kalksteinmel,10313,6509175,122571,58.5586,8.50704
+2899,Hinnebu Sportsfiskere,Rosævatnet,Froland,1995,24.5,Båt,Kalksteinmel,10210,6511877,120514,58.5809,8.46743
+2697,Ogge Fiskelag,Ogge,Birkenes,1991,25.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2700,Ogge Fiskelag,Ogge,Birkenes,1994,25.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2701,Ogge Fiskelag,Ogge,Birkenes,1995,25.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+847,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,1999,25.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+3927,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2011,50.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3928,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2014,50.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3533,Stråndevatn Fiskelag,Stråndevatn,Bygland,1990,25.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+3929,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2015,40.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3942,Ufsvann Fiskarlag,Ufsvatn,Vegårdshei,1999,25.0,Båt,Kalksteinmel,9337,6527366,133181,58.73,8.65878
+3930,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2016,40.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3931,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2018,40.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3932,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2019,38.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3091,Mykland Fiskelag,Saurdalsvatnet,Froland,1999,25.0,Båt,Kalksteinmel,10080,6515049,110949,58.6007,8.2986
+1631,Hinnebu Sportsfiskere,Håvatnet,Froland,1998,25.0,Båt,Kalksteinmel,10313,6509175,122571,58.5586,8.50704
+126,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,1995,25.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+3933,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2020,38.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3934,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2021,35.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3908,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2022,35.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3944,Ufsvann Fiskarlag,Ufsvatn,Vegårdshei,2001,23.2,Båt,Kalksteinmel,9337,6527366,133181,58.73,8.65878
+3945,Ufsvann Fiskarlag,Ufsvatn,Vegårdshei,2002,19.0,Båt,Kalksteinmel,9337,6527366,133181,58.73,8.65878
+3946,Ufsvann Fiskarlag,Ufsvatn,Vegårdshei,2005,15.0,Båt,Kalksteinmel,9337,6527366,133181,58.73,8.65878
+3765,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,1995,26.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+123,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,1992,26.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+2853,Skjerka Fellesfløting,Rossålvann,Vegårdshei,1994,27.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2854,Skjerka Fellesfløting,Rossålvann,Vegårdshei,1995,27.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+125,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,1994,27.5,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+1809,Håland-Kiland-Bjørkos Grl,Kollandsvann,Grimstad,1994,27.5,Båt,Kalksteinmel,10722,6498888,117517,58.4624,8.43798
+793,Mykland Fiskelag,Flekevatnet,Froland,1992,28.0,Båt,Kalksteinmel,10164,6513807,111121,58.5898,8.30367
+1629,Hinnebu Sportsfiskere,Håvatnet,Froland,1994,28.0,Båt,Kalksteinmel,10313,6509175,122571,58.5586,8.50704
+1765,Gjerstad JFF - Aust-Agder,Kleivvatn,Gjerstad,2000,28.1,Båt,Kalksteinmel,8330,6543713,148628,58.8888,8.89837
+870,Uråna Fiskelag,Gangvatn,Arendal,1992,29.0,Båt,Kalksteinmel,10636,6501036,122118,58.4855,8.51279
+1806,Håland-Kiland-Bjørkos Grl,Kollandsvann,Grimstad,1986,29.0,Båt,Kalksteinmel,10722,6498888,117517,58.4624,8.43798
+3534,Stråndevatn Fiskelag,Stråndevatn,Bygland,1991,30.0,Båt,Kalksteinmel,8195,6552248,85398,58.9086,7.79371
+1701,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,1996,30.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+1702,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,1997,30.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+2851,Skjerka Fellesfløting,Rossålvann,Vegårdshei,1992,30.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2852,Skjerka Fellesfløting,Rossålvann,Vegårdshei,1993,30.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+3090,Mykland Fiskelag,Saurdalsvatnet,Froland,1997,30.0,Båt,Kalksteinmel,10080,6515049,110949,58.6007,8.2986
+3310,Stigselv Fiskelag,Steinsvann,Birkenes,1992,30.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+3313,Stigselv Fiskelag,Steinsvann,Birkenes,1997,30.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+4093,Vegår Grunneierlag,Vegår,Vegårdshei,2001,450.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4094,Vegår Grunneierlag,Vegår,Vegårdshei,2002,300.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4095,Vegår Grunneierlag,Vegår,Vegårdshei,2003,200.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4096,Vegår Grunneierlag,Vegår,Vegårdshei,2004,200.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4097,Vegår Grunneierlag,Vegår,Vegårdshei,2005,200.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4098,Vegår Grunneierlag,Vegår,Vegårdshei,2006,175.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4099,Vegår Grunneierlag,Vegår,Vegårdshei,2007,154.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4100,Vegår Grunneierlag,Vegår,Vegårdshei,2008,140.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4101,Vegår Grunneierlag,Vegår,Vegårdshei,2009,140.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4102,Vegår Grunneierlag,Vegår,Vegårdshei,2011,140.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4103,Vegår Grunneierlag,Vegår,Vegårdshei,2012,120.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4104,Vegår Grunneierlag,Vegår,Vegårdshei,2013,120.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4113,Stigselv Fiskelag,Vestervann,Birkenes,2001,15.0,Båt,Kalksteinmel,10977,6490117,108700,58.3763,8.30282
+4114,Stigselv Fiskelag,Vestervann,Birkenes,2003,15.0,Båt,Kalksteinmel,10977,6490117,108700,58.3763,8.30282
+4115,Stigselv Fiskelag,Vestervann,Birkenes,2004,10.0,Båt,Kalksteinmel,10977,6490117,108700,58.3763,8.30282
+4116,Stigselv Fiskelag,Vestervann,Birkenes,2005,9.0,Båt,Kalksteinmel,10977,6490117,108700,58.3763,8.30282
+848,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,2000,30.3,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+1807,Håland-Kiland-Bjørkos Grl,Kollandsvann,Grimstad,1988,31.0,Båt,Kalksteinmel,10722,6498888,117517,58.4624,8.43798
+970,Grimevann Fiskelag,Grimevatnet Vestre,Lillesand,2000,31.4,Båt,Kalksteinmel,11092,6483757,110707,58.3214,8.34764
+1982,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,1992,32.0,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+1511,Uråna Fiskelag,Hunsdalsvatn,Grimstad,1993,33.0,Båt,Kalksteinmel,10711,6499191,119343,58.4667,8.46857
+1983,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,1994,33.5,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+871,Uråna Fiskelag,Gangvatn,Arendal,1994,34.0,Båt,Kalksteinmel,10636,6501036,122118,58.4855,8.51279
+846,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,1998,35.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+3941,Ufsvann Fiskarlag,Ufsvatn,Vegårdshei,1998,35.0,Båt,Kalksteinmel,9337,6527366,133181,58.73,8.65878
+1512,Uråna Fiskelag,Hunsdalsvatn,Grimstad,1995,35.0,Båt,Kalksteinmel,10711,6499191,119343,58.4667,8.46857
+3909,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,1987,141.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3314,Stigselv Fiskelag,Steinsvann,Birkenes,1999,35.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+967,Grimevann Fiskelag,Grimevatnet Vestre,Lillesand,1997,35.0,Båt,Kalksteinmel,11092,6483757,110707,58.3214,8.34764
+968,Grimevann Fiskelag,Grimevatnet Vestre,Lillesand,1998,35.0,Båt,Kalksteinmel,11092,6483757,110707,58.3214,8.34764
+3910,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,1989,159.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+2381,Øvre Nidelv Fiskelag,Mjonevatn,Åmli,1992,36.0,Båt,Kalksteinmel,9407,6526303,129418,58.7173,8.59594
+869,Uråna Fiskelag,Gangvatn,Arendal,1990,36.0,Båt,Kalksteinmel,10636,6501036,122118,58.4855,8.51279
+969,Grimevann Fiskelag,Grimevatnet Vestre,Lillesand,1999,36.0,Båt,Kalksteinmel,11092,6483757,110707,58.3214,8.34764
+3911,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,1991,160.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3912,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,1992,133.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+844,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,1996,40.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+845,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,1997,40.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+1761,Gjerstad JFF - Aust-Agder,Kleivvatn,Gjerstad,1997,40.0,Båt,Kalksteinmel,8330,6543713,148628,58.8888,8.89837
+3940,Ufsvann Fiskarlag,Ufsvatn,Vegårdshei,1997,40.0,Båt,Kalksteinmel,9337,6527366,133181,58.73,8.65878
+1808,Håland-Kiland-Bjørkos Grl,Kollandsvann,Grimstad,1991,40.0,Båt,Kalksteinmel,10722,6498888,117517,58.4624,8.43798
+3913,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,1993,133.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3914,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,1994,138.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3915,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,1995,137.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+208,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,1995,42.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+966,Grimevann Fiskelag,Grimevatnet Vestre,Lillesand,1996,42.3,Båt,Kalksteinmel,11092,6483757,110707,58.3214,8.34764
+4274,Ufsvann Fiskarlag,Vålevatn,Vegårdshei,1995,43.0,Båt,Kalksteinmel,9200,6529634,132431,58.7496,8.6422
+964,Grimevann Fiskelag,Grimevatnet Vestre,Lillesand,1994,43.0,Båt,Kalksteinmel,11092,6483757,110707,58.3214,8.34764
+965,Grimevann Fiskelag,Grimevatnet Vestre,Lillesand,1995,43.0,Båt,Kalksteinmel,11092,6483757,110707,58.3214,8.34764
+3937,Ufsvann Fiskarlag,Ufsvatn,Vegårdshei,1994,43.5,Båt,Kalksteinmel,9337,6527366,133181,58.73,8.65878
+3763,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,1992,44.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+1509,Uråna Fiskelag,Hunsdalsvatn,Grimstad,1989,45.0,Båt,Kalksteinmel,10711,6499191,119343,58.4667,8.46857
+868,Uråna Fiskelag,Gangvatn,Arendal,1988,48.0,Båt,Kalksteinmel,10636,6501036,122118,58.4855,8.51279
+2413,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,1993,48.5,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+1510,Uråna Fiskelag,Hunsdalsvatn,Grimstad,1991,49.0,Båt,Kalksteinmel,10711,6499191,119343,58.4667,8.46857
+4280,Ufsvann Fiskarlag,Vålevatn,Vegårdshei,2001,10.3,Båt,Kalksteinmel,9200,6529634,132431,58.7496,8.6422
+4281,Ufsvann Fiskarlag,Vålevatn,Vegårdshei,2002,10.0,Båt,Kalksteinmel,9200,6529634,132431,58.7496,8.6422
+4282,Ufsvann Fiskarlag,Vålevatn,Vegårdshei,2005,12.0,Båt,Kalksteinmel,9200,6529634,132431,58.7496,8.6422
+3916,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,1996,100.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3917,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,1997,90.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3918,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,1998,70.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3919,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,1999,50.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+2415,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,1995,51.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+3920,Holvann/Tønnesølvann FL,Tønnesølvann,Grimstad,2000,60.0,Båt,Kalksteinmel,10807,6494547,120535,58.4263,8.49656
+3939,Ufsvann Fiskarlag,Ufsvatn,Vegårdshei,1996,52.5,Båt,Kalksteinmel,9337,6527366,133181,58.73,8.65878
+3761,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,1988,53.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+204,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,1991,53.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+122,Vatne-Rett Fiskelag,Bellandstjern,Birkenes,1990,53.0,Båt,Kalksteinmel,10539,6506321,97691,58.5109,8.08755
+2850,Skjerka Fellesfløting,Rossålvann,Vegårdshei,1991,55.0,Båt,Kalksteinmel,9476,6523027,149389,58.7047,8.94388
+2411,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,1991,56.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+2380,Øvre Nidelv Fiskelag,Mjonevatn,Åmli,1990,56.0,Båt,Kalksteinmel,9407,6526303,129418,58.7173,8.59594
+3087,Mykland Fiskelag,Saurdalsvatnet,Froland,1991,60.0,Båt,Kalksteinmel,10080,6515049,110949,58.6007,8.2986
+205,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,1992,60.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+206,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,1993,60.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+102,Begervannets Grl,Begervannet,Birkenes,1999,60.0,Båt,Kalksteinmel,10772,6497572,111932,58.4457,8.34513
+792,Mykland Fiskelag,Flekevatnet,Froland,1990,63.0,Båt,Kalksteinmel,10164,6513807,111121,58.5898,8.30367
+1981,Kyllandsvann Grunneierfor.,Kyllandsvann,Birkenes,1990,63.0,Båt,Kalksteinmel,10610,6503014,107824,58.4906,8.26592
+207,Bjorvatn Fiskelag,Bjorvatn,Evje og Hornes,1994,64.0,Båt,Kalksteinmel,10217,6514845,87182,58.577,7.89311
+3308,Stigselv Fiskelag,Steinsvann,Birkenes,1989,66.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+3088,Mykland Fiskelag,Saurdalsvatnet,Froland,1993,66.5,Båt,Kalksteinmel,10080,6515049,110949,58.6007,8.2986
+2410,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,1989,68.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+3762,Tjørnstøylvann Fiskelag,Tjørnstøylvatn,Bygland,1990,69.0,Båt,Kalksteinmel,9298,6532068,88931,58.7322,7.89165
+2416,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,1997,70.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+4272,Ufsvann Fiskarlag,Vålevatn,Vegårdshei,1992,70.0,Båt,Kalksteinmel,9200,6529634,132431,58.7496,8.6422
+3089,Mykland Fiskelag,Saurdalsvatnet,Froland,1995,70.0,Båt,Kalksteinmel,10080,6515049,110949,58.6007,8.2986
+1698,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,1993,71.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+1694,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,1989,72.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+3312,Stigselv Fiskelag,Steinsvann,Birkenes,1995,72.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+1697,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,1992,73.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+3311,Stigselv Fiskelag,Steinsvann,Birkenes,1993,73.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+4087,Vegår Grunneierlag,Vegår,Vegårdshei,1989,75.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+1699,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,1994,75.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+1700,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,1995,75.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+4273,Ufsvann Fiskarlag,Vålevatn,Vegårdshei,1994,75.0,Båt,Kalksteinmel,9200,6529634,132431,58.7496,8.6422
+3938,Ufsvann Fiskarlag,Ufsvatn,Vegårdshei,1995,75.0,Båt,Kalksteinmel,9337,6527366,133181,58.73,8.65878
+1143,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,2000,77.6,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+99,Begervannets Grl,Begervannet,Birkenes,1990,80.0,Båt,Kalksteinmel,10772,6497572,111932,58.4457,8.34513
+101,Begervannets Grl,Begervannet,Birkenes,1996,80.0,Båt,Kalksteinmel,10772,6497572,111932,58.4457,8.34513
+100,Begervannets Grl,Begervannet,Birkenes,1993,87.5,Båt,Kalksteinmel,10772,6497572,111932,58.4457,8.34513
+963,Grimevann Fiskelag,Grimevatnet Vestre,Lillesand,1993,88.5,Båt,Kalksteinmel,11092,6483757,110707,58.3214,8.34764
+962,Grimevann Fiskelag,Grimevatnet Vestre,Lillesand,1992,89.0,Båt,Kalksteinmel,11092,6483757,110707,58.3214,8.34764
+1142,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,1999,90.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1696,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,1991,98.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+1758,Gjerstad JFF - Aust-Agder,Kleivvatn,Gjerstad,1995,103.0,Båt,Kalksteinmel,8330,6543713,148628,58.8888,8.89837
+2414,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,1995,106.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+3309,Stigselv Fiskelag,Steinsvann,Birkenes,1991,106.0,Båt,Kalksteinmel,10932,6490669,109689,58.3821,8.31868
+843,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,1995,108.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+1695,Vegårshei JFF,Kallbergsvatnet,Vegårdshei,1990,116.0,Båt,Kalksteinmel,8980,6532208,148917,58.7863,8.92145
+842,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,1994,126.5,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+2412,Gjerstad JFF - Aust-Agder,Mjåvatn i G.stad,Gjerstad,1992,128.0,Båt,Kalksteinmel,8237,6545299,149903,58.904,8.91786
+1141,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,1998,130.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+3936,Ufsvann Fiskarlag,Ufsvatn,Vegårdshei,1992,130.0,Båt,Kalksteinmel,9337,6527366,133181,58.73,8.65878
+1755,Gjerstad JFF - Aust-Agder,Kleivvatn,Gjerstad,1993,132.0,Båt,Kalksteinmel,8330,6543713,148628,58.8888,8.89837
+841,Førevann Fiskelag (A-Agder),Førevatnet,Birkenes,1992,143.0,Båt,Kalksteinmel,1335,6518976,99722,58.6256,8.09989
+4091,Vegår Grunneierlag,Vegår,Vegårdshei,1997,150.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+1140,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,1997,150.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+1753,Gjerstad JFF - Aust-Agder,Kleivvatn,Gjerstad,1991,200.0,Båt,Kalksteinmel,8330,6543713,148628,58.8888,8.89837
+1139,Haukom og Ljosevannet Fiskelag,Haukomvatnet,Birkenes,1996,209.0,Båt,Kalksteinmel,1334,6510208,98561,58.5463,8.09553
+4090,Vegår Grunneierlag,Vegår,Vegårdshei,1994,317.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4086,Vegår Grunneierlag,Vegår,Vegårdshei,1987,320.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4085,Vegår Grunneierlag,Vegår,Vegårdshei,1985,325.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+961,Grimevann Fiskelag,Grimevatnet Vestre,Lillesand,1989,370.0,Båt,Kalksteinmel,11092,6483757,110707,58.3214,8.34764
+4088,Vegår Grunneierlag,Vegår,Vegårdshei,1990,460.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4089,Vegår Grunneierlag,Vegår,Vegårdshei,1991,460.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+4092,Vegår Grunneierlag,Vegår,Vegårdshei,1999,550.0,Båt,Kalksteinmel,1258,6533453,137185,58.7877,8.71769
+2702,Ogge Fiskelag,Ogge,Birkenes,1997,1500.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
+2703,Ogge Fiskelag,Ogge,Birkenes,1999,1600.0,Båt,Kalksteinmel,1322,6496094,97469,58.4195,8.10173
