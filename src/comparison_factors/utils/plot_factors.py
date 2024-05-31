@@ -1,0 +1,46 @@
+import altair as alt
+import pandas as pd
+
+OMFAC_CSV = r"./data/omregningsfaktorer.csv"
+
+
+def read_factors():
+    """Read omregningsfactors."""
+    df = pd.read_csv(OMFAC_CSV)
+    df["Dybde (m)"] = df["Dybde (m)"].astype(str) + " m"
+
+    return df
+
+
+def plot_factors():
+    """Create a 2x2 facet grid showing omregningsfaktorer."""
+    df = read_factors()
+    checkbox_selection = alt.selection_point(fields=["Produkt"], bind="legend")
+    chart = (
+        alt.Chart(df)
+        .mark_line(point=True)
+        .encode(
+            x=alt.X(
+                "Oppholdstid (år):Q",
+                scale=alt.Scale(type="log", base=10, domain=(0.2, 3)),
+            ),
+            y=alt.Y(
+                "Faktor (-):Q",
+                scale=alt.Scale(domain=(0.8, 2)),
+                axis=alt.Axis(title="Faktor (-)"),
+            ),
+            color="Produkt:N",
+            opacity=alt.condition(checkbox_selection, alt.value(1), alt.value(0)),
+            tooltip=["Oppholdstid (år)", "Faktor (-)", "Produkt"],
+        )
+        .add_params(checkbox_selection)
+        .properties(width=300, height=300)
+        .facet(
+            facet=alt.Facet("Dybde (m):N", sort=[5, 10, 15, 20]),
+            columns=2,
+        )
+        .resolve_scale(x="independent", y="independent")
+        .interactive()
+    )
+
+    return chart
