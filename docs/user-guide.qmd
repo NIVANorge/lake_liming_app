@@ -69,13 +69,13 @@ Time series produced by the model are based on generalised/typical relationships
 
 ## Omregningsfaktorer {#sec-comparison-factors}
 
-Plots of "omregningsfaktorer" are a convenient way to compare the simulated effectiveness of different lime products in lakes with different characteristics. To generate the plots, initial conditions are defined for a broad range of lake with varying mean depth and water residence time. The model is then run many times to identify how much of each lime product would be required to achieve a given pH target after some period of time (e.g. one year). 
+Plots of "omregningsfaktorer" are a convenient way to compare the simulated effectiveness of different lime products in lakes with different characteristics. To generate the plots, initial conditions are defined for a broad range of lakes with varying mean depth and water residence time. The model is then run many times to identify how much of each lime product would be required to achieve a given pH target after some period of time (e.g. one year). 
 
-For each lime product, the amount of lime required (in tonnes) is compared to results for a standard "reference" product to give the **omregningsfaktor**. Values less than one indicate the product being test is more effective than the standard, while values greater than one imply it is less effective (per unit mass).
+For each lime product, the amount of lime required (in tonnes) is compared to results for a standard "reference" product to give the **omregningsfaktor**. The reference used by this application is `Standard Kalk Kat3`. Values less than one indicate the product being tested is more effective than the standard, while values greater than one imply it is less effective (per unit mass).
 
 In principle, these plots could be constructed manually using the `Innsjømodellering` page. However, the number of parameter combinations is large, so for efficiency they are pre-computed for all lime products in the database and presented on this page in summary form. Plots are generated for lakes with mean depths of 5, 10, 15 and 20 m, and curves shown for lakes with water residence times ranging from 0.3 to 2 years.
 
-Differences between products on these plots reflect the different physical and chemical properties of the limes, as captured by the [column test](https://nivanorge.github.io/lake_liming_app/column-tests.html) data.
+Differences between products on these plots reflect the different physical and chemical properties of the limes, as represented by the [column test](https://nivanorge.github.io/lake_liming_app/column-tests.html) data.
 
 ## Column tests {#sec-column-tests}
 

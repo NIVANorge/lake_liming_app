@@ -12,6 +12,8 @@ def app():
     to a reference standard for lakes with various mean depths and water residence 
     times. **Values less than one indicate the product is more effective than the 
     standard; values greater than one imply it is less effective (per unit mass)**. 
+    
+    The reference used for these plots is `Standard Kalk Kat3`.
 
     See the 
     [Documentation](https://nivanorge.github.io/lake_liming_app/user-guide.html#sec-comparison-factors) 
