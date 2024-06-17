@@ -1,5 +1,5 @@
 ---
-title: "Innsjøkalking app dokumentasjon"
+title: "Lake liming app documentation"
 number-sections: true
 ---
 
