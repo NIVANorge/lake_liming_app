@@ -4,50 +4,43 @@ execute:
   freeze: auto
 website:
   title: "Innsjøkalking applikasjon"
+  favicon: "favicon.png"
+  site-url: https://nivanorge.github.io/lake_liming_app/
+  repo-url: https://github.com/NIVANorge/lake_liming_app
+  issue-url: https://github.com/NIVANorge/lake_liming_app/issues
+  repo-actions: [issue]
+  page-navigation: true
+  bread-crumbs: true
+  search:
+    show-item-context: true
+    type: overlay
+  page-footer:
+    left: |
+      Created by
+      [![](https://gcenode.no/wp-content/uploads/L-NIVA.png){fig-alt="NIVA" width=65px}](https://www.niva.no/)
   navbar:
-    left:
-      - text: "Forside"
-        file: index.no.qmd
-      - text: "Brukerhåndboken"
-        file: user-guide.no.qmd
-      - text: "Innsjømodellering"
-        file: lake-modelling.no.qmd
-      - text: "Kolonnetester"
-        file: column-tests.no.qmd
-    right:
-      - text: "Home"
-        file: index.qmd
-      - text: "User guide"
-        file: user-guide.qmd
-      - text: "Lake modelling"
-        file: lake-modelling.qmd
-      - text: "Column tests"
-        file: column-tests.qmd
-  sidebar:
-    style: "docked"
-    search: true
     tools:
       - icon: github
-        menu:
-          - text: GitHub repository
-            url:  https://github.com/NIVANorge/lake_liming_app
-    contents:
+        href: https://github.com/NIVANorge/lake_liming_app
+        text: GitHub
+    left:
       - text: "Forside"
-        file: index.no.qmd
-      - text: "Brukerhåndboken"
-        file: user-guide.no.qmd
-      - text: "Innsjømodellering"
-        file: lake-modelling.no.qmd
-      - text: "Kolonnetester"
-        file: column-tests.no.qmd
-      - text: "Home"
         file: index.qmd
-      - text: "User guide"
+      - text: "Brukerhåndboken"
         file: user-guide.qmd
-      - text: "Lake modelling"
+      - text: "Innsjømodellering"
         file: lake-modelling.qmd
-      - text: "Column tests"
+      - text: "Kolonnetester"
         file: column-tests.qmd
+    right:
+      - text: "Home"
+        file: index.en.qmd
+      - text: "User guide"
+        file: user-guide.en.qmd
+      - text: "Lake modelling"
+        file: lake-modelling.en.qmd
+      - text: "Column tests"
+        file: column-tests.en.qmd
 format:
   html:
     theme: cosmo

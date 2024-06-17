@@ -3,90 +3,90 @@ title: "User guide"
 number-sections: true
 ---
 
-## Overview {#sec-overview}
+## Oversikt {#sec-overview}
 
-The application is online [here](https://lake-liming.t.niva.no/) and consists of four separate pages or "tabs", which are selected from the left sidebar:
+Applikasjonen er online [her](https://lake-liming.t.niva.no/) og består av fire separate sider eller "faner", som velges fra venstre sidefelt:
 
- 1. **Forside** displays a welcome message and a link to this documentation.
+ 1. **Forside** viser en velkomstmelding og en lenke til denne dokumentasjonen.
 
- 2. **Innsjømodellering** allows users to:
-     * Explore **column test** results for lime products in the application's database.
-     * Specify **lake characteristics** and **liming parameters**, which are then used to simulate **changes in lake water chemistry** (calcium-equivalent concentration and pH).
+ 2. **Innsjømodellering** lar brukere:
+     * Utforsk **kolonnetestresultater** for kalkprodukter i applikasjonens database.
+     * Spesifiser **innsjøkarakteristikker** og **kalkingsparametere**, som deretter brukes til å simulere **endringer i innsjøvannkjemi** (kalsiumekvivalent konsentrasjon og pH).
 
- 3. **Omregningsfaktorer** shows plots comparing the modelled effectiveness of different lime products for a range of lake characteristics (mean depths and water residence times). Generating these plots involves running the model many times, so for efficiency they are pre-computed and presented here for reference.
+ 3. **Omregningsfaktorer** viser plott som sammenligner den modellerte effektiviteten til ulike kalkprodukter for en rekke innsjøkarakteristikker (gjennomsnittlige dybder og vannoppholdstider). Generering av disse plottene innebærer å kjøre modellen mange ganger, så for hastighet er de forhåndsberegnet og presentert her for referanse.
 
- 4. **Last opp kolonnetestdata** allows users to upload their own column test data (i.e. for lime products not already in the database). Users may download and fill-in an Excel template, which can then be uploaded using the `Browse files` button. The app will display plots of **instantaneous dissolution** and **overdosing factors** based on the data provided.
+ 4. **Last opp kolonnetestdata** lar brukere laste opp sine egne kolonnetestdata (dvs. for kalkprodukter som ikke allerede er i databasen). Brukere kan laste ned og fylle ut en Excel-mal, som deretter kan lastes opp ved å bruke knappen `Browse files`. Appen vil vise plott av **momentanoppløsning** og **overdoseringsfaktorer** basert på dataene som er oppgitt.
 
-## Lake modelling {#sec-lake-modelling}
+## Innsjømodellering {#sec-lake-modelling}
 
-The `Innsjømodellering` tab is the main page of the application and is divided into four sections: `Liming products`, `Lake characteristics`, `Liming parameters` and `Model results`. Under each heading, you will find expandable `Help` boxes providing tips for how to use the app.
+Fanen `Innsjømodellering` er hovedsiden til applikasjonen og er delt inn i fire seksjoner: `Kalkingsprodukter`, `Innsjøegenskaper`, `Kalkingsparametere` og `Modelresultater`. Under hver overskrift finner du utvidbare «Hjelp»-bokser som gir tips for hvordan du bruker appen.
 
-### Liming products {#sec-liming-products}
+### Kalkingsprodukter {#sec-liming-products}
 
-Select your product of interest using the drop-down list labelled `Choose liming product`. The app will display plots of instantaneous dissolution and overdosing factors based on the latest column test data in the database. Click the ellipsis button (`[...]`) that appears near the top-right of the plot area to export the plots in PNG or SVG format (@fig-column-test-results).
+Velg ditt produkt av interesse ved å bruke rullegardinlisten merket `Velg kalkprodukt`. Appen vil vise plott av momentanoppløsning og overdoseringsfaktorer basert på de siste kolonnetestdataene i databasen. Klikk på ellipseknappen (`[...]`) som vises øverst til høyre i plottområdet for å eksportere plottene i PNG- eller SVG-format (@fig-column-test-results).
 
-See the [Column tests](https://nivanorge.github.io/lake_liming_app/column-tests.html) page for a detailed description of the laboratory tests on which these plots are based.
+Se siden [Kolonnetester](https://nivanorge.github.io/lake_liming_app/column-tests.html) for en detaljert beskrivelse av laboratorietestene som disse plottene er basert på.
 
-![Column test results for a user-selected lime product. The plots can be saved as PNG or SVG.](./images/column_test_results.png){#fig-column-test-results}
+![Kolonnetestresultater for et brukervalgt kalkprodukt. Plottene kan lagres som PNG eller SVG.](./images/column_test_results.png){#fig-column-test-results}
 
-### Lake characteristics {#sec-lake-characteristics}
+### Innsjøegenskaper {#sec-lake-characteristics}
 
-Use the input boxes to enter data for you lake of interest. 
+Bruk inndataboksene for å legge inn data for din innsjø av interesse.
 
-`Surface area` and `mean depth` are used to estimate lake volume. The ratio of lake volume to mean annual discharge volume is the `water residence time` (in years), which is the length of time, on average, that water spends circulating in the lake. The `initial pH` of the lake and the `inflow pH` are used to define the water chemistry at the start of the simulation. For lakes that are unlimed, or which have not been limed for a long time, it can be assumed that `initial pH` and `inflow pH` are equal, whereas recently limed lakes will typically have `initial pH > inflow pH`. If no additional lime is added, the pH of the model lake will tend towards the inflow pH at a rate determined by the water residence time (lakes with shorter residence times reach the inflow pH faster). The Total Organic Carbon (TOC) concentration in the lake is also important, as the presence of organic acids means that more lime will be needed to achieve a given change in pH (see [Innsjømodellering](https://nivanorge.github.io/lake_liming_app/lake-modelling.html#sec-ca-ph) for details).
+`Overflateareal` og `middeldybde` brukes til å estimere innsjøvolum. Forholdet mellom innsjøvolum og gjennomsnittlig årlig vannføringsvolum er `vannoppholdstiden` (i år), som er lengden av tiden som vannet i gjennomsnitt bruker på å sirkulere i innsjøen. Den `start pH` av innsjøen og `innløp pH` brukes til å definere vannkjemien ved starten av simuleringen. For innsjøer som er ubekalkede, eller som ikke har vært kalket på lenge, kan det antas at `start pH` og `innløp pH` er like, mens nylig kalkede innsjøer typisk vil ha `start pH > innløp pH`. Dersom det ikke tilsettes ekstra kalk, vil pH i modellsjøen tendere mot innløps pH med en hastighet som bestemmes av vannoppholdstiden (innsjøer med kortere oppholdstid når innløps pH raskere). Konsentrasjonen av total organisk karbon (TOC) i innsjøen er også viktig, siden tilstedeværelsen av organiske syrer betyr at mer kalk vil være nødvendig for å oppnå en gitt endring i pH (se [Innsjømodellering](https://nivanorge.github.io) /lake_liming_app/lake-modelling.html#sec-ca-ph) for detaljer).
 
-Users must also specify a `Flow profile`, which determines the idealised monthly flow regime used by the model (see the plot [here](https://nivanorge.github.io/lake_liming_app/lake-modelling.html#fig-flow-profiles) for details). Three choices are available:
+Brukere må også spesifisere en "vannføringsprofil", som bestemmer det idealiserte månedlige vannføringsregimet som brukes av modellen (se plottet [her](https://nivanorge.github.io/lake_liming_app/lake-modelling.html#fig-flow-profiler) for detaljer). Tre valg er tilgjengelige:
 
- * **None**. Monthly flows are constant throughout the year.
- * **Fjell**. The profile is characterised by high springtime flows (associated with snow-melting), a wet autumn, and low flows during the winter. Suitable for simulating upland lakes with significant snow accumulation.
- * **Kyst**. The profile is characterised by dry summers with wet autumns and winters. Suitable for lowland lakes with little snow accumulation. 
+ * **Ingen**. Månedlige vannføring er konstante gjennom hele året.
+ * **Fjell**. Profilen er preget av høye vannføring i vår (knyttet til snøsmelting), en våt høst, og lave vannføring om vinteren. Egnet for å simulere opplandsinnsjøer med betydelig snøakkumulering.
+ * **Kyst**. Profilen er preget av tørre somre med våte høster og vintre. Egnet for lavlandsinnsjøer med lite snøakkumulering.
 
-If `Flow profile` is `None`, the flow rate is determined from the lake volume and water residence time. For `Fjell` and `Kyst`, monthly values are scaled to match the chosen pattern, but the mean annual flow rate remains the same (i.e. consistent with the specified lake volume and water residence time).
+Hvis `Vannføringsprofil` er `Ingen`, bestemmes vannføring fra innsjøvolumet og vannoppholdstid. For «Fjell» og «Kyst» skaleres månedlige verdier for å matche det valgte mønsteret, men den gjennomsnittlige årlige vannføringen forblir den samme (dvs. i samsvar med spesifisert innsjøvolum og vannoppholdstid).
 
-### Liming parameters {#sec-liming-parameters}
+### Kalkingsparametere {#sec-liming-parameters}
 
-Use the input boxes to define the liming schedule. The `lime dose` is the amount of product added divided by the volume of water limed. In cases where lime is only spread over part of a lake's surface, use `Proportion of lake surface area limed` to specify the extent of liming. If this value is less than one, it is assumed that the lake depth profile is such that liming e.g. half of the surface area is equivalent to liming half of the lake volume.
+Bruk inndataboksene for å definere kalkingsplanen. Kalkdosen er mengden tilsatt produkt delt på volumet kalket vann. I tilfeller der kalk bare spres over deler av en innsjøs overflate, bruk `Andel av innsjøoverflate kalket` for å spesifisere omfanget av kalking. Dersom denne verdien er mindre enn én, antas det at innsjødybdeprofilen er slik at kalking f.eks. halvparten av overflaten tilsvarer kalking av halvparten av innsjøvolumet.
 
 ::: {.callout-note}
-The model assumes that the lake eventually becomes well-mixed, regardless of the areal extent of liming. Adding 10 mg/l of lime product over the whole lake is therefore similar to adding 20 mg/l over 50% of the surface area. However, in the latter case, **overdosing effects** will modify the instantaneous dissolution, meaning that slightly less lime will dissolve immediately and more will sink to the lake bottom (and potentially dissolve later). See the [Lake modelling](https://nivanorge.github.io/lake_liming_app/lake-modelling.html#sec-mass-bal-model) page for details.
+Modellen forutsetter at innsjøen etter hvert blir godt blandet, uavhengig av arealmessig omfang av kalking. Å tilsette 10 mg/l kalkprodukt over hele innsjøen er derfor likt å tilsette 20 mg/l over 50% av overflaten. I det siste tilfellet vil imidlertid **overdoseringseffekter** modifisere den momentanoppløsningen, noe som betyr at litt mindre kalk vil oppløses umiddelbart og mer vil synke til innsjøbunnen (og potensielt oppløses senere). Se siden [Innsjømodellering](https://nivanorge.github.io/lake_liming_app/lake-modelling.html#sec-mass-bal-model) for detaljer.
 :::
 
-`Application method` can be either `Wet` or `Dry`, where `Wet` corresponds to adding lime as a slurry (e.g. from a boat) and `Dry` corresponds to adding raw material directly without any pre-mixing (e.g. from a helicopter). Dry lime dissolves in lake water more slowly than slurry. If `Dry` is selected, instantaneous dissolution values from the column tests are adjusted downwards to account for this.
+`Kalkingsmetode` kan være enten `Våt` eller `Tørr`, der `Våt` tilsvarer å tilsette kalk som en slurry (f.eks. fra en båt) og `Tørr` tilsvarer å tilsette kalk direkte uten forhåndsblanding (f.eks. fra et helikopter) ). Tørr kalk løses opp i innsjøvann saktere enn slurry. Hvis `Tørr` velges, justeres momentanoppløsningsverdier fra kolonnetestene ned for å ta hensyn til dette.
 
-`Application month` is the month of the year in which liming takes place and `Number of months to simulate` determines the length of time series generated. If `Flow profile` is set to `None` (@sec-lake-characteristics), `Application month` will have no effect, because flows remain constant throughout the year. However, for the `Fjell` and `Kyst` profiles application month can be important - especially for upland lakes with short residence times, where water is cycled quickly during spring snow-melt episodes.
+`Kalkingsmåned` er måneden i året der kalking finner sted, og `Antall måneder å simulere` bestemmer lengden på genererte tidsserier. Hvis `Vannføringsprofil` er satt til `Ingen` (@sec-lake-characteristics), vil `Kalkingsmåned` ikke ha noen effekt, fordi vannføringen forblir konstante gjennom hele året. For profilene `Fjell` og `Kyst` kan imidlertid kalkingsmåneden være viktig - spesielt for høylandsinnsjøer med kort oppholdstid, hvor vannet sykles raskt under snøsmeltingsepisoder på våren.
 
-### Model results {#sec-model-results}
+### Modellresultater {#sec-model-results}
 
-Changing values in any of the input boxes will automatically trigger an update of the model results. While this happens, a `RUNNING` message will be displayed at the top-right of the screen. 
+Endring av verdier i noen av inndataboksene vil automatisk utløse en oppdatering av modellresultatene. Mens dette skjer, vil en `RUNNING`-melding vises øverst til høyre på skjermen.
 
-When the model run is finished, the application will display idealised time series of Ca-equivalent concentration and pH for the number of months specified. Simulations are produced for all lime products in the database, making it easy to compare results for different products. 
+Når modellkjøringen er ferdig, vil applikasjonen vise idealiserte tidsserier av Ca-ekvivalent konsentrasjon og pH for antall måneder som er spesifisert. Det produseres simuleringer for alle kalkprodukter i databasen, noe som gjør det enkelt å sammenligne resultater for ulike produkter.
 
-**The plots are interactive** - expand the `Help` section under the `Model results` heading for an overview of how to explore them.
+**Plottene er interaktive** - utvid `Hjelp`-boksen under `Modelresultater`-overskriften for en oversikt over hvordan du kan utforske dem.
 
 ::: {.callout-warning}
-Time series produced by the model are based on generalised/typical relationships that do not account for local factors (which may be important). Results indicate the expected response of a typical lake, but are not intended for detailed, site-specific assessments.
+Tidsserier produsert av modellen er basert på generaliserte/typiske sammenhenger som ikke tar hensyn til lokale faktorer (som kan være viktig). Resultatene indikerer forventet respons fra en typisk innsjø, men er ikke ment for detaljerte, stedsspesifikke vurderinger.
 :::
 
 ## Omregningsfaktorer {#sec-comparison-factors}
 
-Plots of "omregningsfaktorer" are a convenient way to compare the simulated effectiveness of different lime products in lakes with different characteristics. To generate the plots, initial conditions are defined for a broad range of lakes with varying mean depth and water residence time. The model is then run many times to identify how much of each lime product would be required to achieve a given pH target after some period of time (e.g. one year). 
+Plott med "omregningsfaktorer" er en praktisk måte å sammenligne simulert effektivitet av ulike kalkprodukter i innsjøer med ulike egenskaper. For å generere plottene er det definert startforhold for et bredt spekter av innsjøer med varierende gjennomsnittlig dybde og vannoppholdstid. Modellen kjøres deretter mange ganger for å identifisere hvor mye av hvert kalkprodukt som vil kreves for å oppnå et gitt pH-mål etter en viss tid (f.eks. ett år).
 
-For each lime product, the amount of lime required (in tonnes) is compared to results for a standard "reference" product to give the **omregningsfaktor**. The reference used by this application is `Standard Kalk Kat3`. Values less than one indicate the product being tested is more effective than the standard, while values greater than one imply it is less effective (per unit mass).
+For hvert kalkprodukt sammenlignes nødvendig kalkmengde (i tonn) med resultater for et standard "referanse"-produkt for å gi en **omregningsfaktor**. Referansen som brukes av denne applikasjonen er "Standard Kalk Kat3". Verdier mindre enn én indikerer at produktet som testes er mer effektivt enn standarden, mens verdier større enn én antyder at det er mindre effektivt (per masseenhet).
 
-In principle, these plots could be constructed manually using the `Innsjømodellering` page. However, the number of parameter combinations is large, so for efficiency they are pre-computed for all lime products in the database and presented on this page in summary form. Plots are generated for lakes with mean depths of 5, 10, 15 and 20 m, and curves shown for lakes with water residence times ranging from 0.3 to 2 years.
+I prinsippet kan disse plottene bygges manuelt ved å bruke siden `Innsjømodellering`. Imidlertid er antallet parameterkombinasjoner stort, så for hastighet er de forhåndsberegnet for alle kalkprodukter i databasen og presentert på denne siden i oppsummeringsform. Det genereres plott for innsjøer med gjennomsnittsdybder på 5, 10, 15 og 20 m, og kurver vist for innsjøer med vannoppholdstider fra 0,3 til 2 år.
 
-Differences between products on these plots reflect the different physical and chemical properties of the limes, as represented by the [column test](https://nivanorge.github.io/lake_liming_app/column-tests.html) data.
+Forskjeller mellom produktene på disse plottene gjenspeiler de forskjellige fysiske og kjemiske egenskapene til kalkene, som representert av [kolonnetestdataene](https://nivanorge.github.io/lake_liming_app/column-tests.html).
 
-## Column tests {#sec-column-tests}
+## Kolonnetester {#sec-column-tests}
 
-The `Laste opp kolonnetestdata` page can be used to create plots of **instantaneous dissolution** and **overdosing factors** based on user-supplied column test data.
+Siden `Laste opp kolonnetestdata` kan brukes til å lage plott av **momentanoppløsning** og **overdoseringsfaktorer** basert på brukerleverte kolonnetestdata.
 
 ::: {.callout-note}
-You can explore column test results for lime products that are *already in the application's database* from the `Innsjømodellering` tab.
+Du kan utforske kolonnetestresultater for kalkprodukter som *allerede er i applikasjonens database* fra fanen `Innsjømodellering`.
 :::
 
-To create plots based on your own data, first download a blank copy of the Excel input template from [here](https://github.com/NIVANorge/lake_liming_app/raw/main/data/liming_app_data_template_v1-1.xlsx). Fill-in the template and save the changes on your local machine, then upload the completed Excel file to the web application by clicking the `Browse files` button in the left sidebar. The app will display plots of instantaneous dissolution and overdosing factors based on the data you provide.
+For å lage plott basert på dine egne data, last først ned en tom kopi av Excel-inndatamalen fra [her](https://github.com/NIVANorge/lake_liming_app/raw/main/data/liming_app_data_template_v1-1.xlsx). Fyll ut malen og lagre endringene på din lokale maskin, og last deretter opp den fullførte Excel-filen til nettapplikasjonen ved å klikke på `Browse files`-knappen i venstre sidefelt. Appen vil vise plott av momentanoppløsning og overdoseringsfaktorer basert på dataene du oppgir.
 
 ::: {.callout-note}
-Data uploaded via the `Laste opp kolonnetestdata` tab is not immediately added to the application database. If you want to add a new product to the application (or update information for an existing one), first fill-in the Excel template and check the plots look reasonable. You can then [send the completed template to NIVA](mailto:james.sample@niva.no) for inclusion in the product database.
+Data lastet opp via `Laste opp kolonnetestdata`-fanen legges ikke umiddelbart til applikasjonsdatabasen. Hvis du vil legge til et nytt produkt i applikasjonen (eller oppdatere informasjon for et eksisterende), fyll først ut Excel-malen og sjekk at plottene ser rimelige ut. Du kan deretter [sende utfylt mal til NIVA](mailto:james.sample@niva.no) for innføring i produktdatabasen.
 :::

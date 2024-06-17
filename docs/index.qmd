@@ -3,12 +3,12 @@ title: "Innsjøkalking app dokumentasjon"
 number-sections: true
 ---
 
-This website provides documentation for the [lake liming application](https://lake-liming.t.niva.no/). The model aims to simulate typical/idealised responses of lake water chemistry (calcium concentration and pH) to various liming strategies.
+Denne nettsiden inneholder dokumentasjon for [innsjøkalkingsapplikasjonen](https://lake-liming.t.niva.no/). Modellen simulerer typiske/idealiserte endringer i innsjøvannkjemi (kalsiumkonsentrasjon og pH) for ulike kalkingsstrategier.
 
- * For a description of how to use the application, see the [User guide](https://nivanorge.github.io/lake_liming_app/user-guide.html).
+ * For en beskrivelse av hvordan du bruker applikasjonen, se [Brukerveiledningen](https://nivanorge.github.io/lake_liming_app/user-guide.html).
 
- * To understand how the model works, see [Lake modelling](https://nivanorge.github.io/lake_liming_app/lake-modelling.html).
+ * For å forstå hvordan modellen fungerer, se [Innsjømodellering](https://nivanorge.github.io/lake_liming_app/lake-modelling.html).
 
- * For details of the empirical data used to represent different lime products, see [Column tests](https://nivanorge.github.io/lake_liming_app/column-tests.html).
+ * For detaljer om empiriske data som brukes til å representere forskjellige kalkprodukter, se [Kolonnetester](https://nivanorge.github.io/lake_liming_app/column-tests.html).
 
- * For technical details, see the [development notebooks](https://github.com/NIVANorge/lake_liming_app/tree/main/notebooks#development-notebooks). The model code is also Open Source and [available on GitHub](https://github.com/NIVANorge/lake_liming_app).
+ * For tekniske detaljer, se [utviklingsnotatbøkene](https://github.com/NIVANorge/lake_liming_app/tree/main/notebooks#development-notebooks). Modellen er også åpen kildekode og [tilgjengelig på GitHub](https://github.com/NIVANorge/lake_liming_app).
