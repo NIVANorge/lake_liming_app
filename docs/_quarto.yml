@@ -4,7 +4,6 @@ execute:
   freeze: auto
 website:
   title: "Innsjøkalking applikasjon"
-  favicon: "favicon.png"
   site-url: https://nivanorge.github.io/lake_liming_app/
   repo-url: https://github.com/NIVANorge/lake_liming_app
   issue-url: https://github.com/NIVANorge/lake_liming_app/issues
