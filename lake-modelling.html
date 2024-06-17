@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Innsjøkalking applikasjon - Lake modelling</title>
+<title>Innsjøkalking applikasjon - Innsjømodellering</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -189,7 +188,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lake modelling</h1>
+<h1 class="title">Innsjømodellering</h1>
 </div>
 
 
@@ -282,7 +281,7 @@ Table&nbsp;1: Estimering av <strong>nøytraliserende verdi (NV)</strong> for to 
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Merk
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -309,7 +308,7 @@ Figure&nbsp;1: Titreringskurver som relaterer endringer i CaCO3-ekvivalenter til
 <img src="./images/titration_curves_interpolated.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-titration-curves-interpolated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Sigmoid-kurver tilpasset dataene i <strong>?@fig-titreringskurver</strong>. Disse brukes av modellen for å konvertere endringer i CaCO3-ekvivalenter til endringer i pH for innsjøer med forskjellige konsentrasjoner av totalt organisk karbon (TOC).
+Figure&nbsp;2: Sigmoid-kurver tilpasset dataene i <a href="#fig-titration-curves" class="quarto-xref">Figure&nbsp;1</a>. Disse brukes av modellen for å konvertere endringer i CaCO3-ekvivalenter til endringer i pH for innsjøer med forskjellige konsentrasjoner av totalt organisk karbon (TOC).
 </figcaption>
 </figure>
 </div>
@@ -324,8 +323,8 @@ Figure&nbsp;2: Sigmoid-kurver tilpasset dataene i <strong>?@fig-titreringskurver
 <li><span class="math inline">\(C_{bott} = (D - C_{inst})\)</span> er mengden Ca (i mg/l) som synker til bunnen av innsjøen og oppløses langsommere.</li>
 <li><span class="math inline">\(F_{slow}\)</span> er hastigheten som konsentrasjonen øker med (i mg/l/måned) på grunn av oppløsning av bunnlaget.</li>
 <li><span class="math inline">\(C_{in}\)</span> og <span class="math inline">\(C_{out}\)</span> er henholdsvis innløps- og utløpskonsentrasjonene av Ca (begge i mg/l).</li>
-<li><span class="math inline">\(V\)</span> er innsjøvolumet i liter. Innsjøen antas å være i <strong>steady state</strong>, dvs. <span class="math inline">\(V\)</span> er konstant.</li>
-<li><span class="math inline">\(Q\)</span> er vannføringen i l/måned. For å tilfredsstille “steady state”-forutsetningen, må innløpsvannføringen være likt utløpsvannføringen.</li>
+<li><span class="math inline">\(V\)</span> er innsjøvolumet i liter. Innsjøen antas å være “stabil”, dvs. <span class="math inline">\(V\)</span> er konstant.</li>
+<li><span class="math inline">\(Q\)</span> er vannføringen i l/måned. For å tilfredsstille den “stabil”-forutsetningen, må innløpsvannføringen være likt utløpsvannføringen.</li>
 <li><span class="math inline">\(M_{lake}\)</span> er massen av Ca oppløst i innsjøvannet (i mg).</li>
 <li><span class="math inline">\(C_{lake}\)</span> er Ca-konsentrasjonen i innsjøen, lik <span class="math inline">\(\frac{M_{lake}}{V}\)</span>. Innsjøen antas å være <strong>godt blandet</strong>, slik at utløpskonsentrasjonen, <span class="math inline">\(C_{out}\)</span>, er lik <span class="math inline">\(C_{lake}\)</span>.</li>
 </ul>
@@ -352,7 +351,7 @@ Figure&nbsp;3: Skjematisk illustrasjon av en boksmodell for innsjøkalsiumkonsen
 K_t = K_0 e^{- \lambda t}
 \tag{3}\]</span></span></p>
 <p>der <span class="math inline">\(K_t\)</span> er førsteordens reaksjonskoeffisient ved tidspunktet <span class="math inline">\(t\)</span>.</p>
-<p>Den effektive hastighetskoeffisienten, <span class="math inline">\(K_t\)</span>, modifiseres ytterligere av en “ratefaktor”, <span class="math inline">\(R\)</span>, som reduserer oppløsningshastigheten ettersom konsentrasjonene av oppløst CaCO3 i innsjøen blir høye. Spesielt tvinger <span class="math inline">\(R\)</span> <span class="math inline">\(K_t\)</span> mot null når oppløste konsentrasjoner nærmer seg metning. Dette gjøres først og fremst for å sikre at modellens resultater forblir plausibel selv om brukere setter ekstreme parameterverdier i brukergrensesnittet; for de fleste realistiske valg av modellparametere vil ikke innsjøkonsentrasjoner nærme seg metning og verdien av <span class="math inline">\(R\)</span> vil være nær 1.</p>
+<p>Den effektive hastighetskoeffisienten, <span class="math inline">\(K_t\)</span>, modifiseres ytterligere av en faktor, <span class="math inline">\(R\)</span>, som reduserer oppløsningshastigheten ettersom konsentrasjonene av oppløst CaCO3 i innsjøen blir høye. Spesielt tvinger <span class="math inline">\(R\)</span> <span class="math inline">\(K_t\)</span> mot null når oppløste konsentrasjoner nærmer seg metning. Dette gjøres først og fremst for å sikre at modellens resultater forblir plausibel selv om brukere setter ekstreme parameterverdier i brukergrensesnittet; for de fleste realistiske valg av modellparametere vil ikke innsjøkonsentrasjoner nærme seg metning og verdien av <span class="math inline">\(R\)</span> vil være nær 1.</p>
 <p><span id="eq-R"><span class="math display">\[
 R = \frac{1}{1 + e^{10 (C_{lake} - C_{sat})}}
 \tag{4}\]</span></span></p>
@@ -363,15 +362,15 @@ F_{slow} = - \frac{dC_{bott}}{dt} = C_{bott} K_t R
 </section>
 <section id="sec-inst-diss" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="sec-inst-diss"><span class="header-section-number">2.3</span> Momentanoppløsning</h3>
-<p>For at modellen skal produsere fornuftige simuleringer, er det viktig å ha et nøyaktig estimat for andelen kalkmateriale som løses opp raskt (dvs. den momentanoppløsningsfraksjonen, <span class="math inline">\(C_{inst}\)</span>). Momentanoppløsning kan måles i laboratoriet ved hjelp av <a href="./kolonne-tests.qmd">kolonnetester</a>, som forteller oss hvor mye kalk som typisk vil løses opp i en kolonne gitt en kjent initial pH og kalkdose. Før kolonnetestdataene kan brukes til innsjømodellering, er det nødvendig å justere for:</p>
+<p>For at modellen skal produsere fornuftige simuleringer, er det viktig å ha et nøyaktig estimat for andelen kalkmateriale som løses opp raskt (dvs. den momentanoppløsningsfraksjonen, <span class="math inline">\(C_{inst}\)</span>). Momentanoppløsning kan måles i laboratoriet ved hjelp av <a href="./column-tests.html">kolonnetester</a>, som forteller oss hvor mye kalk som typisk vil løses opp i en kolonne gitt en kjent initial pH og kalkdose. Før kolonnetestdataene kan brukes til innsjømodellering, er det nødvendig å justere for:</p>
 <ul>
-<li><p><strong>Spredningsmetode</strong>. For tørrspredning (f.eks. med helikopter) er mengden kalkmateriale som oppløses umiddelbart, typisk 0,5 til 0,7 ganger andelen forutsagt av kolonnetester. Ingen justering er nødvendig for våtspredning (f.eks. fra båt).</p></li>
+<li><p><strong>Spredningsmetode</strong>. For tørrspredning (f.eks. med helikopter) er mengden kalkmateriale som oppløses umiddelbart typisk 0,5 til 0,7 ganger andelen forutsagt av kolonnetester. Ingen justering er nødvendig for våtspredning (f.eks. fra båt).</p></li>
 <li><p><strong>Innsjødybde</strong>. Dypere innsjøer gir kalken mer tid til å løse seg opp når den synker. I sin doktorgradsavhandling bemerket <a href="https://www.osti.gov/etdeweb/biblio/7808260">Sverdrup (1985)</a> at for CaCO3 er den momentanoppløsningen direkte proporsjonal med både <span class="math inline">\(H^+\)</span> konsentrasjon og synking dybde</p></li>
 </ul>
 <p><span id="eq-diss-h-depth"><span class="math display">\[
 D_{inst} \propto [H^+] \times d
 \tag{6}\]</span></span></p>
-<p>Det er derfor mulig å generalisere momentanoppløsningsestimater fra kolonnetester med fast dybde til innsjøer med forskjellige dybder ved å vurdere kompenserende endringer i pH. For eksempel er forventet oppløsning for innsjø med dybde <span class="math inline">\(d\)</span> og hydrogenionkonsentrasjon <span class="math inline">\(H^+\)</span> den samme som for en innsjø med dybde <span class="math inline">\(2d\)</span> og hydrogenionkonsentrasjon <span class="math inline">\(0,5H^+\)</span>. Konvertering til pH, antas den momentanoppløsningen for en innsjø med dybde <span class="math inline">\(d_{lake}\)</span> og initial pH <span class="math inline">\(X\)</span> å være lik oppløsningen i en testkolonne med dybde <span class="math inline">\(d_{col}\)</span> med pH <span class="math inline">\((X - a)\)</span> der</p>
+<p>Det er derfor mulig å generalisere momentanoppløsningsestimater fra kolonnetester med fast dybde til innsjøer med forskjellige dybder ved å vurdere kompenserende endringer i pH. For eksempel er forventet oppløsning for en innsjø med dybde <span class="math inline">\(d\)</span> og hydrogenionkonsentrasjon <span class="math inline">\(H^+\)</span> den samme som for en innsjø med dybde <span class="math inline">\(2d\)</span> og hydrogenionkonsentrasjon <span class="math inline">\(0,5H^+\)</span>. Konvertering til pH, antas den momentanoppløsningen for en innsjø med dybde <span class="math inline">\(d_{lake}\)</span> og initial pH <span class="math inline">\(X\)</span> å være lik oppløsningen i en testkolonne med dybde <span class="math inline">\(d_{col}\)</span> med pH <span class="math inline">\((X - a)\)</span> der</p>
 <p><span id="eq-cor-depth"><span class="math display">\[
 a = log⁡(\frac{d_{lake}}{d_{col}})
 \tag{7}\]</span></span></p>
@@ -387,7 +386,7 @@ a = log⁡(\frac{d_{lake}}{d_{col}})
 <li><p><strong>Innsjømiddeldybde</strong> og <strong>spredningsmetode</strong> (dvs. “våt” eller “tørr”), som begge brukes til å justere de momentanoppløsningsverdiene fra kolonnetester (<a href="#eq-cor-depth" class="quarto-xref">Equation&nbsp;7</a>).</p></li>
 <li><p>Parameterne <span class="math inline">\(K_0\)</span> og <span class="math inline">\(\lambda\)</span>, som bestemmer hvor raskt kalk på innsjøbunnen løses opp, og hvor lenge den forblir “aktiv”.</p></li>
 </ul>
-<p>For å unngå å måtte spesifisere alle disse parameterne ved sammenligning av ulike kalkprodukter, er det vanlig å vurdere en <strong>standard innsjø</strong> med et areal på 20 ha, gjennomsnittlig dybde på 5 m og gjennomsnittlig oppholdstid på 0,7 år. Disse parameterne definerer i sin tur gjennomsnittlig årlig utslipp. Om ønskelig kan dette endres ved å velge en månedlig <strong>vannføringsprofil</strong> (<code>fjell</code> eller <code>kyst</code>; se <strong>?@fig-flow-profiler</strong>), som justerer vannføring opp eller ned i hver måned, men i en slik måte at det samlede årlige gjennomsnittet opprettholder en oppholdstid på 0,7 år.</p>
+<p>For å unngå å måtte spesifisere alle disse parameterne ved sammenligning av ulike kalkprodukter, er det vanlig å vurdere en <strong>standard innsjø</strong> med et areal på 20 ha, gjennomsnittlig dybde på 5 m og gjennomsnittlig oppholdstid på 0,7 år. Disse parameterne definerer i sin tur gjennomsnittlig årlig utslipp. Om ønskelig kan dette endres ved å velge en månedlig <strong>vannføringsprofil</strong> (<code>fjell</code> eller <code>kyst</code>; se <a href="#fig-flow-profiles" class="quarto-xref">Figure&nbsp;4</a>), som justerer vannføring opp eller ned i hver måned, men i en slik måte at det samlede årlige gjennomsnittet opprettholder en oppholdstid på 0,7 år.</p>
 <div id="fig-flow-profiles" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-flow-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">

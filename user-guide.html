@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Innsjøkalking applikasjon - User guide</title>
+<title>Innsjøkalking applikasjon - Brukerhåndboken</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -158,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">User guide</h1>
+<h1 class="title">Brukerhåndboken</h1>
 </div>
 
 
@@ -210,8 +209,8 @@ Figure&nbsp;1: Kolonnetestresultater for et brukervalgt kalkprodukt. Plottene ka
 <section id="sec-lake-characteristics" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="sec-lake-characteristics"><span class="header-section-number">2.2</span> Innsjøegenskaper</h3>
 <p>Bruk inndataboksene for å legge inn data for din innsjø av interesse.</p>
-<p><code>Overflateareal</code> og <code>middeldybde</code> brukes til å estimere innsjøvolum. Forholdet mellom innsjøvolum og gjennomsnittlig årlig vannføringsvolum er <code>vannoppholdstiden</code> (i år), som er lengden av tiden som vannet i gjennomsnitt bruker på å sirkulere i innsjøen. Den <code>start pH</code> av innsjøen og <code>innløp pH</code> brukes til å definere vannkjemien ved starten av simuleringen. For innsjøer som er ubekalkede, eller som ikke har vært kalket på lenge, kan det antas at <code>start pH</code> og <code>innløp pH</code> er like, mens nylig kalkede innsjøer typisk vil ha <code>start pH &gt; innløp pH</code>. Dersom det ikke tilsettes ekstra kalk, vil pH i modellsjøen tendere mot innløps pH med en hastighet som bestemmes av vannoppholdstiden (innsjøer med kortere oppholdstid når innløps pH raskere). Konsentrasjonen av total organisk karbon (TOC) i innsjøen er også viktig, siden tilstedeværelsen av organiske syrer betyr at mer kalk vil være nødvendig for å oppnå en gitt endring i pH (se <a href="https://nivanorge.github.io">Innsjømodellering</a> /lake_liming_app/lake-modelling.html#sec-ca-ph) for detaljer).</p>
-<p>Brukere må også spesifisere en “vannføringsprofil”, som bestemmer det idealiserte månedlige vannføringsregimet som brukes av modellen (se plottet <a href="https://nivanorge.github.io/lake_liming_app/lake-modelling.html#fig-flow-profiler">her</a> for detaljer). Tre valg er tilgjengelige:</p>
+<p><code>Overflateareal</code> og <code>middeldybde</code> brukes til å estimere innsjøvolum. Forholdet mellom innsjøvolum og gjennomsnittlig årlig vannføringsvolum er <code>vannoppholdstiden</code> (i år), som er lengden av tiden som vannet i gjennomsnitt bruker på å sirkulere i innsjøen. Den <code>start pH</code> av innsjøen og <code>innløps pH</code> brukes til å definere vannkjemien ved starten av simuleringen. For innsjøer som er ubekalkede, eller som ikke har vært kalket på lenge, kan det antas at <code>start pH</code> og <code>innløps pH</code> er like, mens nylig kalkede innsjøer typisk vil ha <code>start pH &gt; innløps pH</code>. Dersom det ikke tilsettes ekstra kalk, vil pH i modellinnsjøen tendere mot innløps pH med en hastighet som bestemmes av vannoppholdstiden (innsjøer med kortere oppholdstid når innløps pH raskere). Konsentrasjonen av total organisk karbon (TOC) i innsjøen er også viktig, siden tilstedeværelsen av organiske syrer betyr at mer kalk vil være nødvendig for å oppnå en gitt endring i pH (se <a href="https://nivanorge.github.io/lake_liming_app/lake-modelling.html#sec-ca-ph">Innsjømodellering</a> for detaljer).</p>
+<p>Brukere må også spesifisere en “vannføringsprofil”, som bestemmer det idealiserte månedlige vannføringsregimet som brukes av modellen (se plottet <a href="https://nivanorge.github.io/lake_liming_app/lake-modelling.html#fig-flow-profiles">her</a> for detaljer). Tre valg er tilgjengelige:</p>
 <ul>
 <li><strong>Ingen</strong>. Månedlige vannføring er konstante gjennom hele året.</li>
 <li><strong>Fjell</strong>. Profilen er preget av høye vannføring i vår (knyttet til snøsmelting), en våt høst, og lave vannføring om vinteren. Egnet for å simulere opplandsinnsjøer med betydelig snøakkumulering.</li>
@@ -228,14 +227,14 @@ Figure&nbsp;1: Kolonnetestresultater for et brukervalgt kalkprodukt. Plottene ka
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Merk
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Modellen forutsetter at innsjøen etter hvert blir godt blandet, uavhengig av arealmessig omfang av kalking. Å tilsette 10 mg/l kalkprodukt over hele innsjøen er derfor likt å tilsette 20 mg/l over 50% av overflaten. I det siste tilfellet vil imidlertid <strong>overdoseringseffekter</strong> modifisere den momentanoppløsningen, noe som betyr at litt mindre kalk vil oppløses umiddelbart og mer vil synke til innsjøbunnen (og potensielt oppløses senere). Se siden <a href="https://nivanorge.github.io/lake_liming_app/lake-modelling.html#sec-mass-bal-model">Innsjømodellering</a> for detaljer.</p>
 </div>
 </div>
-<p><code>Kalkingsmetode</code> kan være enten <code>Våt</code> eller <code>Tørr</code>, der <code>Våt</code> tilsvarer å tilsette kalk som en slurry (f.eks. fra en båt) og <code>Tørr</code> tilsvarer å tilsette kalk direkte uten forhåndsblanding (f.eks. fra et helikopter) ). Tørr kalk løses opp i innsjøvann saktere enn slurry. Hvis <code>Tørr</code> velges, justeres momentanoppløsningsverdier fra kolonnetestene ned for å ta hensyn til dette.</p>
+<p><code>Kalkingsmetode</code> kan være enten <code>Våt</code> eller <code>Tørr</code>, der <code>Våt</code> tilsvarer å tilsette kalk som en slurry (f.eks. fra en båt) og <code>Tørr</code> tilsvarer å tilsette kalk direkte uten forhåndsblanding (f.eks. fra et helikopter). Tørr kalk løses opp i innsjøvann saktere enn slurry. Hvis <code>Tørr</code> velges, justeres momentanoppløsningsverdier fra kolonnetestene ned for å ta hensyn til dette.</p>
 <p><code>Kalkingsmåned</code> er måneden i året der kalking finner sted, og <code>Antall måneder å simulere</code> bestemmer lengden på genererte tidsserier. Hvis <code>Vannføringsprofil</code> er satt til <code>Ingen</code> (<a href="#sec-lake-characteristics" class="quarto-xref">Section&nbsp;2.2</a>), vil <code>Kalkingsmåned</code> ikke ha noen effekt, fordi vannføringen forblir konstante gjennom hele året. For profilene <code>Fjell</code> og <code>Kyst</code> kan imidlertid kalkingsmåneden være viktig - spesielt for høylandsinnsjøer med kort oppholdstid, hvor vannet sykles raskt under snøsmeltingsepisoder på våren.</p>
 </section>
 <section id="sec-model-results" class="level3" data-number="2.4">
@@ -249,7 +248,7 @@ Note
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+Advarsel
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -261,7 +260,7 @@ Warning
 <section id="sec-comparison-factors" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="sec-comparison-factors"><span class="header-section-number">3</span> Omregningsfaktorer</h2>
 <p>Plott med “omregningsfaktorer” er en praktisk måte å sammenligne simulert effektivitet av ulike kalkprodukter i innsjøer med ulike egenskaper. For å generere plottene er det definert startforhold for et bredt spekter av innsjøer med varierende gjennomsnittlig dybde og vannoppholdstid. Modellen kjøres deretter mange ganger for å identifisere hvor mye av hvert kalkprodukt som vil kreves for å oppnå et gitt pH-mål etter en viss tid (f.eks. ett år).</p>
-<p>For hvert kalkprodukt sammenlignes nødvendig kalkmengde (i tonn) med resultater for et standard “referanse”-produkt for å gi en <strong>omregningsfaktor</strong>. Referansen som brukes av denne applikasjonen er “Standard Kalk Kat3”. Verdier mindre enn én indikerer at produktet som testes er mer effektivt enn standarden, mens verdier større enn én antyder at det er mindre effektivt (per masseenhet).</p>
+<p>For hvert kalkprodukt sammenlignes nødvendig kalkmengde (i tonn) med resultater for et standard referanseprodukt for å gi en <strong>omregningsfaktor</strong>. Referansen som brukes av denne applikasjonen er “Standard Kalk Kat3”. Verdier mindre enn én indikerer at produktet som testes er mer effektivt enn standarden, mens verdier større enn én antyder at det er mindre effektivt (per kilogram).</p>
 <p>I prinsippet kan disse plottene bygges manuelt ved å bruke siden <code>Innsjømodellering</code>. Imidlertid er antallet parameterkombinasjoner stort, så for hastighet er de forhåndsberegnet for alle kalkprodukter i databasen og presentert på denne siden i oppsummeringsform. Det genereres plott for innsjøer med gjennomsnittsdybder på 5, 10, 15 og 20 m, og kurver vist for innsjøer med vannoppholdstider fra 0,3 til 2 år.</p>
 <p>Forskjeller mellom produktene på disse plottene gjenspeiler de forskjellige fysiske og kjemiske egenskapene til kalkene, som representert av <a href="https://nivanorge.github.io/lake_liming_app/column-tests.html">kolonnetestdataene</a>.</p>
 </section>
@@ -274,7 +273,7 @@ Warning
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Merk
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -288,7 +287,7 @@ Note
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Merk
 </div>
 </div>
 <div class="callout-body-container callout-body">
