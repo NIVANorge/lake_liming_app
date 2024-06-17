@@ -212,11 +212,59 @@ window.Quarto = {
 M_{par} = 10 F_{par} A (x_2 - x_1)
 \tag{1}\]</span></span></p>
 <p>der <span class="math inline">\(A\)</span> er tverrsnittsarealet til kolonnen og <span class="math inline">\(par\)</span> er enten <code>Ca</code> eller <code>Mg</code>.</p>
-<p>I praksis løser ikke alle kalk seg opp og kolonnene oppnår ikke jevne konsentrasjoner. Etter <strong>16 timer</strong> måles konsentrasjonen av Ca (og Mg, hvis relevant) i hver kolonne ved forskjellige dybder ved bruk av ICP-OES (Inductively Coupled Plasma - Optical Emission Spectrometry). Fem mål er tatt fra hver kolonne: hver 40. cm fra overflaten ned til 1,6 m. Et typisk datasett for en enkelt kolonne for en ikke-dolomittisk kalk (dvs. bare Ca) er vist i <strong>?@tbl-instantaneous-dissolution</strong>.</p>
-<div class="line-block"><strong>Kolonne</strong> | <strong>pH</strong> | <strong>Dybde (m)</strong> | <strong>Ca (mg/l)</strong> |</div>
-<p>|:— ——-:|:——:|:————-:|:————-:| | A | 4.0 | 0.0 | 2.82 | | A | 4.0 | 0.4 | 2.62 | | A | 4.0 | 0.8 | 2.64 | | A | 4.0 | 1.2 | 2.76 | | A | 4.0 | 1.6 | 2.81 |</p>
-<p>: Eksempeldata for en enkelt kolonne fra den momentanoppløsningstesten for kalsium. {#tbl-instantaneous-dissolution}</p>
-<p><strong>?@tbl-instantaneous-dissolution</strong> brukes til å estimere den totale mengden Ca som faktisk har løst seg opp i hver kolonne etter 16 timer. Det antas at hver kolonne er horisontalt godt blandet og at konsentrasjonene kun varierer med dybden, <span class="math inline">\(x\)</span>. Den totale mengden Ca mellom dybdene <span class="math inline">\(x_1\)</span> og <span class="math inline">\(x_2\)</span> er gitt av integralet</p>
+<p>I praksis løser ikke alle kalk seg opp og kolonnene oppnår ikke jevne konsentrasjoner. Etter <strong>16 timer</strong> måles konsentrasjonen av Ca (og Mg, hvis relevant) i hver kolonne ved forskjellige dybder ved bruk av ICP-OES (Inductively Coupled Plasma - Optical Emission Spectrometry). Fem mål er tatt fra hver kolonne: hver 40. cm fra overflaten ned til 1,6 m. Et typisk datasett for en enkelt kolonne for en ikke-dolomittisk kalk (dvs. bare Ca) er vist i <a href="#tbl-inst-diss" class="quarto-xref">Table&nbsp;1</a>.</p>
+<div id="tbl-inst-diss" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-inst-diss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Eksempeldata for en enkelt kolonne fra den momentanoppløsningstesten for kalsium.
+</figcaption>
+<div aria-describedby="tbl-inst-diss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Kolonne</strong></th>
+<th style="text-align: center;"><strong>pH</strong></th>
+<th style="text-align: center;"><strong>Dybde (m)</strong></th>
+<th style="text-align: center;"><strong>Ca (mg/l)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">2.82</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">2.62</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">2.64</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">1.2</td>
+<td style="text-align: center;">2.76</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">1.6</td>
+<td style="text-align: center;">2.81</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-inst-diss" class="quarto-xref">Table&nbsp;1</a> brukes til å estimere den totale mengden Ca som faktisk har løst seg opp i hver kolonne etter 16 timer. Det antas at hver kolonne er horisontalt godt blandet og at konsentrasjonene kun varierer med dybden, <span class="math inline">\(x\)</span>. Den totale mengden Ca mellom dybdene <span class="math inline">\(x_1\)</span> og <span class="math inline">\(x_2\)</span> er gitt av integralet</p>
 <p><span id="eq-conc-depth-integral"><span class="math display">\[
 M_{Ca} = A \int_{x_1}^{x_2} C(x) \ dx
 \tag{2}\]</span></span></p>
@@ -224,7 +272,7 @@ M_{Ca} = A \int_{x_1}^{x_2} C(x) \ dx
 <p><span id="eq-inst-diss"><span class="math display">\[
 D_{inst} = \frac{\int_{0}^{1.6} C(x) \ dx}{10 F_{Ca} (1.6 - 0)}
 \tag{3}\]</span></span></p>
-<p>Integralet i <a href="#eq-inst-diss" class="quarto-xref">Equation&nbsp;3</a> er tilnærmet fra de målte dataene (<strong>?@tbl-instantaneous-dissolution</strong>) ved å bruke <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapesregelen</a>.</p>
+<p>Integralet i <a href="#eq-inst-diss" class="quarto-xref">Equation&nbsp;3</a> er tilnærmet fra de målte dataene (<a href="#tbl-inst-diss" class="quarto-xref">Table&nbsp;1</a>) ved å bruke <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapesregelen</a>.</p>
 <p>Hovedresultatet fra dette eksperimentet er et sett med momentanoppløsningsverdier (vanligvis uttrykt i prosent) som viser hvordan <strong>oppløsningen endres med initial pH ved en fast kalkdose</strong> (<a href="#fig-instantaneous-dissolution-curve" class="quarto-xref">Figure&nbsp;1</a>).</p>
 <div id="fig-instantaneous-dissolution-curve" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -256,11 +304,11 @@ Figure&nbsp;2: Overdoseringsfaktorer for ulike kalkdoser (med kolonne-pH fastsat
 </section>
 <section id="sec-combining" class="level3" data-number="1.3">
 <h3 data-number="1.3" class="anchored" data-anchor-id="sec-combining"><span class="header-section-number">1.3</span> Kombinere datasett</h3>
-<p>De to eksperimentene beskrevet i <a href="#sec-vary-ph" class="quarto-xref">Section&nbsp;1.1</a> og <a href="#sec-vary-dose" class="quarto-xref">Section&nbsp;1.2</a> gir data i formatet vist i <a href="#tbl-expt-design" class="quarto-xref">Table&nbsp;1</a>.</p>
+<p>De to eksperimentene beskrevet i <a href="#sec-vary-ph" class="quarto-xref">Section&nbsp;1.1</a> og <a href="#sec-vary-dose" class="quarto-xref">Section&nbsp;1.2</a> gir data i formatet vist i <a href="#tbl-expt-design" class="quarto-xref">Table&nbsp;2</a>.</p>
 <div id="tbl-expt-design" class="quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-expt-design-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Eksperimentell design for kolonnetester. Hver ‘x’ tilsvarer en enkelt kolonne som momentanoppløsning bestemmes for.
+Table&nbsp;2: Eksperimentell design for kolonnetester. Hver ‘x’ tilsvarer en enkelt kolonne som momentanoppløsning bestemmes for.
 </figcaption>
 <div aria-describedby="tbl-expt-design-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
