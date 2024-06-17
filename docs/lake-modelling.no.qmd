@@ -1,0 +1,157 @@
+---
+title: "Lake modelling"
+number-sections: true
+---
+
+Beregningene utført av applikasjonen og beskrevet på denne siden er en delmengde av de som er implementert av den originale [TPKALK-applikasjonen](https://niva.brage.unit.no/niva-xmlui/handle/11250/208709) utviklet av NIVA i løpet av 1990-tallet.
+
+## Bakgrunn {#sek-bakgrunn}
+
+### Kalkingsmaterialer {#sec-lime-types}
+
+Kalkprodukter som brukes til nedbørfeltforvaltning er vanligvis en blanding av **kalsiumkarbonat** (kalsitt, $CaCO_3$) og **magnesiumkarbonat** ($MgCO_3$). Bergarter som hovedsakelig består av $CaCO_3$ kalles vanligvis **kalksteiner** og **kritt**, mens karbonatbergarter med betydelige andeler magnesium kalles **dolomitter** (> 10% Mg) eller magnesianske kalksteiner (2 til 10% Mg).
+
+Kalkprodusenter vil typisk spesifisere andelen kalsium- og magnesiumkarbonat i produktene sine. For eksempel er 'Microdol5' rapportert å være 53,7% $CaCO_3$ og 44,4% $MgCO_3$ etter masse (med 1,9% andre urenheter).
+
+Magnesiumkarbonat har en høyere andel karbonat etter masse og derfor en større syrenøytraliserende kapasitet ("Acid Neutralising Capacity"; ANC) enn kalsiumkarbonat: 1 g magnesiumkarbonat vil nøytralisere like mye syre som 1,19 g kalsiumkarbonat. Når man sammenligner kalk med forskjellige sammensetninger, er det derfor nødvendig å multiplisere magnesiumkarbonatandelen med en faktor på 1,19. Dette gir en **nøytraliserende verdi (NV)**, beregnet som summen av kalsiumkarbonat *ekvivalenter* (f.eks. @tbl-nv). NV bestemmes best ved titrering i henhold til EN-12945. Det kan også estimeres fra Ca- og Mg-elementanalyser, men i noen tilfeller kan disse elementene være fiksert til andre mineraler enn karbonater med liten eller ingen nøytraliserende kapasitet.
+
+|  **Produkt**  | **CaCO3 (%)** | **MgCO3 (%)** | **MgCO3 (CaCO3-ekv; %)** | **NV (sum of CaCO3-ekv; %)** |
+|:-------------:|:-------------:|:-------------:|:------------------------:|:----------------------------:|
+| **Microdol5** |          53.7 |          44.4 |                     52.8 |                        106.5 |
+|    **VK3**    |          99.0 |           1.0 |                      1.2 |                        100.2 |
+
+: Estimering av **nøytraliserende verdi (NV)** for to kalkprodukter. $MgCO_3$-innhold konverteres til $CaCO_3$-ekvivalenter ved å multiplisere med 1,19. {#tbl-nv}
+
+NV er vanligvis spesifisert i prosent: rent kalsiumkarbonat har en NV på 100%; rent magnesiumkarbonat har en NV på 119%; og typiske dolomittprodukter har NV-er som er et sted i mellom. For samme masse vil produkter med høyere NV være mer effektive til å øke pH, *så lenge alle kalken løses opp*. I praksis viser forskjellige kalker forskjellige oppløsningshastigheter, som også må tas med i betraktning (@sec-solubility).
+
+### Kalkløselighet {#sec-solubility}
+
+Flere faktorer påvirker oppløsningshastigheten til kalkmateriale som tilsettes en vannmasse. Disse inkluderer:
+
+ * **Fysiske** og **kjemiske** egenskaper til kalkmaterialet (krystallstruktur etc.).
+
+ * **Partikkelstørrelse** (dvs. finhet) av kalkmaterialet. Mindre partikler gir større reaksjonsflate og løses derfor raskere opp.
+
+ * **Vann pH**. Surere innsjøer reagerer kraftigere med kalken.
+
+ * **Kalkpåføringsmetode** (for eksempel fra båt versus fra helikopter).
+
+ * Mengde tilsatt kalk, vanligvis kalt **dosen**. Hvis store mengder kalk tilsettes en innsjø på en gang, er den totale effekten på pH mindre enn det som kunne oppnås hvis mindre mengder ble tilsatt mer regelmessig. Dette skyldes at ved høye doser øker pH og kalsiumkonsentrasjon i umiddelbar nærhet av kalkpartiklene, som så synker til bunnen uten å løses effektivt opp. Det er også mer sannsynlig at kalkpartikler vil klumpe seg sammen og synke raskere. Denne effekten kalles **overdosering**.
+
+De fleste kommersielle kalkprodukter er fine nok til å oppløses effektivt. For en gitt påføringsmetode og innsjø-pH er målet derfor å identifisere **hvilket kalkprodukt som skal brukes** (dvs. hvilke fysiske og kjemiske egenskaper som skal velges) og **i hvilken dose** (for å minimere antall påføringer som er nødvendig uten overdosering).
+
+Kalkoppløsningshastigheter og effekten av overdosering bestemmes eksperimentelt - se siden [kolonnetester](./column-tests.no.qmd) for detaljer.
+
+## Modelleringsprosedyre {#sec-modelling}
+
+Målet med modellen er å simulere endringer i innsjøens pH på grunn av kalking med ulike produkter. Det gir en del av bevisgrunnlaget for å avgjøre hvilke kalkprodukter som skal brukes under ulike omstendigheter.
+
+::: {.callout-note}
+Modellen forsøker å simulere en "typisk" innsjø og resultater må derfor betraktes som illustrative. Målte data fra ekte innsjøer viser at dose-respons-forhold er svært varierende og kan avhenge sterkt av lokale faktorer. Modellen bruker idealiserte empiriske sammenhenger basert på norske overvåkingsdata og laboratorietester. Den er ikke egnet for detaljert simulering av individuelle innsjøer.
+:::
+
+### Forholdet mellom Ca-ekvivalenter og pH {#sec-ca-ph}
+
+Når vi tilsetter kalkingsmateriale, øker konsentrasjonen av CaCO3 (og MgCO3, hvis relevant) i innsjøen, noe som fører til en økning i pH. @fig-titration-curves viser forhold utledet empirisk av Atle Hindar som relaterer endringer i CaCO3-ekvivalenter til endringer i pH for innsjøer med forskjellige konsentrasjoner av totalt organisk karbon (TOC).
+
+![Titreringskurver som relaterer endringer i CaCO3-ekvivalenter til endringer i pH for innsjøer med forskjellige konsentrasjoner av totalt organisk karbon (TOC).](./images/titration_curves.png){#fig-titration-curves}
+
+For en innsjø med en gitt initial pH- og TOC-konsentrasjon, bruker modellen sigmoid-kurver basert på empiriske data (@fig-titration-curves-interpolated) for å finne en idealisert CaCO3-konsentrasjon som representerer innsjøens initiale bufferkapasitet. Modellen simulerer deretter endringer i CaCO3-ekvivalente konsentrasjoner over tid (i forhold til startkonsentrasjonen), og bruker kurvene til å estimere tilsvarende endringer i pH.
+
+![Sigmoid-kurver tilpasset dataene i @fig-titreringskurver. Disse brukes av modellen for å konvertere endringer i CaCO3-ekvivalenter til endringer i pH for innsjøer med forskjellige konsentrasjoner av totalt organisk karbon (TOC).](./images/titration_curves_interpolated.png){#fig-titration-curves-interpolated}
+
+### Massebalansemodell {#sec-mass-bal-model}
+
+Titreringskurvene i @fig-titration-curves-interpolated transformerer problemet med modellering av pH til modellering av $\Delta Ca$ (og $\Delta Mg$ også, hvis relevant). Når vi tilsetter kalk til en innsjø, løses noe av den opp umiddelbart, noe som gir en plutselig økning i pH, mens resten synker til bunnen og løses langsommere.
+
+En massebalanse "boksmodell" (@fig-box-model) brukes for å gi et estimat av både den umiddelbare endringen i innsjøforhold på grunn av kalking og den påfølgende utviklingen over tid. For enkelhets skyld vises kun ett sett med beregninger (f.eks. for kalsium), men et identisk sett med beregninger for magnesium utføres også parallelt, hvis det er relevant. Mg-fraksjonen omdannes deretter til CaCO3-ekvivalenter før det knyttes til endringer i pH (@sec-ca-ph). Med kalsium som eksempel, er symbolene i @fig-box-model som følger:
+
+ * $D$ er dosen av tilsatt kalk (justert for Ca-innhold, dvs. den faktiske dosen av Ca i mg/l).
+ * $C_{inst}$ er den "umiddelbare" økningen i innsjøens Ca-konsentrasjon (i mg/l) på grunn av **momentanoppløsning**.
+ * $C_{bott} = (D - C_{inst})$ er mengden Ca (i mg/l) som synker til bunnen av innsjøen og oppløses langsommere.
+ * $F_{slow}$ er hastigheten som konsentrasjonen øker med (i mg/l/måned) på grunn av oppløsning av bunnlaget.
+ * $C_{in}$ og $C_{out}$ er henholdsvis innløps- og utløpskonsentrasjonene av Ca (begge i mg/l).
+ * $V$ er innsjøvolumet i liter. Innsjøen antas å være i **steady state**, dvs. $V$ er konstant.
+ * $Q$ er vannføringen i l/måned. For å tilfredsstille "steady state"-forutsetningen, må innløpsvannføringen være likt utløpsvannføringen.
+ * $M_{lake}$ er massen av Ca oppløst i innsjøvannet (i mg).
+ * $C_{lake}$ er Ca-konsentrasjonen i innsjøen, lik $\frac{M_{lake}}{V}$. Innsjøen antas å være **godt blandet**, slik at utløpskonsentrasjonen, $C_{out}$, er lik $C_{lake}$.
+
+![Skjematisk illustrasjon av en boksmodell for innsjøkalsiumkonsentrasjon for en enkelt innsjø under forutsetning av fast vannvolum. Symboler er definert i teksten.](./images/box_model.png){#fig-box-model}
+
+Balansering av de viktigste kildene og synker av Ca til innsjøen gir
+
+$$
+\frac{dM_{lake}}{dt} = V \frac{dC_{lake}}{dt} = Q C_{in} - Q C_{lake} + V C_{inst} + V F_{slow}
+$$ {#eq-dMlake_dt}
+
+eller
+
+$$
+\frac{dC_{lake}}{dt} = \frac{Q C_{in} - Q C_{lake}}{V} + C_{inst} + F_{slow}
+$$ {#eq-dClake_dt}
+
+Kalk som ikke løses opp umiddelbart synker til bunnen av innsjøen og løses opp saktere ($C_{bott}$). Oppløsning av innsjøbunnkalk modelleres som en førsteordens reaksjon med starthastighetskoeffisient $K_0$. Imidlertid antas denne hastighetskoeffisienten å avta eksponentielt over tid, basert på observasjonen at kalk som samler seg i innsjøsedimenter blir mindre "aktiv" over tid og derfor oppløses langsommere. Hastigheten som reaksjonskoeffisienten avtar med styres av "aktivitetskoeffisienten", $\lambda$
+
+$$
+K_t = K_0 e^{- \lambda t}
+$$ {#eq-Kt}
+
+der $K_t$ er førsteordens reaksjonskoeffisient ved tidspunktet $t$.
+
+Den effektive hastighetskoeffisienten, $K_t$, modifiseres ytterligere av en "ratefaktor", $R$, som reduserer oppløsningshastigheten ettersom konsentrasjonene av oppløst CaCO3 i innsjøen blir høye. Spesielt tvinger $R$ $K_t$ mot null når oppløste konsentrasjoner nærmer seg metning. Dette gjøres først og fremst for å sikre at modellens resultater forblir plausibel selv om brukere setter ekstreme parameterverdier i brukergrensesnittet; for de fleste realistiske valg av modellparametere vil ikke innsjøkonsentrasjoner nærme seg metning og verdien av $R$ vil være nær 1.
+
+$$
+R = \frac{1}{1 + e^{10 (C_{lake} - C_{sat})}}
+$$ {#eq-R}
+
+der $C_{sat}$ er metningskonsentrasjonen av Ca i innsjøvann (dvs. den maksimale verdien tillatt av modellen).
+
+$$
+F_{slow} = - \frac{dC_{bott}}{dt} = C_{bott} K_t R
+$$ {#eq-dCslow_dt}
+
+### Estimating instantaneous dissolution {#sec-inst-diss}
+
+For the model to produce reasonable simulations, it is important to have an accurate estimate for the proportion of lime material that dissolves quickly (i.e. the instantaneous dissolution fraction, $C_{inst}$). Instantaneous dissolution can be measured in the laboratory using [column tests](./column-tests.qmd), which tell us how much lime will typically dissolve in a column given a known initial pH and lime dose. However, before the column test data can be used for lake modelling, it is necessary to adjust for:
+
+ * **Spreading method**. For dry spreading (e.g. by helicopter) the amount of lime material that dissolves immediately is typically 0.5 to 0.7 times the proportion predicted by column tests. No adjustment is required for wet spreading (e.g. from a boat).
+
+ * **Lake depth**. Deeper lakes give the lime more time to dissolve as it sinks. In his PhD thesis, [Sverdrup (1985)](https://www.osti.gov/etdeweb/biblio/7808260) noted that, for CaCO3, the instantaneous dissolution is directly proportional to both $H^+$ concentration and sinking depth
+
+### Momentanoppløsning {#sec-inst-diss}
+
+For at modellen skal produsere fornuftige simuleringer, er det viktig å ha et nøyaktig estimat for andelen kalkmateriale som løses opp raskt (dvs. den momentanoppløsningsfraksjonen, $C_{inst}$). Momentanoppløsning kan måles i laboratoriet ved hjelp av [kolonnetester](./kolonne-tests.no.qmd), som forteller oss hvor mye kalk som typisk vil løses opp i en kolonne gitt en kjent initial pH og kalkdose. Før kolonnetestdataene kan brukes til innsjømodellering, er det nødvendig å justere for:
+
+ * **Spredningsmetode**. For tørrspredning (f.eks. med helikopter) er mengden kalkmateriale som oppløses umiddelbart, typisk 0,5 til 0,7 ganger andelen forutsagt av kolonnetester. Ingen justering er nødvendig for våtspredning (f.eks. fra båt).
+
+ * **Innsjødybde**. Dypere innsjøer gir kalken mer tid til å løse seg opp når den synker. I sin doktorgradsavhandling bemerket [Sverdrup (1985)](https://www.osti.gov/etdeweb/biblio/7808260) at for CaCO3 er den momentanoppløsningen direkte proporsjonal med både $H^+$ konsentrasjon og synking dybde
+ 
+$$
+D_{inst} \propto [H^+] \times d
+$$ {#eq-diss-h-depth}
+ 
+Det er derfor mulig å generalisere momentanoppløsningsestimater fra kolonnetester med fast dybde til innsjøer med forskjellige dybder ved å vurdere kompenserende endringer i pH. For eksempel er forventet oppløsning for innsjø med dybde $d$ og hydrogenionkonsentrasjon $H^+$ den samme som for en innsjø med dybde $2d$ og hydrogenionkonsentrasjon $0,5H^+$. Konvertering til pH, antas den momentanoppløsningen for en innsjø med dybde $d_{lake}$ og initial pH $X$ å være lik oppløsningen i en testkolonne med dybde $d_{col}$ med pH $(X - a)$ der
+
+$$
+a = log⁡(\frac{d_{lake}}{d_{col}})
+$$ {#eq-cor-depth}
+
+Merk at @eq-cor-depth gjelder for CaCO3-fraksjonen; for MgCO3 foreslo Sverdrup modifikasjonen $(X - 0,5a)$ som en mer passende dybdekorreksjon.
+
+### Simulering av en "standard innsjø" {#sec-standard-lake}
+
+Modellen definert ovenfor er i stand til å simulere hvordan pH og Ca-konsentrasjon (og Mg, hvis relevant) endres over tid for en enkelt innsjø. Modellen krever følgende inndata:
+
+ * Innsjø **volum** (ofte oppgitt som overflateareal og gjennomsnittlig dybde) og **vannføring**, som sammen definerer **oppholdstiden**. Merk at denne modellen forutsetter at volumet er fast, men vannføringen kan variere over tid, om ønskelig.
+
+ * **Innsjøens pH**, **innløps-pH** og **TOC-konsentrasjon**.
+
+ * **dosen** av tilsatt kalkmateriale og **andelen Ca og Mg etter masse** i kalken. **Overdoseringsfaktorer** er også relevante for høyere doser.
+
+ * **Innsjømiddeldybde** og **spredningsmetode** (dvs. "våt" eller "tørr"), som begge brukes til å justere de momentanoppløsningsverdiene fra kolonnetester (@eq-cor-depth).
+
+ * Parameterne $K_0$ og $\lambda$, som bestemmer hvor raskt kalk på innsjøbunnen løses opp, og hvor lenge den forblir "aktiv".
+
+For å unngå å måtte spesifisere alle disse parameterne ved sammenligning av ulike kalkprodukter, er det vanlig å vurdere en **standard innsjø** med et areal på 20 ha, gjennomsnittlig dybde på 5 m og gjennomsnittlig oppholdstid på 0,7 år. Disse parameterne definerer i sin tur gjennomsnittlig årlig utslipp. Om ønskelig kan dette endres ved å velge en månedlig **vannføringsprofil** (`fjell` eller `kyst`; se @fig-flow-profiler), som justerer vannføring opp eller ned i hver måned, men i en slik måte at det samlede årlige gjennomsnittet opprettholder en oppholdstid på 0,7 år.
+
+![Månedlige vannføringsprofiler som kan brukes til å endre konstantverdiene.](./images/flow_typologies.png){#fig-flow-profiles}

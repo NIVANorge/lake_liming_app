@@ -6,6 +6,15 @@ website:
   title: "Innsjøkalking applikasjon"
   navbar:
     left:
+      - text: "Forside"
+        file: index.no.qmd
+      - text: "Brukerhåndboken"
+        file: user-guide.no.qmd
+      - text: "Innsjømodellering"
+        file: lake-modelling.no.qmd
+      - text: "Kolonnetester"
+        file: column-tests.no.qmd
+    right:
       - text: "Home"
         file: index.qmd
       - text: "User guide"
@@ -23,6 +32,14 @@ website:
           - text: GitHub repository
             url:  https://github.com/NIVANorge/lake_liming_app
     contents:
+      - text: "Forside"
+        file: index.no.qmd
+      - text: "Brukerhåndboken"
+        file: user-guide.no.qmd
+      - text: "Innsjømodellering"
+        file: lake-modelling.no.qmd
+      - text: "Kolonnetester"
+        file: column-tests.no.qmd
       - text: "Home"
         file: index.qmd
       - text: "User guide"
