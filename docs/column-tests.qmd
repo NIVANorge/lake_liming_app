@@ -23,19 +23,19 @@ $$ {#eq-evenly-mixed}
 
 der $A$ er tverrsnittsarealet til kolonnen og $par$ er enten `Ca` eller `Mg`.
 
-I praksis løser ikke alle kalk seg opp og kolonnene oppnår ikke jevne konsentrasjoner. Etter **16 timer** måles konsentrasjonen av Ca (og Mg, hvis relevant) i hver kolonne ved forskjellige dybder ved bruk av ICP-OES (Inductively Coupled Plasma - Optical Emission Spectrometry). Fem mål er tatt fra hver kolonne: hver 40. cm fra overflaten ned til 1,6 m. Et typisk datasett for en enkelt kolonne for en ikke-dolomittisk kalk (dvs. bare Ca) er vist i @tbl-instantaneous-dissolution.
+I praksis løser ikke alle kalk seg opp og kolonnene oppnår ikke jevne konsentrasjoner. Etter **16 timer** måles konsentrasjonen av Ca (og Mg, hvis relevant) i hver kolonne ved forskjellige dybder ved bruk av ICP-OES (Inductively Coupled Plasma - Optical Emission Spectrometry). Fem mål er tatt fra hver kolonne: hver 40. cm fra overflaten ned til 1,6 m. Et typisk datasett for en enkelt kolonne for en ikke-dolomittisk kalk (dvs. bare Ca) er vist i @tbl-inst-diss.
 
 | **Kolonne** | **pH** | **Dybde (m)** | **Ca (mg/l)** |
-|:--- -------:|:------:|:-------------:|:-------------:|
+|:-----------:|:------:|:-------------:|:-------------:|
 |      A      |    4.0 |           0.0 |          2.82 |
 |      A      |    4.0 |           0.4 |          2.62 |
 |      A      |    4.0 |           0.8 |          2.64 |
 |      A      |    4.0 |           1.2 |          2.76 |
 |      A      |    4.0 |           1.6 |          2.81 |
 
-: Eksempeldata for en enkelt kolonne fra den momentanoppløsningstesten for kalsium. {#tbl-instantaneous-dissolution}
+: Eksempeldata for en enkelt kolonne fra den momentanoppløsningstesten for kalsium. {#tbl-inst-diss}
 
-@tbl-instantaneous-dissolution brukes til å estimere den totale mengden Ca som faktisk har løst seg opp i hver kolonne etter 16 timer. Det antas at hver kolonne er horisontalt godt blandet og at konsentrasjonene kun varierer med dybden, $x$. Den totale mengden Ca mellom dybdene $x_1$ og $x_2$ er gitt av integralet
+@tbl-inst-diss brukes til å estimere den totale mengden Ca som faktisk har løst seg opp i hver kolonne etter 16 timer. Det antas at hver kolonne er horisontalt godt blandet og at konsentrasjonene kun varierer med dybden, $x$. Den totale mengden Ca mellom dybdene $x_1$ og $x_2$ er gitt av integralet
 
 $$
 M_{Ca} = A \int_{x_1}^{x_2} C(x) \ dx
@@ -47,7 +47,7 @@ $$
 D_{inst} = \frac{\int_{0}^{1.6} C(x) \ dx}{10 F_{Ca} (1.6 - 0)}
 $$ {#eq-inst-diss}
 
-Integralet i @eq-inst-diss er tilnærmet fra de målte dataene (@tbl-instantaneous-dissolution) ved å bruke [trapesregelen](https://en.wikipedia.org/wiki/Trapezoidal_rule).
+Integralet i @eq-inst-diss er tilnærmet fra de målte dataene (@tbl-inst-diss) ved å bruke [trapesregelen](https://en.wikipedia.org/wiki/Trapezoidal_rule).
 
 Hovedresultatet fra dette eksperimentet er et sett med momentanoppløsningsverdier (vanligvis uttrykt i prosent) som viser hvordan **oppløsningen endres med initial pH ved en fast kalkdose** (@fig-instantaneous-dissolution-curve).
 
