@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Innsjøkalking applikasjon - Lake modelling</title>
+<title>Innsjøkalking applikasjon - User guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,35 +67,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -162,7 +133,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lake-modelling.html">Lake modelling</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./user-guide.no.html">Brukerhåndboken</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -202,7 +173,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./user-guide.no.html" class="sidebar-item-text sidebar-link">
+  <a href="./user-guide.no.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Brukerhåndboken</span></a>
   </div>
 </li>
@@ -232,7 +203,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lake-modelling.html" class="sidebar-item-text sidebar-link active">
+  <a href="./lake-modelling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lake modelling</span></a>
   </div>
 </li>
@@ -252,18 +223,16 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sec-background" id="toc-sec-background" class="nav-link active" data-scroll-target="#sec-background"><span class="header-section-number">1</span> Background</a>
+  <li><a href="#sec-overview" id="toc-sec-overview" class="nav-link active" data-scroll-target="#sec-overview"><span class="header-section-number">1</span> Oversikt</a></li>
+  <li><a href="#sec-lake-modelling" id="toc-sec-lake-modelling" class="nav-link" data-scroll-target="#sec-lake-modelling"><span class="header-section-number">2</span> Innsjømodellering</a>
   <ul class="collapse">
-  <li><a href="#sec-lime-types" id="toc-sec-lime-types" class="nav-link" data-scroll-target="#sec-lime-types"><span class="header-section-number">1.1</span> Types of liming material</a></li>
-  <li><a href="#sec-solubility" id="toc-sec-solubility" class="nav-link" data-scroll-target="#sec-solubility"><span class="header-section-number">1.2</span> Lime solubility</a></li>
+  <li><a href="#sec-liming-products" id="toc-sec-liming-products" class="nav-link" data-scroll-target="#sec-liming-products"><span class="header-section-number">2.1</span> Kalkingsprodukter</a></li>
+  <li><a href="#sec-lake-characteristics" id="toc-sec-lake-characteristics" class="nav-link" data-scroll-target="#sec-lake-characteristics"><span class="header-section-number">2.2</span> Innsjøegenskaper</a></li>
+  <li><a href="#sec-liming-parameters" id="toc-sec-liming-parameters" class="nav-link" data-scroll-target="#sec-liming-parameters"><span class="header-section-number">2.3</span> Kalkingsparametere</a></li>
+  <li><a href="#sec-model-results" id="toc-sec-model-results" class="nav-link" data-scroll-target="#sec-model-results"><span class="header-section-number">2.4</span> Modellresultater</a></li>
   </ul></li>
-  <li><a href="#sec-modelling" id="toc-sec-modelling" class="nav-link" data-scroll-target="#sec-modelling"><span class="header-section-number">2</span> Modelling procedure</a>
-  <ul class="collapse">
-  <li><a href="#sec-ca-ph" id="toc-sec-ca-ph" class="nav-link" data-scroll-target="#sec-ca-ph"><span class="header-section-number">2.1</span> Relationship between Ca-equivalents and pH</a></li>
-  <li><a href="#sec-mass-bal-model" id="toc-sec-mass-bal-model" class="nav-link" data-scroll-target="#sec-mass-bal-model"><span class="header-section-number">2.2</span> Mass balance model</a></li>
-  <li><a href="#sec-inst-diss" id="toc-sec-inst-diss" class="nav-link" data-scroll-target="#sec-inst-diss"><span class="header-section-number">2.3</span> Estimating instantaneous dissolution</a></li>
-  <li><a href="#sec-standard-lake" id="toc-sec-standard-lake" class="nav-link" data-scroll-target="#sec-standard-lake"><span class="header-section-number">2.4</span> Simulating a “standard lake”</a></li>
-  </ul></li>
+  <li><a href="#sec-comparison-factors" id="toc-sec-comparison-factors" class="nav-link" data-scroll-target="#sec-comparison-factors"><span class="header-section-number">3</span> Omregningsfaktorer</a></li>
+  <li><a href="#sec-column-tests" id="toc-sec-column-tests" class="nav-link" data-scroll-target="#sec-column-tests"><span class="header-section-number">4</span> Kolonnetester</a></li>
   </ul>
 </nav>
     </div>
@@ -272,7 +241,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lake modelling</h1>
+<h1 class="title">User guide</h1>
 </div>
 
 
@@ -289,76 +258,55 @@ window.Quarto = {
 </header>
 
 
-<p>The calculations performed by the application and described on this page are a subset of those implemented by the original <a href="https://niva.brage.unit.no/niva-xmlui/handle/11250/208709">TPKALK application</a> developed by NIVA during the 1990s.</p>
-<section id="sec-background" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="sec-background"><span class="header-section-number">1</span> Background</h2>
-<section id="sec-lime-types" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="sec-lime-types"><span class="header-section-number">1.1</span> Types of liming material</h3>
-<p>Lime products used for catchment management are usually a mixture of <strong>calcium carbonate</strong> (calcite, <span class="math inline">\(CaCO_3\)</span>) and <strong>magnesium carbonate</strong> (<span class="math inline">\(MgCO_3\)</span>). Rocks composed primarily of <span class="math inline">\(CaCO_3\)</span> are commonly called <strong>limestones</strong> and <strong>chalks</strong>, whereas carbonate rocks with significant proportions of magnesium are called <strong>dolomites</strong> (&gt; 10% Mg) or magnesian limestones (2 to 10% Mg).</p>
-<p>Lime manufacturers will typically specify the proportion of calcium and magnesium carbonate in their products. For example, <code>Microdol5</code> is reported as being 53.7% <span class="math inline">\(CaCO_3\)</span> and 44.4% <span class="math inline">\(MgCO_3\)</span> by mass (with 1.9% other impurities).</p>
-<p>Magnesium carbonate has a higher proportion of carbonate by mass (and therefore a greater acid neutralising capacity; ANC) than calcium carbonate: 1 g of magnesium carbonate will neutralise as much acid as 1.19 g of calcium carbonate. When comparing limes with different compositions, it is therefore necessary to multiply the magnesium carbonate proportion by a factor of 1.19. This gives a <strong>neutralising value (NV)</strong>, estimated as the sum of calcium carbonate <em>equivalents</em> (e.g. <a href="#tbl-nv" class="quarto-xref">Table&nbsp;1</a>). The NV is best determined by titration according to EN-12945. It may also be estimated from Ca and Mg element analyses, but in some cases these elements may be fixed to minerals other than carbonates with little or no neutralising capacity.</p>
-<div id="tbl-nv" class="quarto-float anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-nv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Estimating the <strong>neutralising value (NV)</strong> for two lime products. <span class="math inline">\(MgCO_3\)</span> content is converted to <span class="math inline">\(CaCO_3\)</span>-equivalents by multiplying by 1.19.
-</figcaption>
-<div aria-describedby="tbl-nv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 25%">
-<col style="width: 29%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><strong>Product</strong></th>
-<th style="text-align: center;"><strong>CaCO3 (%)</strong></th>
-<th style="text-align: center;"><strong>MgCO3 (%)</strong></th>
-<th style="text-align: center;"><strong>MgCO3 (CaCO3-ekv; %)</strong></th>
-<th style="text-align: center;"><strong>NV (sum of CaCO3-ekv; %)</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><strong>Microdol5</strong></td>
-<td style="text-align: center;">53.7</td>
-<td style="text-align: center;">44.4</td>
-<td style="text-align: center;">52.8</td>
-<td style="text-align: center;">106.5</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>VK3</strong></td>
-<td style="text-align: center;">99.0</td>
-<td style="text-align: center;">1.0</td>
-<td style="text-align: center;">1.2</td>
-<td style="text-align: center;">100.2</td>
-</tr>
-</tbody>
-</table>
+<section id="sec-overview" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="sec-overview"><span class="header-section-number">1</span> Oversikt</h2>
+<p>Applikasjonen er online <a href="https://lake-liming.t.niva.no/">her</a> og består av fire separate sider eller “faner”, som velges fra venstre sidefelt:</p>
+<ol type="1">
+<li><p><strong>Forside</strong> viser en velkomstmelding og en lenke til denne dokumentasjonen.</p></li>
+<li><p><strong>Innsjømodellering</strong> lar brukere:</p>
+<ul>
+<li>Utforsk <strong>kolonnetestresultater</strong> for kalkprodukter i applikasjonens database.</li>
+<li>Spesifiser <strong>innsjøkarakteristikker</strong> og <strong>kalkingsparametere</strong>, som deretter brukes til å simulere <strong>endringer i innsjøvannkjemi</strong> (kalsiumekvivalent konsentrasjon og pH).</li>
+</ul></li>
+<li><p><strong>Omregningsfaktorer</strong> viser plott som sammenligner den modellerte effektiviteten til ulike kalkprodukter for en rekke innsjøkarakteristikker (gjennomsnittlige dybder og vannoppholdstider). Generering av disse plottene innebærer å kjøre modellen mange ganger, så for hastighet er de forhåndsberegnet og presentert her for referanse.</p></li>
+<li><p><strong>Last opp kolonnetestdata</strong> lar brukere laste opp sine egne kolonnetestdata (dvs. for kalkprodukter som ikke allerede er i databasen). Brukere kan laste ned og fylle ut en Excel-mal, som deretter kan lastes opp ved å bruke knappen <code>Browse files</code>. Appen vil vise plott av <strong>momentanoppløsning</strong> og <strong>overdoseringsfaktorer</strong> basert på dataene som er oppgitt.</p></li>
+</ol>
+</section>
+<section id="sec-lake-modelling" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sec-lake-modelling"><span class="header-section-number">2</span> Innsjømodellering</h2>
+<p>Fanen <code>Innsjømodellering</code> er hovedsiden til applikasjonen og er delt inn i fire seksjoner: <code>Kalkingsprodukter</code>, <code>Innsjøegenskaper</code>, <code>Kalkingsparametere</code> og <code>Modelresultater</code>. Under hver overskrift finner du utvidbare «Hjelp»-bokser som gir tips for hvordan du bruker appen.</p>
+<section id="sec-liming-products" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="sec-liming-products"><span class="header-section-number">2.1</span> Kalkingsprodukter</h3>
+<p>Select your product of interest using the drop-down list labelled <code>Choose liming product</code>. The app will display plots of instantaneous dissolution and overdosing factors based on the latest column test data in the database. Click the ellipsis button (<code>[...]</code>) that appears near the top-right of the plot area to export the plots in PNG or SVG format (<a href="#fig-column-test-results" class="quarto-xref">Figure&nbsp;1</a>).</p>
+<p>See the <a href="https://nivanorge.github.io/lake_liming_app/column-tests.html">Column tests</a> page for a detailed description of the laboratory tests on which these plots are based.</p>
+<p>Velg ditt produkt av interesse ved å bruke rullegardinlisten merket <code>Velg kalkprodukt</code>. Appen vil vise plott av momentanoppløsning og overdoseringsfaktorer basert på de siste kolonnetestdataene i databasen. Klikk på ellipseknappen (<code>[...]</code>) som vises øverst til høyre i plottområdet for å eksportere plottene i PNG- eller SVG-format (<a href="#fig-column-test-results" class="quarto-xref">Figure&nbsp;1</a>).</p>
+<p>Se siden <a href="https://nivanorge.github.io/lake_liming_app/column-tests.no.html">Kolonnetester</a> for en detaljert beskrivelse av laboratorietestene som disse plottene er basert på.</p>
+<div id="fig-column-test-results" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-column-test-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/column_test_results.png" class="img-fluid figure-img">
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-column-test-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Kolonnetestresultater for et brukervalgt kalkprodukt. Plottene kan lagres som PNG eller SVG.
+</figcaption>
 </figure>
 </div>
-<p>The NV is usually specified in percent: pure calcium carbonate has a NV of 100 %; pure magnesium carbonate has a NV of 119 %; and typical dolomite products have NVs that are somewhere in between. For the same mass, products with a higher NV will be more effective at increasing pH, <em>as long as all the lime dissolves</em>. In practice, different limes exhibit different dissolution rates, which must also be accounted for (<a href="#sec-solubility" class="quarto-xref">Section&nbsp;1.2</a>).</p>
 </section>
-<section id="sec-solubility" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="sec-solubility"><span class="header-section-number">1.2</span> Lime solubility</h3>
-<p>Several factors affect the dissolution rate of lime material added to a waterbody. These include:</p>
+<section id="sec-lake-characteristics" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="sec-lake-characteristics"><span class="header-section-number">2.2</span> Innsjøegenskaper</h3>
+<p>Bruk inndataboksene for å legge inn data for din innsjø av interesse.</p>
+<p><code>Overflateareal</code> og <code>middeldybde</code> brukes til å estimere innsjøvolum. Forholdet mellom innsjøvolum og gjennomsnittlig årlig vannføringsvolum er <code>vannoppholdstiden</code> (i år), som er lengden av tiden som vannet i gjennomsnitt bruker på å sirkulere i innsjøen. Den <code>start pH</code> av innsjøen og <code>innløp pH</code> brukes til å definere vannkjemien ved starten av simuleringen. For innsjøer som er ubekalkede, eller som ikke har vært kalket på lenge, kan det antas at <code>start pH</code> og <code>innløp pH</code> er like, mens nylig kalkede innsjøer typisk vil ha <code>start pH &gt; innløp pH</code>. Dersom det ikke tilsettes ekstra kalk, vil pH i modellsjøen tendere mot innløps pH med en hastighet som bestemmes av vannoppholdstiden (innsjøer med kortere oppholdstid når innløps pH raskere). Konsentrasjonen av total organisk karbon (TOC) i innsjøen er også viktig, siden tilstedeværelsen av organiske syrer betyr at mer kalk vil være nødvendig for å oppnå en gitt endring i pH (se <a href="https://nivanorge.github.io">Innsjømodellering</a> /lake_liming_app/lake-modelling.no.html#sec-ca-ph) for detaljer).</p>
+<p>Brukere må også spesifisere en “vannføringsprofil”, som bestemmer det idealiserte månedlige vannføringsregimet som brukes av modellen (se plottet <a href="https://nivanorge.github.io/lake_liming_app/lake-modelling.no.html#fig-flow-profiler">her</a> for detaljer). Tre valg er tilgjengelige:</p>
 <ul>
-<li><p><strong>Physical</strong> and <strong>chemical</strong> properties of the liming material (crystal structure etc.).</p></li>
-<li><p><strong>Particle size</strong> (i.e.&nbsp;fineness) of the lime material. Smaller particles give a larger reaction surface and therefore dissolve faster.</p></li>
-<li><p><strong>Water pH</strong>. More acidic lakes react with the lime more vigorously.</p></li>
-<li><p><strong>Application method</strong> (for example from a boat versus from a helicopter).</p></li>
-<li><p>Amount of lime added, usually called the <strong>dose</strong>. If large amounts of lime are added to a lake all at once, the overall effect on pH is less than might be achieved if smaller amounts were added more regularly. This is because, at high doses, pH and calcium concentration increase in the immediate vicinity of the lime particles, which then sink to the bottom without dissolving efficiently. It is also more likely that lime particles will clump together and sink more rapidly. This effect is called <strong>overdosing</strong>.</p></li>
+<li><strong>Ingen</strong>. Månedlige vannføring er konstante gjennom hele året.</li>
+<li><strong>Fjell</strong>. Profilen er preget av høye vannføring i vår (knyttet til snøsmelting), en våt høst, og lave vannføring om vinteren. Egnet for å simulere opplandsinnsjøer med betydelig snøakkumulering.</li>
+<li><strong>Kyst</strong>. Profilen er preget av tørre somre med våte høster og vintre. Egnet for lavlandsinnsjøer med lite snøakkumulering.</li>
 </ul>
-<p>Most commercial lime products are fine enough to dissolve effectively. For a given application method and lake pH, the goal is therefore to identify <strong>which lime product to use</strong> (i.e.&nbsp;which physical and chemical properties to select) and <strong>in what dose</strong> (to minimise the number of applications necessary, without excessive waste due to overdosing).</p>
-<p>Lime dissolution rates and the effects of overdosing are determined experimentally - see the <a href="./column-tests.html">column tests</a> page for details.</p>
+<p>Hvis <code>Vannføringsprofil</code> er <code>Ingen</code>, bestemmes vannføring fra innsjøvolumet og vannoppholdstid. For «Fjell» og «Kyst» skaleres månedlige verdier for å matche det valgte mønsteret, men den gjennomsnittlige årlige vannføringen forblir den samme (dvs. i samsvar med spesifisert innsjøvolum og vannoppholdstid).</p>
 </section>
-</section>
-<section id="sec-modelling" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="sec-modelling"><span class="header-section-number">2</span> Modelling procedure</h2>
-<p>The goal of the model is to simulate changes in lake pH due to liming with different products. It provides one part of the evidence base to decide which lime products to apply under different circumstances.</p>
+<section id="sec-liming-parameters" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="sec-liming-parameters"><span class="header-section-number">2.3</span> Kalkingsparametere</h3>
+<p>Bruk inndataboksene for å definere kalkingsplanen. Kalkdosen er mengden tilsatt produkt delt på volumet kalket vann. I tilfeller der kalk bare spres over deler av en innsjøs overflate, bruk <code>Andel av innsjøoverflate kalket</code> for å spesifisere omfanget av kalking. Dersom denne verdien er mindre enn én, antas det at innsjødybdeprofilen er slik at kalking f.eks. halvparten av overflaten tilsvarer kalking av halvparten av innsjøvolumet.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -369,121 +317,71 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The model attempts to simulate a “typical” lake and results must therefore be considered as illustrative. Measured data from real lakes demonstrates that dose-response relationships are highly variable and may depend strongly on local factors. The model uses idealised empirical relationships based on Norwegian monitoring data and lab tests. It is not designed for detailed simulation of individual lakes.</p>
+<p>Modellen forutsetter at innsjøen etter hvert blir godt blandet, uavhengig av arealmessig omfang av kalking. Å tilsette 10 mg/l kalkprodukt over hele innsjøen er derfor likt å tilsette 20 mg/l over 50% av overflaten. I det siste tilfellet vil imidlertid <strong>overdoseringseffekter</strong> modifisere den momentanoppløsningen, noe som betyr at litt mindre kalk vil oppløses umiddelbart og mer vil synke til innsjøbunnen (og potensielt oppløses senere). Se siden <a href="https://nivanorge.github.io/lake_liming_app/lake-modelling.no.html#sec-mass-bal-model">Innsjømodellering</a> for detaljer.</p>
 </div>
 </div>
-<section id="sec-ca-ph" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="sec-ca-ph"><span class="header-section-number">2.1</span> Relationship between Ca-equivalents and pH</h3>
-<p>When we add liming material, the concentration of CaCO3 (and MgCO3, if relevant) in the lake increases, which leads to an increase in pH. <a href="#fig-titration-curves" class="quarto-xref">Figure&nbsp;1</a> shows relationships derived empirically by Atle Hindar relating changes in CaCO3-equivalents to changes in pH for lakes with different concentrations of Total Organic Carbon (TOC).</p>
-<div id="fig-titration-curves" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-titration-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="./images/titration_curves.png" class="img-fluid figure-img">
+<p><code>Kalkingsmetode</code> kan være enten <code>Våt</code> eller <code>Tørr</code>, der <code>Våt</code> tilsvarer å tilsette kalk som en slurry (f.eks. fra en båt) og <code>Tørr</code> tilsvarer å tilsette kalk direkte uten forhåndsblanding (f.eks. fra et helikopter) ). Tørr kalk løses opp i innsjøvann saktere enn slurry. Hvis <code>Tørr</code> velges, justeres momentanoppløsningsverdier fra kolonnetestene ned for å ta hensyn til dette.</p>
+<p><code>Kalkingsmåned</code> er måneden i året der kalking finner sted, og <code>Antall måneder å simulere</code> bestemmer lengden på genererte tidsserier. Hvis <code>Vannføringsprofil</code> er satt til <code>Ingen</code> (<a href="#sec-lake-characteristics" class="quarto-xref">Section&nbsp;2.2</a>), vil <code>Kalkingsmåned</code> ikke ha noen effekt, fordi vannføringen forblir konstante gjennom hele året. For profilene <code>Fjell</code> og <code>Kyst</code> kan imidlertid kalkingsmåneden være viktig - spesielt for høylandsinnsjøer med kort oppholdstid, hvor vannet sykles raskt under snøsmeltingsepisoder på våren.</p>
+</section>
+<section id="sec-model-results" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="sec-model-results"><span class="header-section-number">2.4</span> Modellresultater</h3>
+<p>Endring av verdier i noen av inndataboksene vil automatisk utløse en oppdatering av modellresultatene. Mens dette skjer, vil en <code>RUNNING</code>-melding vises øverst til høyre på skjermen.</p>
+<p>Når modellkjøringen er ferdig, vil applikasjonen vise idealiserte tidsserier av Ca-ekvivalent konsentrasjon og pH for antall måneder som er spesifisert. Det produseres simuleringer for alle kalkprodukter i databasen, noe som gjør det enkelt å sammenligne resultater for ulike produkter.</p>
+<p><strong>Plottene er interaktive</strong> - utvid <code>Hjelp</code>-boksen under <code>Modelresultater</code>-overskriften for en oversikt over hvordan du kan utforske dem.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-titration-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Titration curves relating changes in CaCO3-equivalents to changes in pH for lakes with different Total Organic Carbon (TOC) concentrations.
-</figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+Warning
 </div>
-<p>For a lake with a given initial pH and TOC concentration, the model uses sigmoid curves based on the empirical data (<a href="#fig-titration-curves-interpolated" class="quarto-xref">Figure&nbsp;2</a>) to lookup an idealised CaCO3 concentration representing the initial buffering capacity of the lake. The model then simulates changes in CaCO3-equivalent concentrations over time (relative to the initial concentration), and uses the curves to estimate corresponding changes in pH.</p>
-<div id="fig-titration-curves-interpolated" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-titration-curves-interpolated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="./images/titration_curves_interpolated.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-titration-curves-interpolated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Sigmoid curves fitted to the data in <a href="#fig-titration-curves" class="quarto-xref">Figure&nbsp;1</a>. These are used by the model to convert changes in CaCO3-equivalents to changes in pH for lakes with different Total Organic Carbon (TOC) concentrations.
-</figcaption>
-</figure>
+<div class="callout-body-container callout-body">
+<p>Tidsserier produsert av modellen er basert på generaliserte/typiske sammenhenger som ikke tar hensyn til lokale faktorer (som kan være viktig). Resultatene indikerer forventet respons fra en typisk innsjø, men er ikke ment for detaljerte, stedsspesifikke vurderinger.</p>
+</div>
 </div>
 </section>
-<section id="sec-mass-bal-model" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="sec-mass-bal-model"><span class="header-section-number">2.2</span> Mass balance model</h3>
-<p>The titration curves in <a href="#fig-titration-curves-interpolated" class="quarto-xref">Figure&nbsp;2</a> transform the problem of modelling pH into one of modelling <span class="math inline">\(\Delta Ca\)</span> (and <span class="math inline">\(\Delta Mg\)</span> too, if relevant). When we add lime to a lake, some of it dissolves instantly, giving a sudden increase in pH, while the remainder sinks to the bottom and dissolves more slowly.</p>
-<p>A mass balance “box model” (<a href="#fig-box-model" class="quarto-xref">Figure&nbsp;3</a>) is used to provide an estimate of both the initial change in lake conditions due to liming and the subsequent evolution over time. For simplicity, only one set of calculations is shown (e.g.&nbsp;for calcium), but an identical set of calculations for magnesium are also performed in parallel, if relevant. The Mg-fraction is then converted to CaCO3-equivalents before making the link to changes in pH (<a href="#sec-ca-ph" class="quarto-xref">Section&nbsp;2.1</a>). Taking calcium as an example, the symbols in <a href="#fig-box-model" class="quarto-xref">Figure&nbsp;3</a> are as follows:</p>
-<ul>
-<li><span class="math inline">\(D\)</span> is the dose of lime added (adjusted for Ca content i.e.&nbsp;the actual dose of Ca in mg/l).</li>
-<li><span class="math inline">\(C_{inst}\)</span> is the “immediate” increase in lake Ca concentration (in mg/l) due to <strong>instantaneous dissolution</strong>.</li>
-<li><span class="math inline">\(C_{bott} = (D - C_{inst})\)</span> is the amount of Ca (in mg/l) that sinks to the lake bottom and dissolves more slowly.</li>
-<li><span class="math inline">\(F_{slow}\)</span> is the rate at which concentration increases (in mg/l/month) due to dissolution of the bottom layer.</li>
-<li><span class="math inline">\(C_{in}\)</span> and <span class="math inline">\(C_{out}\)</span> are the inflow and outflow concentrations of Ca, respectively (both in mg/l).</li>
-<li><span class="math inline">\(V\)</span> is the lake volume in litres. The lake is assumed to be in <strong>steady state</strong> i.e.&nbsp;<span class="math inline">\(V\)</span> is constant.</li>
-<li><span class="math inline">\(Q\)</span> is the discharge in l/month. To satisfy the steady state assumption, the inflow discharge must equal the outflow discharge.</li>
-<li><span class="math inline">\(M_{lake}\)</span> is the mass of Ca dissolved in the lake water (in mg).</li>
-<li><span class="math inline">\(C_{lake}\)</span> is the Ca concentration in the lake, equal to <span class="math inline">\(\frac{M_{lake}}{V}\)</span>. The lake is assumed to be <strong>well mixed</strong>, such that the outflow concentration, <span class="math inline">\(C_{out}\)</span>, is equal to <span class="math inline">\(C_{lake}\)</span>.</li>
-</ul>
-<div id="fig-box-model" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-box-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="./images/box_model.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-box-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Schematic illustration of a box model for lake calcium concentration for a single lake under the assumption of fixed water volume. Symbols are defined in the text.
-</figcaption>
-</figure>
-</div>
-<p>Balancing the main sources and sinks of Ca to the lake gives</p>
-<p><span id="eq-dMlake_dt"><span class="math display">\[
-\frac{dM_{lake}}{dt} = V \frac{dC_{lake}}{dt} = Q C_{in} - Q C_{lake} + V C_{inst} + V F_{slow}
-\tag{1}\]</span></span></p>
-<p>or</p>
-<p><span id="eq-dClake_dt"><span class="math display">\[
-\frac{dC_{lake}}{dt} = \frac{Q C_{in} - Q C_{lake}}{V} + C_{inst} + F_{slow}
-\tag{2}\]</span></span></p>
-<p>Lime that does not dissolve instantly sinks to the bottom of the lake and dissolves more slowly (<span class="math inline">\(C_{bott}\)</span>). Dissolution of lake-bottom lime is modelled as a first-order reaction with initial rate coefficient <span class="math inline">\(K_0\)</span>. However, this rate coefficient is assumed to decay exponentially over time, based on the observation that lime accumulating in lake sediments becomes less “active” over time and therefore dissolves more slowly. The rate at which the reaction coefficient decays is controlled by the “activity coefficient”, <span class="math inline">\(\lambda\)</span></p>
-<p><span id="eq-Kt"><span class="math display">\[
-K_t = K_0 e^{- \lambda t}
-\tag{3}\]</span></span></p>
-<p>where <span class="math inline">\(K_t\)</span> is the first order reaction coefficient at time <span class="math inline">\(t\)</span>.</p>
-<p>The effective rate coefficient, <span class="math inline">\(K_t\)</span>, is further modified by a “rate factor”, <span class="math inline">\(R\)</span>, which reduces the dissolution rate as concentrations of dissolved CaCO3 in the lake become high. In particular, <span class="math inline">\(R\)</span> forces <span class="math inline">\(K_t\)</span> towards zero as dissolved concentrations approach saturation. This is done primarily to ensure the model’s output remains plausible even if users set extreme parameter values in the user interface; for most realistic choices of input parameters, lake concentrations will not approach saturation and the value of <span class="math inline">\(R\)</span> will be close to 1.</p>
-<p><span id="eq-R"><span class="math display">\[
-R = \frac{1}{1 + e^{10 (C_{lake} - C_{sat})}}
-\tag{4}\]</span></span></p>
-<p>where <span class="math inline">\(C_{sat}\)</span> is the saturation concentration of Ca in lake water (i.e.&nbsp;the maximum value permitted by the model).</p>
-<p><span id="eq-dCslow_dt"><span class="math display">\[
-F_{slow} = - \frac{dC_{bott}}{dt} = C_{bott} K_t R
-\tag{5}\]</span></span></p>
 </section>
-<section id="sec-inst-diss" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="sec-inst-diss"><span class="header-section-number">2.3</span> Estimating instantaneous dissolution</h3>
-<p>For the model to produce reasonable simulations, it is important to have an accurate estimate for the proportion of lime material that dissolves quickly (i.e.&nbsp;the instantaneous dissolution fraction, <span class="math inline">\(C_{inst}\)</span>). Instantaneous dissolution can be measured in the laboratory using <a href="./column-tests.html">column tests</a>, which tell us how much lime will typically dissolve in a column given a known initial pH and lime dose. However, before the column test data can be used for lake modelling, it is necessary to adjust for:</p>
-<ul>
-<li><p><strong>Spreading method</strong>. For dry spreading (e.g.&nbsp;by helicopter) the amount of lime material that dissolves immediately is typically 0.5 to 0.7 times the proportion predicted by column tests. No adjustment is required for wet spreading (e.g.&nbsp;from a boat).</p></li>
-<li><p><strong>Lake depth</strong>. Deeper lakes give the lime more time to dissolve as it sinks. In his PhD thesis, <a href="https://www.osti.gov/etdeweb/biblio/7808260">Sverdrup (1985)</a> noted that, for CaCO3, the instantaneous dissolution is directly proportional to both <span class="math inline">\(H^+\)</span> concentration and sinking depth</p></li>
-</ul>
-<p><span id="eq-diss-h-depth"><span class="math display">\[
-D_{inst} \propto [H^+] \times d
-\tag{6}\]</span></span></p>
-<p>It is therefore possible to generalise instantaneous dissolution estimates from fixed-depth column tests to lakes with different depths by considering compensating changes in pH. For example, the expected dissolution for lake of depth <span class="math inline">\(d\)</span> and hydrogen ion concentration <span class="math inline">\(H^+\)</span> is the same as for a lake with depth <span class="math inline">\(2d\)</span> and hydrogen ion concentration <span class="math inline">\(0.5H^+\)</span>. Re-writing in terms of pH, the instantaneous dissolution for a lake of depth <span class="math inline">\(d_{lake}\)</span> and initial pH <span class="math inline">\(X\)</span> is assumed to be similar to the dissolution in a test column of depth <span class="math inline">\(d_{col}\)</span> with pH <span class="math inline">\((X - a)\)</span> where</p>
-<p><span id="eq-cor-depth"><span class="math display">\[
-a = log⁡(\frac{d_{lake}}{d_{col}})
-\tag{7}\]</span></span></p>
-<p>Note that <a href="#eq-cor-depth" class="quarto-xref">Equation&nbsp;7</a> applies to the CaCO3 fraction; for MgCO3, Sverdrup proposed the modification <span class="math inline">\((X - 0.5a)\)</span> as a more appropriate depth correction.</p>
+<section id="sec-comparison-factors" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="sec-comparison-factors"><span class="header-section-number">3</span> Omregningsfaktorer</h2>
+<p>Plott med “omregningsfaktorer” er en praktisk måte å sammenligne simulert effektivitet av ulike kalkprodukter i innsjøer med ulike egenskaper. For å generere plottene er det definert startforhold for et bredt spekter av innsjøer med varierende gjennomsnittlig dybde og vannoppholdstid. Modellen kjøres deretter mange ganger for å identifisere hvor mye av hvert kalkprodukt som vil kreves for å oppnå et gitt pH-mål etter en viss tid (f.eks. ett år).</p>
+<p>For hvert kalkprodukt sammenlignes nødvendig kalkmengde (i tonn) med resultater for et standard “referanse”-produkt for å gi en <strong>omregningsfaktor</strong>. Referansen som brukes av denne applikasjonen er “Standard Kalk Kat3”. Verdier mindre enn én indikerer at produktet som testes er mer effektivt enn standarden, mens verdier større enn én antyder at det er mindre effektivt (per masseenhet).</p>
+<p>I prinsippet kan disse plottene bygges manuelt ved å bruke siden <code>Innsjømodellering</code>. Imidlertid er antallet parameterkombinasjoner stort, så for hastighet er de forhåndsberegnet for alle kalkprodukter i databasen og presentert på denne siden i oppsummeringsform. Det genereres plott for innsjøer med gjennomsnittsdybder på 5, 10, 15 og 20 m, og kurver vist for innsjøer med vannoppholdstider fra 0,3 til 2 år.</p>
+<p>Forskjeller mellom produktene på disse plottene gjenspeiler de forskjellige fysiske og kjemiske egenskapene til kalkene, som representert av <a href="https://nivanorge.github.io/lake_liming_app/column-tests.no.html">kolonnetestdataene</a>.</p>
 </section>
-<section id="sec-standard-lake" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="sec-standard-lake"><span class="header-section-number">2.4</span> Simulating a “standard lake”</h3>
-<p>The model defined above is capable of simulating how pH and Ca concentration (and Mg, if relevant) change over time for a single lake. The model requires the following inputs:</p>
-<ul>
-<li><p>Lake <strong>volume</strong> (often provided as surface area and mean depth) and <strong>discharge</strong>, which together define the <strong>residence time</strong>. Note that this model assumes the volume is fixed, but discharge can vary over time, if desired.</p></li>
-<li><p><strong>Lake pH</strong>, <strong>inflow pH</strong> and <strong>TOC concentration</strong>.</p></li>
-<li><p>The <strong>dose</strong> of liming material added and the <strong>proportion of Ca and Mg by mass</strong> in the lime. <strong>Overdosing factors</strong> are also relevant for higher doses.</p></li>
-<li><p><strong>Lake mean depth</strong> and <strong>Spreading method</strong> (i.e.&nbsp;“wet” or “dry”), both of which are used to adjust the instantaneous dissolution values from column tests (<a href="#eq-cor-depth" class="quarto-xref">Equation&nbsp;7</a>).</p></li>
-<li><p>The parameters <span class="math inline">\(K_0\)</span> and <span class="math inline">\(\lambda\)</span>, which determine how fast lime on the lake bottom dissolves, and how long it remains “active”.</p></li>
-</ul>
-<p>To avoid having to specify all these parameters when comparing different lime products, it is common to consider a <strong>standard lake</strong> with an area of 20 ha, mean depth of 5 m and mean residence time of 0.7 years. These parameters, in turn, define the mean annual discharge. If desired, this can be modified by selecting a monthly <strong>flow profile</strong> (<code>fjell</code> or <code>kyst</code>; see <a href="#fig-flow-profiles" class="quarto-xref">Figure&nbsp;4</a>), which adjusts the flows up or down in each month, but in such a way that the overall annual average maintains a residence time of 0.7 years.</p>
-<div id="fig-flow-profiles" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-flow-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="./images/flow_typologies.png" class="img-fluid figure-img">
+<section id="sec-column-tests" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="sec-column-tests"><span class="header-section-number">4</span> Kolonnetester</h2>
+<p>Siden <code>Laste opp kolonnetestdata</code> kan brukes til å lage plott av <strong>momentanoppløsning</strong> og <strong>overdoseringsfaktorer</strong> basert på brukerleverte kolonnetestdata.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flow-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Monthly flow profiles that can be used to modify the default (constant) flows assumed for the “standard lake”.
-</figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Du kan utforske kolonnetestresultater for kalkprodukter som <em>allerede er i applikasjonens database</em> fra fanen <code>Innsjømodellering</code>.</p>
+</div>
+</div>
+<p>For å lage plott basert på dine egne data, last først ned en tom kopi av Excel-inndatamalen fra <a href="https://github.com/NIVANorge/lake_liming_app/raw/main/data/liming_app_data_template_v1-1.xlsx">her</a>. Fyll ut malen og lagre endringene på din lokale maskin, og last deretter opp den fullførte Excel-filen til nettapplikasjonen ved å klikke på <code>Browse files</code>-knappen i venstre sidefelt. Appen vil vise plott av momentanoppløsning og overdoseringsfaktorer basert på dataene du oppgir.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Data lastet opp via <code>Laste opp kolonnetestdata</code>-fanen legges ikke umiddelbart til applikasjonsdatabasen. Hvis du vil legge til et nytt produkt i applikasjonen (eller oppdatere informasjon for et eksisterende), fyll først ut Excel-malen og sjekk at plottene ser rimelige ut. Du kan deretter <a href="mailto:james.sample@niva.no">sende utfylt mal til NIVA</a> for innføring i produktdatabasen.</p>
+</div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

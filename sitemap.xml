@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://NIVANorge.github.io/lake_liming_app/lake-modelling.html</loc>
-    <lastmod>2024-05-31T13:41:45.635Z</lastmod>
+    <loc>https://NIVANorge.github.io/lake_liming_app/index.no.html</loc>
+    <lastmod>2024-06-17T10:46:58.183Z</lastmod>
+  </url>
+  <url>
+    <loc>https://NIVANorge.github.io/lake_liming_app/column-tests.no.html</loc>
+    <lastmod>2024-06-17T10:46:58.175Z</lastmod>
+  </url>
+  <url>
+    <loc>https://NIVANorge.github.io/lake_liming_app/lake-modelling.no.html</loc>
+    <lastmod>2024-06-17T10:46:58.183Z</lastmod>
   </url>
   <url>
     <loc>https://NIVANorge.github.io/lake_liming_app/user-guide.html</loc>
-    <lastmod>2024-05-31T13:41:45.635Z</lastmod>
+    <lastmod>2024-06-17T10:46:58.183Z</lastmod>
   </url>
   <url>
     <loc>https://NIVANorge.github.io/lake_liming_app/column-tests.html</loc>
-    <lastmod>2024-05-31T13:41:45.627Z</lastmod>
+    <lastmod>2024-06-17T10:46:58.175Z</lastmod>
   </url>
   <url>
     <loc>https://NIVANorge.github.io/lake_liming_app/index.html</loc>
-    <lastmod>2024-05-31T13:41:45.635Z</lastmod>
+    <lastmod>2024-06-17T10:46:58.183Z</lastmod>
+  </url>
+  <url>
+    <loc>https://NIVANorge.github.io/lake_liming_app/user-guide.no.html</loc>
+    <lastmod>2024-06-17T10:46:58.183Z</lastmod>
+  </url>
+  <url>
+    <loc>https://NIVANorge.github.io/lake_liming_app/lake-modelling.html</loc>
+    <lastmod>2024-06-17T10:46:58.183Z</lastmod>
   </url>
 </urlset>
