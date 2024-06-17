@@ -3,7 +3,7 @@ title: "Column tests"
 number-sections: true
 ---
 
-When lime is added to a lake, some of it dissolves quickly while the rest sinks to the bottom where it may dissolve more slowly. How much of the lime dissolves immediately depends on the lake chemistry, application method, and the properties of the lime product being used (see ['Lake modelling](./lake-modelling.no.qmd) for details).
+When lime is added to a lake, some of it dissolves quickly while the rest sinks to the bottom where it may dissolve more slowly. How much of the lime dissolves immediately depends on the lake chemistry, application method, and the properties of the lime product being used (see [Lake modelling](./lake-modelling.no.qmd) for details).
 
 The proportion of a lime product that will dissolve "immediately" can be estimated using **column tests** (in this case, the term "immediately" means "within days", rather than weeks, months or years). Each experiment involves 5 columns, labelled `A` to `E`. The columns are 19 cm in diameter and at least 205 cm high, and they are initially filled with 57.9 litres of deionised water containing 0.01% KCl, adjusted to the desired pH using sulphuric acid.
 
