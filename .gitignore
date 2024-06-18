@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Quarto VS Code extension
+.quarto/
+_site/
