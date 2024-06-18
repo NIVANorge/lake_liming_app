@@ -64,7 +64,7 @@ For en innsjø med en gitt initiell pH- og TOC-konsentrasjon, bruker modellen si
 
 ### Massebalansemodell {#sec-mass-bal-model}
 
-Titreringskurvene i @fig-titration-curves-interpolated transformerer problemet med modellering av pH til modellering av $\Delta Ca$ (og $\Delta Mg$ også, hvis relevant). Når vi tilsetter kalk til en innsjø, løses noe av den opp umiddelbart, noe som gir en plutselig økning i pH, mens resten synker til bunnen og løses langsommere.
+Titreringskurvene i @fig-titration-curves-interpolated transformerer problemet med modellering av pH til modellering av $\Delta Ca$ (og $\Delta Mg$ også, hvis relevant). Når vi tilsetter kalk til en innsjø, løses noe av den opp umiddelbart, noe som gir en plutselig økning i pH, mens resten synker til bunnen og løses opp langsommere.
 
 En massebalanse "boksmodell" (@fig-box-model) brukes for å gi et estimat av både den umiddelbare endringen i innsjøforhold på grunn av kalking og den påfølgende utviklingen over tid. For enkelhets skyld vises kun ett sett med beregninger (f.eks. for kalsium), men et identisk sett med beregninger for magnesium utføres også parallelt, hvis det er relevant. Mg-fraksjonen omdannes deretter til CaCO3-ekvivalenter før det knyttes til endringer i pH (@sec-ca-ph). Med kalsium som eksempel, er symbolene i @fig-box-model som følger:
 
