@@ -312,7 +312,7 @@ class LimeProduct:
             axes[0].plot([4, 4.5, 5, 5.5, 6], self.id_list, "ro-")
             axes[0].set_ylim(bottom=0)
             axes[0].set_title(
-                f"{self.col_depth} m column; 10 mg/l of lime", fontsize=14
+                f"{self.col_depth} m kolonne; 10 mg/l kalk", fontsize=14
             )
             axes[0].set_ylabel("Momentanoppløsning  (%)")
             axes[0].set_xlabel("Kolonne pH (-)")
@@ -320,7 +320,7 @@ class LimeProduct:
             # OD values at pH 4.6
             axes[1].plot([10, 20, 35, 50, 85], self.od_list, "ro-")
             axes[1].set_ylim(bottom=0)
-            axes[1].set_title(f"{self.col_depth} m column; pH 4.6", fontsize=14)
+            axes[1].set_title(f"{self.col_depth} m kolonne; pH 4.6", fontsize=14)
             axes[1].set_ylabel("Overdoseringsfaktor (-)")
             axes[1].set_xlabel("Kalkdose (mg/l)")
 
@@ -337,7 +337,7 @@ class LimeProduct:
             )
             inst_chart = (
                 alt.Chart(
-                    inst_diss, title=f"{self.col_depth} m column; 10 mg/l of lime"
+                    inst_diss, title=f"{self.col_depth} m kolonne; 10 mg/l kalk"
                 )
                 .mark_line(point=True)
                 .encode(
@@ -355,7 +355,7 @@ class LimeProduct:
                 }
             )
             over_chart = (
-                alt.Chart(over_fac, title=f"{self.col_depth} m column; pH 4.6")
+                alt.Chart(over_fac, title=f"{self.col_depth} m kolonne; pH 4.6")
                 .mark_line(point=True)
                 .encode(
                     x="Kalkdose (mg/l)",
