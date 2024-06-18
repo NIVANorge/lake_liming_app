@@ -1,6 +1,7 @@
 ---
 title: "Innsjømodellering"
 number-sections: true
+language: norsk.yml
 ---
 
 Beregningene utført av applikasjonen, og beskrevet på denne siden, er en delmengde av de som er tilgjengelig i den originale [TPKALK-applikasjonen](https://niva.brage.unit.no/niva-xmlui/handle/11250/208709). Utviklet av NIVA i løpet av 1990-tallet.
@@ -47,8 +48,6 @@ Kalkoppløsningshastigheter og effekten av overdosering bestemmes eksperimentelt
 Målet med modellen er å simulere endringer i innsjøens pH på grunn av kalking med ulike produkter. Det gir en del av bevisgrunnlaget for å avgjøre hvilke kalkprodukter som skal brukes under ulike omstendigheter.
 
 ::: {.callout-note}
-## Merk
-
 Modellen forsøker å simulere en "typisk" innsjø og resultater må derfor betraktes som illustrative. Målte data fra ekte innsjøer viser at dose-respons-forhold er svært varierende og kan avhenge sterkt av lokale faktorer. Modellen bruker idealiserte empiriske sammenhenger basert på norske overvåkingsdata og laboratorietester. Den er ikke egnet for detaljert simulering av individuelle innsjøer.
 :::
 

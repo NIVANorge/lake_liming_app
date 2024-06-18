@@ -1,6 +1,7 @@
 ---
 title: "Brukerhåndboken"
 number-sections: true
+language: norsk.yml
 ---
 
 ## Oversikt {#sec-overview}
@@ -19,9 +20,9 @@ Applikasjonen er online [her](https://lake-liming.t.niva.no/) og består av fire
 
 ## Innsjømodellering {#sec-lake-modelling}
 
-Fanen `Innsjømodellering` er hovedsiden til applikasjonen og er delt inn i fire seksjoner: `Kalkingsprodukter`, `Innsjøegenskaper`, `Kalkingsparametere` og `Modellresultater`. Under hver overskrift finner du utvidbare «Hjelp»-bokser som gir tips for hvordan du bruker appen.
+Fanen `Innsjømodellering` er hovedsiden til applikasjonen og er delt inn i fire seksjoner: `Kalkprodukter`, `Innsjøegenskaper`, `Kalkingsparametere` og `Modellresultater`. Under hver overskrift finner du utvidbare «Hjelp»-bokser som gir tips for hvordan du bruker appen.
 
-### Kalkingsprodukter {#sec-liming-products}
+### Kalkprodukter {#sec-liming-products}
 
 Velg ditt produkt av interesse ved å bruke rullegardinlisten merket `Velg kalkingsprodukt`. Appen vil vise plott av momentanoppløsning og overdoseringsfaktorer basert på de siste kolonnetestdataene i databasen. Klikk på ellipseknappen (`[...]`) som vises øverst til høyre i plottområdet for å eksportere plottene i PNG- eller SVG-format (@fig-column-test-results).
 
@@ -48,8 +49,6 @@ Hvis `Vannføringsprofil` er `Ingen`, bestemmes vannføring fra innsjøvolumet o
 Bruk inndataboksene for å definere kalkingsplanen. Kalkdosen er mengden tilsatt produkt delt på volumet kalket vann. I tilfeller der kalk bare spres over deler av en innsjøs overflate, bruk `Andel av innsjøoverflate kalket` for å spesifisere omfanget av kalking. Dersom denne verdien er mindre enn én, antas det at innsjødybdeprofilen er slik at kalking f.eks. halvparten av overflaten tilsvarer kalking av halvparten av innsjøvolumet.
 
 ::: {.callout-note}
-## Merk
-
 Modellen forutsetter at innsjøen etter hvert blir godt blandet, uavhengig av arealmessig omfang av kalking. Å tilsette 10 mg/l kalkprodukt over hele innsjøen er derfor likt å tilsette 20 mg/l over 50% av overflaten. I det siste tilfellet vil imidlertid **overdoseringseffekter** modifisere momentanoppløsningen, noe som betyr at litt mindre kalk vil oppløses umiddelbart og mer vil synke til bunnen (og potensielt oppløses senere). Se siden [Innsjømodellering](https://nivanorge.github.io/lake_liming_app/lake-modelling.html#sec-mass-bal-model) for detaljer.
 :::
 
@@ -66,8 +65,6 @@ Når modellkjøringen er ferdig, vil applikasjonen vise idealiserte tidsserier a
 **Plottene er interaktive** - utvid `Hjelp`-boksen under `Modelresultater`-overskriften for en oversikt over hvordan du kan utforske dem.
 
 ::: {.callout-warning}
-## Advarsel
-
 Tidsserier produsert av modellen er basert på generaliserte/typiske sammenhenger som ikke tar hensyn til lokale faktorer (som kan være viktig). Resultatene indikerer forventet respons fra en typisk innsjø, men er ikke ment for detaljerte, stedsspesifikke vurderinger.
 :::
 
@@ -86,15 +83,11 @@ Forskjeller mellom produktene på disse plottene gjenspeiler de forskjellige fys
 Siden `Laste opp kolonnetestdata` kan brukes til å lage plott av **momentanoppløsning** og **overdoseringsfaktorer** basert på brukerleverte kolonnetestdata.
 
 ::: {.callout-note}
-## Merk
-
 Du kan utforske kolonnetestresultater for kalkprodukter som *allerede er i applikasjonens database* fra fanen `Innsjømodellering`.
 :::
 
 For å lage plott basert på dine egne data, last først ned en tom kopi av Excel-inndatamalen fra [her](https://github.com/NIVANorge/lake_liming_app/raw/main/data/liming_app_data_template_v1-1.xlsx). Fyll ut malen og lagre endringene på din lokale maskin. Last deretter opp den fullførte Excel-filen til nettapplikasjonen ved å klikke på `Browse files`-knappen i venstre sidefelt. Appen vil vise plott av momentanoppløsning og overdoseringsfaktorer basert på dataene du oppgir.
 
 ::: {.callout-note}
-## Merk
-
 Data lastet opp via `Laste opp kolonnetestdata`-fanen vil ikke umiddlebart legges inn i applikasjonsdatabasen. Hvis du vil legge til et nytt produkt i applikasjonen (eller oppdatere informasjon for et eksisterende), fyll først ut Excel-malen og sjekk at plottene ser rimelige ut. Du kan deretter [sende utfylt mal til NIVA](mailto:james.sample@niva.no) for innføring i produktdatabasen.
 :::

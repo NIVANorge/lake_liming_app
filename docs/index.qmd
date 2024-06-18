@@ -1,6 +1,7 @@
 ---
 title: "Innsjøkalking app dokumentasjon"
 number-sections: true
+language: norsk.yml
 ---
 
 Denne nettsiden inneholder dokumentasjon for [innsjøkalkingsapplikasjonen](https://lake-liming.t.niva.no/). Modellen simulerer typiske/idealiserte endringer i innsjøers vannkjemi (kalsiumkonsentrasjon og pH) for ulike kalkingsstrategier.

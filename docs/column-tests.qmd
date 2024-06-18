@@ -1,6 +1,7 @@
 ---
 title: "Kolonnetester"
 number-sections: true
+language: norsk.yml
 ---
 
 Når kalk tilsettes en innsjø, løses noe raskt opp mens resten synker til bunnen hvor det løses opp saktere. Hvor mye av kalken som umiddelbart løses opp avhenger av innsjøens kjemi, påføringsmetoden og egenskapene til kalkproduktet som brukes (se [Innsjømodellering](./lake-modelling.qmd) for detaljer).
