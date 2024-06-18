@@ -24,7 +24,7 @@ Fanen `Innsjømodellering` er hovedsiden til applikasjonen og er delt inn i fire
 
 ### Kalkprodukter {#sec-liming-products}
 
-Velg ditt produkt av interesse ved å bruke rullegardinlisten merket `Velg kalkingsprodukt`. Appen vil vise plott av momentanoppløsning og overdoseringsfaktorer basert på de siste kolonnetestdataene i databasen. Klikk på ellipseknappen (`[...]`) som vises øverst til høyre i plottområdet for å eksportere plottene i PNG- eller SVG-format (@fig-column-test-results).
+Velg ditt produkt av interesse ved å bruke rullegardinlisten merket `Velg kalkprodukt`. Appen vil vise plott av momentanoppløsning og overdoseringsfaktorer basert på de siste kolonnetestdataene i databasen. Klikk på ellipseknappen (`[...]`) som vises øverst til høyre i plottområdet for å eksportere plottene i PNG- eller SVG-format (@fig-column-test-results).
 
 Se siden [Kolonnetester](https://nivanorge.github.io/lake_liming_app/column-tests.html) for en detaljert beskrivelse av laboratorietestene som disse plottene er basert på.
 

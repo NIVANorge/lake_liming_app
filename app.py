@@ -7,7 +7,7 @@ from streamlit_option_menu import option_menu
 
 PAGES = {
     "Forside": subpages.home,
-    "Last opp kolonnetestdata": subpages.column_test,
+    "Laste opp kolonnetestdata": subpages.column_test,
     "Innsjømodellering": subpages.lake_modelling,
     "Omregningsfaktorer": subpages.comparison_factors,
 }
@@ -24,7 +24,7 @@ def main():
                 "Forside",
                 "Innsjømodellering",
                 "Omregningsfaktorer",
-                "Last opp kolonnetestdata",
+                "Laste opp kolonnetestdata",
             ],
             icons=["house", "droplet", "graph-down", "clipboard-data"],
             default_index=0,
