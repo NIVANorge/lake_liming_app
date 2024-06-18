@@ -123,7 +123,7 @@ $$
 D_{inst} \propto [H^+] \times d
 $$ {#eq-diss-h-depth}
  
-Det er derfor mulig å generalisere momentanoppløsningsestimater fra kolonnetester med fast dybde til innsjøer med forskjellige dybder ved å vurdere kompenserende endringer i pH. For eksempel er forventet oppløsning for en innsjø med dybde $d$ og hydrogenionkonsentrasjon $H^+$ den samme som for en innsjø med dybde $2d$ og hydrogenionkonsentrasjon $0,5H^+$. For konvertering til pH, antas momentanoppløsningen for en innsjø med dybde $d_{lake}$ og initiell pH $X$, å være lik oppløsningen i en testkolonne med dybde $d_{col}$ og pH $(X - a)$. Der a er gitt av:
+Det er derfor mulig å generalisere momentanoppløsningsestimater fra kolonnetester med fast dybde til innsjøer med forskjellige dybder ved å vurdere kompenserende endringer i pH. For eksempel er forventet oppløsning for en innsjø med dybde $d$ og hydrogenionkonsentrasjon $H^+$ den samme som for en innsjø med dybde $2d$ og hydrogenionkonsentrasjon $0,5H^+$. For konvertering til pH, antas momentanoppløsningen for en innsjø med dybde $d_{lake}$ og initiell pH $X$, å være lik oppløsningen i en testkolonne med dybde $d_{col}$ og pH $(X - a)$. Der $a$ er gitt av:
 
 $$
 a = log⁡(\frac{d_{lake}}{d_{col}})
