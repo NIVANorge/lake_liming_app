@@ -93,7 +93,7 @@ def plot_multiple_products(df, pH_lake0, pH_inflow, lib):
         g.axes[1, 0].axhline(y=pH_lake0, ls="--", c="k")
         g.axes[1, 0].axhline(y=pH_inflow, ls="--", c="k")
         g.axes[0, 0].set_ylabel("$\Ca_{ekv}$ (mg/l)")
-        g.axes[1, 0].set_ylabel("Lake pH (-)")
+        g.axes[1, 0].set_ylabel("Innsjø pH (-)")
         g.axes[1, 0].set_xlabel("")
         g.axes[0, 0].set_title("")
         g.axes[1, 0].set_title("")
@@ -118,10 +118,10 @@ def plot_multiple_products(df, pH_lake0, pH_inflow, lib):
             alt.Chart(df)
             .mark_line()
             .encode(
-                x=alt.X("date", axis=alt.Axis(title="Months", grid=True)),
+                x=alt.X("date", axis=alt.Axis(title="Måneder", grid=True)),
                 y=alt.Y(
                     "pH",
-                    axis=alt.Axis(title="Lake pH (-)"),
+                    axis=alt.Axis(title="Innsjø pH (-)"),
                     scale=alt.Scale(zero=False),
                 ),
                 color="product",

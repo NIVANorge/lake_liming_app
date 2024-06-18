@@ -20,24 +20,37 @@ def app():
     prod = LimeProduct(name)
     prod.plot_column_data(plot_lib)
 
-    st.markdown("## Lake modelling")
+    st.markdown("## Innsjømodellering")
     area, depth, tau, flow_prof, pH_lake0, pH_inflow, toc_lake0 = get_lake_params()
     lake = Lake(area, depth, tau, flow_prof, pH_lake0, pH_inflow, toc_lake0)
     lake.plot_flow_profile(plot_lib)
 
     res_df = run_multiple_products(lake, products)
-    st.markdown("### Model results")
-    with st.expander("Help"):
+    st.markdown("### Modell resultater")
+    # with st.expander("Help"):
+    #     st.markdown(
+    #         """
+    #     The plots are interactive:
+    #      * Click on the series names in the legend to turn curves on/off.
+    #      * Use `SHIFT + Click` to select multiple curves.
+    #      * Use your mouse wheel to zoom in/out.
+    #      * Double-click to return to the full extent.
+    #      * Hover on any line to see details as "tooltips".
+
+    #     Dashed horizontal lines on the pH plot mark the lake's initial and inflow pH.
+    #     """
+    #     )
+    with st.expander("Hjelp"):
         st.markdown(
             """
-        The plots are interactive:
-         * Click on the series names in the legend to turn curves on/off.
-         * Use `SHIFT + Click` to select multiple curves.
-         * Use your mouse wheel to zoom in/out.
-         * Double-click to return to the full extent.
-         * Hover on any line to see details as "tooltips".
-
-        Dashed horizontal lines on the pH plot mark the lake's initial and inflow pH.
+        Plottene er interaktive:
+         * Klikk på serienavnene i forklaringen for å slå kurver på/av.
+         * Bruk `SHIFT + Klikk` for å velge flere kurver.
+         * Bruk musehjulet til å zoome inn/ut.
+         * Dobbeltklikk for å gå tilbake til hele omfanget.
+         * Hold musepekeren på en linje for å se detaljer som "verktøytips".
+        
+        Stiplede horisontale linjer på pH-plottet markerer innsjøens start- og innløps-pH.
         """
         )
     plot_multiple_products(res_df, pH_lake0, pH_inflow, plot_lib)

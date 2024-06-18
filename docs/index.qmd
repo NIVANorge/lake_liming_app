@@ -6,7 +6,7 @@ language: norsk.yml
 
 Denne nettsiden inneholder dokumentasjon for [innsjøkalkingsapplikasjonen](https://lake-liming.t.niva.no/). Modellen simulerer typiske/idealiserte endringer i innsjøers vannkjemi (kalsiumkonsentrasjon og pH) for ulike kalkingsstrategier.
 
- * For en beskrivelse av hvordan du bruker applikasjonen, se [Brukerveiledningen](https://nivanorge.github.io/lake_liming_app/user-guide.html).
+ * For en beskrivelse av hvordan du bruker applikasjonen, se [Brukerhåndboken](https://nivanorge.github.io/lake_liming_app/user-guide.html).
 
  * For å forstå hvordan modellen fungerer, se [Innsjømodellering](https://nivanorge.github.io/lake_liming_app/lake-modelling.html).
 
