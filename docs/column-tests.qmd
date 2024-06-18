@@ -7,23 +7,23 @@ Når kalk tilsettes en innsjø, løses noe av den raskt opp mens resten synker t
 
 Andelen av et kalkprodukt som vil løse seg opp "umiddelbart" kan estimeres ved hjelp av **kolonnetester** (i dette tilfellet betyr begrepet "umiddelbart" "innen dager", i stedet for uker, måneder eller år). Hvert eksperiment involverer 5 kolonner, merket "A" til "E". Kolonnene er 19 cm i diameter og minst 205 cm høye, og de fylles i utgangspunktet med 57,9 liter avionisert vann inneholdende 0,01 % KCl, justert til ønsket pH ved bruk av svovelsyre.
 
-For hver kalk som testes, må leverandøren spesifisere de typiske proporsjonene av Ca og Mg (i masse) i produktet, $F_{Ca}$ og $F_{Mg}$. Disse er brukt i beregningene nedenfor.
+For hvert kalkprodukt som testes, må leverandøren spesifisere de typiske proporsjonene av Ca og Mg (i masse) i produktet, $F_{Ca}$ og $F_{Mg}$. Disse er brukt i beregningene nedenfor.
 
 ## Momentanoppløsning {#sec-instant-dissolution}
 
-For hver type kalk vil vi gjerne vite hvor stor andel som vil løses opp "umiddelbart" for en rekke **initielle pH-verdier** og **dosekonsentrasjoner**. Dosen uttrykkes vanligvis som en konsentrasjon i mg/l kalk, dvs. den totale tilsatt kalkmassen, delt på det totale volumet av vann i kolonnen (eller innsjøen). Hvis dosekonsentrasjonen er $D \ mg/l$ kalk og andelen kalsium i kalkproduktet etter masse er $F_{Ca}$, vil konsentrasjonen av Ca i kolonnen være $F_{Ca} D \ mg/l$ hvis alle kalken løses helt opp. Målet med testene er å se hvor mye av kalken som faktisk løses opp under ulike forhold.
+For hver type kalk vil vi gjerne vite hvor stor andel som løses opp "umiddelbart" for en rekke **initielle pH-verdier** og **dosekonsentrasjoner**. Dosen uttrykkes vanligvis som en konsentrasjon i mg/l kalk, dvs. totalt tilsatt kalkmasse, delt på totalt volum av vann i kolonnen (eller innsjøen). Hvis dosekonsentrasjonen er $D \ mg/l$ kalk og andelen kalsium i kalkproduktet pr. masse er $F_{Ca}$, vil konsentrasjonen av Ca i kolonnen være $F_{Ca} D \ mg/l$, dersom all kalken løses helt opp. Målet med testene er å se hvor mye av kalken som faktisk løses opp under ulike forhold.
 
 ### Endring av pH {#sec-vary-ph}
 
-For det første settet med tester blir kolonnene "A" til "E" justert til å ha pH-verdier på henholdsvis 4, 4,5, 5, 5,5 og 6. 0,579 g tørket kalk tilsettes i toppen av hver kolonne, tilsvarende en jevn **dose** på 10 mg/l kalk. Hvis alt dette løses opp og blandes jevnt, er den totale massen av Ca eller Mg oppløst i kolonnen mellom to dybder $x_1$ og $x_2$ (der $x_2 > x_1$) gitt av
+For det første settet med tester blir kolonnene "A" til "E" justert til å ha pH-verdier på henholdsvis 4, 4,5, 5, 5,5 og 6. Deretter tilsettes 0,579 g tørket kalk i toppen av hver kolonne, tilsvarende en jevn **dose** på 10 mg/l kalk. Hvis alt dette løses opp og blandes jevnt, er den totale massen av Ca eller Mg oppløst i kolonnen mellom to dybder $x_1$ og $x_2$ (der $x_2 > x_1$) gitt av:
 
 $$
 M_{par} = 10 F_{par} A (x_2 - x_1)
 $$ {#eq-evenly-mixed}
 
-der $A$ er tverrsnittsarealet til kolonnen og $par$ er enten `Ca` eller `Mg`.
+Der $A$ er tverrsnittsarealet til kolonnen og $par$ er enten `Ca` eller `Mg`.
 
-I praksis løser ikke alle kalk seg opp og kolonnene oppnår ikke jevne konsentrasjoner. Etter **16 timer** måles konsentrasjonen av Ca (og Mg, hvis relevant) i hver kolonne ved forskjellige dybder ved bruk av ICP-OES (Inductively Coupled Plasma - Optical Emission Spectrometry). Fem mål er tatt fra hver kolonne: hver 40. cm fra overflaten ned til 1,6 m. Et typisk datasett for en enkelt kolonne for en ikke-dolomittisk kalk (dvs. bare Ca) er vist i @tbl-inst-diss.
+I praksis løser ikke all kalken seg opp og kolonnene oppnår ikke jevne konsentrasjoner. Etter **16 timer** måles konsentrasjonen av Ca (og Mg, hvis relevant) i hver kolonne ved forskjellige dybder ved bruk av ICP-OES (Inductively Coupled Plasma - Optical Emission Spectrometry). Fem mål er tatt fra hver kolonne med 40 cm intervall fra overflaten ned til 1,6 m. Et typisk datasett for en enkelt kolonne for en ikke-dolomittisk kalk (dvs. bare Ca) er vist i @tbl-inst-diss.
 
 | **Kolonne** | **pH** | **Dybde (m)** | **Ca (mg/l)** |
 |:-----------:|:------:|:-------------:|:-------------:|
@@ -41,7 +41,7 @@ $$
 M_{Ca} = A \int_{x_1}^{x_2} C(x) \ dx
 $$ {#eq-conc-depth-integral}
 
-Den totale andelen av tilgjengelig Ca som har løst seg opp, kalt **momentanoppløsning**, kan deretter oppnås ved å dele @eq-conc-depth-integral med @eq-evenly-mixed, begge evaluert mellom 0 og 1,6 m dybde (og samme beregning utført for magnesium, hvis relevant).
+Den totale andelen av tilgjengelig Ca som har løst seg opp, kalt **momentanoppløsning**, kan deretter beregnes ved å dele @eq-conc-depth-integral med @eq-evenly-mixed, begge evaluert mellom 0 og 1,6 m dybde (og samme beregning utført for magnesium, hvis relevant).
 
 $$
 D_{inst} = \frac{\int_{0}^{1.6} C(x) \ dx}{10 F_{Ca} (1.6 - 0)}
@@ -49,13 +49,13 @@ $$ {#eq-inst-diss}
 
 Integralet i @eq-inst-diss er tilnærmet fra de målte dataene (@tbl-inst-diss) ved å bruke [trapesregelen](https://en.wikipedia.org/wiki/Trapezoidal_rule).
 
-Hovedresultatet fra dette eksperimentet er et sett med momentanoppløsningsverdier (vanligvis uttrykt i prosent) som viser hvordan **oppløsningen endres med initial pH ved en fast kalkdose** (@fig-instantaneous-dissolution-curve).
+Hovedresultatet fra dette eksperimentet er et sett med momentanoppløsningsverdier (vanligvis uttrykt i prosent) som viser hvordan **oppløsningen endres med initiell pH ved en fast kalkdose** (@fig-instantaneous-dissolution-curve).
 
 ![Momentanoppløsningskurve for varierende pH (med dose fastsatt til 10 mg/l kalk).](./images/instantaneous_dissolution_example.png){#fig-instantaneous-dissolution-curve}
 
 ### Endring av dose {#sec-vary-dose}
 
-I den andre testen fikseres kolonnene "A" til "E" til pH 4,5 og ulike doser tilsettes hver kolonne, tilsvarende kalkkonsentrasjoner på 10, 20, 35, 50 og 85 mg/l (forutsatt fullstendig oppløsning). Kolonnene får igjen stå i **16 timer** og den **momentanoppløsningen** for hver kolonne bestemmes ved å bruke prosedyren beskrevet i @sec-vary-ph.
+I den andre testen fikseres kolonnene "A" til "E" til pH 4,5 og ulike doser tilsettes hver kolonne, tilsvarende kalkkonsentrasjoner på 10, 20, 35, 50 og 85 mg/l (forutsatt fullstendig oppløsning). Kolonnene får igjen stå i **16 timer** og **momentanoppløsningen** for hver kolonne bestemmes ved å bruke prosedyren beskrevet i @sec-vary-ph.
 
 Ved høye doser er andelen kalk som løser seg umiddelbart typisk **lavere** enn i den første testen, fordi høye doser fører til høye kalsiumkonsentrasjoner nær kalkpartiklene, noe som hemmer oppløsning. Denne effekten kalles **overdosering**.
 
