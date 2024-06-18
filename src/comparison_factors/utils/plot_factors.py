@@ -16,7 +16,8 @@ def plot_factors():
     """Create a 2x2 facet grid showing omregningsfaktorer."""
     df = read_factors()
     checkbox_selection = alt.selection_point(fields=["Produkt"], bind="legend")
-    chart = (
+
+    base_chart = (
         alt.Chart(df)
         .mark_line(point=True)
         .encode(
@@ -34,11 +35,26 @@ def plot_factors():
             tooltip=["Oppholdstid (år)", "Faktor (-)", "Produkt"],
         )
         .add_params(checkbox_selection)
-        .properties(width=300, height=300)
-        .facet(
-            facet=alt.Facet("Dybde (m):N", sort=[5, 10, 15, 20]),
-            columns=2,
+    )
+
+    line = (
+        alt.Chart()
+        .mark_rule(color="red", strokeDash=[10, 10])
+        .encode(
+            x=alt.X(
+                "a:Q",
+                scale=alt.Scale(domain=(0.2, 3)),
+                axis=alt.Axis(title="Oppholdstid (år)"),
+            ),
         )
+        .transform_filter((alt.datum["Dybde (m)"] == "10 m"))
+        .transform_calculate(a="0.7")
+    )
+
+    chart = (
+        alt.layer(base_chart, line, data=df)
+        .properties(width=300, height=300)
+        .facet(facet=alt.Facet("Dybde (m):N", sort=[5, 10, 15, 20]), columns=2)
         .resolve_scale(x="independent", y="independent")
         .interactive()
     )
