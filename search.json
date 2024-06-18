@@ -137,7 +137,7 @@
     "href": "index.html",
     "title": "Innsjøkalking app dokumentasjon",
     "section": "",
-    "text": "Denne nettsiden inneholder dokumentasjon for innsjøkalkingsapplikasjonen. Modellen simulerer typiske/idealiserte endringer i innsjøvannkjemi (kalsiumkonsentrasjon og pH) for ulike kalkingsstrategier.\n\nFor en beskrivelse av hvordan du bruker applikasjonen, se Brukerveiledningen.\nFor å forstå hvordan modellen fungerer, se Innsjømodellering.\nFor detaljer om empiriske data som brukes til å representere forskjellige kalkprodukter, se Kolonnetester.\nFor tekniske detaljer, se utviklingsnotatbøkene. Modellen er også åpen kildekode og tilgjengelig på GitHub."
+    "text": "Denne nettsiden inneholder dokumentasjon for innsjøkalkingsapplikasjonen. Modellen simulerer typiske/idealiserte endringer i innsjøers vannkjemi (kalsiumkonsentrasjon og pH) for ulike kalkingsstrategier.\n\nFor en beskrivelse av hvordan du bruker applikasjonen, se Brukerveiledningen.\nFor å forstå hvordan modellen fungerer, se Innsjømodellering.\nFor detaljer om empiriske data som brukes til å representere ulike kalkprodukter, se Kolonnetester.\nFor tekniske detaljer, se utviklingsnotatbøkene. Modellen er også åpen kildekode og tilgjengelig på GitHub."
   },
   {
     "objectID": "column-tests.en.html",
