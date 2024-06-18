@@ -199,7 +199,7 @@ window.Quarto = {
 </header>
 
 
-<p>Når kalk tilsettes en innsjø, løses noe av den raskt opp mens resten synker til bunnen hvor den kan løses opp saktere. Hvor mye av kalken som umiddelbart løses opp avhenger av innsjøkjemien, påføringsmetoden og egenskapene til kalkproduktet som brukes (se <a href="./lake-modelling.html">Innsjømodellering</a> for detaljer).</p>
+<p>Når kalk tilsettes en innsjø, løses noe raskt opp mens resten synker til bunnen hvor det løses opp saktere. Hvor mye av kalken som umiddelbart løses opp avhenger av innsjøens kjemi, påføringsmetoden og egenskapene til kalkproduktet som brukes (se <a href="./lake-modelling.html">Innsjømodellering</a> for detaljer).</p>
 <p>Andelen av et kalkprodukt som vil løse seg opp “umiddelbart” kan estimeres ved hjelp av <strong>kolonnetester</strong> (i dette tilfellet betyr begrepet “umiddelbart” “innen dager”, i stedet for uker, måneder eller år). Hvert eksperiment involverer 5 kolonner, merket “A” til “E”. Kolonnene er 19 cm i diameter og minst 205 cm høye, og de fylles i utgangspunktet med 57,9 liter avionisert vann inneholdende 0,01 % KCl, justert til ønsket pH ved bruk av svovelsyre.</p>
 <p>For hvert kalkprodukt som testes, må leverandøren spesifisere de typiske proporsjonene av Ca og Mg (i masse) i produktet, <span class="math inline">\(F_{Ca}\)</span> og <span class="math inline">\(F_{Mg}\)</span>. Disse er brukt i beregningene nedenfor.</p>
 <section id="sec-instant-dissolution" class="level2" data-number="1">
@@ -211,8 +211,8 @@ window.Quarto = {
 <p><span id="eq-evenly-mixed"><span class="math display">\[
 M_{par} = 10 F_{par} A (x_2 - x_1)
 \tag{1}\]</span></span></p>
-<p>Der <span class="math inline">\(A\)</span> er tverrsnittsarealet til kolonnen og <span class="math inline">\(par\)</span> er enten <code>Ca</code> eller <code>Mg</code>.</p>
-<p>I praksis løser ikke all kalken seg opp og kolonnene oppnår ikke jevne konsentrasjoner. Etter <strong>16 timer</strong> måles konsentrasjonen av Ca (og Mg, hvis relevant) i hver kolonne ved forskjellige dybder ved bruk av ICP-OES (Inductively Coupled Plasma - Optical Emission Spectrometry). Fem mål er tatt fra hver kolonne med 40 cm intervall fra overflaten ned til 1,6 m. Et typisk datasett for en enkelt kolonne for en ikke-dolomittisk kalk (dvs. bare Ca) er vist i <a href="#tbl-inst-diss" class="quarto-xref">Table&nbsp;1</a>.</p>
+<p><span class="math inline">\(A\)</span> er tverrsnittsarealet til kolonnen og <span class="math inline">\(par\)</span> er enten <code>Ca</code> eller <code>Mg</code>.</p>
+<p>I praksis løser ikke all kalken seg opp og kolonnene oppnår ikke jevne konsentrasjoner. Etter <strong>16 timer</strong> måles konsentrasjonen av Ca (og Mg, hvis relevant) i hver kolonne ved forskjellige dybder ved bruk av ICP-OES (Inductively Coupled Plasma - Optical Emission Spectrometry). Fem konsentrasjoner er tatt fra hver kolonne med 40 cm intervall fra overflaten ned til 1,6 m. Et typisk datasett for en enkelt kolonne for en ikke-dolomittisk kalk (dvs. bare Ca) er vist i <a href="#tbl-inst-diss" class="quarto-xref">Table&nbsp;1</a>.</p>
 <div id="tbl-inst-diss" class="quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-inst-diss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -264,7 +264,7 @@ Table&nbsp;1: Eksempeldata for en enkelt kolonne fra den momentanoppløsningstes
 </div>
 </figure>
 </div>
-<p><a href="#tbl-inst-diss" class="quarto-xref">Table&nbsp;1</a> brukes til å estimere den totale mengden Ca som faktisk har løst seg opp i hver kolonne etter 16 timer. Det antas at hver kolonne er horisontalt godt blandet og at konsentrasjonene kun varierer med dybden, <span class="math inline">\(x\)</span>. Den totale mengden Ca mellom dybdene <span class="math inline">\(x_1\)</span> og <span class="math inline">\(x_2\)</span> er gitt av integralet</p>
+<p><a href="#tbl-inst-diss" class="quarto-xref">Table&nbsp;1</a> brukes til å estimere den totale mengden Ca som faktisk har løst seg opp i hver kolonne etter 16 timer. Det antas at hver kolonne er horisontalt godt blandet og at konsentrasjonene kun varierer med dybden, <span class="math inline">\(x\)</span>. Den totale mengden Ca mellom dybdene <span class="math inline">\(x_1\)</span> og <span class="math inline">\(x_2\)</span> er gitt av integralet:</p>
 <p><span id="eq-conc-depth-integral"><span class="math display">\[
 M_{Ca} = A \int_{x_1}^{x_2} C(x) \ dx
 \tag{2}\]</span></span></p>
