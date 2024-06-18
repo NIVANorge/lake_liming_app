@@ -179,18 +179,18 @@ ul.task-list li input[type="checkbox"] {
 <p>Applikasjonen er online <a href="https://lake-liming.t.niva.no/">her</a> og består av fire separate sider eller “faner”, som velges fra venstre sidefelt:</p>
 <ol type="1">
 <li><p><strong>Forside</strong> viser en velkomstmelding og en lenke til denne dokumentasjonen.</p></li>
-<li><p><strong>Innsjømodellering</strong> lar brukere:</p>
+<li><p><strong>Innsjømodellering</strong> lar brukeren:</p>
 <ul>
-<li>Utforsk <strong>kolonnetestresultater</strong> for kalkprodukter i applikasjonens database.</li>
-<li>Spesifiser <strong>innsjøkarakteristikker</strong> og <strong>kalkingsparametere</strong>, som deretter brukes til å simulere <strong>endringer i innsjøvannkjemi</strong> (kalsiumekvivalent konsentrasjon og pH).</li>
+<li>Utforske <strong>kolonnetestresultater</strong> for kalkprodukter i applikasjonens database.</li>
+<li>Spesifisere <strong>innsjøkarakteristikker</strong> og <strong>kalkingsparametere</strong>, som deretter brukes til å simulere <strong>endringer i innsjøvannkjemi</strong> (kalsiumekvivalent konsentrasjon og pH).</li>
 </ul></li>
-<li><p><strong>Omregningsfaktorer</strong> viser plott som sammenligner den modellerte effektiviteten til ulike kalkprodukter for en rekke innsjøkarakteristikker (gjennomsnittlige dybder og vannoppholdstider). Generering av disse plottene innebærer å kjøre modellen mange ganger, så for hastighet er de forhåndsberegnet og presentert her for referanse.</p></li>
-<li><p><strong>Last opp kolonnetestdata</strong> lar brukere laste opp sine egne kolonnetestdata (dvs. for kalkprodukter som ikke allerede er i databasen). Brukere kan laste ned og fylle ut en Excel-mal, som deretter kan lastes opp ved å bruke knappen <code>Browse files</code>. Appen vil vise plott av <strong>momentanoppløsning</strong> og <strong>overdoseringsfaktorer</strong> basert på dataene som er oppgitt.</p></li>
+<li><p><strong>Omregningsfaktorer</strong> viser plott som sammenligner den modellerte effektiviteten til ulike kalkprodukter for en rekke innsjøkarakteristikker (gjennomsnittlig dybde og vannoppholdstider). Generering av disse plottene innebærer å kjøre modellen mange ganger, så for brukervennlighet er de forhåndsberegnet og presentert her som en referanse.</p></li>
+<li><p><strong>Last opp kolonnetestdata</strong> lar brukeren laste opp sine egne kolonnetestdata (dvs. for kalkprodukter som ikke allerede er i databasen). Brukere kan laste ned og fylle ut en Excel-mal, som deretter kan lastes opp ved å bruke knappen <code>Browse files</code>. Appen vil vise plott av <strong>momentanoppløsning</strong> og <strong>overdoseringsfaktorer</strong> basert på dataene som er oppgitt.</p></li>
 </ol>
 </section>
 <section id="sec-lake-modelling" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="sec-lake-modelling"><span class="header-section-number">2</span> Innsjømodellering</h2>
-<p>Fanen <code>Innsjømodellering</code> er hovedsiden til applikasjonen og er delt inn i fire seksjoner: <code>Kalkingsprodukter</code>, <code>Innsjøegenskaper</code>, <code>Kalkingsparametere</code> og <code>Modelresultater</code>. Under hver overskrift finner du utvidbare «Hjelp»-bokser som gir tips for hvordan du bruker appen.</p>
+<p>Fanen <code>Innsjømodellering</code> er hovedsiden til applikasjonen og er delt inn i fire seksjoner: <code>Kalkingsprodukter</code>, <code>Innsjøegenskaper</code>, <code>Kalkingsparametere</code> og <code>Modellresultater</code>. Under hver overskrift finner du utvidbare «Hjelp»-bokser som gir tips for hvordan du bruker appen.</p>
 <section id="sec-liming-products" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="sec-liming-products"><span class="header-section-number">2.1</span> Kalkingsprodukter</h3>
 <p>Velg ditt produkt av interesse ved å bruke rullegardinlisten merket <code>Velg kalkprodukt</code>. Appen vil vise plott av momentanoppløsning og overdoseringsfaktorer basert på de siste kolonnetestdataene i databasen. Klikk på ellipseknappen (<code>[...]</code>) som vises øverst til høyre i plottområdet for å eksportere plottene i PNG- eller SVG-format (<a href="#fig-column-test-results" class="quarto-xref">Figure&nbsp;1</a>).</p>
@@ -212,8 +212,8 @@ Figure&nbsp;1: Kolonnetestresultater for et brukervalgt kalkprodukt. Plottene ka
 <p><code>Overflateareal</code> og <code>middeldybde</code> brukes til å estimere innsjøvolum. Forholdet mellom innsjøvolum og gjennomsnittlig årlig vannføringsvolum er <code>vannoppholdstiden</code> (i år), som er lengden av tiden som vannet i gjennomsnitt bruker på å sirkulere i innsjøen. Den <code>start pH</code> av innsjøen og <code>innløps pH</code> brukes til å definere vannkjemien ved starten av simuleringen. For innsjøer som er ubekalkede, eller som ikke har vært kalket på lenge, kan det antas at <code>start pH</code> og <code>innløps pH</code> er like, mens nylig kalkede innsjøer typisk vil ha <code>start pH &gt; innløps pH</code>. Dersom det ikke tilsettes ekstra kalk, vil pH i modellinnsjøen tendere mot innløps pH med en hastighet som bestemmes av vannoppholdstiden (innsjøer med kortere oppholdstid når innløps pH raskere). Konsentrasjonen av total organisk karbon (TOC) i innsjøen er også viktig, siden tilstedeværelsen av organiske syrer betyr at mer kalk vil være nødvendig for å oppnå en gitt endring i pH (se <a href="https://nivanorge.github.io/lake_liming_app/lake-modelling.html#sec-ca-ph">Innsjømodellering</a> for detaljer).</p>
 <p>Brukere må også spesifisere en “vannføringsprofil”, som bestemmer det idealiserte månedlige vannføringsregimet som brukes av modellen (se plottet <a href="https://nivanorge.github.io/lake_liming_app/lake-modelling.html#fig-flow-profiles">her</a> for detaljer). Tre valg er tilgjengelige:</p>
 <ul>
-<li><strong>Ingen</strong>. Månedlige vannføring er konstante gjennom hele året.</li>
-<li><strong>Fjell</strong>. Profilen er preget av høye vannføring i vår (knyttet til snøsmelting), en våt høst, og lave vannføring om vinteren. Egnet for å simulere opplandsinnsjøer med betydelig snøakkumulering.</li>
+<li><strong>Ingen</strong>. Månedlig vannføring er konstant gjennom hele året.</li>
+<li><strong>Fjell</strong>. Profilen er preget av høy vannføring om våren (knyttet til snøsmelting), en våt høst, og lav vannføring om vinteren. Egnet for å simulere opplandsinnsjøer med betydelig snøakkumulering.</li>
 <li><strong>Kyst</strong>. Profilen er preget av tørre somre med våte høster og vintre. Egnet for lavlandsinnsjøer med lite snøakkumulering.</li>
 </ul>
 <p>Hvis <code>Vannføringsprofil</code> er <code>Ingen</code>, bestemmes vannføring fra innsjøvolumet og vannoppholdstid. For «Fjell» og «Kyst» skaleres månedlige verdier for å matche det valgte mønsteret, men den gjennomsnittlige årlige vannføringen forblir den samme (dvs. i samsvar med spesifisert innsjøvolum og vannoppholdstid).</p>
@@ -231,11 +231,11 @@ Merk
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Modellen forutsetter at innsjøen etter hvert blir godt blandet, uavhengig av arealmessig omfang av kalking. Å tilsette 10 mg/l kalkprodukt over hele innsjøen er derfor likt å tilsette 20 mg/l over 50% av overflaten. I det siste tilfellet vil imidlertid <strong>overdoseringseffekter</strong> modifisere den momentanoppløsningen, noe som betyr at litt mindre kalk vil oppløses umiddelbart og mer vil synke til innsjøbunnen (og potensielt oppløses senere). Se siden <a href="https://nivanorge.github.io/lake_liming_app/lake-modelling.html#sec-mass-bal-model">Innsjømodellering</a> for detaljer.</p>
+<p>Modellen forutsetter at innsjøen etter hvert blir godt blandet, uavhengig av arealmessig omfang av kalking. Å tilsette 10 mg/l kalkprodukt over hele innsjøen er derfor likt å tilsette 20 mg/l over 50% av overflaten. I det siste tilfellet vil imidlertid <strong>overdoseringseffekter</strong> modifisere momentanoppløsningen, noe som betyr at litt mindre kalk vil oppløses umiddelbart og mer vil synke til bunnen (og potensielt oppløses senere). Se siden <a href="https://nivanorge.github.io/lake_liming_app/lake-modelling.html#sec-mass-bal-model">Innsjømodellering</a> for detaljer.</p>
 </div>
 </div>
 <p><code>Kalkingsmetode</code> kan være enten <code>Våt</code> eller <code>Tørr</code>, der <code>Våt</code> tilsvarer å tilsette kalk som en slurry (f.eks. fra en båt) og <code>Tørr</code> tilsvarer å tilsette kalk direkte uten forhåndsblanding (f.eks. fra et helikopter). Tørr kalk løses opp i innsjøvann saktere enn slurry. Hvis <code>Tørr</code> velges, justeres momentanoppløsningsverdier fra kolonnetestene ned for å ta hensyn til dette.</p>
-<p><code>Kalkingsmåned</code> er måneden i året der kalking finner sted, og <code>Antall måneder å simulere</code> bestemmer lengden på genererte tidsserier. Hvis <code>Vannføringsprofil</code> er satt til <code>Ingen</code> (<a href="#sec-lake-characteristics" class="quarto-xref">Section&nbsp;2.2</a>), vil <code>Kalkingsmåned</code> ikke ha noen effekt, fordi vannføringen forblir konstante gjennom hele året. For profilene <code>Fjell</code> og <code>Kyst</code> kan imidlertid kalkingsmåneden være viktig - spesielt for høylandsinnsjøer med kort oppholdstid, hvor vannet sykles raskt under snøsmeltingsepisoder på våren.</p>
+<p><code>Kalkingsmåned</code> er måneden i året der kalking finner sted, og <code>Antall måneder å simulere</code> bestemmer lengden på genererte tidsserier. Hvis <code>Vannføringsprofil</code> er satt til <code>Ingen</code> (<a href="#sec-lake-characteristics" class="quarto-xref">Section&nbsp;2.2</a>), vil <code>Kalkingsmåned</code> ikke ha noen effekt, fordi vannføringen forblir konstant gjennom hele året. For profilene <code>Fjell</code> og <code>Kyst</code> kan imidlertid kalkingsmåneden være viktig - spesielt for høylandsinnsjøer med kort oppholdstid, hvor vannet skiftes raskt under snøsmeltingsepisoder på våren.</p>
 </section>
 <section id="sec-model-results" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="sec-model-results"><span class="header-section-number">2.4</span> Modellresultater</h3>
@@ -261,8 +261,8 @@ Advarsel
 <h2 data-number="3" class="anchored" data-anchor-id="sec-comparison-factors"><span class="header-section-number">3</span> Omregningsfaktorer</h2>
 <p>Plott med “omregningsfaktorer” er en praktisk måte å sammenligne simulert effektivitet av ulike kalkprodukter i innsjøer med ulike egenskaper. For å generere plottene er det definert startforhold for et bredt spekter av innsjøer med varierende gjennomsnittlig dybde og vannoppholdstid. Modellen kjøres deretter mange ganger for å identifisere hvor mye av hvert kalkprodukt som vil kreves for å oppnå et gitt pH-mål etter en viss tid (f.eks. ett år).</p>
 <p>For hvert kalkprodukt sammenlignes nødvendig kalkmengde (i tonn) med resultater for et standard referanseprodukt for å gi en <strong>omregningsfaktor</strong>. Referansen som brukes av denne applikasjonen er “Standard Kalk Kat3”. Verdier mindre enn én indikerer at produktet som testes er mer effektivt enn standarden, mens verdier større enn én antyder at det er mindre effektivt (per kilogram).</p>
-<p>I prinsippet kan disse plottene bygges manuelt ved å bruke siden <code>Innsjømodellering</code>. Imidlertid er antallet parameterkombinasjoner stort, så for hastighet er de forhåndsberegnet for alle kalkprodukter i databasen og presentert på denne siden i oppsummeringsform. Det genereres plott for innsjøer med gjennomsnittsdybder på 5, 10, 15 og 20 m, og kurver vist for innsjøer med vannoppholdstider fra 0,3 til 2 år.</p>
-<p>Forskjeller mellom produktene på disse plottene gjenspeiler de forskjellige fysiske og kjemiske egenskapene til kalkene, som representert av <a href="https://nivanorge.github.io/lake_liming_app/column-tests.html">kolonnetestdataene</a>.</p>
+<p>I prinsippet kan disse plottene bygges manuelt ved å bruke siden <code>Innsjømodellering</code>. Imidlertid er antallet parameterkombinasjoner stort, så for responstiden er de forhåndsberegnet for alle kalkprodukter i databasen og presentert på denne siden i oppsummeringsform. Det genereres plott for innsjøer med gjennomsnittsdybder på 5, 10, 15 og 20 m, og kurver vist for innsjøer med vannoppholdstider fra 0,3 til 2 år.</p>
+<p>Forskjeller mellom produktene på disse plottene gjenspeiler de forskjellige fysiske og kjemiske egenskapene til kalkproduktene, som representert av <a href="https://nivanorge.github.io/lake_liming_app/column-tests.html">kolonnetestdataene</a>.</p>
 </section>
 <section id="sec-column-tests" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="sec-column-tests"><span class="header-section-number">4</span> Kolonnetester</h2>
@@ -280,7 +280,7 @@ Merk
 <p>Du kan utforske kolonnetestresultater for kalkprodukter som <em>allerede er i applikasjonens database</em> fra fanen <code>Innsjømodellering</code>.</p>
 </div>
 </div>
-<p>For å lage plott basert på dine egne data, last først ned en tom kopi av Excel-inndatamalen fra <a href="https://github.com/NIVANorge/lake_liming_app/raw/main/data/liming_app_data_template_v1-1.xlsx">her</a>. Fyll ut malen og lagre endringene på din lokale maskin, og last deretter opp den fullførte Excel-filen til nettapplikasjonen ved å klikke på <code>Browse files</code>-knappen i venstre sidefelt. Appen vil vise plott av momentanoppløsning og overdoseringsfaktorer basert på dataene du oppgir.</p>
+<p>For å lage plott basert på dine egne data, last først ned en tom kopi av Excel-inndatamalen fra <a href="https://github.com/NIVANorge/lake_liming_app/raw/main/data/liming_app_data_template_v1-1.xlsx">her</a>. Fyll ut malen og lagre endringene på din lokale maskin. Last deretter opp den fullførte Excel-filen til nettapplikasjonen ved å klikke på <code>Browse files</code>-knappen i venstre sidefelt. Appen vil vise plott av momentanoppløsning og overdoseringsfaktorer basert på dataene du oppgir.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -291,7 +291,7 @@ Merk
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Data lastet opp via <code>Laste opp kolonnetestdata</code>-fanen legges ikke umiddelbart til applikasjonsdatabasen. Hvis du vil legge til et nytt produkt i applikasjonen (eller oppdatere informasjon for et eksisterende), fyll først ut Excel-malen og sjekk at plottene ser rimelige ut. Du kan deretter <a href="mailto:james.sample@niva.no">sende utfylt mal til NIVA</a> for innføring i produktdatabasen.</p>
+<p>Data lastet opp via <code>Laste opp kolonnetestdata</code>-fanen vil ikke umiddlebart legges inn i applikasjonsdatabasen. Hvis du vil legge til et nytt produkt i applikasjonen (eller oppdatere informasjon for et eksisterende), fyll først ut Excel-malen og sjekk at plottene ser rimelige ut. Du kan deretter <a href="mailto:james.sample@niva.no">sende utfylt mal til NIVA</a> for innføring i produktdatabasen.</p>
 </div>
 </div>
 
