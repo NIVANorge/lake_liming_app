@@ -113,8 +113,8 @@ class Lake:
         if lib == "Matplotlib":
             plt.plot(months, q_m3ps, "ro-")
             plt.axhline(q_mean, c="k", ls="--", label="Annual mean")
-            plt.xlabel("Month")
-            plt.ylabel("Discharge ($m^3/s$)")
+            plt.xlabel("Måned")
+            plt.ylabel("Vannføring ($m^3/s$)")
             plt.legend()
             st.set_option("deprecation.showPyplotGlobalUse", False)
             st.pyplot()
@@ -122,7 +122,7 @@ class Lake:
         else:
             df_long_form = pd.DataFrame(
                 {
-                    "Month": [
+                    "Måned": [
                         1,
                         2,
                         3,
@@ -148,28 +148,28 @@ class Lake:
                         11,
                         12,
                     ],
-                    "Flow": ["Monthly flow"] * 12 + ["Annual mean"] * 12,
-                    "Discharge (m\u00b3/s)": q_m3ps.tolist() + [q_mean] * 12,
+                    "Profil": ["Månedlig vannføring"] * 12 + ["Årlig gjennomsnitt"] * 12,
+                    "Vannføring (m\u00b3/s)": q_m3ps.tolist() + [q_mean] * 12,
                 }
             )
             chart = (
                 alt.Chart(df_long_form)
                 .mark_line(point=True)
                 .encode(
-                    alt.X("Month:N", axis=alt.Axis(labelAngle=0)),
-                    y="Discharge (m\u00b3/s):Q",
-                    color="Flow:N",
+                    alt.X("Måned:N", axis=alt.Axis(labelAngle=0)),
+                    y="Vannføring (m\u00b3/s):Q",
+                    color="Profil:N",
                     strokeDash=alt.condition(
-                        alt.datum.Flow == "Annual mean",
+                        alt.datum.Flow == "Årlig gjennomsnitt",
                         alt.value(
                             [8, 8]
                         ),  # dashed line: 5 pixels  dash + 5 pixels space
                         alt.value([0]),  # solid line
                     ),
                     tooltip=[
-                        "Month:N",
-                        alt.Tooltip("Discharge (m\u00b3/s):Q", format=",.2f"),
-                        "Flow:N",
+                        "Måned:N",
+                        alt.Tooltip("Vannføring (m\u00b3/s):Q", format=",.2f"),
+                        "Profil:N",
                     ],
                 )
                 .interactive()
@@ -314,15 +314,15 @@ class LimeProduct:
             axes[0].set_title(
                 f"{self.col_depth} m column; 10 mg/l of lime", fontsize=14
             )
-            axes[0].set_ylabel("Instantaneous dissolution (%)")
-            axes[0].set_xlabel("Column pH (-)")
+            axes[0].set_ylabel("Momentanoppløsning  (%)")
+            axes[0].set_xlabel("Kolonne pH (-)")
 
             # OD values at pH 4.6
             axes[1].plot([10, 20, 35, 50, 85], self.od_list, "ro-")
             axes[1].set_ylim(bottom=0)
             axes[1].set_title(f"{self.col_depth} m column; pH 4.6", fontsize=14)
-            axes[1].set_ylabel("Overdosing factor (-)")
-            axes[1].set_xlabel("Lime dose (mg/l)")
+            axes[1].set_ylabel("Overdoseringsfaktor (-)")
+            axes[1].set_xlabel("Kalkdose (mg/l)")
 
             fig.suptitle(self._name, fontsize=16)
             plt.tight_layout()
@@ -331,8 +331,8 @@ class LimeProduct:
         else:
             inst_diss = pd.DataFrame(
                 {
-                    "Column pH (-)": [4, 4.5, 5, 5.5, 6],
-                    "Instantaneous dissolution (%)": self.id_list,
+                    "Kolonne pH (-)": [4, 4.5, 5, 5.5, 6],
+                    "Momentanoppløsning (%)": self.id_list,
                 }
             )
             inst_chart = (
@@ -341,26 +341,26 @@ class LimeProduct:
                 )
                 .mark_line(point=True)
                 .encode(
-                    x="Column pH (-)",
-                    y="Instantaneous dissolution (%)",
-                    tooltip=["Column pH (-)", "Instantaneous dissolution (%)"],
+                    x="Kolonne pH (-)",
+                    y="Momentanoppløsning (%)",
+                    tooltip=["Kolonne pH (-)", "Momentanoppløsning (%)"],
                 )
                 .properties(width=250, height=200)
                 .interactive()
             )
             over_fac = pd.DataFrame(
                 {
-                    "Lime dose (mg/l)": [10, 20, 35, 50, 85],
-                    "Overdosing factor (-)": self.od_list,
+                    "Kalkdose (mg/l)": [10, 20, 35, 50, 85],
+                    "Overdoseringsfaktor (-)": self.od_list,
                 }
             )
             over_chart = (
                 alt.Chart(over_fac, title=f"{self.col_depth} m column; pH 4.6")
                 .mark_line(point=True)
                 .encode(
-                    x="Lime dose (mg/l)",
-                    y="Overdosing factor (-)",
-                    tooltip=["Lime dose (mg/l)", "Overdosing factor (-)"],
+                    x="Kalkdose (mg/l)",
+                    y="Overdoseringsfaktor (-)",
+                    tooltip=["Kalkdose (mg/l)", "Overdoseringsfaktor (-)"],
                 )
                 .properties(width=250, height=200)
                 .interactive()
