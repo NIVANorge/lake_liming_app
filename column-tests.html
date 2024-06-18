@@ -53,17 +53,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": true,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Ingen resultater",
+    "search-matching-documents-text": "samsvarende dokumenter",
+    "search-copy-link-title": "Kopier lenken for å søke",
+    "search-hide-matches-text": "Skjul flere treff",
+    "search-more-match-text": "flere treff i dette dokumentet",
+    "search-more-matches-text": "flere treff i dette dokumentet",
+    "search-clear-button-title": "Fjern",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Sende inn",
+    "search-label": "Søk"
   }
 }</script>
 
@@ -111,7 +111,7 @@ window.Quarto = {
     <span class="navbar-title">Innsjøkalking applikasjon</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
+            <div id="quarto-search" class="" title="Søk"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -165,7 +165,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">På denne siden</h2>
    
   <ul>
   <li><a href="#sec-instant-dissolution" id="toc-sec-instant-dissolution" class="nav-link active" data-scroll-target="#sec-instant-dissolution"><span class="header-section-number">1</span> Momentanoppløsning</a>
@@ -175,7 +175,7 @@ window.Quarto = {
   <li><a href="#sec-combining" id="toc-sec-combining" class="nav-link" data-scroll-target="#sec-combining"><span class="header-section-number">1.3</span> Kombinere datasett</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/NIVANorge/lake_liming_app/issues" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/NIVANorge/lake_liming_app/issues" class="toc-action"><i class="bi bi-github"></i>Rapporter et problem</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -212,11 +212,11 @@ window.Quarto = {
 M_{par} = 10 F_{par} A (x_2 - x_1)
 \tag{1}\]</span></span></p>
 <p><span class="math inline">\(A\)</span> er tverrsnittsarealet til kolonnen og <span class="math inline">\(par\)</span> er enten <code>Ca</code> eller <code>Mg</code>.</p>
-<p>I praksis løser ikke all kalken seg opp og kolonnene oppnår ikke jevne konsentrasjoner. Etter <strong>16 timer</strong> måles konsentrasjonen av Ca (og Mg, hvis relevant) i hver kolonne ved forskjellige dybder ved bruk av ICP-OES (Inductively Coupled Plasma - Optical Emission Spectrometry). Fem konsentrasjoner er tatt fra hver kolonne med 40 cm intervall fra overflaten ned til 1,6 m. Et typisk datasett for en enkelt kolonne for en ikke-dolomittisk kalk (dvs. bare Ca) er vist i <a href="#tbl-inst-diss" class="quarto-xref">Table&nbsp;1</a>.</p>
+<p>I praksis løser ikke all kalken seg opp og kolonnene oppnår ikke jevne konsentrasjoner. Etter <strong>16 timer</strong> måles konsentrasjonen av Ca (og Mg, hvis relevant) i hver kolonne ved forskjellige dybder ved bruk av ICP-OES (Inductively Coupled Plasma - Optical Emission Spectrometry). Fem konsentrasjoner er tatt fra hver kolonne med 40 cm intervall fra overflaten ned til 1,6 m. Et typisk datasett for en enkelt kolonne for en ikke-dolomittisk kalk (dvs. bare Ca) er vist i <a href="#tbl-inst-diss" class="quarto-xref">Tabell&nbsp;1</a>.</p>
 <div id="tbl-inst-diss" class="quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-inst-diss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Eksempeldata for en enkelt kolonne fra den momentanoppløsningstesten for kalsium.
+Tabell&nbsp;1: Eksempeldata for en enkelt kolonne fra den momentanoppløsningstesten for kalsium.
 </figcaption>
 <div aria-describedby="tbl-inst-diss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -264,51 +264,51 @@ Table&nbsp;1: Eksempeldata for en enkelt kolonne fra den momentanoppløsningstes
 </div>
 </figure>
 </div>
-<p><a href="#tbl-inst-diss" class="quarto-xref">Table&nbsp;1</a> brukes til å estimere den totale mengden Ca som faktisk har løst seg opp i hver kolonne etter 16 timer. Det antas at hver kolonne er horisontalt godt blandet og at konsentrasjonene kun varierer med dybden, <span class="math inline">\(x\)</span>. Den totale mengden Ca mellom dybdene <span class="math inline">\(x_1\)</span> og <span class="math inline">\(x_2\)</span> er gitt av integralet:</p>
+<p><a href="#tbl-inst-diss" class="quarto-xref">Tabell&nbsp;1</a> brukes til å estimere den totale mengden Ca som faktisk har løst seg opp i hver kolonne etter 16 timer. Det antas at hver kolonne er horisontalt godt blandet og at konsentrasjonene kun varierer med dybden, <span class="math inline">\(x\)</span>. Den totale mengden Ca mellom dybdene <span class="math inline">\(x_1\)</span> og <span class="math inline">\(x_2\)</span> er gitt av integralet:</p>
 <p><span id="eq-conc-depth-integral"><span class="math display">\[
 M_{Ca} = A \int_{x_1}^{x_2} C(x) \ dx
 \tag{2}\]</span></span></p>
-<p>Den totale andelen av tilgjengelig Ca som har løst seg opp, kalt <strong>momentanoppløsning</strong>, kan deretter beregnes ved å dele <a href="#eq-conc-depth-integral" class="quarto-xref">Equation&nbsp;2</a> med <a href="#eq-evenly-mixed" class="quarto-xref">Equation&nbsp;1</a>, begge evaluert mellom 0 og 1,6 m dybde (og samme beregning utført for magnesium, hvis relevant).</p>
+<p>Den totale andelen av tilgjengelig Ca som har løst seg opp, kalt <strong>momentanoppløsning</strong>, kan deretter beregnes ved å dele <a href="#eq-conc-depth-integral" class="quarto-xref">Ligning&nbsp;2</a> med <a href="#eq-evenly-mixed" class="quarto-xref">Ligning&nbsp;1</a>, begge evaluert mellom 0 og 1,6 m dybde (og samme beregning utført for magnesium, hvis relevant).</p>
 <p><span id="eq-inst-diss"><span class="math display">\[
 D_{inst} = \frac{\int_{0}^{1.6} C(x) \ dx}{10 F_{Ca} (1.6 - 0)}
 \tag{3}\]</span></span></p>
-<p>Integralet i <a href="#eq-inst-diss" class="quarto-xref">Equation&nbsp;3</a> er tilnærmet fra de målte dataene (<a href="#tbl-inst-diss" class="quarto-xref">Table&nbsp;1</a>) ved å bruke <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapesregelen</a>.</p>
-<p>Hovedresultatet fra dette eksperimentet er et sett med momentanoppløsningsverdier (vanligvis uttrykt i prosent) som viser hvordan <strong>oppløsningen endres med initiell pH ved en fast kalkdose</strong> (<a href="#fig-instantaneous-dissolution-curve" class="quarto-xref">Figure&nbsp;1</a>).</p>
+<p>Integralet i <a href="#eq-inst-diss" class="quarto-xref">Ligning&nbsp;3</a> er tilnærmet fra de målte dataene (<a href="#tbl-inst-diss" class="quarto-xref">Tabell&nbsp;1</a>) ved å bruke <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapesregelen</a>.</p>
+<p>Hovedresultatet fra dette eksperimentet er et sett med momentanoppløsningsverdier (vanligvis uttrykt i prosent) som viser hvordan <strong>oppløsningen endres med initiell pH ved en fast kalkdose</strong> (<a href="#fig-instantaneous-dissolution-curve" class="quarto-xref">Figur&nbsp;1</a>).</p>
 <div id="fig-instantaneous-dissolution-curve" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-instantaneous-dissolution-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/instantaneous_dissolution_example.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-instantaneous-dissolution-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Momentanoppløsningskurve for varierende pH (med dose fastsatt til 10 mg/l kalk).
+Figur&nbsp;1: Momentanoppløsningskurve for varierende pH (med dose fastsatt til 10 mg/l kalk).
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="sec-vary-dose" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="sec-vary-dose"><span class="header-section-number">1.2</span> Endring av dose</h3>
-<p>I den andre testen fikseres kolonnene “A” til “E” til pH 4,5 og ulike doser tilsettes hver kolonne, tilsvarende kalkkonsentrasjoner på 10, 20, 35, 50 og 85 mg/l (forutsatt fullstendig oppløsning). Kolonnene får igjen stå i <strong>16 timer</strong> og <strong>momentanoppløsningen</strong> for hver kolonne bestemmes ved å bruke prosedyren beskrevet i <a href="#sec-vary-ph" class="quarto-xref">Section&nbsp;1.1</a>.</p>
+<p>I den andre testen fikseres kolonnene “A” til “E” til pH 4,5 og ulike doser tilsettes hver kolonne, tilsvarende kalkkonsentrasjoner på 10, 20, 35, 50 og 85 mg/l (forutsatt fullstendig oppløsning). Kolonnene får igjen stå i <strong>16 timer</strong> og <strong>momentanoppløsningen</strong> for hver kolonne bestemmes ved å bruke prosedyren beskrevet i <a href="#sec-vary-ph" class="quarto-xref">Avsnitt&nbsp;1.1</a>.</p>
 <p>Ved høye doser er andelen kalk som løser seg umiddelbart typisk <strong>lavere</strong> enn i den første testen, fordi høye doser fører til høye kalsiumkonsentrasjoner nær kalkpartiklene, noe som hemmer oppløsning. Denne effekten kalles <strong>overdosering</strong>.</p>
 <p>Hovedresultatet fra den andre testen er et sett med <strong>overdoseringsfaktorer</strong>, beregnet som forholdet <span class="math inline">\(D_{10} / D_{x}\)</span>, der <span class="math inline">\(D_{10}\)</span> er den momentanoppløsningen for kolonnen der 10 mg/l kalk ble først tilsatt, og <span class="math inline">\(D_{x}\)</span> er den momentanoppløsningen for kolonnen hvor <span class="math inline">\(x\)</span> mg/l kalk ble tilsatt.</p>
-<p>En typisk kurve for overdoseringsfaktorer er vist i <a href="#fig-overdosing-curve" class="quarto-xref">Figure&nbsp;2</a>.</p>
+<p>En typisk kurve for overdoseringsfaktorer er vist i <a href="#fig-overdosing-curve" class="quarto-xref">Figur&nbsp;2</a>.</p>
 <div id="fig-overdosing-curve" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-overdosing-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/overdosing_example.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-overdosing-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Overdoseringsfaktorer for ulike kalkdoser (med kolonne-pH fastsatt til 4,5).
+Figur&nbsp;2: Overdoseringsfaktorer for ulike kalkdoser (med kolonne-pH fastsatt til 4,5).
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="sec-combining" class="level3" data-number="1.3">
 <h3 data-number="1.3" class="anchored" data-anchor-id="sec-combining"><span class="header-section-number">1.3</span> Kombinere datasett</h3>
-<p>De to eksperimentene beskrevet i <a href="#sec-vary-ph" class="quarto-xref">Section&nbsp;1.1</a> og <a href="#sec-vary-dose" class="quarto-xref">Section&nbsp;1.2</a> gir data i formatet vist i <a href="#tbl-expt-design" class="quarto-xref">Table&nbsp;2</a>.</p>
+<p>De to eksperimentene beskrevet i <a href="#sec-vary-ph" class="quarto-xref">Avsnitt&nbsp;1.1</a> og <a href="#sec-vary-dose" class="quarto-xref">Avsnitt&nbsp;1.2</a> gir data i formatet vist i <a href="#tbl-expt-design" class="quarto-xref">Tabell&nbsp;2</a>.</p>
 <div id="tbl-expt-design" class="quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-expt-design-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Eksperimentell design for kolonnetester. Hver ‘x’ tilsvarer en enkelt kolonne som momentanoppløsning bestemmes for.
+Tabell&nbsp;2: Eksperimentell design for kolonnetester. Hver ‘x’ tilsvarer en enkelt kolonne som momentanoppløsning bestemmes for.
 </figcaption>
 <div aria-describedby="tbl-expt-design-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -429,12 +429,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Kopiert!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -792,7 +792,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/NIVANorge/lake_liming_app/issues" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/NIVANorge/lake_liming_app/issues" class="toc-action"><i class="bi bi-github"></i>Rapporter et problem</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
