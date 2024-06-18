@@ -3,13 +3,13 @@ title: "Innsjømodellering"
 number-sections: true
 ---
 
-Beregningene utført av applikasjonen og beskrevet på denne siden er en delmengde av de som er implementert av den originale [TPKALK-applikasjonen](https://niva.brage.unit.no/niva-xmlui/handle/11250/208709) utviklet av NIVA i løpet av 1990-tallet.
+Beregningene utført av applikasjonen, og beskrevet på denne siden, er en delmengde av de som er tilgjengelig i den originale [TPKALK-applikasjonen](https://niva.brage.unit.no/niva-xmlui/handle/11250/208709). Utviklet av NIVA i løpet av 1990-tallet.
 
 ## Bakgrunn {#sek-bakgrunn}
 
 ### Kalkingsmaterialer {#sec-lime-types}
 
-Kalkprodukter som brukes til nedbørfeltforvaltning er vanligvis en blanding av **kalsiumkarbonat** (kalsitt, $CaCO_3$) og **magnesiumkarbonat** ($MgCO_3$). Bergarter som hovedsakelig består av $CaCO_3$ kalles vanligvis **kalksteiner** og **kritt**, mens karbonatbergarter med betydelige andeler magnesium kalles **dolomitter** (> 10% Mg) eller magnesianske kalksteiner (2 til 10% Mg).
+Kalkprodukter som brukes til nedbørfeltforvaltning er vanligvis en blanding av **kalsiumkarbonat** (kalsitt, $CaCO_3$) og **magnesiumkarbonat** ($MgCO_3$). Bergarter som hovedsakelig består av $CaCO_3$ kalles vanligvis **kalksteiner** og **kritt**, mens karbonatbergarter med betydelige andeler magnesium kalles **dolomitter** (> 10% Mg), eller magnesianske kalksteiner (2 til 10% Mg).
 
 Kalkprodusenter vil typisk spesifisere andelen kalsium- og magnesiumkarbonat i produktene sine. For eksempel er 'Microdol5' rapportert å være 53,7% $CaCO_3$ og 44,4% $MgCO_3$ etter masse (med 1,9% andre urenheter).
 
@@ -22,7 +22,7 @@ Magnesiumkarbonat har en høyere andel karbonat etter masse og derfor en større
 
 : Estimering av **nøytraliserende verdi (NV)** for to kalkprodukter. $MgCO_3$-innhold konverteres til $CaCO_3$-ekvivalenter ved å multiplisere med 1,19. {#tbl-nv}
 
-NV er vanligvis spesifisert i prosent: rent kalsiumkarbonat har en NV på 100%; rent magnesiumkarbonat har en NV på 119%; og typiske dolomittprodukter har NV-er som er et sted i mellom. For samme masse vil produkter med høyere NV være mer effektive til å øke pH, *så lenge alle kalken løses opp*. I praksis viser forskjellige kalker forskjellige oppløsningshastigheter, som også må tas med i betraktning (@sec-solubility).
+NV er vanligvis spesifisert i prosent: rent kalsiumkarbonat har en NV på 100%; rent magnesiumkarbonat har en NV på 119%; og typiske dolomittprodukter har NV-er som er et sted i mellom. For samme masse vil produkter med høyere NV være mer effektive til å øke pH, *så lenge all kalken løses opp*. I praksis viser forskjellige kalker forskjellige oppløsningshastigheter, som også må tas med i betraktningen (@sec-solubility).
 
 ### Kalkløselighet {#sec-solubility}
 
@@ -40,7 +40,7 @@ Flere faktorer påvirker oppløsningshastigheten til kalkmateriale som tilsettes
 
 De fleste kommersielle kalkprodukter er fine nok til å oppløses effektivt. For en gitt påføringsmetode og innsjø-pH er målet derfor å identifisere **hvilket kalkprodukt som skal brukes** (dvs. hvilke fysiske og kjemiske egenskaper som skal velges) og **i hvilken dose** (for å minimere antall påføringer som er nødvendig uten overdosering).
 
-Kalkoppløsningshastigheter og effekten av overdosering bestemmes eksperimentelt - se siden [kolonnetester](./column-tests.qmd) for detaljer.
+Kalkoppløsningshastigheter og effekten av overdosering bestemmes eksperimentelt - se [kolonnetester](./column-tests.qmd) for detaljer.
 
 ## Modelleringsprosedyre {#sec-modelling}
 
@@ -58,7 +58,7 @@ Når vi tilsetter kalkingsmateriale, øker konsentrasjonen av CaCO3 (og MgCO3, h
 
 ![Titreringskurver som relaterer endringer i CaCO3-ekvivalenter til endringer i pH for innsjøer med forskjellige konsentrasjoner av totalt organisk karbon (TOC).](./images/titration_curves.png){#fig-titration-curves}
 
-For en innsjø med en gitt initial pH- og TOC-konsentrasjon, bruker modellen sigmoid-kurver basert på empiriske data (@fig-titration-curves-interpolated) for å finne en idealisert CaCO3-konsentrasjon som representerer innsjøens initiale bufferkapasitet. Modellen simulerer deretter endringer i CaCO3-ekvivalente konsentrasjoner over tid (i forhold til startkonsentrasjonen), og bruker kurvene til å estimere tilsvarende endringer i pH.
+For en innsjø med en gitt initiell pH- og TOC-konsentrasjon, bruker modellen sigmoid-kurver basert på empiriske data (@fig-titration-curves-interpolated) for å finne en idealisert CaCO3-konsentrasjon som representerer innsjøens initielle bufferkapasitet. Modellen simulerer deretter endringer i CaCO3-ekvivalente konsentrasjoner over tid (i forhold til startkonsentrasjonen), og bruker kurvene til å estimere tilsvarende endringer i pH.
 
 ![Sigmoid-kurver tilpasset dataene i @fig-titration-curves. Disse brukes av modellen for å konvertere endringer i CaCO3-ekvivalenter til endringer i pH for innsjøer med forskjellige konsentrasjoner av totalt organisk karbon (TOC).](./images/titration_curves_interpolated.png){#fig-titration-curves-interpolated}
 
@@ -100,7 +100,7 @@ $$ {#eq-Kt}
 
 der $K_t$ er førsteordens reaksjonskoeffisient ved tidspunktet $t$.
 
-Den effektive hastighetskoeffisienten, $K_t$, modifiseres ytterligere av en faktor, $R$, som reduserer oppløsningshastigheten ettersom konsentrasjonene av oppløst CaCO3 i innsjøen blir høye. Spesielt tvinger $R$ $K_t$ mot null når oppløste konsentrasjoner nærmer seg metning. Dette gjøres først og fremst for å sikre at modellens resultater forblir plausibel selv om brukere setter ekstreme parameterverdier i brukergrensesnittet; for de fleste realistiske valg av modellparametere vil ikke innsjøkonsentrasjoner nærme seg metning og verdien av $R$ vil være nær 1.
+Den effektive hastighetskoeffisienten, $K_t$, modifiseres ytterligere av en faktor, $R$, som reduserer oppløsningshastigheten ettersom konsentrasjonene av oppløst CaCO3 i innsjøen blir høye. Spesielt tvinger $R$ $K_t$ mot null når oppløste konsentrasjoner nærmer seg metning. Dette gjøres først og fremst for å sikre at modellens resultater forblir plausible selv om brukere setter ekstreme parameterverdier i brukergrensesnittet; for de fleste realistiske valg av modellparametere vil ikke innsjøkonsentrasjoner nærme seg metning og verdien av $R$ vil være nær 1.
 
 $$
 R = \frac{1}{1 + e^{10 (C_{lake} - C_{sat})}}
@@ -114,7 +114,7 @@ $$ {#eq-dCslow_dt}
 
 ### Momentanoppløsning {#sec-inst-diss}
 
-For at modellen skal produsere fornuftige simuleringer, er det viktig å ha et nøyaktig estimat for andelen kalkmateriale som løses opp raskt (dvs. den momentanoppløsningsfraksjonen, $C_{inst}$). Momentanoppløsning kan måles i laboratoriet ved hjelp av [kolonnetester](./column-tests.qmd), som forteller oss hvor mye kalk som typisk vil løses opp i en kolonne gitt en kjent initial pH og kalkdose. Før kolonnetestdataene kan brukes til innsjømodellering, er det nødvendig å justere for:
+For at modellen skal produsere fornuftige simuleringer, er det viktig å ha et nøyaktig estimat for andelen kalkmateriale som løses opp raskt (dvs. den momentanoppløsningsfraksjonen, $C_{inst}$). Momentanoppløsning kan måles i laboratoriet ved hjelp av [kolonnetester](./column-tests.qmd), som forteller oss hvor mye kalk som typisk vil løses opp i en kolonne gitt en kjent initiell pH og kalkdose. Før kolonnetestdataene kan brukes til innsjømodellering, er det nødvendig å justere for:
 
  * **Spredningsmetode**. For tørrspredning (f.eks. med helikopter) er mengden kalkmateriale som oppløses umiddelbart typisk 0,5 til 0,7 ganger andelen forutsagt av kolonnetester. Ingen justering er nødvendig for våtspredning (f.eks. fra båt).
 
@@ -124,7 +124,7 @@ $$
 D_{inst} \propto [H^+] \times d
 $$ {#eq-diss-h-depth}
  
-Det er derfor mulig å generalisere momentanoppløsningsestimater fra kolonnetester med fast dybde til innsjøer med forskjellige dybder ved å vurdere kompenserende endringer i pH. For eksempel er forventet oppløsning for en innsjø med dybde $d$ og hydrogenionkonsentrasjon $H^+$ den samme som for en innsjø med dybde $2d$ og hydrogenionkonsentrasjon $0,5H^+$. Konvertering til pH, antas den momentanoppløsningen for en innsjø med dybde $d_{lake}$ og initial pH $X$ å være lik oppløsningen i en testkolonne med dybde $d_{col}$ med pH $(X - a)$ der
+Det er derfor mulig å generalisere momentanoppløsningsestimater fra kolonnetester med fast dybde til innsjøer med forskjellige dybder ved å vurdere kompenserende endringer i pH. For eksempel er forventet oppløsning for en innsjø med dybde $d$ og hydrogenionkonsentrasjon $H^+$ den samme som for en innsjø med dybde $2d$ og hydrogenionkonsentrasjon $0,5H^+$. For konvertering til pH, antas momentanoppløsningen for en innsjø med dybde $d_{lake}$ og initiell pH $X$, å være lik oppløsningen i en testkolonne med dybde $d_{col}$ og pH $(X - a)$. Der a er gitt av:
 
 $$
 a = log⁡(\frac{d_{lake}}{d_{col}})
@@ -146,6 +146,6 @@ Modellen definert ovenfor er i stand til å simulere hvordan pH og Ca-konsentras
 
  * Parameterne $K_0$ og $\lambda$, som bestemmer hvor raskt kalk på innsjøbunnen løses opp, og hvor lenge den forblir "aktiv".
 
-For å unngå å måtte spesifisere alle disse parameterne ved sammenligning av ulike kalkprodukter, er det vanlig å vurdere en **standard innsjø** med et areal på 20 ha, gjennomsnittlig dybde på 5 m og gjennomsnittlig oppholdstid på 0,7 år. Disse parameterne definerer i sin tur gjennomsnittlig årlig utslipp. Om ønskelig kan dette endres ved å velge en månedlig **vannføringsprofil** (`fjell` eller `kyst`; se @fig-flow-profiles), som justerer vannføring opp eller ned i hver måned, men i en slik måte at det samlede årlige gjennomsnittet opprettholder en oppholdstid på 0,7 år.
+For å unngå å måtte spesifisere alle disse parameterne ved sammenligning av ulike kalkprodukter, er det vanlig å vurdere en **standard innsjø** med et areal på 20 ha, gjennomsnittlig dybde på 5 m og gjennomsnittlig oppholdstid på 0,7 år. Disse parameterne definerer i sin tur gjennomsnittlig årlig utslipp. Om ønskelig kan dette endres ved å velge en månedlig **vannføringsprofil** (`fjell` eller `kyst`; se @fig-flow-profiles), som justerer vannføring opp eller ned i hver måned, men på en slik måte at det samlede årlige gjennomsnittet opprettholder en oppholdstid på 0,7 år.
 
 ![Månedlige vannføringsprofiler som kan brukes til å endre konstantverdiene.](./images/flow_typologies.png){#fig-flow-profiles}
