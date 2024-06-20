@@ -1,76 +1,76 @@
 Dybde (m),Oppholdstid (år),Produkt,Faktor (-)
-5,0.3,Microdol1,0.8392884328026127
-5,0.5,Microdol1,0.9317312859547588
-5,0.7,Microdol1,0.9847074515069181
-5,1.0,Microdol1,1.024785169710977
-5,1.5,Microdol1,1.0557140580165034
-5,2.0,Microdol1,1.07100569677537
-10,0.3,Microdol1,0.8248309093922861
-10,0.5,Microdol1,0.929561500997937
-10,0.7,Microdol1,0.9910804824237086
-10,1.0,Microdol1,1.0373885276983905
-10,1.5,Microdol1,1.0729895141130192
-10,2.0,Microdol1,1.0905475488479033
-15,0.3,Microdol1,0.8236602686473117
-15,0.5,Microdol1,0.9294589619521229
-15,0.7,Microdol1,0.9912116195260549
-15,1.0,Microdol1,1.037388420812154
-15,1.5,Microdol1,1.0727107348222933
-15,2.0,Microdol1,1.090074782529194
-20,0.3,Microdol1,0.8290547032189916
-20,0.5,Microdol1,0.9303914993286121
-20,0.7,Microdol1,0.9882523636028899
-20,1.0,Microdol1,1.0312029114257535
-20,1.5,Microdol1,1.0638765618702992
-20,2.0,Microdol1,1.0798814832220498
-5,0.3,Microdol5,0.8485043389023215
-5,0.5,Microdol5,0.9343719864838802
-5,0.7,Microdol5,0.97643475493914
-5,1.0,Microdol5,1.0076351808395017
-5,1.5,Microdol5,1.0313570631385516
-5,2.0,Microdol5,1.0429728792690245
-10,0.3,Microdol5,0.8362963465151841
-10,0.5,Microdol5,0.9326909813560705
-10,0.7,Microdol5,0.9812387034866052
-10,1.0,Microdol5,1.0169421698174375
-10,1.5,Microdol5,1.0439146074503138
-10,2.0,Microdol5,1.0570680002045405
-15,0.3,Microdol5,0.8358956122657842
-15,0.5,Microdol5,0.9328055246116983
-15,0.7,Microdol5,0.9807336396738695
-15,1.0,Microdol5,1.0156975696737178
-15,1.5,Microdol5,1.041953457885206
-15,2.0,Microdol5,1.0547084811151612
-20,0.3,Microdol5,0.8405863394255648
-20,0.5,Microdol5,0.933679806967805
-20,0.7,Microdol5,0.9780376705385222
-20,1.0,Microdol5,1.0101799586281754
-20,1.5,Microdol5,1.0341975786544195
-20,2.0,Microdol5,1.0458285504190068
-5,0.3,Miljøkalk EY3,0.9775694251972104
-5,0.5,Miljøkalk EY3,0.9946484369303067
-5,0.7,Miljøkalk EY3,1.0154982495841358
-5,1.0,Miljøkalk EY3,1.0303541290913694
-5,1.5,Miljøkalk EY3,1.041319553643146
-5,2.0,Miljøkalk EY3,1.0465887547079675
-10,0.3,Miljøkalk EY3,0.9755208520431471
-10,0.5,Miljøkalk EY3,0.994216868971224
-10,0.7,Miljøkalk EY3,1.016579220131115
-10,1.0,Miljøkalk EY3,1.0322395015879304
-10,1.5,Miljøkalk EY3,1.043656054499838
-10,2.0,Miljøkalk EY3,1.0490996248021889
-15,0.3,Miljøkalk EY3,0.9734767437691768
-15,0.5,Miljøkalk EY3,0.9938901953056295
-15,0.7,Miljøkalk EY3,1.017466248164691
-15,1.0,Miljøkalk EY3,1.0338973223479335
-15,1.5,Miljøkalk EY3,1.04583495993182
-15,2.0,Miljøkalk EY3,1.0515149163819648
-20,0.3,Miljøkalk EY3,0.9713089024239695
-20,0.5,Miljøkalk EY3,0.9935952734699979
-20,0.7,Miljøkalk EY3,1.0183264347198135
-20,1.0,Miljøkalk EY3,1.035589889594515
-20,1.5,Miljøkalk EY3,1.04814637448794
-20,2.0,Miljøkalk EY3,1.0541249536326533
+5,0.3,Microdol1,0.839
+5,0.5,Microdol1,0.932
+5,0.7,Microdol1,0.985
+5,1.0,Microdol1,1.025
+5,1.5,Microdol1,1.056
+5,2.0,Microdol1,1.071
+10,0.3,Microdol1,0.825
+10,0.5,Microdol1,0.93
+10,0.7,Microdol1,0.991
+10,1.0,Microdol1,1.037
+10,1.5,Microdol1,1.073
+10,2.0,Microdol1,1.091
+15,0.3,Microdol1,0.824
+15,0.5,Microdol1,0.929
+15,0.7,Microdol1,0.991
+15,1.0,Microdol1,1.037
+15,1.5,Microdol1,1.073
+15,2.0,Microdol1,1.09
+20,0.3,Microdol1,0.829
+20,0.5,Microdol1,0.93
+20,0.7,Microdol1,0.988
+20,1.0,Microdol1,1.031
+20,1.5,Microdol1,1.064
+20,2.0,Microdol1,1.08
+5,0.3,Microdol5,0.849
+5,0.5,Microdol5,0.934
+5,0.7,Microdol5,0.976
+5,1.0,Microdol5,1.008
+5,1.5,Microdol5,1.031
+5,2.0,Microdol5,1.043
+10,0.3,Microdol5,0.836
+10,0.5,Microdol5,0.933
+10,0.7,Microdol5,0.981
+10,1.0,Microdol5,1.017
+10,1.5,Microdol5,1.044
+10,2.0,Microdol5,1.057
+15,0.3,Microdol5,0.836
+15,0.5,Microdol5,0.933
+15,0.7,Microdol5,0.981
+15,1.0,Microdol5,1.016
+15,1.5,Microdol5,1.042
+15,2.0,Microdol5,1.055
+20,0.3,Microdol5,0.841
+20,0.5,Microdol5,0.934
+20,0.7,Microdol5,0.978
+20,1.0,Microdol5,1.01
+20,1.5,Microdol5,1.034
+20,2.0,Microdol5,1.046
+5,0.3,Miljøkalk EY3,0.978
+5,0.5,Miljøkalk EY3,0.995
+5,0.7,Miljøkalk EY3,1.015
+5,1.0,Miljøkalk EY3,1.03
+5,1.5,Miljøkalk EY3,1.041
+5,2.0,Miljøkalk EY3,1.047
+10,0.3,Miljøkalk EY3,0.976
+10,0.5,Miljøkalk EY3,0.994
+10,0.7,Miljøkalk EY3,1.017
+10,1.0,Miljøkalk EY3,1.032
+10,1.5,Miljøkalk EY3,1.044
+10,2.0,Miljøkalk EY3,1.049
+15,0.3,Miljøkalk EY3,0.973
+15,0.5,Miljøkalk EY3,0.994
+15,0.7,Miljøkalk EY3,1.017
+15,1.0,Miljøkalk EY3,1.034
+15,1.5,Miljøkalk EY3,1.046
+15,2.0,Miljøkalk EY3,1.052
+20,0.3,Miljøkalk EY3,0.971
+20,0.5,Miljøkalk EY3,0.994
+20,0.7,Miljøkalk EY3,1.018
+20,1.0,Miljøkalk EY3,1.036
+20,1.5,Miljøkalk EY3,1.048
+20,2.0,Miljøkalk EY3,1.054
 5,0.3,Miljøkalk VK3,1.0
 5,0.5,Miljøkalk VK3,1.0
 5,0.7,Miljøkalk VK3,1.0
@@ -95,75 +95,75 @@ Dybde (m),Oppholdstid (år),Produkt,Faktor (-)
 20,1.0,Miljøkalk VK3,1.0
 20,1.5,Miljøkalk VK3,1.0
 20,2.0,Miljøkalk VK3,1.0
-5,0.3,Omya Hustadmarmor Biokalk,2.0780153293336996
-5,0.5,Omya Hustadmarmor Biokalk,1.4923206475404747
-5,0.7,Omya Hustadmarmor Biokalk,1.36626973734526
-5,1.0,Omya Hustadmarmor Biokalk,1.291250367579182
-5,1.5,Omya Hustadmarmor Biokalk,1.242155646346832
-5,2.0,Omya Hustadmarmor Biokalk,1.2202079024197443
-10,0.3,Omya Hustadmarmor Biokalk,2.0553427692678703
-10,0.5,Omya Hustadmarmor Biokalk,1.4888689331544773
-10,0.7,Omya Hustadmarmor Biokalk,1.3754488641657892
-10,1.0,Omya Hustadmarmor Biokalk,1.308228556164577
-10,1.5,Omya Hustadmarmor Biokalk,1.2643511065380444
-10,2.0,Omya Hustadmarmor Biokalk,1.2447646369603955
-15,0.3,Omya Hustadmarmor Biokalk,2.056031526775355
-15,0.5,Omya Hustadmarmor Biokalk,1.4880631328106586
-15,0.7,Omya Hustadmarmor Biokalk,1.3776845392238388
-15,1.0,Omya Hustadmarmor Biokalk,1.3124606719492962
-15,1.5,Omya Hustadmarmor Biokalk,1.2699638861020912
-15,2.0,Omya Hustadmarmor Biokalk,1.2510134859409117
-20,0.3,Omya Hustadmarmor Biokalk,2.0697893669268717
-20,0.5,Omya Hustadmarmor Biokalk,1.4886588921218549
-20,0.7,Omya Hustadmarmor Biokalk,1.3762764931858018
-20,1.0,Omya Hustadmarmor Biokalk,1.310040669129923
-20,1.5,Omya Hustadmarmor Biokalk,1.266953059825068
-20,2.0,Omya Hustadmarmor Biokalk,1.2477566142947747
-5,0.3,Visnes Filterkalk Kat3,1.0920945623650777
-5,0.5,Visnes Filterkalk Kat3,1.0051346122224345
-5,0.7,Visnes Filterkalk Kat3,0.9795492321266941
-5,1.0,Visnes Filterkalk Kat3,0.9626939824706959
-5,1.5,Visnes Filterkalk Kat3,0.9509159302256092
-5,2.0,Visnes Filterkalk Kat3,0.9454438278000433
-10,0.3,Visnes Filterkalk Kat3,1.0789487047042374
-10,0.5,Visnes Filterkalk Kat3,1.0031639882464913
-10,0.7,Visnes Filterkalk Kat3,0.9850510347683522
-10,1.0,Visnes Filterkalk Kat3,0.9731987401713081
-10,1.5,Visnes Filterkalk Kat3,0.9649541471635142
-10,2.0,Visnes Filterkalk Kat3,0.9611341369199258
-15,0.3,Visnes Filterkalk Kat3,1.0805944684983617
-15,0.5,Visnes Filterkalk Kat3,1.0030968986203637
-15,0.7,Visnes Filterkalk Kat3,0.9852844640952355
-15,1.0,Visnes Filterkalk Kat3,0.9737003582382469
-15,1.5,Visnes Filterkalk Kat3,0.9656754355707309
-15,2.0,Visnes Filterkalk Kat3,0.9619663717046861
-20,0.3,Visnes Filterkalk Kat3,1.090725887536944
-20,0.5,Visnes Filterkalk Kat3,1.004094208277579
-20,0.7,Visnes Filterkalk Kat3,0.9826106916082719
-20,1.0,Visnes Filterkalk Kat3,0.9687291350992349
-20,1.5,Visnes Filterkalk Kat3,0.9591538775952567
-20,2.0,Visnes Filterkalk Kat3,0.9547396368634208
-5,0.3,Visnes Filterkalk Kat4,0.9584355316774296
-5,0.5,Visnes Filterkalk Kat4,1.0063832042674008
-5,0.7,Visnes Filterkalk Kat4,1.0366182957307715
-5,1.0,Visnes Filterkalk Kat4,1.0584916303231728
-5,1.5,Visnes Filterkalk Kat4,1.074816605000629
-5,2.0,Visnes Filterkalk Kat4,1.0827163096334167
-10,0.3,Visnes Filterkalk Kat4,0.9453066924457472
-10,0.5,Visnes Filterkalk Kat4,1.0044048624720465
-10,0.7,Visnes Filterkalk Kat4,1.0422794200381746
-10,1.0,Visnes Filterkalk Kat4,1.0694810683429827
-10,1.5,Visnes Filterkalk Kat4,1.0896752924389959
-10,2.0,Visnes Filterkalk Kat4,1.099414563762489
-15,0.3,Visnes Filterkalk Kat4,0.9452635458306861
-15,0.5,Visnes Filterkalk Kat4,1.0043339228383927
-15,0.7,Visnes Filterkalk Kat4,1.042376264733746
-15,1.0,Visnes Filterkalk Kat4,1.06951775403065
-15,1.5,Visnes Filterkalk Kat4,1.0895704824044046
-15,2.0,Visnes Filterkalk Kat4,1.0992121849081735
-20,0.3,Visnes Filterkalk Kat4,0.9525267876681722
-20,0.5,Visnes Filterkalk Kat4,1.005330221837921
-20,0.7,Visnes Filterkalk Kat4,1.0393855432712922
-20,1.0,Visnes Filterkalk Kat4,1.06351372587948
-20,1.5,Visnes Filterkalk Kat4,1.0812507058686476
-20,2.0,Visnes Filterkalk Kat4,1.0897520507465723
+5,0.3,Omya Hustadmarmor Biokalk,2.078
+5,0.5,Omya Hustadmarmor Biokalk,1.492
+5,0.7,Omya Hustadmarmor Biokalk,1.366
+5,1.0,Omya Hustadmarmor Biokalk,1.291
+5,1.5,Omya Hustadmarmor Biokalk,1.242
+5,2.0,Omya Hustadmarmor Biokalk,1.22
+10,0.3,Omya Hustadmarmor Biokalk,2.055
+10,0.5,Omya Hustadmarmor Biokalk,1.489
+10,0.7,Omya Hustadmarmor Biokalk,1.375
+10,1.0,Omya Hustadmarmor Biokalk,1.308
+10,1.5,Omya Hustadmarmor Biokalk,1.264
+10,2.0,Omya Hustadmarmor Biokalk,1.245
+15,0.3,Omya Hustadmarmor Biokalk,2.056
+15,0.5,Omya Hustadmarmor Biokalk,1.488
+15,0.7,Omya Hustadmarmor Biokalk,1.378
+15,1.0,Omya Hustadmarmor Biokalk,1.312
+15,1.5,Omya Hustadmarmor Biokalk,1.27
+15,2.0,Omya Hustadmarmor Biokalk,1.251
+20,0.3,Omya Hustadmarmor Biokalk,2.07
+20,0.5,Omya Hustadmarmor Biokalk,1.489
+20,0.7,Omya Hustadmarmor Biokalk,1.376
+20,1.0,Omya Hustadmarmor Biokalk,1.31
+20,1.5,Omya Hustadmarmor Biokalk,1.267
+20,2.0,Omya Hustadmarmor Biokalk,1.248
+5,0.3,Visnes Filterkalk Kat3,1.092
+5,0.5,Visnes Filterkalk Kat3,1.005
+5,0.7,Visnes Filterkalk Kat3,0.98
+5,1.0,Visnes Filterkalk Kat3,0.963
+5,1.5,Visnes Filterkalk Kat3,0.951
+5,2.0,Visnes Filterkalk Kat3,0.945
+10,0.3,Visnes Filterkalk Kat3,1.079
+10,0.5,Visnes Filterkalk Kat3,1.003
+10,0.7,Visnes Filterkalk Kat3,0.985
+10,1.0,Visnes Filterkalk Kat3,0.973
+10,1.5,Visnes Filterkalk Kat3,0.965
+10,2.0,Visnes Filterkalk Kat3,0.961
+15,0.3,Visnes Filterkalk Kat3,1.081
+15,0.5,Visnes Filterkalk Kat3,1.003
+15,0.7,Visnes Filterkalk Kat3,0.985
+15,1.0,Visnes Filterkalk Kat3,0.974
+15,1.5,Visnes Filterkalk Kat3,0.966
+15,2.0,Visnes Filterkalk Kat3,0.962
+20,0.3,Visnes Filterkalk Kat3,1.091
+20,0.5,Visnes Filterkalk Kat3,1.004
+20,0.7,Visnes Filterkalk Kat3,0.983
+20,1.0,Visnes Filterkalk Kat3,0.969
+20,1.5,Visnes Filterkalk Kat3,0.959
+20,2.0,Visnes Filterkalk Kat3,0.955
+5,0.3,Visnes Filterkalk Kat4,0.958
+5,0.5,Visnes Filterkalk Kat4,1.006
+5,0.7,Visnes Filterkalk Kat4,1.037
+5,1.0,Visnes Filterkalk Kat4,1.058
+5,1.5,Visnes Filterkalk Kat4,1.075
+5,2.0,Visnes Filterkalk Kat4,1.083
+10,0.3,Visnes Filterkalk Kat4,0.945
+10,0.5,Visnes Filterkalk Kat4,1.004
+10,0.7,Visnes Filterkalk Kat4,1.042
+10,1.0,Visnes Filterkalk Kat4,1.069
+10,1.5,Visnes Filterkalk Kat4,1.09
+10,2.0,Visnes Filterkalk Kat4,1.099
+15,0.3,Visnes Filterkalk Kat4,0.945
+15,0.5,Visnes Filterkalk Kat4,1.004
+15,0.7,Visnes Filterkalk Kat4,1.042
+15,1.0,Visnes Filterkalk Kat4,1.07
+15,1.5,Visnes Filterkalk Kat4,1.09
+15,2.0,Visnes Filterkalk Kat4,1.099
+20,0.3,Visnes Filterkalk Kat4,0.953
+20,0.5,Visnes Filterkalk Kat4,1.005
+20,0.7,Visnes Filterkalk Kat4,1.039
+20,1.0,Visnes Filterkalk Kat4,1.064
+20,1.5,Visnes Filterkalk Kat4,1.081
+20,2.0,Visnes Filterkalk Kat4,1.09
