@@ -1,5 +1,13 @@
 import streamlit as st
-from src.lake_modelling.utils.lake_model import LIME_PRODUCTS_DATA, Lake, LimeProduct
+from src.lake_modelling.utils.lake_model import (
+    LIME_PRODUCTS_DATA,
+    Lake,
+    LimeProduct,
+    MM_Ca,
+    MM_CaCO3,
+    MM_Mg,
+    MM_MgCO3,
+)
 from src.lake_modelling.utils.read_products import lime_product_names, lime_products
 from src.lake_modelling.utils.run_products import (
     plot_multiple_products,
@@ -18,6 +26,13 @@ def app():
     products = lime_product_names(lime_products(LIME_PRODUCTS_DATA))
     name = get_product(products)
     prod = LimeProduct(name)
+    st.markdown(
+        f"**Sammensetning etter masse:** {prod.ca_pct:.1f} % Ca ({prod.ca_pct*MM_CaCO3/MM_Ca:.1f} % CaCO3) "
+        f"og {prod.mg_pct:.1f} % Mg ({prod.mg_pct*MM_MgCO3/MM_Mg:.1f} % MgCO3)."
+    )
+    st.markdown(
+        f"**Nøytraliserende verdi:** {prod.ca_pct*MM_CaCO3/MM_Ca + 1.19*prod.mg_pct*MM_MgCO3/MM_Mg:.1f} %."
+    )
     prod.plot_column_data(plot_lib)
 
     st.markdown("## Innsjømodellering")
