@@ -13,7 +13,10 @@ def app():
     # times. **Values less than one indicate the product is more effective than the
     # standard; values greater than one imply it is less effective (per unit mass)**.
 
-    # The reference used for these plots is `Standard Kalk Kat3`.
+    # The reference used for these plots is `Standard Kalk Kat3`. The vertical red dashed
+    # line shows factors that Miljødirektoratet will use in the procurement of lime for  
+    # watershed liming. The factors will be multipled by the amount of lime offered to
+    # compare the effectiveness of different lime products.
 
     # See the
     # [Documentation](https://nivanorge.github.io/lake_liming_app/user-guide.html#sec-comparison-factors)
@@ -27,7 +30,10 @@ def app():
     **Verdier mindre enn én indikerer at produktet er mer effektivt enn standarden; verdier 
     større enn én betyr at den er mindre effektiv (per kilogram)**.
     
-    Referansen som brukes for disse plottene er `Standard Kalk Kat3`.
+    Referansen som brukes for disse plottene er `Standard Kalk Kat3`. Den vertikale røde 
+    stiplede linjen viser faktorer som Miljødirektoratet vil bruke i anskaffelser for levering
+    og spredning av kalk for bruk innen vassdragskalking. Faktorene vil multipliseres med 
+    oppgitt mengde tilbudt kalk, dette for å regne ut behov for mengde av ulike kalkprodukter.
     
     Se [Dokumentasjon](https://nivanorge.github.io/lake_liming_app/user-guide.html#sec-comparison-factors)
     for detaljer.
