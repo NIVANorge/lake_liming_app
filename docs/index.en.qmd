@@ -3,7 +3,7 @@ title: "Lake liming app documentation"
 number-sections: true
 ---
 
-This website provides documentation for the [lake liming application](https://lake-liming.t.niva.no/). The model aims to simulate typical/idealised responses of lake water chemistry (calcium concentration and pH) to various liming strategies.
+This website provides documentation for the [lake liming application](https://lake-liming.p.niva.no/). The model aims to simulate typical/idealised responses of lake water chemistry (calcium concentration and pH) to various liming strategies.
 
  * For a description of how to use the application, see the [User guide](https://nivanorge.github.io/lake_liming_app/user-guide.en.html).
 

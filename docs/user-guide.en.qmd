@@ -5,7 +5,7 @@ number-sections: true
 
 ## Overview {#sec-overview}
 
-The application is online [here](https://lake-liming.t.niva.no/) and consists of four separate pages or "tabs", which are selected from the left sidebar:
+The application is online [here](https://lake-liming.p.niva.no/) and consists of four separate pages or "tabs", which are selected from the left sidebar:
 
  1. **Forside** displays a welcome message and a link to this documentation.
 

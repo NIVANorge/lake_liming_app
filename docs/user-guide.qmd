@@ -6,7 +6,7 @@ language: norsk.yml
 
 ## Oversikt {#sec-overview}
 
-Applikasjonen er online [her](https://lake-liming.t.niva.no/) og består av fire separate sider eller "faner", som velges fra venstre sidefelt:
+Applikasjonen er online [her](https://lake-liming.p.niva.no/) og består av fire separate sider eller "faner", som velges fra venstre sidefelt:
 
  1. **Forside** viser en velkomstmelding og en lenke til denne dokumentasjonen.
 

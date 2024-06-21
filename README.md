@@ -1,16 +1,16 @@
 # Lake liming app
 
-A web application for simulating the effectiveness of lake liming using different lime products. Developed for Miljødirektoratet during 2023.
+A web application for simulating the effectiveness of lake liming using different lime products. Developed for Miljødirektoratet during 2023/4.
 
 ## 1. Background
 
 An overview of the project and main development tasks can be found on the [Wiki](https://github.com/NIVANorge/lake_liming_app/wiki).
 
-## 2. Streamlit app for testing
+## 2. Streamlit app
 
-A simple Streamlit app to explore user requirements is deployed [here](https://lake-liming.t.niva.no/). Note that the final application will probably not be deployed using Streamlit, but it's useful as a starting point for discussions and for quickly exploring UI options.
+The app is deployed [here](https://lake-liming.p.niva.no/).
 
-To deploy new code, make sure to take note of the **image tag** created by the github action **Build & Push** and update this image tag in the [kustomization.yaml](https://github.com/NIVANorge/nivacloud-manifests/blob/59494ea5716753abef9ffe9d8cc5d8ef2a5db4c8/workloads/lake-liming-app/base/kustomization.yaml#L9) file in the nivacloud-manifests repository. Then, run the github action **Lake liming test deployment** in the nivacloud-manifests repository.
+To deploy new code, make sure to take note of the **image tag** created by the github action **Build & Push** and update this image tag in the [kustomization.yaml](https://github.com/NIVANorge/nivacloud-manifests/blob/59494ea5716753abef9ffe9d8cc5d8ef2a5db4c8/workloads/lake-liming-app/base/kustomization.yaml#L9) file in the nivacloud-manifests repository. Then, run the github action **Lake liming test deployment** or **Lake liming prod deployment** in the nivacloud-manifests repository.
 
 To deploy the app for testing via JupyterHub:
 
