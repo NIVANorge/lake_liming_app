@@ -2,6 +2,8 @@
 
 A web application for simulating the effectiveness of lake liming using different lime products. Developed for Miljødirektoratet during 2023/4.
 
+The main application is [here](https://lake-liming.p.niva.no/) and the documentation is [here](https://nivanorge.github.io/lake_liming_app/).
+
 ## 1. Background
 
 An overview of the project and main development tasks can be found on the [Wiki](https://github.com/NIVANorge/lake_liming_app/wiki).
