@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Innsjøkalking applikasjon - Innsjømodellering</title>
+<title>Innsjømodellering – Innsjøkalking applikasjon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,7 +67,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -112,7 +112,7 @@ window.Quarto = {
     </a>
   </div>
             <div id="quarto-search" class="" title="Søk"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -153,7 +153,7 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
     <a href="https://github.com/NIVANorge/lake_liming_app" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -213,7 +213,7 @@ window.Quarto = {
 <p>Kalkprodukter som brukes til nedbørfeltforvaltning er vanligvis en blanding av <strong>kalsiumkarbonat</strong> (kalsitt, <span class="math inline">\(CaCO_3\)</span>) og <strong>magnesiumkarbonat</strong> (<span class="math inline">\(MgCO_3\)</span>). Bergarter som hovedsakelig består av <span class="math inline">\(CaCO_3\)</span> kalles vanligvis <strong>kalksteiner</strong> og <strong>kritt</strong>, mens karbonatbergarter med betydelige andeler magnesium kalles <strong>dolomitter</strong> (&gt; 10% Mg), eller magnesianske kalksteiner (2 til 10% Mg).</p>
 <p>Kalkprodusenter vil typisk spesifisere andelen kalsium- og magnesiumkarbonat i produktene sine. For eksempel er ‘Microdol5’ rapportert å være 53,7% <span class="math inline">\(CaCO_3\)</span> og 44,4% <span class="math inline">\(MgCO_3\)</span> etter masse (med 1,9% andre urenheter).</p>
 <p>Magnesiumkarbonat har en høyere andel karbonat etter masse og derfor en større syrenøytraliserende kapasitet (“Acid Neutralising Capacity”; ANC) enn kalsiumkarbonat: 1 g magnesiumkarbonat vil nøytralisere like mye syre som 1,19 g kalsiumkarbonat. Når man sammenligner kalk med forskjellige sammensetninger, er det derfor nødvendig å multiplisere magnesiumkarbonatandelen med en faktor på 1,19. Dette gir en <strong>nøytraliserende verdi (NV)</strong>, beregnet som summen av kalsiumkarbonat <em>ekvivalenter</em> (f.eks. <a href="#tbl-nv" class="quarto-xref">Tabell&nbsp;1</a>). NV bestemmes best ved titrering i henhold til EN-12945. Det kan også estimeres fra Ca- og Mg-elementanalyser, men i noen tilfeller kan disse elementene være fiksert til andre mineraler enn karbonater med liten eller ingen nøytraliserende kapasitet.</p>
-<div id="tbl-nv" class="quarto-float anchored">
+<div id="tbl-nv" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-nv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabell&nbsp;1: Estimering av <strong>nøytraliserende verdi (NV)</strong> for to kalkprodukter. <span class="math inline">\(MgCO_3\)</span>-innhold konverteres til <span class="math inline">\(CaCO_3\)</span>-ekvivalenter ved å multiplisere med 1,19.
@@ -291,7 +291,7 @@ Merk
 <section id="sec-ca-ph" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="sec-ca-ph"><span class="header-section-number">2.1</span> Forholdet mellom Ca-ekvivalenter og pH</h3>
 <p>Når vi tilsetter kalkingsmateriale, øker konsentrasjonen av CaCO3 (og MgCO3, hvis relevant) i innsjøen, noe som fører til en økning i pH. <a href="#fig-titration-curves" class="quarto-xref">Figur&nbsp;1</a> viser forhold utledet empirisk av Atle Hindar som relaterer endringer i CaCO3-ekvivalenter til endringer i pH for innsjøer med forskjellige konsentrasjoner av totalt organisk karbon (TOC).</p>
-<div id="fig-titration-curves" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-titration-curves" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-titration-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/titration_curves.png" class="img-fluid figure-img">
@@ -302,7 +302,7 @@ Figur&nbsp;1: Titreringskurver som relaterer endringer i CaCO3-ekvivalenter til 
 </figure>
 </div>
 <p>For en innsjø med en gitt initiell pH- og TOC-konsentrasjon, bruker modellen sigmoid-kurver basert på empiriske data (<a href="#fig-titration-curves-interpolated" class="quarto-xref">Figur&nbsp;2</a>) for å finne en idealisert CaCO3-konsentrasjon som representerer innsjøens initielle bufferkapasitet. Modellen simulerer deretter endringer i CaCO3-ekvivalente konsentrasjoner over tid (i forhold til startkonsentrasjonen), og bruker kurvene til å estimere tilsvarende endringer i pH.</p>
-<div id="fig-titration-curves-interpolated" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-titration-curves-interpolated" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-titration-curves-interpolated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/titration_curves_interpolated.png" class="img-fluid figure-img">
@@ -328,7 +328,7 @@ Figur&nbsp;2: Sigmoid-kurver tilpasset dataene i <a href="#fig-titration-curves"
 <li><span class="math inline">\(M_{lake}\)</span> er massen av Ca oppløst i innsjøvannet (i mg).</li>
 <li><span class="math inline">\(C_{lake}\)</span> er Ca-konsentrasjonen i innsjøen, lik <span class="math inline">\(\frac{M_{lake}}{V}\)</span>. Innsjøen antas å være <strong>godt blandet</strong>, slik at utløpskonsentrasjonen, <span class="math inline">\(C_{out}\)</span>, er lik <span class="math inline">\(C_{lake}\)</span>.</li>
 </ul>
-<div id="fig-box-model" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-box-model" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-box-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/box_model.png" class="img-fluid figure-img">
@@ -387,7 +387,7 @@ a = log⁡(\frac{d_{lake}}{d_{col}})
 <li><p>Parameterne <span class="math inline">\(K_0\)</span> og <span class="math inline">\(\lambda\)</span>, som bestemmer hvor raskt kalk på innsjøbunnen løses opp, og hvor lenge den forblir “aktiv”.</p></li>
 </ul>
 <p>For å unngå å måtte spesifisere alle disse parameterne ved sammenligning av ulike kalkprodukter, er det vanlig å vurdere en <strong>standard innsjø</strong> med et areal på 20 ha, gjennomsnittlig dybde på 5 m og gjennomsnittlig oppholdstid på 0,7 år. Disse parameterne definerer i sin tur gjennomsnittlig årlig utslipp. Om ønskelig kan dette endres ved å velge en månedlig <strong>vannføringsprofil</strong> (<code>fjell</code> eller <code>kyst</code>; se <a href="#fig-flow-profiles" class="quarto-xref">Figur&nbsp;4</a>), som justerer vannføring opp eller ned i hver måned, men på en slik måte at det samlede årlige gjennomsnittet opprettholder en oppholdstid på 0,7 år.</p>
-<div id="fig-flow-profiles" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-flow-profiles" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-flow-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/flow_typologies.png" class="img-fluid figure-img">
@@ -438,18 +438,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -481,7 +470,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/nivanorge\.github\.io\/lake_liming_app\/");
@@ -489,7 +500,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

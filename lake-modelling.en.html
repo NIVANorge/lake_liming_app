@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Innsjøkalking applikasjon - Lake modelling</title>
+<title>Lake modelling – Innsjøkalking applikasjon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,7 +67,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -112,7 +112,7 @@ window.Quarto = {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -153,7 +153,7 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
     <a href="https://github.com/NIVANorge/lake_liming_app" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -213,7 +213,7 @@ window.Quarto = {
 <p>Lime products used for catchment management are usually a mixture of <strong>calcium carbonate</strong> (calcite, <span class="math inline">\(CaCO_3\)</span>) and <strong>magnesium carbonate</strong> (<span class="math inline">\(MgCO_3\)</span>). Rocks composed primarily of <span class="math inline">\(CaCO_3\)</span> are commonly called <strong>limestones</strong> and <strong>chalks</strong>, whereas carbonate rocks with significant proportions of magnesium are called <strong>dolomites</strong> (&gt; 10% Mg) or magnesian limestones (2 to 10% Mg).</p>
 <p>Lime manufacturers will typically specify the proportion of calcium and magnesium carbonate in their products. For example, <code>Microdol5</code> is reported as being 53.7% <span class="math inline">\(CaCO_3\)</span> and 44.4% <span class="math inline">\(MgCO_3\)</span> by mass (with 1.9% other impurities).</p>
 <p>Magnesium carbonate has a higher proportion of carbonate by mass (and therefore a greater acid neutralising capacity; ANC) than calcium carbonate: 1 g of magnesium carbonate will neutralise as much acid as 1.19 g of calcium carbonate. When comparing limes with different compositions, it is therefore necessary to multiply the magnesium carbonate proportion by a factor of 1.19. This gives a <strong>neutralising value (NV)</strong>, estimated as the sum of calcium carbonate <em>equivalents</em> (e.g. <a href="#tbl-nv" class="quarto-xref">Table&nbsp;1</a>). The NV is best determined by titration according to EN-12945. It may also be estimated from Ca and Mg element analyses, but in some cases these elements may be fixed to minerals other than carbonates with little or no neutralising capacity.</p>
-<div id="tbl-nv" class="quarto-float anchored">
+<div id="tbl-nv" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-nv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: Estimating the <strong>neutralising value (NV)</strong> for two lime products. <span class="math inline">\(MgCO_3\)</span> content is converted to <span class="math inline">\(CaCO_3\)</span>-equivalents by multiplying by 1.19.
@@ -291,7 +291,7 @@ Note
 <section id="sec-ca-ph" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="sec-ca-ph"><span class="header-section-number">2.1</span> Relationship between Ca-equivalents and pH</h3>
 <p>When we add liming material, the concentration of CaCO3 (and MgCO3, if relevant) in the lake increases, which leads to an increase in pH. <a href="#fig-titration-curves" class="quarto-xref">Figure&nbsp;1</a> shows relationships derived empirically by Atle Hindar relating changes in CaCO3-equivalents to changes in pH for lakes with different concentrations of Total Organic Carbon (TOC).</p>
-<div id="fig-titration-curves" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-titration-curves" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-titration-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/titration_curves.png" class="img-fluid figure-img">
@@ -302,7 +302,7 @@ Figure&nbsp;1: Titration curves relating changes in CaCO3-equivalents to changes
 </figure>
 </div>
 <p>For a lake with a given initial pH and TOC concentration, the model uses sigmoid curves based on the empirical data (<a href="#fig-titration-curves-interpolated" class="quarto-xref">Figure&nbsp;2</a>) to lookup an idealised CaCO3 concentration representing the initial buffering capacity of the lake. The model then simulates changes in CaCO3-equivalent concentrations over time (relative to the initial concentration), and uses the curves to estimate corresponding changes in pH.</p>
-<div id="fig-titration-curves-interpolated" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-titration-curves-interpolated" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-titration-curves-interpolated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/titration_curves_interpolated.png" class="img-fluid figure-img">
@@ -328,7 +328,7 @@ Figure&nbsp;2: Sigmoid curves fitted to the data in <a href="#fig-titration-curv
 <li><span class="math inline">\(M_{lake}\)</span> is the mass of Ca dissolved in the lake water (in mg).</li>
 <li><span class="math inline">\(C_{lake}\)</span> is the Ca concentration in the lake, equal to <span class="math inline">\(\frac{M_{lake}}{V}\)</span>. The lake is assumed to be <strong>well mixed</strong>, such that the outflow concentration, <span class="math inline">\(C_{out}\)</span>, is equal to <span class="math inline">\(C_{lake}\)</span>.</li>
 </ul>
-<div id="fig-box-model" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-box-model" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-box-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/box_model.png" class="img-fluid figure-img">
@@ -387,7 +387,7 @@ a = log⁡(\frac{d_{lake}}{d_{col}})
 <li><p>The parameters <span class="math inline">\(K_0\)</span> and <span class="math inline">\(\lambda\)</span>, which determine how fast lime on the lake bottom dissolves, and how long it remains “active”.</p></li>
 </ul>
 <p>To avoid having to specify all these parameters when comparing different lime products, it is common to consider a <strong>standard lake</strong> with an area of 20 ha, mean depth of 5 m and mean residence time of 0.7 years. These parameters, in turn, define the mean annual discharge. If desired, this can be modified by selecting a monthly <strong>flow profile</strong> (<code>fjell</code> or <code>kyst</code>; see <a href="#fig-flow-profiles" class="quarto-xref">Figure&nbsp;4</a>), which adjusts the flows up or down in each month, but in such a way that the overall annual average maintains a residence time of 0.7 years.</p>
-<div id="fig-flow-profiles" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-flow-profiles" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-flow-profiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/flow_typologies.png" class="img-fluid figure-img">
@@ -438,18 +438,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -481,7 +470,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/nivanorge\.github\.io\/lake_liming_app\/");
@@ -489,7 +500,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

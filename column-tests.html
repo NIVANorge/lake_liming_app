@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Innsjøkalking applikasjon - Kolonnetester</title>
+<title>Kolonnetester – Innsjøkalking applikasjon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,7 +67,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -112,7 +112,7 @@ window.Quarto = {
     </a>
   </div>
             <div id="quarto-search" class="" title="Søk"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -153,7 +153,7 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
     <a href="https://github.com/NIVANorge/lake_liming_app" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -213,7 +213,7 @@ M_{par} = 10 F_{par} A (x_2 - x_1)
 \tag{1}\]</span></span></p>
 <p><span class="math inline">\(A\)</span> er tverrsnittsarealet til kolonnen og <span class="math inline">\(par\)</span> er enten <code>Ca</code> eller <code>Mg</code>.</p>
 <p>I praksis løser ikke all kalken seg opp og kolonnene oppnår ikke jevne konsentrasjoner. Etter <strong>16 timer</strong> måles konsentrasjonen av Ca (og Mg, hvis relevant) i hver kolonne ved forskjellige dybder ved bruk av ICP-OES (Inductively Coupled Plasma - Optical Emission Spectrometry). Fem konsentrasjoner er tatt fra hver kolonne med 40 cm intervall fra overflaten ned til 1,6 m. Et typisk datasett for en enkelt kolonne for en ikke-dolomittisk kalk (dvs. bare Ca) er vist i <a href="#tbl-inst-diss" class="quarto-xref">Tabell&nbsp;1</a>.</p>
-<div id="tbl-inst-diss" class="quarto-float anchored">
+<div id="tbl-inst-diss" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-inst-diss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabell&nbsp;1: Eksempeldata for en enkelt kolonne fra den momentanoppløsningstesten for kalsium.
@@ -274,7 +274,7 @@ D_{inst} = \frac{\int_{0}^{1.6} C(x) \ dx}{10 F_{Ca} (1.6 - 0)}
 \tag{3}\]</span></span></p>
 <p>Integralet i <a href="#eq-inst-diss" class="quarto-xref">Ligning&nbsp;3</a> er tilnærmet fra de målte dataene (<a href="#tbl-inst-diss" class="quarto-xref">Tabell&nbsp;1</a>) ved å bruke <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapesregelen</a>.</p>
 <p>Hovedresultatet fra dette eksperimentet er et sett med momentanoppløsningsverdier (vanligvis uttrykt i prosent) som viser hvordan <strong>oppløsningen endres med initiell pH ved en fast kalkdose</strong> (<a href="#fig-instantaneous-dissolution-curve" class="quarto-xref">Figur&nbsp;1</a>).</p>
-<div id="fig-instantaneous-dissolution-curve" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-instantaneous-dissolution-curve" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-instantaneous-dissolution-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/instantaneous_dissolution_example.png" class="img-fluid figure-img">
@@ -291,7 +291,7 @@ Figur&nbsp;1: Momentanoppløsningskurve for varierende pH (med dose fastsatt til
 <p>Ved høye doser er andelen kalk som løser seg umiddelbart typisk <strong>lavere</strong> enn i den første testen, fordi høye doser fører til høye kalsiumkonsentrasjoner nær kalkpartiklene, noe som hemmer oppløsning. Denne effekten kalles <strong>overdosering</strong>.</p>
 <p>Hovedresultatet fra den andre testen er et sett med <strong>overdoseringsfaktorer</strong>, beregnet som forholdet <span class="math inline">\(D_{10} / D_{x}\)</span>, der <span class="math inline">\(D_{10}\)</span> er den momentanoppløsningen for kolonnen der 10 mg/l kalk ble først tilsatt, og <span class="math inline">\(D_{x}\)</span> er den momentanoppløsningen for kolonnen hvor <span class="math inline">\(x\)</span> mg/l kalk ble tilsatt.</p>
 <p>En typisk kurve for overdoseringsfaktorer er vist i <a href="#fig-overdosing-curve" class="quarto-xref">Figur&nbsp;2</a>.</p>
-<div id="fig-overdosing-curve" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-overdosing-curve" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-overdosing-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./images/overdosing_example.png" class="img-fluid figure-img">
@@ -305,7 +305,7 @@ Figur&nbsp;2: Overdoseringsfaktorer for ulike kalkdoser (med kolonne-pH fastsatt
 <section id="sec-combining" class="level3" data-number="1.3">
 <h3 data-number="1.3" class="anchored" data-anchor-id="sec-combining"><span class="header-section-number">1.3</span> Kombinere datasett</h3>
 <p>De to eksperimentene beskrevet i <a href="#sec-vary-ph" class="quarto-xref">Avsnitt&nbsp;1.1</a> og <a href="#sec-vary-dose" class="quarto-xref">Avsnitt&nbsp;1.2</a> gir data i formatet vist i <a href="#tbl-expt-design" class="quarto-xref">Tabell&nbsp;2</a>.</p>
-<div id="tbl-expt-design" class="quarto-float anchored">
+<div id="tbl-expt-design" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-expt-design-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabell&nbsp;2: Eksperimentell design for kolonnetester. Hver ‘x’ tilsvarer en enkelt kolonne som momentanoppløsning bestemmes for.
@@ -410,18 +410,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -453,7 +442,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/nivanorge\.github\.io\/lake_liming_app\/");
@@ -461,7 +472,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
