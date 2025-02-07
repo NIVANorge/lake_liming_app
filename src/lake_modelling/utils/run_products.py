@@ -126,11 +126,7 @@ def plot_multiple_products(df, pH_lake0, pH_inflow, lib):
                 ),
                 color="product",
                 opacity=alt.condition(checkbox_selection, alt.value(1), alt.value(0)),
-                tooltip=alt.condition(
-                    checkbox_selection,
-                    ["product", "date", alt.Tooltip("pH", format=",.2f")],
-                    alt.value(None),
-                ),
+                tooltip=["product", "date", alt.Tooltip("pH", format=",.2f")],
             )
             .add_params(checkbox_selection)
             .properties(width=600, height=200)
@@ -147,14 +143,15 @@ def plot_multiple_products(df, pH_lake0, pH_inflow, lib):
                 y=alt.Y(
                     "Ca (mg/l)",
                     axis=alt.Axis(title="Ca\u2091\u2096\u1D65 (mg/l)"),
+                    # scale=alt.Scale(zero=False),
                 ),
                 color="product",
                 opacity=alt.condition(checkbox_selection, alt.value(1), alt.value(0)),
-                tooltip=alt.condition(
-                    checkbox_selection,
-                    ["product", "date", alt.Tooltip("Ca (mg/l)", format=",.2f")],
-                    alt.value(None),
-                ),
+                tooltip=[
+                    "product",
+                    "date",
+                    alt.Tooltip("Ca (mg/l)", format=",.2f"),
+                ],
             )
             .add_params(checkbox_selection)
             .properties(width=600, height=200)
