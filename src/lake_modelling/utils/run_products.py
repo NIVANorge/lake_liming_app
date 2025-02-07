@@ -66,13 +66,13 @@ def plot_multiple_products(df, pH_lake0, pH_inflow, lib):
 
     Args
         df:        Dataframe. As returned by 'run_multiple_products'
-        pH_lake0:  Float. Float. Lake initial pH (dimensionless)
-        pH_inflow: Float. Float. Lake inflow pH (dimensionless)
+        pH_lake0:  Float. Lake initial pH (dimensionless)
+        pH_inflow: Float. Lake inflow pH (dimensionless)
         lib:       Str. Plotting library to use. Either 'Altair' or 'Matplotlib'
 
     Returns
-            Chart object. The chart is also added to the Streamlit app if Streamlit
-            is running.
+        Chart object. The chart is also added to the Streamlit app if Streamlit
+        is running.
     """
     if lib == "Matplotlib":
         # Matplotlib charts
@@ -126,7 +126,11 @@ def plot_multiple_products(df, pH_lake0, pH_inflow, lib):
                 ),
                 color="product",
                 opacity=alt.condition(checkbox_selection, alt.value(1), alt.value(0)),
-                tooltip=["product", "date", alt.Tooltip("pH", format=",.2f")],
+                tooltip=alt.condition(
+                    checkbox_selection,
+                    ["product", "date", alt.Tooltip("pH", format=",.2f")],
+                    alt.value(None),
+                ),
             )
             .add_params(checkbox_selection)
             .properties(width=600, height=200)
@@ -143,15 +147,14 @@ def plot_multiple_products(df, pH_lake0, pH_inflow, lib):
                 y=alt.Y(
                     "Ca (mg/l)",
                     axis=alt.Axis(title="Ca\u2091\u2096\u1D65 (mg/l)"),
-                    # scale=alt.Scale(zero=False),
                 ),
                 color="product",
                 opacity=alt.condition(checkbox_selection, alt.value(1), alt.value(0)),
-                tooltip=[
-                    "product",
-                    "date",
-                    alt.Tooltip("Ca (mg/l)", format=",.2f"),
-                ],
+                tooltip=alt.condition(
+                    checkbox_selection,
+                    ["product", "date", alt.Tooltip("Ca (mg/l)", format=",.2f")],
+                    alt.value(None),
+                ),
             )
             .add_params(checkbox_selection)
             .properties(width=600, height=200)

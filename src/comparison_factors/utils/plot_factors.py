@@ -32,7 +32,15 @@ def plot_factors():
             ),
             color="Produkt:N",
             opacity=alt.condition(checkbox_selection, alt.value(1), alt.value(0)),
-            tooltip=["Oppholdstid (år)", "Faktor (-)", "Produkt"],
+            tooltip=alt.condition(
+                checkbox_selection,
+                [
+                    alt.Tooltip("Oppholdstid (år):Q"),
+                    alt.Tooltip("Faktor (-):Q"),
+                    alt.Tooltip("Produkt:N"),
+                ],
+                alt.value(None),
+            ),
         )
         .add_params(checkbox_selection)
     )
