@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lake-liming
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  tls:
+    - secretName: lake-liming
+      hosts:
+        - lake-liming.p.niva.no
+  rules:
+  - host: lake-liming.p.niva.no
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lake-liming
+            port:
+              name: http

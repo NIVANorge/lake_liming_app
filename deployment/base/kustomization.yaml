@@ -1,0 +1,10 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+resources:
+- ./deployment.yaml
+
+images:
+- name: '*lake-liming*'
+  newName: europe-west1-docker.pkg.dev/niva-cd/images/lake-liming
+  newTag: fd93e4c

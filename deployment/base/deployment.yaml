@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lake-liming
+spec:
+  selector:
+    matchLabels:
+      app: lake-liming
+  template:
+    metadata:
+      labels:
+        app: lake-liming
+    spec:
+      containers:
+        - name: lake-liming
+          image: europe-west1-docker.pkg.dev/niva-cd/images/lake-liming:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "128Mi"
+            limits:
+              cpu: "400m"
+              memory: "512Mi"
+          ports:
+            - containerPort: 5000
+              name: api-port
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            initialDelaySeconds: 3
+            periodSeconds: 10
+            timeoutSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            initialDelaySeconds: 0
+            periodSeconds: 10
+            timeoutSeconds: 2
